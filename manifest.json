@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "py3redirect",
+  "description": "Automatically redirects to Python 3 documentation when Python 2 docs page is requested",
+  "author": "Mateusz \"m4tx\" Maćkowski",
+  "version": "1.0",
+  "icons": {
+    "64": "icon.png",
+    "128": "icon128.png"
+  },
+
+  "page_action": {
+    "default_icon": "icon.png",
+    "default_title": "Python 3 docs page"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://docs.python.org/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+
+  "permissions": [
+    "activeTab"
+  ]
+}
