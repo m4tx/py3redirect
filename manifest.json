@@ -25,6 +25,9 @@
   ],
 
   "permissions": [
-    "activeTab"
+    "*://docs.python.org/*",
+    "activeTab",
+    "webRequest",
+    "webRequestBlocking"
   ]
 }
