@@ -12,8 +12,8 @@
     function checkDocsExist(url, tabId) {
         let request = new XMLHttpRequest();
         request.onreadystatechange = function() {
-            if (request.readyState == 4) {
-                if (request.status == 200) {
+            if (request.readyState === 4) { // DONE
+                if (request.status === 200) {
                     chrome.tabs.update(tabId, {url: url});
                     chrome.pageAction.show(tabId);
                 } else {
