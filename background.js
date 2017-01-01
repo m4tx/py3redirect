@@ -13,21 +13,24 @@
      *  cached in localStorage
      * @param {string} url Python 3 docs URL
      * @param tabId current tab ID
+     * @param {function} sendResponse callback function to call with the new
+     *  URL (or null if an error occurred)
      */
-    function checkDocsExist(oldUrl, url, tabId) {
+    function checkDocsExist(oldUrl, url, tabId, sendResponse) {
         let request = new XMLHttpRequest();
         request.onreadystatechange = function () {
             if (request.readyState === 4) { // DONE
                 if (request.status === 200) {
                     localStorage.setItem(oldUrl, true);
-                    chrome.tabs.update(tabId, {url: url});
                     chrome.pageAction.show(tabId);
+                    sendResponse(url);
                 } else {
                     chrome.pageAction.setTitle({
                         tabId: tabId,
                         title: 'Could not redirect (HTTP status code: ' +
                         request.status + ')'
                     });
+                    sendResponse(null);
                 }
             }
         };
@@ -53,6 +56,7 @@
     chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         if (request.action == "redirect") {
             let tabId = sender.tab.id;
+            chrome.pageAction.show(tabId);
             if (URL_REGEX.test(sender.tab.url)) {
                 chrome.pageAction.setTitle({
                     tabId: tabId,
@@ -61,10 +65,11 @@
                 checkDocsExist(
                     sender.tab.url,
                     sender.tab.url.replace(URL_REGEX, URL_REPLACEMENT),
-                    tabId
+                    tabId,
+                    sendResponse
                 );
+                return true;
             }
-            chrome.pageAction.show(tabId);
         }
     });
 })();
