@@ -1,1 +1,1 @@
-chrome.runtime.sendMessage({action: "redirect"}, function(response) {});
+chrome.runtime.sendMessage({action: "redirect"}, response => {});

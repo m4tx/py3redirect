@@ -1,4 +1,4 @@
-(function() {
+(function () {
     const URL_REGEX = /https:\/\/docs\.python\.org\/2.*?\/(.*)/;
     const URL_REPLACEMENT = "https://docs.python.org/3/$1";
 
@@ -16,7 +16,7 @@
      */
     function checkDocsExist(oldUrl, url, tabId) {
         let request = new XMLHttpRequest();
-        request.onreadystatechange = function() {
+        request.onreadystatechange = function () {
             if (request.readyState === 4) { // DONE
                 if (request.status === 200) {
                     localStorage.setItem(oldUrl, true);
@@ -36,7 +36,7 @@
     }
 
     chrome.webRequest.onBeforeRequest.addListener(
-        function(details) {
+        function (details) {
             let url = details.url;
             if (localStorage.getItem(url)) {
                 return {redirectUrl: url.replace(URL_REGEX, URL_REPLACEMENT)};
@@ -46,12 +46,19 @@
         ["blocking"]
     );
 
-    chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         if (request.action == "redirect") {
             let tabId = sender.tab.id;
             if (URL_REGEX.test(sender.tab.url)) {
-                chrome.pageAction.setTitle({tabId: tabId, title: 'Redirecting...'});
-                checkDocsExist(sender.tab.url, sender.tab.url.replace(URL_REGEX, URL_REPLACEMENT), tabId);
+                chrome.pageAction.setTitle({
+                    tabId: tabId,
+                    title: 'Redirecting...'
+                });
+                checkDocsExist(
+                    sender.tab.url,
+                    sender.tab.url.replace(URL_REGEX, URL_REPLACEMENT),
+                    tabId
+                );
             }
             chrome.pageAction.show(tabId);
         }
