@@ -35,6 +35,10 @@
         request.send();
     }
 
+    /*
+     * onBeforeRequest listener that redirects to py3 docs immediately if the
+     * requested page was visited before (using localStorage cache)
+     */
     chrome.webRequest.onBeforeRequest.addListener(
         function (details) {
             let url = details.url;
