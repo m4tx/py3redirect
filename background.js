@@ -2,6 +2,9 @@
     const URL_REGEX = /https:\/\/docs\.python\.org\/2.*?\/(.*)/;
     const URL_REPLACEMENT = "https://docs.python.org/3/$1";
 
+    let isEnabled = true;
+    updateIsEnabled();
+
     /**
      * Check whether given URL returns 200 HTTP status code and redirects
      * to it if so.
@@ -45,7 +48,7 @@
     chrome.webRequest.onBeforeRequest.addListener(
         function (details) {
             let url = details.url;
-            if (localStorage.getItem(url)) {
+            if (isEnabled && localStorage.getItem(url)) {
                 return {redirectUrl: url.replace(URL_REGEX, URL_REPLACEMENT)};
             }
         },
@@ -53,10 +56,32 @@
         ["blocking"]
     );
 
+    /**
+     * Update isUpdate variable value from storage.local.
+     */
+    function updateIsEnabled() {
+        chrome.storage.local.get({isEnabled: true}, data => {
+            isEnabled = data.isEnabled;
+        });
+    }
+
+    /**
+     * Set new isUpdate variable value and store it in storage.local.
+     * @param {boolean} enabled whether or not redirecting is currently enabled
+     */
+    function setEnabled(enabled) {
+        isEnabled = enabled;
+        chrome.storage.local.set({isEnabled: enabled});
+    }
+
     chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-        if (request.action == "redirect") {
+        if (request.action === "redirect") {
             let tabId = sender.tab.id;
             chrome.pageAction.show(tabId);
+            if (!isEnabled) {
+                return;
+            }
+
             if (URL_REGEX.test(sender.tab.url)) {
                 chrome.pageAction.setTitle({
                     tabId: tabId,
@@ -68,8 +93,13 @@
                     tabId,
                     sendResponse
                 );
+
                 return true;
             }
+        } else if (request.action === "isEnabled") {
+            sendResponse(isEnabled);
+        } else if (request.action === "setEnabled") {
+            setEnabled(request.enabled);
         }
     });
 })();

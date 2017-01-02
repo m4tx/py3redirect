@@ -1,0 +1,33 @@
+button {
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 12px;
+    width: 150px;
+    height: 60px;
+}
+
+button.warning {
+    border-color: #dcb239;
+    color: #dcb239;
+}
+
+button.warning:hover {
+    background-color: #dcb239;
+}
+
+button.success {
+    border-color: #5cb85c;
+    color: #5cb85c;
+}
+
+button.success:hover {
+    background-color: #5cb85c;
+}
+
+button:hover {
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
