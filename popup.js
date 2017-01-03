@@ -16,10 +16,10 @@
     function setEnabled(enabled) {
         isEnabled = enabled;
         updateToggleRedirectBtn();
-        chrome.runtime.sendMessage({action: "setEnabled", enabled: isEnabled});
+        browserAPI.sendMessage({action: "setEnabled", enabled: isEnabled});
     }
 
-    chrome.runtime.sendMessage({action: "isEnabled"}, enabled => {
+    browserAPI.sendMessage({action: "isEnabled"}, enabled => {
         isEnabled = enabled;
         updateToggleRedirectBtn();
     });

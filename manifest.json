@@ -15,12 +15,18 @@
     "default_popup": "popup.html"
   },
   "background": {
-    "scripts": ["background.js"]
+    "scripts": [
+      "browser-wrapper.js",
+      "background.js"
+    ]
   },
   "content_scripts": [
     {
       "matches": ["https://docs.python.org/*"],
-      "js": ["content.js"],
+      "js": [
+        "browser-wrapper.js",
+        "content.js"
+      ],
       "run_at": "document_start"
     }
   ],

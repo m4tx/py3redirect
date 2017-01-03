@@ -25,10 +25,10 @@
             if (request.readyState === 4) { // DONE
                 if (request.status === 200) {
                     localStorage.setItem(oldUrl, true);
-                    chrome.pageAction.show(tabId);
+                    browserAPI.api.pageAction.show(tabId);
                     sendResponse(url);
                 } else {
-                    chrome.pageAction.setTitle({
+                    browserAPI.api.pageAction.setTitle({
                         tabId: tabId,
                         title: 'Could not redirect (HTTP status code: ' +
                         request.status + ')'
@@ -45,7 +45,7 @@
      * onBeforeRequest listener that redirects to py3 docs immediately if the
      * requested page was visited before (using localStorage cache)
      */
-    chrome.webRequest.onBeforeRequest.addListener(
+    browserAPI.api.webRequest.onBeforeRequest.addListener(
         function (details) {
             let url = details.url;
             if (isEnabled && localStorage.getItem(url)) {
@@ -63,7 +63,7 @@
      * Update isUpdate variable value from storage.local.
      */
     function updateIsEnabled() {
-        chrome.storage.local.get({isEnabled: true}, data => {
+        browserAPI.api.storage.local.get({isEnabled: true}, data => {
             isEnabled = data.isEnabled;
         });
     }
@@ -74,25 +74,25 @@
      */
     function setEnabled(enabled) {
         isEnabled = enabled;
-        chrome.storage.local.set({isEnabled: enabled});
+        browserAPI.api.storage.local.set({isEnabled: enabled});
     }
 
-    chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    browserAPI.api.runtime.onMessage.addListener((request, sender, sendResponse) => {
         if (request.action === "redirect") {
             let tabId = sender.tab.id;
-            chrome.pageAction.show(tabId);
+            browserAPI.api.pageAction.show(tabId);
             if (!isEnabled) {
                 return;
             }
 
-            if (URL_REGEX.test(sender.tab.url)) {
-                chrome.pageAction.setTitle({
+            if (URL_REGEX.test(sender.url)) {
+                browserAPI.api.pageAction.setTitle({
                     tabId: tabId,
                     title: 'Redirecting...'
                 });
                 checkDocsExist(
-                    sender.tab.url,
-                    sender.tab.url.replace(URL_REGEX, URL_REPLACEMENT),
+                    sender.url,
+                    sender.url.replace(URL_REGEX, URL_REPLACEMENT),
                     tabId,
                     sendResponse
                 );
