@@ -52,7 +52,10 @@
                 return {redirectUrl: url.replace(URL_REGEX, URL_REPLACEMENT)};
             }
         },
-        {urls: ['*://docs.python.org/2*']},
+        {
+            urls: ['*://docs.python.org/2*'],
+            types: ['main_frame']
+        },
         ["blocking"]
     );
 
