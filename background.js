@@ -1,5 +1,5 @@
 (function () {
-    const URL_REGEX = /https:\/\/docs\.python\.org\/2.*?\/(.*)/;
+    const URL_REGEX = /^https?:\/\/docs\.python\.org\/2[^\/]*?\/(.*)/;
     const URL_REPLACEMENT = "https://docs.python.org/3/$1";
 
     let isEnabled = true;
