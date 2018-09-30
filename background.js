@@ -2,6 +2,11 @@
     const URL_REGEX = /^https?:\/\/docs\.python\.org\/2[^\/]*?\/(.*)/;
     const URL_REPLACEMENT = "https://docs.python.org/3/$1";
 
+    const SPECIAL_CASES = {
+        'library/sets.html' : 'library/stdtypes.html#set',
+        'library/stringio.html': 'library/io.html#io.StringIO'
+    };
+
     let isEnabled = true;
     updateIsEnabled();
 
@@ -49,7 +54,12 @@
         function (details) {
             let url = details.url;
             if (isEnabled && localStorage.getItem(url)) {
-                return {redirectUrl: url.replace(URL_REGEX, URL_REPLACEMENT)};
+                let newUrl = url.replace(URL_REGEX, URL_REPLACEMENT);
+                let matches = URL_REGEX.exec(sender.url);
+                if (matches[1] in SPECIAL_CASES) {
+                    newUrl = URL_REPLACEMENT.replace('$1', '') + SPECIAL_CASES[matches[1]];
+                }
+                return {redirectUrl: newUrl};
             }
         },
         {
@@ -85,14 +95,20 @@
                 return;
             }
 
-            if (URL_REGEX.test(sender.url)) {
+            let matches = URL_REGEX.exec(sender.url);
+            if (matches) {
+                let newUrl = sender.url.replace(URL_REGEX, URL_REPLACEMENT);
+                if (matches[1] in SPECIAL_CASES) {
+                    newUrl = URL_REPLACEMENT.replace('$1', '') + SPECIAL_CASES[matches[1]];
+                }
+
                 browserAPI.api.pageAction.setTitle({
                     tabId: tabId,
                     title: 'Redirecting...'
                 });
                 checkDocsExist(
                     sender.url,
-                    sender.url.replace(URL_REGEX, URL_REPLACEMENT),
+                    newUrl,
                     tabId,
                     sendResponse
                 );
