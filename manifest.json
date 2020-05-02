@@ -33,7 +33,6 @@
 
   "permissions": [
     "*://docs.python.org/*",
-    "activeTab",
     "webRequest",
     "webRequestBlocking",
     "storage"
