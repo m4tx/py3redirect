@@ -1,5 +1,7 @@
 (function () {
     let toggleRedirectBtn = document.getElementById("toggleRedirect");
+    let versionSelector = document.getElementById("pythonVersion");
+
     let isEnabled = true;
 
     function updateToggleRedirectBtn() {
@@ -24,5 +26,20 @@
         updateToggleRedirectBtn();
     });
 
+    function restore_version() {
+        browserAPI.api.storage.local.get({pyVersion: 3}, data => {
+            versionSelector.value = data.pyVersion;
+        });
+    }
+
+    function save_version() {
+        browserAPI.api.storage.local.set({
+            pyVersion: this.value,
+        });
+        browserAPI.sendMessage({action: "setPyVersion", pyVersion: this.value});
+    }
+
     toggleRedirectBtn.addEventListener("click", () => setEnabled(!isEnabled));
+    document.addEventListener("DOMContentLoaded", restore_version);
+    versionSelector.addEventListener("change", save_version);
 })();

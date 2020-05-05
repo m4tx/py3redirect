@@ -31,3 +31,7 @@ button:hover {
     color: #fff;
     cursor: pointer;
 }
+
+#pythonVersion {
+    text-align: right;
+}

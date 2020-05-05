@@ -1,6 +1,5 @@
 (function () {
-    const URL_REGEX = /^https?:\/\/docs\.python\.org\/2[^\/]*?\/(.*)/;
-    const URL_REPLACEMENT = "https://docs.python.org/3/$1";
+    const URL_REGEX = /^https?:\/\/docs\.python\.org\/([23][^\/]*?)\/(.*)/;
 
     const SPECIAL_CASES = {
         'library/sets.html' : 'library/stdtypes.html#set',
@@ -9,6 +8,18 @@
 
     let isEnabled = true;
     updateIsEnabled();
+    let pyVersion = 3;
+    browserAPI.api.storage.local.get({pyVersion: 3,}, data => {
+        pyVersion = data.pyVersion;
+    });
+
+    function setPyVersion(version) {
+        pyVersion = version;
+    }
+
+    function getReplacementURL() {
+        return "https://docs.python.org/" + pyVersion + "/$2";
+    }
 
     /**
      * Check whether given URL returns 200 HTTP status code and redirects
@@ -54,16 +65,20 @@
         function (details) {
             let url = details.url;
             if (isEnabled && localStorage.getItem(url)) {
-                let newUrl = url.replace(URL_REGEX, URL_REPLACEMENT);
+                let newUrl = url.replace(URL_REGEX, getReplacementURL());
                 let matches = URL_REGEX.exec(details.url);
-                if (matches[1] in SPECIAL_CASES) {
-                    newUrl = URL_REPLACEMENT.replace('$1', '') + SPECIAL_CASES[matches[1]];
+                if (matches[1] === pyVersion){
+                    return {};
+                }
+
+                if (matches[2] in SPECIAL_CASES) {
+                    newUrl = getReplacementURL().replace('$2', '') + SPECIAL_CASES[matches[2]];
                 }
                 return {redirectUrl: newUrl};
             }
         },
         {
-            urls: ['*://docs.python.org/2*'],
+            urls: ['*://docs.python.org/[23]*'],
             types: ['main_frame']
         },
         ["blocking"]
@@ -96,10 +111,10 @@
             }
 
             let matches = URL_REGEX.exec(sender.url);
-            if (matches) {
-                let newUrl = sender.url.replace(URL_REGEX, URL_REPLACEMENT);
-                if (matches[1] in SPECIAL_CASES) {
-                    newUrl = URL_REPLACEMENT.replace('$1', '') + SPECIAL_CASES[matches[1]];
+            if (matches && matches[1] !== pyVersion) {
+                let newUrl = sender.url.replace(URL_REGEX, getReplacementURL());
+                if (matches[2] in SPECIAL_CASES) {
+                    newUrl = getReplacementURL().replace('$2', '') + SPECIAL_CASES[matches[2]];
                 }
 
                 browserAPI.api.pageAction.setTitle({
@@ -119,6 +134,8 @@
             sendResponse(isEnabled);
         } else if (request.action === "setEnabled") {
             setEnabled(request.enabled);
+        } else if (request.action === "setPyVersion") {
+            setPyVersion(request.pyVersion);
         }
     });
 })();
