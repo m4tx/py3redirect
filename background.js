@@ -55,7 +55,7 @@
             let url = details.url;
             if (isEnabled && localStorage.getItem(url)) {
                 let newUrl = url.replace(URL_REGEX, URL_REPLACEMENT);
-                let matches = URL_REGEX.exec(sender.url);
+                let matches = URL_REGEX.exec(details.url);
                 if (matches[1] in SPECIAL_CASES) {
                     newUrl = URL_REPLACEMENT.replace('$1', '') + SPECIAL_CASES[matches[1]];
                 }
