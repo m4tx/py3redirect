@@ -32,12 +32,13 @@ button:hover {
     cursor: pointer;
 }
 
-#version-text {
+#version-div {
+    margin: 10px 0 10px 0;
     color: #646464;
     font-family: "Lucida Grande", Arial, sans-serif;
     font-size: 14px;
 }
 
-#version-input {
+#version-select {
     text-align: right;
 }

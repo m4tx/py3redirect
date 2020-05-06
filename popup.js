@@ -1,6 +1,6 @@
 (function () {
     let toggleRedirectBtn = document.getElementById("toggleRedirect");
-    let versionSelector = document.getElementById("version-input");
+    let versionSelector = document.getElementById("version-select");
 
     let isEnabled = true;
 

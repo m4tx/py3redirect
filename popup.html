@@ -7,10 +7,17 @@
 </head>
 <body>
     <button id="toggleRedirect" type="button"></button>
-    <br><br>
-    <span id="version-text">
-        Python version: <input type="text" id="version-input" size="3" maxlength="3" />
-    </span>
+    <div id="version-div">
+        Version:
+        <select id="version-select">
+            <option value="3">3.x</option>
+            <option value="3.9">3.9</option>
+            <option value="3.8">3.8</option>
+            <option value="3.7">3.7</option>
+            <option value="3.6">3.6</option>
+            <option value="3.5">3.5</option>
+        </select>
+    </div>
 </body>
 <script src="browser-wrapper.js"></script>
 <script src="popup.js"></script>
