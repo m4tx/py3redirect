@@ -32,6 +32,12 @@ button:hover {
     cursor: pointer;
 }
 
-#pythonVersion {
+#version-text {
+    color: #646464;
+    font-family: "Lucida Grande", Arial, sans-serif;
+    font-size: 14px;
+}
+
+#version-input {
     text-align: right;
 }

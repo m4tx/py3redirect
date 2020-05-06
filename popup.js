@@ -1,6 +1,6 @@
 (function () {
     let toggleRedirectBtn = document.getElementById("toggleRedirect");
-    let versionSelector = document.getElementById("pythonVersion");
+    let versionSelector = document.getElementById("version-input");
 
     let isEnabled = true;
 
