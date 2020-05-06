@@ -27,16 +27,17 @@
     });
 
     function restore_version() {
-        browserAPI.api.storage.local.get({pyVersion: 3}, data => {
+        browserAPI.api.storage.local.get({pyVersion: "3"}, data => {
             versionSelector.value = data.pyVersion;
         });
     }
 
     function save_version() {
+        version = this.value ? this.value : "3";
         browserAPI.api.storage.local.set({
-            pyVersion: this.value,
+            pyVersion: version,
         });
-        browserAPI.sendMessage({action: "setPyVersion", pyVersion: this.value});
+        browserAPI.sendMessage({action: "setPyVersion", pyVersion: version});
     }
 
     toggleRedirectBtn.addEventListener("click", () => setEnabled(!isEnabled));

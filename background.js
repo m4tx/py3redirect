@@ -8,8 +8,9 @@
 
     let isEnabled = true;
     updateIsEnabled();
-    let pyVersion = 3;
-    browserAPI.api.storage.local.get({pyVersion: 3,}, data => {
+
+    let pyVersion = "3";
+    browserAPI.api.storage.local.get({pyVersion: "3",}, data => {
         pyVersion = data.pyVersion;
     });
 
@@ -78,7 +79,7 @@
             }
         },
         {
-            urls: ['*://docs.python.org/[23]*'],
+            urls: ['*://docs.python.org/*'],
             types: ['main_frame']
         },
         ["blocking"]
