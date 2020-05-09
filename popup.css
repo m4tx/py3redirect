@@ -32,7 +32,7 @@ button:hover {
     cursor: pointer;
 }
 
-#version-div {
+#versionDiv {
     color: #646464;
     font-family: "Lucida Grande", Arial, sans-serif;
     font-size: 14px;
@@ -40,6 +40,6 @@ button:hover {
     text-align: center;
 }
 
-#version-select {
+#versionSelect {
     text-align: right;
 }

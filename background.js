@@ -1,55 +1,56 @@
 (function () {
-    const URL_REGEX = /^https?:\/\/docs\.python\.org\/([23][^\/]*?)\/(.*)/;
-
+    const URL_REGEX = /^(https?:\/\/docs\.python\.org\/)([23][^\/]*?)(\/.*)/;
     const SPECIAL_CASES = {
-        'library/sets.html' : 'library/stdtypes.html#set',
-        'library/stringio.html': 'library/io.html#io.StringIO'
+        "/library/sets.html" : "/library/stdtypes.html#set",
+        "/library/stringio.html": "/library/io.html#io.StringIO"
     };
 
-    let pyVersion;
-    let isEnabled = true;
+    var pyVersion, isEnabled;
 
-    updateIsEnabled();
+    browserAPI.api.storage.local.get(
+        {pyVersion: "3", isEnabled: true},
+        Object.assign.bind(undefined, this)
+    );
 
-    browserAPI.api.storage.local.get({pyVersion: "3",}, setPyVersionFromData);
+    function getRedirectURL(oldUrl) {
+        let matches = URL_REGEX.exec(oldUrl);
 
-    function setPyVersionFromData(data) {
-        pyVersion = data.version;
-    }
-
-    function getReplacementURL() {
-        return "https://docs.python.org/" + pyVersion + "/$2";
+        return matches && (matches[1] !== pyVersion)
+            ? matches[1] + pyVersion + (SPECIAL_CASES[matches[3]] || matches[3])
+            : oldUrl;
     }
 
     /**
      * Check whether given URL returns 200 HTTP status code and redirects
      * to it if so.
      *
-     * Also, save the original URL in the localStorage so the onBeforeRequest
+     * Also, save the new URL in the localStorage so the onBeforeRequest
      * listener can redirect immediately next time visiting the same page.
      *
-     * @param {string} oldUrl the original Python 2 docs URL that should be
-     *  cached in localStorage
-     * @param {string} url Python 3 docs URL
-     * @param tabId current tab ID
-     * @param {function} sendResponse callback function to call with the new
-     *  URL (or null if an error occurred)
+     * @param {string} url New URL
+     * @param {number} tabId current tab ID
+     * @param {function} redirectFunc function that will redirect
      */
-    function checkDocsExist(oldUrl, url, tabId, sendResponse) {
+    function redirectIfExists(url, tabId, redirectFunc) {
+        browserAPI.api.pageAction.setTitle({
+            tabId: tabId,
+            title: "Redirecting..."
+        });
+
         let request = new XMLHttpRequest();
+
         request.onreadystatechange = function () {
             if (request.readyState === 4) { // DONE
                 if (request.status === 200) {
-                    localStorage.setItem(oldUrl, true);
+                    localStorage.setItem(url, true);
                     browserAPI.api.pageAction.show(tabId);
-                    sendResponse(url);
+                    redirectFunc(url);
                 } else {
                     browserAPI.api.pageAction.setTitle({
                         tabId: tabId,
-                        title: 'Could not redirect (HTTP status code: ' +
-                        request.status + ')'
+                        title: "Could not redirect (HTTP status code: " +
+                        request.status + ")"
                     });
-                    sendResponse(null);
                 }
             }
         };
@@ -57,85 +58,44 @@
         request.send();
     }
 
-    /*
-     * onBeforeRequest listener that redirects to py3 docs immediately if the
-     * requested page was visited before (using localStorage cache)
+    /**
+     * Redirect to right docs immediately if the page to redirect to has been
+     * visited before (using localStorage cache)
      */
     browserAPI.api.webRequest.onBeforeRequest.addListener(
         function (details) {
-            let url = details.url;
-            if (isEnabled && localStorage.getItem(url)) {
-                let newUrl = url.replace(URL_REGEX, getReplacementURL());
-                let matches = URL_REGEX.exec(details.url);
-                if (matches[1] === pyVersion){
-                    return {};
-                }
+            let newUrl = getRedirectURL(details.url);
 
-                if (matches[2] in SPECIAL_CASES) {
-                    newUrl = getReplacementURL().replace('$2', '') + SPECIAL_CASES[matches[2]];
-                }
-                return {redirectUrl: newUrl};
-            }
+            return isEnabled && (details.url != newUrl) && localStorage.getItem(newUrl)
+                ? {redirectUrl: newUrl}
+                : {};
         },
         {
-            urls: ['*://docs.python.org/*'],
-            types: ['main_frame']
+            urls: ["*://docs.python.org/*"],
+            types: ["main_frame"]
         },
         ["blocking"]
     );
 
-    /**
-     * Update isUpdate variable value from storage.local.
-     */
-    function updateIsEnabled() {
-        browserAPI.api.storage.local.get({isEnabled: true}, data => {
-            isEnabled = data.isEnabled;
-        });
-    }
-
-    /**
-     * Set new isUpdate variable value and store it in storage.local.
-     * @param {boolean} enabled whether or not redirecting is currently enabled
-     */
-    function setEnabled(enabled) {
-        isEnabled = enabled;
-        browserAPI.api.storage.local.set({isEnabled: enabled});
-    }
-
     browserAPI.api.runtime.onMessage.addListener((request, sender, sendResponse) => {
-        if (request.action === "redirect") {
-            let tabId = sender.tab.id;
-            browserAPI.api.pageAction.show(tabId);
-            if (!isEnabled) {
-                return;
-            }
+        if (request.action === "checkForRedirect") {
+            browserAPI.api.pageAction.show(sender.tab.id);
 
-            let matches = URL_REGEX.exec(sender.url);
-            if (matches && matches[1] !== pyVersion) {
-                let newUrl = sender.url.replace(URL_REGEX, getReplacementURL());
-                if (matches[2] in SPECIAL_CASES) {
-                    newUrl = getReplacementURL().replace('$2', '') + SPECIAL_CASES[matches[2]];
+            if (isEnabled) {
+                let newUrl = getRedirectURL(sender.url);
+
+                if (sender.url !== newUrl) {
+                    redirectIfExists(newUrl, sender.tab.id, sendResponse);
+                    return true;
                 }
-
-                browserAPI.api.pageAction.setTitle({
-                    tabId: tabId,
-                    title: 'Redirecting...'
-                });
-                checkDocsExist(
-                    sender.url,
-                    newUrl,
-                    tabId,
-                    sendResponse
-                );
-
-                return true;
             }
-        } else if (request.action === "isEnabled") {
+        } else if (request.action === "toggleEnabled") {
+            isEnabled = !isEnabled;
+            browserAPI.api.storage.local.set({isEnabled: isEnabled});
             sendResponse(isEnabled);
-        } else if (request.action === "setEnabled") {
-            setEnabled(request.enabled);
         } else if (request.action === "setPyVersion") {
-            setPyVersionFromData(request);
+            pyVersion = request.pyVersion;
+            browserAPI.api.storage.local.set({pyVersion: pyVersion});
         }
     });
 })();
