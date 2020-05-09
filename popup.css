@@ -33,10 +33,11 @@ button:hover {
 }
 
 #version-div {
-    margin: 10px 0 10px 0;
     color: #646464;
     font-family: "Lucida Grande", Arial, sans-serif;
     font-size: 14px;
+    margin: 10px 0 10px 0;
+    text-align: center;
 }
 
 #version-select {
