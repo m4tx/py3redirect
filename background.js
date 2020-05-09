@@ -6,16 +6,15 @@
         'library/stringio.html': 'library/io.html#io.StringIO'
     };
 
+    let pyVersion;
     let isEnabled = true;
+
     updateIsEnabled();
 
-    let pyVersion = "3";
-    browserAPI.api.storage.local.get({pyVersion: "3",}, data => {
-        pyVersion = data.pyVersion;
-    });
+    browserAPI.api.storage.local.get({pyVersion: "3",}, setPyVersionFromData);
 
-    function setPyVersion(version) {
-        pyVersion = version;
+    function setPyVersionFromData(data) {
+        pyVersion = data.version;
     }
 
     function getReplacementURL() {
@@ -136,7 +135,7 @@
         } else if (request.action === "setEnabled") {
             setEnabled(request.enabled);
         } else if (request.action === "setPyVersion") {
-            setPyVersion(request.pyVersion);
+            setPyVersionFromData(request);
         }
     });
 })();

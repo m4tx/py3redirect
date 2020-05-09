@@ -4,6 +4,10 @@
 
     let isEnabled = true;
 
+    browserAPI.api.storage.local.get({pyVersion: "3"}, data => {
+        versionSelector.value = data.pyVersion;
+    });
+
     function updateToggleRedirectBtn() {
         toggleRedirectBtn.classList.remove("warning", "success");
         if (isEnabled) {
@@ -26,21 +30,11 @@
         updateToggleRedirectBtn();
     });
 
-    function restore_version() {
-        browserAPI.api.storage.local.get({pyVersion: "3"}, data => {
-            versionSelector.value = data.pyVersion;
-        });
-    }
-
-    function save_version() {
-        version = this.value ? this.value : "3";
-        browserAPI.api.storage.local.set({
-            pyVersion: version,
-        });
-        browserAPI.sendMessage({action: "setPyVersion", pyVersion: version});
+    function saveVersion() {
+        browserAPI.api.storage.local.set({pyVersion: this.value});
+        browserAPI.sendMessage({action: "setPyVersion", pyVersion: this.value});
     }
 
     toggleRedirectBtn.addEventListener("click", () => setEnabled(!isEnabled));
-    document.addEventListener("DOMContentLoaded", restore_version);
-    versionSelector.addEventListener("change", save_version);
+    versionSelector.addEventListener("change", saveVersion);
 })();
