@@ -5,11 +5,14 @@
         "/library/stringio.html": "/library/io.html#io.StringIO"
     };
 
-    var pyVersion, isEnabled;
+    let pyVersion, isEnabled;
 
     browserAPI.getStorageData(
         {pyVersion: "3", isEnabled: true},
-        Object.assign.bind(undefined, this)
+        data => {
+            pyVersion = data.pyVersion;
+            isEnabled = data.isEnabled;
+        }
     );
 
     function getRedirectURL(oldUrl) {
