@@ -31,3 +31,15 @@ button:hover {
     color: #fff;
     cursor: pointer;
 }
+
+#versionDiv {
+    color: #646464;
+    font-family: "Lucida Grande", Arial, sans-serif;
+    font-size: 14px;
+    margin: 10px 0 10px 0;
+    text-align: center;
+}
+
+#versionSelect {
+    text-align: right;
+}
