@@ -2,6 +2,8 @@
 
 Google search results very often have links to Python 2 docs page. However, if you are programming in Python 3, switching to version 3 docs constantly may be pretty annoying. Same thing if you're not using the latest version of Python 3 and want to always see a specific version. This extension does that for you.
 
+![Screenshot from Firefox](screenshots/disable-firefox.png)
+
 ## Install
 
 The extension is available on:
