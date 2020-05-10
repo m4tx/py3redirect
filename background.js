@@ -7,7 +7,7 @@
 
     var pyVersion, isEnabled;
 
-    browserAPI.api.storage.local.get(
+    browserAPI.getStorageData(
         {pyVersion: "3", isEnabled: true},
         Object.assign.bind(undefined, this)
     );

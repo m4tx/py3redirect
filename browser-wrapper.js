@@ -18,5 +18,13 @@ let browserAPI = (function () {
         }
     };
 
-    return {api, sendMessage};
+    let getStorageData = function (keys, responseCallback) {
+        if (useBrowser) {
+            browser.storage.local.get(keys).then(responseCallback);
+        } else {
+            chrome.storage.local.get(keys, responseCallback);
+        }
+    }
+
+    return {api, sendMessage, getStorageData};
 })();
