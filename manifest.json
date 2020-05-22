@@ -3,7 +3,7 @@
   "name": "py3redirect",
   "description": "Automatically redirect to a specific Python 3 version's documentation",
   "author": "Mateusz \"m4tx\" Maćkowski",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "icons": {
     "64": "icon.png",
     "128": "icon128.png"
