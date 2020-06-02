@@ -805,7 +805,7 @@
         'library/urllib.html#urllib._urlopener': null,
         // The last 3 functions aren't under this heading, just library/urllib.parse.html
         'library/urllib.html#utility-functions': 'library/urllib.parse.html#url-quoting',
-           
+
         // TODO: this module was also split into library/urllib.error.html
         'library/urllib2.html': 'library/urllib.request.html',
         'library/urllib2.html#module-urllib2': 'library/urllib.request.html#module-urllib.request',
@@ -1479,6 +1479,378 @@
         'library/operator.html#operator.isSequenceType': null,
 
 
+        // Deprecated aliases and methods
+        'library/array.html#array.ArrayType': null,
+        'library/array.html#array.array.read': null,
+        'library/array.html#array.array.write': null,
+
+        'library/tempfile.html#tempfile.template': null,
+
+
+        'library/sets.html#sets.ImmutableSet': 'library/stdtypes.html#frozenset',
+
+
+        'library/__builtin__.html#module-__builtin__': 'library/builtins.html#module-builtins',
+        'library/__builtin__.html#builtin-built-in-objects': 'library/builtins.html#module-builtins',
+
+
+        'library/basehttpserver.html#module-BaseHTTPServer': 'library/http.server.html#module-http.server',
+        'library/basehttpserver.html#basehttpserver-basic-http-server': 'library/http.server.html#module-http.server',
+        'library/basehttpserver.html#more-examples': null,
+
+
+        'library/bdb.html#bdb.Breakpoint.pprint': 'library/bdb.html#bdb.Breakpoint.bpprint',
+
+        'library/bz2.html#bz2-compression-compatible-with-bzip2': 'library/bz2.html#module-bz2',
+        'library/bz2.html#sequential-de-compression': 'library/bz2.html#incremental-de-compression',
+
+        'library/cgi.html#old-classes': null,
+
+        'library/cgi.html#cgi.parse_qs': 'library/urllib.parse.html#urllib.parse.parse_qs',
+        'library/cgi.html#cgi.parse_qsl': 'library/urllib.parse.html#urllib.parse.parse_qsl',
+        // cgi.escape hase quote=False and this has quote=True, could be confusing
+        'library/cgi.html#cgi.escape': 'library/html.html#html.escape',
+
+        // Footnotes
+        'library/codecs.html#encoding-note': null,
+        'library/codecs.html#decoding-note': null,
+
+        // Deprecated, the with-statement now supports this functionality directly
+        'library/contextlib.html#contextlib.nested': null,
+
+        'library/cookie.html#cookie-http-state-management': 'library/http.cookies.html#module-http.cookies',
+        'library/cookielib.html#cookielib-cookie-handling-for-http-clients': 'library/http.cookiejar.html#module-http.cookiejar',
+
+        'library/copy_reg.html#module-copy_reg': 'library/copyreg.html#module-copyreg',
+        'library/copy_reg.html#copy-reg-register-pickle-support-functions': 'library/copyreg.html#module-copyreg',
+        'library/copy_reg.html#copy_reg.constructor': 'library/copyreg.html#copyreg.constructor',
+        'library/copy_reg.html#copy_reg.pickle': 'library/copyreg.html#copyreg.pickle',
+
+        // TODO: what happened to this?
+        'library/ctypes.html#ctypes.set_conversion_mode': null,
+
+        'library/docxmlrpcserver.html#docxmlrpcserver-self-documenting-xml-rpc-server': 'library/xmlrpc.server.html#documenting-xmlrpc-server',
+
+        'library/dummy_thread.html#module-dummy_thread': 'library/_dummy_thread.html#module-_dummy_thread',
+
+        // TODO: what happened to these?
+        'library/gc.html#gc.DEBUG_INSTANCES': null,
+        'library/gc.html#gc.DEBUG_OBJECTS': null,
+
+
+        // TODO: what happened to this?
+        'library/imaplib.html#imaplib.IMAP4_SSL.ssl': null,
+
+        'library/imp.html#imp.SEARCH_ERROR': null,
+        'library/imp.html#imp.init_builtin': null,
+        'library/imp.html#imp.init_frozen': null,
+        'library/imp.html#imp.is_builtin': null,
+        'library/imp.html#imp.is_frozen': null,
+        'library/imp.html#imp.load_compiled': null,
+        'library/imp.html#imp.load_dynamic': null,
+        'library/imp.html#imp.load_source': null,
+
+        // 'library/importlib.html#importlib-convenience-wrappers-for-import': 'library/importlib.html#module-importlib',
+
+        'library/io.html#module-interface': 'library/io.html#high-level-module-interface',
+        'library/io.html#advanced-topics': 'library/io.html#performance',
+
+        'library/ipc.html#interprocess-communication-and-networking': 'library/ipc.html#networking-and-interprocess-communication',
+
+        'library/random.html#random.jumpahead': null,
+        'library/random.html#random.WichmannHill': null,
+        'library/random.html#random.whseed': null,
+
+
+        'library/simplehttpserver.html#simplehttpserver-simple-http-request-handler': 'library/http.server.html#http.server.SimpleHTTPRequestHandler',
+
+
+        'c-api/concrete.html#mapping-objects': 'c-api/concrete.html#container-objects',
+
+
+        'library/asynchat.html#asynchat-auxiliary-classes': null,
+        'library/asynchat.html#asynchat.fifo': null,
+        'library/asynchat.html#asynchat.fifo.is_empty': null,
+        'library/asynchat.html#asynchat.fifo.first': null,
+        'library/asynchat.html#asynchat.fifo.push': null,
+        'library/asynchat.html#asynchat.fifo.pop': null,
+
+
+        'library/base64.html#base64-rfc-3548-base16-base32-base64-data-encodings': 'library/base64.html#base64-base16-base32-base64-base85-data-encodings',
+
+
+        'library/gettext.html#gettext.NullTranslations.ugettext': 'library/gettext.html#gettext.NullTranslations.gettext',
+        'library/gettext.html#gettext.NullTranslations.ungettext': 'library/gettext.html#gettext.NullTranslations.ngettext',
+        'library/gettext.html#gettext.GNUTranslations.ugettext': 'library/gettext.html#gettext.GNUTranslations.gettext',
+        'library/gettext.html#gettext.GNUTranslations.ungettext': 'library/gettext.html#gettext.GNUTranslations.ngettext',
+        // 4 deprecated functions, will be removed in 3.10
+        'library/gettext.html#gettext-vs-lgettext': null,
+
+
+        // Most text was moved to running-user-code but the last paragraph was moved to python-shell-window
+        // 'library/idle.html#idle-console-differences': 'library/idle.html#python-shell-window',
+        // 'library/idle.html#idle-console-differences': 'library/idle.html#running-user-code',
+        'library/idle.html#idle-console-differences': null,
+
+        'library/idle.html#additional-help-sources': 'library/idle.html#help-sources',
+
+
+        'library/importlib.html#importlib-convenience-wrappers-for-import': 'library/importlib.html#importlib-the-implementation-of-import',
+
+
+        // Use `in Mailbox.keys`
+        'library/mailbox.html#mailbox.Mailbox.has_key': null,
+        'library/mailbox.html#deprecated-classes-and-methods': null,
+        'library/mailbox.html#mailbox-deprecated': null,
+        'library/mailbox.html#mailbox.oldmailbox.next': null,
+        'library/mailbox.html#mailbox.UnixMailbox': null,
+        'library/mailbox.html#mailbox.PortableUnixMailbox': null,
+        'library/mailbox.html#mailbox.MmdfMailbox': null,
+        'library/mailbox.html#mailbox.MHMailbox': null,
+        'library/mailbox.html#mailbox.BabylMailbox': null,
+
+
+        // 'library/nntplib.html#nntplib.NNTP.xgtitle': 'library/nntplib.html#nntplib.NNTP.description',
+        // 'library/nntplib.html#nntplib.NNTP.xgtitle': 'library/nntplib.html#nntplib.NNTP.descriptions',
+        'library/nntplib.html#nntplib.NNTP.xgtitle': null,
+
+
+        // 'library/os.html#os.tmpfile': 'library/tempfile.html',
+        'library/os.html#os.tmpfile': null,
+
+        'library/os.html#os.popen2': null,
+        'library/os.html#os.popen3': null,
+        'library/os.html#os.popen4': null,
+        // Have to scroll down
+        'library/os.html#open-flag-constants': 'library/os.html#os.open',
+        'library/os.html#open-constants': 'library/os.html#os.open',
+
+        // TODO: figure this out.
+        'library/os.html#os.stat_float_times': null,
+
+        'library/os.html#os.tempnam': null,
+        'library/os.html#os.tmpnam': null,
+        'library/os.html#os.TMP_MAX': null,
+
+        'library/os.html#miscellaneous-functions': 'library/os.html#random-numbers',
+        'library/os.html#os-miscfunc': 'library/os.html#random-numbers',
+
+
+        // TODO: what happened to this? splitdrive()?
+        'library/os.path.html#os.path.splitunc': null,
+
+        // Function has a different signature
+        // 'library/os.path.html#os.path.walk': 'library/os.html#os.walk',
+        'library/os.path.html#os.path.walk': null,
+
+
+        'library/pickle.html#usage': 'library/pickle.html#module-interface',
+        'library/pickle.html#pickle.Pickler.clear_memo': null,
+        'library/pickle.html#pickle.Unpickler.noload': null,
+
+        'library/pickle.html#the-pickle-protocol': 'library/pickle.html#pickling-class-instances',
+        'library/pickle.html#pickle-protocol': 'library/pickle.html#pickling-class-instances',
+        'library/pickle.html#pickling-and-unpickling-normal-class-instances': 'library/pickle.html#pickling-class-instances',
+        // TODO: this method was removed. Figure out where to redirect.
+        'library/pickle.html#object.__getinitargs__': null,
+        // TODO: don't redirect?
+        'library/pickle.html#pickling-and-unpickling-extension-types': 'library/pickle.html#object.__reduce__',
+        'library/pickle.html#pickling-and-unpickling-external-objects': 'library/pickle.html#persistence-of-external-objects',
+        'library/pickle.html#subclassing-unpicklers': 'library/pickle.html#restricting-globals',
+        'library/pickle.html#pickle-sub': 'library/pickle.html#restricting-globals',
+        // pickle tries to use cPickle and falls back to the Python implementation transparently
+        'library/pickle.html#cpickle-a-faster-pickle': null,
+
+
+        'library/pipes.html#pipes.quote': 'library/shlex.html#shlex.quote',
+
+
+        'library/platform.html#win95-98-specific': null,
+        'library/platform.html#platform.popen': null,
+        'library/platform.html#platform.dist': null,
+        'library/platform.html#platform.linux_distribution': null,
+
+
+        'library/plistlib.html#plistlib.readPlistFromString': 'library/plistlib.html#plistlib.readPlistFromBytes',
+        'library/plistlib.html#plistlib.writePlistToString': 'library/plistlib.html#plistlib.writePlistToBytes',
+        'library/plistlib.html#plistlib.readPlistFromResource': null,
+        'library/plistlib.html#plistlib.writePlistToResource': null,
+
+
+        'library/pyclbr.html#pyclbr-python-class-browser-support': 'library/pyclbr.html#pyclbr-python-module-browser-support',
+
+
+        'library/pyexpat.html#xml.parsers.expat.xmlparser.returns_unicode': null,
+
+
+        'library/sets.html#module-sets': 'library/stdtypes.html#set',
+        'library/sets.html#sets-unordered-collections-of-unique-elements': 'library/stdtypes.html#set',
+        // 'library/sets.html#sets.Set': 'library/stdtypes.html#set',
+        // 'library/sets.html#set-objects': 'library/stdtypes.html#set',
+        // 'library/sets.html#example': null,
+        // 'library/sets.html#set-example': null,
+        // 'library/sets.html#protocol-for-automatic-conversion-to-immutable': null,
+        // 'library/sets.html#immutable-transforms': null,
+        // 'library/sets.html#comparison-to-the-built-in-set-types': null,
+        // 'library/sets.html#comparison-to-builtin-set': null,
+
+
+        'library/simplexmlrpcserver.html#simplexmlrpcserver-basic-xml-rpc-server': 'library/xmlrpc.server.html#simple-xmlrpc-servers',
+
+
+        // Intentionally does not exist in any implementation of Python 3
+        'library/ssl.html#ssl._https_verify_certificates': null,
+
+
+        // TODO: look over this again
+        'library/stringio.html#module-StringIO': 'library/io.html#io.StringIO',
+        'library/stringio.html#stringio-read-and-write-strings-as-files': 'library/io.html#io.StringIO',
+        'library/stringio.html#StringIO.StringIO': 'library/io.html#io.StringIO',
+        // TODO: link to the function it inherits from?
+        // 'library/stringio.html#StringIO.StringIO.close': 'library/io.html#io.IOBase.close',
+        'library/stringio.html#StringIO.StringIO.close': 'library/io.html#io.StringIO',
+        'library/stringio.html#cstringio-faster-version-of-stringio': 'library/io.html#io.StringIO',
+        'library/stringio.html#cStringIO.StringIO': 'library/io.html#io.StringIO',
+        // TODO: classes don't exist, link to the module anyway?
+        'library/stringio.html#cStringIO.InputType': null,
+        'library/stringio.html#cStringIO.OutputType': null,
+
+
+        'library/strings.html#string-services': 'library/text.html#stringservices',
+
+
+        'library/struct.html#struct-interpret-strings-as-packed-binary-data': 'library/struct.html#struct-interpret-bytes-as-packed-binary-data',
+
+
+        'library/symtable.html#symtable.SymbolTable.has_import_star': null,
+
+
+        'library/tarfile.html#tarfile.TarFileCompat': null,
+        'library/tarfile.html#tarfile.TarFileCompat.TAR_PLAIN': null,
+        'library/tarfile.html#tarfile.TarFileCompat.TAR_GZIPPED': null,
+        'library/tarfile.html#tarfile.TarFile.posix': null,
+
+
+        'library/test.html#test-support-utility-functions-for-tests': 'library/test.html#test-support-utilities-for-the-python-test-suite',
+        'library/test.html#test.support.have_unicode': null,
+        'library/test.html#test.support.check_py3k_warnings': null,
+
+
+        'library/thread.html#thread-multiple-threads-of-control': 'library/_thread.html#thread-low-level-threading-api',
+
+
+        // TODO: full name
+        'library/threading.html#threading-higher-level-threading-interface': 'library/threading.html#module-threading',
+        // Removed section. TODO: maybe it was moved?
+        'library/threading.html#importing-in-threaded-code': null,
+        'library/threading.html#threaded-imports': null,
+
+
+        'library/time.html#time-y2kissues': null,
+        'library/time.html#time.accept2dyear': null,
+
+        // Removed function, two suggested alternatives.
+        // 'library/time.html#time.clock': 'library/time.html#time.process_time',
+        // 'library/time.html#time.clock': 'library/time.html#time.perf_counter',
+        'library/time.html#time.clock': null,
+
+        // Use time.time() or time.clock(), the latter was removed
+        'library/timeit.html#cmdoption-timeit-t': null,
+        'library/timeit.html#cmdoption-timeit-c': null,
+
+
+        'library/tix.html#tix-extension-widgets-for-tk': 'library/tkinter.tix.html#tkinter-tix-extension-widgets-for-tk',
+        'library/tkinter.html#module-Tkinter': 'library/tkinter.html#module-tkinter',
+        'library/ttk.html#ttk-tk-themed-widgets': 'library/tkinter.ttk.html#tkinter-ttk-tk-themed-widgets',
+
+
+        'library/turtle.html#turtle-turtle-graphics-for-tk': 'library/turtle.html#turtle-turtle-graphics',
+        'library/turtle.html#overview-over-available-turtle-and-screen-methods': 'library/turtle.html#overview-of-available-turtle-and-screen-methods',
+        'library/turtle.html#turtle.fill': null,
+        'library/turtle.html#excursus-about-the-use-of-compound-shapes': 'library/turtle.html#compound-shapes',
+        'library/turtle.html#the-public-classes-of-the-module-turtle': 'library/turtle.html#public-classes',
+        'library/turtle.html#demo-scripts': 'library/turtle.html#turtledemo-demo-scripts',
+
+
+        'library/types.html#types-names-for-built-in-types': 'library/types.html#types-dynamic-type-creation-and-names-for-built-in-types',
+        // TODO: redirect these to the builtins? Or typing?
+        'library/types.html#types.NoneType': null,
+        'library/types.html#types.TypeType': null,
+        'library/types.html#types.BooleanType': null,
+        'library/types.html#types.IntType': null,
+        'library/types.html#types.LongType': null,
+        'library/types.html#types.FloatType': null,
+        'library/types.html#types.ComplexType': null,
+        'library/types.html#types.StringType': null,
+        'library/types.html#types.UnicodeType': null,
+        'library/types.html#types.TupleType': null,
+        'library/types.html#types.ListType': null,
+        'library/types.html#types.DictType': null,
+        'library/types.html#types.DictionaryType': null,
+        'library/types.html#types.ClassType': null,
+        'library/types.html#types.InstanceType': null,
+        'library/types.html#types.UnboundMethodType': null,
+        'library/types.html#types.FileType': null,
+        'library/types.html#types.XRangeType': null,
+        'library/types.html#types.SliceType': null,
+        'library/types.html#types.EllipsisType': null,
+        'library/types.html#types.BufferType': null,
+        'library/types.html#types.DictProxyType': null,
+        'library/types.html#types.NotImplementedType': null,
+        'library/types.html#types.StringTypes': null,
+
+
+        // List of undocumented modules, basically empty on Python 3
+        'library/undoc.html#miscellaneous-useful-utilities': null,
+        'library/undoc.html#multimedia': null,
+        'library/undoc.html#undocumented-mac-os-modules': null,
+        'library/undoc.html#undoc-mac-modules': null,
+        'library/undoc.html#module-applesingle': null,
+        'library/undoc.html#applesingle-applesingle-decoder': null,
+        'library/undoc.html#module-buildtools': null,
+        'library/undoc.html#buildtools-helper-module-for-buildapplet-and-friends': null,
+        'library/undoc.html#module-cfmfile': null,
+        'library/undoc.html#cfmfile-code-fragment-resource-module': null,
+        'library/undoc.html#module-icopen': null,
+        'library/undoc.html#icopen-internet-config-replacement-for-open': null,
+        'library/undoc.html#module-macerrors': null,
+        'library/undoc.html#macerrors-mac-os-errors': null,
+        'library/undoc.html#module-macresource': null,
+        'library/undoc.html#macresource-locate-script-resources': null,
+        'library/undoc.html#module-Nav': null,
+        'library/undoc.html#nav-navservices-calls': null,
+        'library/undoc.html#module-PixMapWrapper': null,
+        'library/undoc.html#pixmapwrapper-wrapper-for-pixmap-objects': null,
+        'library/undoc.html#module-videoreader': null,
+        'library/undoc.html#videoreader-read-quicktime-movies': null,
+        'library/undoc.html#module-W': null,
+        'library/undoc.html#w-widgets-built-on-framework': null,
+        'library/undoc.html#obsolete': null,
+        'library/undoc.html#obsolete-modules': null,
+        'library/undoc.html#sgi-specific-extension-modules': null,
+
+
+        'library/urllib.html#high-level-interface': 'library/urllib.request.html#module-urllib.request',
+
+
+        'library/urlparse.html#urlparse-parse-urls-into-components': 'library/urllib.parse.html#urllib-parse-parse-urls-into-components',
+
+
+        'library/warnings.html#default-warning-filters': 'library/warnings.html#default-warning-filter',
+
+        'library/warnings.html#updating-code-for-new-versions-of-python': 'library/warnings.html#updating-code-for-new-versions-of-dependencies',
+        'library/warnings.html#warnings.warnpy3k': null,
+
+
+        'library/weakref.html#weakref.WeakKeyDictionary.iterkeyrefs': 'library/weakref.html#weakref.WeakKeyDictionary.keyrefs',
+        'library/weakref.html#weakref.WeakValueDictionary.itervaluerefs': 'library/weakref.html#weakref.WeakValueDictionary.valuerefs',
+        // The same as the standard ReferenceError exception.
+        'library/weakref.html#weakref.ReferenceError': null,
+
+
+        'library/xmlrpclib.html#xmlrpclib-xml-rpc-client-access': 'library/xmlrpc.client.html#xmlrpc-client-xml-rpc-client-access',
+
+
         'howto/urllib2.html#howto-fetch-internet-resources-using-urllib2': 'howto/urllib2.html#urllib-howto',
         // This page was effectively deleted
         'howto/cporting.html': null,
@@ -1489,6 +1861,673 @@
         'howto/unicode.html#python-2-x-s-unicode-support': 'howto/unicode.html#python-s-unicode-support',
         'howto/unicode.html#revision-history-and-acknowledgements': 'howto/unicode.html#acknowledgements',
         'howto/unicode.html#the-unicode-type': 'howto/unicode.html#the-string-type',
+
+
+        // Old-style classes are removed in Python 3
+        'reference/datamodel.html#new-style-and-classic-classes': null,
+        'reference/datamodel.html#newstyle': null,
+
+        // Removed in Python 3
+        'reference/datamodel.html#object.__cmp__': null,
+        'reference/datamodel.html#object.__rcmp__': null,
+
+        'reference/datamodel.html#object.__unicode__': "reference/datamodel.html#object.__str__",
+
+        'reference/datamodel.html#more-attribute-access-for-new-style-classes': "reference/datamodel.html#customizing-attribute-access",
+        'reference/datamodel.html#new-style-attribute-access': "reference/datamodel.html#customizing-attribute-access",
+
+        'reference/datamodel.html#__slots__': "reference/datamodel.html#object.__slots__",
+
+        'reference/datamodel.html#additional-methods-for-emulation-of-sequence-types': null,
+        'reference/datamodel.html#sequence-methods': null,
+        'reference/datamodel.html#object.__getslice__': null,
+        'reference/datamodel.html#object.__setslice__': null,
+        'reference/datamodel.html#object.__delslice__': null,
+
+        'reference/datamodel.html#object.__div__': "reference/datamodel.html#object.__truediv__",
+        'reference/datamodel.html#object.__rdiv__': "reference/datamodel.html#object.__rtruediv__",
+        'reference/datamodel.html#object.__idiv__': "reference/datamodel.html#object.__itruediv__",
+
+        'reference/datamodel.html#object.__long__': "reference/datamodel.html#object.__int__",
+
+        // 'reference/datamodel.html#object.__oct__': "reference/datamodel.html#object.__index__",
+        // 'reference/datamodel.html#object.__hex__': "reference/datamodel.html#object.__index__",
+        'reference/datamodel.html#object.__oct__': null,
+        'reference/datamodel.html#object.__hex__': null,
+
+        'reference/datamodel.html#object.__coerce__': null,
+        'reference/datamodel.html#coercion-rules': null,
+
+        'reference/datamodel.html#special-method-lookup-for-old-style-classes': null,
+        'reference/datamodel.html#old-style-special-lookup': null,
+
+        'reference/datamodel.html#special-method-lookup-for-new-style-classes': "reference/datamodel.html#special-lookup",
+        'reference/datamodel.html#new-style-special-lookup': "reference/datamodel.html#special-lookup",
+
+
+        // TODO: understanding the grammar docs is harder, check these.
+
+        // decorated ::= decorators (classdef | funcdef)
+        // in Python 3 this grouping was removed
+        'reference/compound_stmts.html#grammar-token-decorated': "reference/compound_stmts.html#function-definitions",
+        // TODO
+        'reference/compound_stmts.html#grammar-token-sublist': "reference/compound_stmts.html#function-definitions",
+
+        'reference/expressions.html#grammar-token-list-comprehension': "reference/expressions.html#grammar-token-comprehension",
+
+        'reference/expressions.html#grammar-token-list-for': 'reference/expressions.html#grammar-token-comp-for',
+
+        'reference/expressions.html#grammar-token-old-expression-list': "reference/expressions.html#displays-for-lists-sets-and-dictionaries",
+        'reference/expressions.html#grammar-token-old-expression': "reference/expressions.html#grammar-token-expression-nocond",
+        'reference/expressions.html#grammar-token-list-iter': "reference/expressions.html#grammar-token-comp-iter",
+        'reference/expressions.html#grammar-token-list-if': "reference/expressions.html#grammar-token-comp-if",
+        'reference/expressions.html#displays-for-sets-and-dictionaries': "reference/expressions.html#displays-for-lists-sets-and-dictionaries",
+
+        // Backtick removed in Python 3
+        'reference/expressions.html#string-conversions': null,
+        'reference/expressions.html#grammar-token-string-conversion': null,
+
+        'reference/expressions.html#grammar-token-simple-slicing': "reference/expressions.html#grammar-token-slicing",
+        'reference/expressions.html#grammar-token-extended-slicing': "reference/expressions.html#grammar-token-slicing",
+        'reference/expressions.html#grammar-token-short-slice': "reference/expressions.html#grammar-token-proper-slice",
+        'reference/expressions.html#grammar-token-long-slice': "reference/expressions.html#grammar-token-proper-slice",
+        // TODO: the ... isn't allowed in slices anymore? No clue what it meant before
+        'reference/expressions.html#grammar-token-ellipsis': null,
+
+        'reference/expressions.html#grammar-token-keyword-arguments': "reference/expressions.html#grammar-token-keywords-arguments",
+
+        'reference/expressions.html#grammar-token-old-lambda-expr': "reference/expressions.html#grammar-token-lambda-expr-nocond",
+
+
+        'reference/lexical_analysis.html#logical': 'reference/lexical_analysis.html#logical-lines',
+        'reference/lexical_analysis.html#physical': 'reference/lexical_analysis.html#physical-lines',
+
+        // Python identifiers can now contain non-ASCII characters so this is more complicated
+        'reference/lexical_analysis.html#grammar-token-letter': "reference/lexical_analysis.html#identifiers",
+        'reference/lexical_analysis.html#grammar-token-lowercase': "reference/lexical_analysis.html#identifiers",
+        'reference/lexical_analysis.html#grammar-token-uppercase': "reference/lexical_analysis.html#identifiers",
+
+        'reference/lexical_analysis.html#string-literals': "reference/lexical_analysis.html#string-and-bytes-literals",
+
+        // 'reference/lexical_analysis.html#grammar-token-escapeseq': 'reference/lexical_analysis.html#grammar-token-bytesescapeseq',
+        'reference/lexical_analysis.html#grammar-token-escapeseq': 'reference/lexical_analysis.html#grammar-token-stringescapeseq',
+
+        'reference/lexical_analysis.html#string-catenation': 'reference/lexical_analysis.html#string-concatenation',
+
+        'reference/lexical_analysis.html#integer-and-long-integer-literals': 'reference/lexical_analysis.html#integer-literals',
+
+        'reference/lexical_analysis.html#grammar-token-longinteger': 'reference/lexical_analysis.html#grammar-token-integer',
+        'reference/lexical_analysis.html#grammar-token-decimalinteger': 'reference/lexical_analysis.html#grammar-token-decinteger',
+
+        'reference/lexical_analysis.html#grammar-token-intpart': 'reference/lexical_analysis.html#grammar-token-digitpart',
+
+
+        // 'reference/simple_stmts.html#the-print-statement': "library/functions.html#print",
+        // 'reference/simple_stmts.html#grammar-token-print-stmt': "library/functions.html#print",
+        'reference/simple_stmts.html#the-print-statement': null,
+        'reference/simple_stmts.html#grammar-token-print-stmt': null,
+
+        // Just an alias for identifier
+        // 'reference/simple_stmts.html#grammar-token-name': "reference/lexical_analysis.html#grammar-token-identifier",
+        'reference/simple_stmts.html#grammar-token-name': "reference/simple_stmts.html#the-import-statement",
+
+        'reference/simple_stmts.html#grammar-token-future-statement': 'reference/simple_stmts.html#grammar-token-future-stmt',
+
+        // 'reference/simple_stmts.html#the-exec-statement': 'library/functions.html#exec',
+        // 'reference/simple_stmts.html#grammar-token-exec-stmt': 'library/functions.html#exec',
+        'reference/simple_stmts.html#the-exec-statement': null,
+        'reference/simple_stmts.html#grammar-token-exec-stmt': null,
+
+
+        // raw_input renamed to input
+        'reference/toplevel_components.html#grammar-token-input-input': null,
+
+
+
+        'tutorial/classes.html#private-variables-and-class-local-references': "tutorial/classes.html#private-variables",
+        'tutorial/classes.html#exceptions-are-classes-too': "tutorial/errors.html#handling-exceptions",
+        'tutorial/classes.html#tut-exceptionclasses': "tutorial/errors.html#handling-exceptions",
+
+
+        // Section removed because list comprehensions (the next section) are preferred
+        'tutorial/datastructures.html#functional-programming-tools': null,
+        'tutorial/datastructures.html#tut-functional': null,
+
+
+        // Sections were removed in favor of linking to the GNU-Readline docs
+        'tutorial/interactive.html#line-editing': null,
+        'tutorial/interactive.html#tut-lineediting': null,
+        'tutorial/interactive.html#history-substitution': null,
+        'tutorial/interactive.html#tut-history': null,
+        'tutorial/interactive.html#key-bindings': null,
+
+
+        'tutorial/introduction.html#unicode-strings': 'tutorial/introduction.html#strings',
+        'tutorial/introduction.html#tut-unicodestrings': 'tutorial/introduction.html#tut-strings',
+
+
+        'using/cmdline.html#using-on-optimizations': "using/cmdline.html#cmdoption-o",
+        'using/cmdline.html#cmdoption-t': null,
+        'using/cmdline.html#cmdoption-3': null,
+        'using/cmdline.html#envvar-PYTHONY2K': null,
+        'using/cmdline.html#envvar-PYTHONHTTPSVERIFY': null,
+        'using/cmdline.html#envvar-PYTHONSHOWALLOCCOUNT': "using/cmdline.html#id5",
+        'using/cmdline.html#envvar-PYTHONSHOWREFCOUNT': "using/cmdline.html#id5",
+
+
+        'using/unix.html#editors-and-ides': null,
+
+
+        'using/windows.html#installing-python': "using/windows.html#the-full-installer",
+        'using/windows.html#executing-scripts': "using/windows.html#getting-started",
+        'using/windows.html#py2exe': null,
+        'using/windows.html#other-resources': null,
+
+
+        // TODO: lots of missing links in c-api/ haven't been added. It's far from complete.
+        'c-api/float.html#c.PyFloat_AsString': null,
+        'c-api/float.html#c.PyFloat_AsReprString': null,
+
+        // Macros
+        'c-api/gcsupport.html#c._PyObject_GC_TRACK': null,
+        'c-api/gcsupport.html#c._PyObject_GC_UNTRACK': null,
+
+
+        'c-api/long.html#long-integer-objects': 'c-api/long.html#integer-objects',
+
+
+        'c-api/number.html#c.PyNumber_Divide': 'c-api/number.html#c.PyNumber_TrueDivide',
+        'c-api/number.html#c.PyNumber_InPlaceDivide': 'c-api/number.html#c.PyNumber_InPlaceTrueDivide',
+
+        'c-api/number.html#c.PyNumber_Coerce': null,
+        'c-api/number.html#c.PyNumber_CoerceEx': null,
+
+        'c-api/number.html#c.PyNumber_Int': "c-api/number.html#c.PyNumber_Long",
+
+
+        'c-api/objbuffer.html#abstract-buffer': "c-api/objbuffer.html#old-buffer-protocol",
+
+
+        'c-api/object.html#c.PyObject_Cmp': null,
+        'c-api/object.html#c.PyObject_Compare': null,
+
+        'c-api/object.html#c.PyObject_Unicode': "c-api/object.html#c.PyObject_Str",
+
+        'c-api/object.html#c.PyObject_AsFileDescriptor': 'c-api/file.html#c.PyObject_AsFileDescriptor',
+
+        'c-api/typeobj.html#c.PyTypeObject.tp_compare': "c-api/typeobj.html#c.PyTypeObject.tp_as_async",
+
+        // 'c-api/typeobj.html#c.tp_as_number': "c-api/typeobj.html#c.PyTypeObject.tp_as_number",
+        // 'c-api/typeobj.html#c.tp_as_sequence': 'c-api/typeobj.html#c.PyTypeObject.tp_as_sequence',
+        // 'c-api/typeobj.html#c.tp_as_mapping': 'c-api/typeobj.html#c.PyTypeObject.tp_as_mapping',
+
+        'c-api/typeobj.html#c.PyNumberMethods.nb_coerce': null,
+
+        'c-api/unicode.html#plain-py-unicode': "c-api/unicode.html#deprecated-py-unicode-apis",
+
+        'c-api/veryhigh.html#c.PyRun_SimpleFileFlags': null,
+
+
+
+        'distributing/index.html#reading-the-guide': "distributing/index.html#reading-the-python-packaging-user-guide",
+
+        'distutils/apiref.html#module-distutils.emxccompiler': null,
+        'distutils/apiref.html#distutils-emxccompiler-os-2-emx-compiler': null,
+
+        // Empty section
+        'distutils/builtdist.html#creating-dumb-built-distributions': null,
+        'distutils/builtdist.html#creating-dumb': null,
+
+        'distutils/examples.html#examples': 'distutils/examples.html#distutils-examples',
+
+        'distutils/sourcedist.html#the-manifest-in-template': null,
+        'distutils/sourcedist.html#manifest-template': null,
+        'distutils/sourcedist.html#principle': null,
+        'distutils/sourcedist.html#commands': null,
+
+
+        'extending/embedding.html#link-reqs': 'extending/embedding.html#compiling',
+
+        'extending/newtypes.html#defining-new-types': 'extending/newtypes_tutorial.html#defining-new-types',
+        'extending/newtypes.html#the-basics': 'extending/newtypes_tutorial.html#the-basics',
+        'extending/newtypes.html#dnt-basics': 'extending/newtypes_tutorial.html#dnt-basics',
+        'extending/newtypes.html#adding-data-and-methods-to-the-basic-example': 'extending/newtypes_tutorial.html#adding-data-and-methods-to-the-basic-example',
+        'extending/newtypes.html#providing-finer-control-over-data-attributes': 'extending/newtypes_tutorial.html#providing-finer-control-over-data-attributes',
+        'extending/newtypes.html#supporting-cyclic-garbage-collection': 'extending/newtypes_tutorial.html#supporting-cyclic-garbage-collection',
+        'extending/newtypes.html#subclassing-other-types': 'extending/newtypes_tutorial.html#subclassing-other-types',
+        'extending/newtypes.html#type-methods': "extending/newtypes.html#defining-extension-types-assorted-topics",
+
+
+        'faq/design.html#why-isn-t-all-memory-freed-when-python-exits': "faq/design.html#why-isn-t-all-memory-freed-when-cpython-exits",
+
+        'faq/extending.html#what-does-systemerror-pyimport-fixupextension-module-yourmodule-not-loaded-mean': null,
+
+        'faq/extending.html#when-importing-module-x-why-do-i-get-undefined-symbol-pyunicodeucs2': null,
+
+        'faq/general.html#upgrading-python': null,
+        'faq/general.html#what-is-this-bsddb185-module-my-application-keeps-complaining-about': null,
+
+        'faq/library.html#how-do-i-run-a-subprocess-with-pipes-connected-to-both-input-and-output': null,
+
+        'faq/library.html#why-is-cpickle-so-slow': null,
+
+        'faq/library.html#if-my-program-crashes-with-a-bsddb-or-anydbm-database-open-it-gets-corrupted-how-come': null,
+
+        'faq/library.html#i-tried-to-open-berkeley-db-file-but-bsddb-produces-bsddb-error-22-invalid-argument-help-how-can-i-restore-my-data': null,
+
+        'faq/programming.html#what-does-unicodeerror-ascii-decoding-encoding-error-ordinal-not-in-range-128-mean': "faq/programming.html#what-does-unicodedecodeerror-or-unicodeencodeerror-error-mean",
+
+        // Dictionaries are now ordered by insertion, question is meaningless.
+        'faq/programming.html#how-can-i-get-a-dictionary-to-display-its-keys-in-a-consistent-order': null,
+        // 'faq/programming.html#dictionaries': "faq/programming.html#i-want-to-do-a-complicated-sort-can-you-do-a-schwartzian-transform-in-python",
+        'faq/programming.html#dictionaries': null,
+
+        // You just use os.kill in modern versions of Python
+        'faq/windows.html#how-do-i-emulate-os-kill-in-windows': null,
+
+        'faq/windows.html#how-do-i-extract-the-downloaded-documentation-on-windows': null,
+
+
+        'glossary.html#term-classic-class': null,
+        'glossary.html#term-integer-division': null,
+        // TODO: is this an old name for named tuples?
+        'glossary.html#term-struct-sequence': "glossary.html#term-named-tuple",
+
+
+        // All have been removed
+        'howto/cporting.html#conditional-compilation': null,
+        'howto/cporting.html#changes-to-object-apis': null,
+        'howto/cporting.html#str-unicode-unification': null,
+        'howto/cporting.html#long-int-unification': null,
+        'howto/cporting.html#module-initialization-and-state': null,
+        'howto/cporting.html#cobject-replaced-with-capsule': null,
+        'howto/cporting.html#other-options': null,
+
+
+        // TODO
+        'install/index.html#best-case-trivial-installation': null,
+        'install/index.html#inst-trivial-install': null,
+        'install/index.html#the-new-standard-distutils': 'install/index.html#inst-new-standard',
+
+
+        'installing/index.html#install-pip-in-versions-of-python-prior-to-python-2-7-9': 'installing/index.html#install-pip-in-versions-of-python-prior-to-python-3-4',
+
+
+        'whatsnew/2.6.html#module-contextlib': 'whatsnew/2.6.html#new-module-contextlib',
+
+
+        // Licenses for removed code
+        'license.html#floating-point-exception-control': null,
+        'license.html#md5-message-digest-algorithm': null,
+
+
+        // Python 2.6
+        'library/2to3.html#2to3fixer-callable': null,
+        'library/2to3.html#2to3fixer-standard_error': 'library/2to3.html#2to3fixer-standarderror',
+
+
+        'library/ast.html#ast': 'library/ast.html#module-ast',
+
+
+        'library/asyncore.html#asyncore-example': 'library/asyncore.html#asyncore-example-1',
+
+
+        'library/bisect.html#examples': 'library/bisect.html#other-examples',
+
+
+        'library/collections.html#abcs-abstract-base-classes': 'library/collections.abc.html#collections-abstract-base-classes',
+
+
+        'library/curses.html#module-curses.wrapper': 'library/curses.html#curses.wrapper',
+        'library/curses.html#curses.wrapper.wrapper': 'library/curses.html#curses.wrapper',
+
+
+        // TODO: check this
+        'library/dis.html#opcode-JUMP_IF_TRUE': null,
+        'library/dis.html#opcode-JUMP_IF_FALSE': null,
+
+
+        'library/doctest.html#grammar-token-directive_options': 'library/doctest.html#grammar-token-directive-options',
+        'library/doctest.html#grammar-token-directive_option': 'library/doctest.html#grammar-token-directive-option',
+        'library/doctest.html#grammar-token-on_or_off': 'library/doctest.html#grammar-token-on-or-off',
+        'library/doctest.html#grammar-token-directive_option_name': 'library/doctest.html#grammar-token-directive-option-name',
+
+
+        'library/functions.html#list': 'library/functions.html#func-list',
+
+
+        'library/hmac.html#hmac.hmac.update': 'library/hmac.html#hmac.HMAC.update',
+        'library/hmac.html#hmac.hmac.digest': 'library/hmac.html#hmac.HMAC.digest',
+        'library/hmac.html#hmac.hmac.hexdigest': 'library/hmac.html#hmac.HMAC.hexdigest',
+        'library/hmac.html#hmac.hmac.copy': 'library/hmac.html#hmac.HMAC.copy',
+
+
+        'library/htmlparser.html#htmlparser-example': 'library/html.parser.html#htmlparser-examples',
+
+
+        'library/idle.html#file-menu': 'library/idle.html#file-menu-shell-and-editor',
+        'library/idle.html#edit-menu': 'library/idle.html#edit-menu-shell-and-editor',
+        // 'library/idle.html#windows-menu': 'library/idle.html#options-menu-shell-and-editor',
+        'library/idle.html#windows-menu': 'library/idle.html#window-menu-shell-and-editor',
+        'library/idle.html#debug-menu-in-the-python-shell-window-only': 'library/idle.html#debug-menu-shell-window-only',
+        'library/idle.html#basic-editing-and-navigation': 'library/idle.html#editing-and-navigation',
+        'library/idle.html#syntax-colors': 'library/idle.html#text-colors',
+        'library/idle.html#startup': 'library/idle.html#startup-and-code-execution',
+
+
+        // These methods are now inherited from (and documented in) the base classes
+        'library/io.html#io.FileIO.read': 'library/io.html#io.RawIOBase.read',
+        'library/io.html#io.FileIO.readall': 'library/io.html#io.RawIOBase.readall',
+        'library/io.html#io.FileIO.write': 'library/io.html#io.RawIOBase.write',
+        'library/io.html#io.TextIOWrapper.errors': 'library/io.html#io.TextIOBase.errors',
+
+
+        // Deleted
+        'library/itertools.html#examples': null,
+        'library/itertools.html#itertools-example': null,
+
+
+        'library/logging.html#logging-tutorial': 'library/logging.html',
+        'library/logging.html#loggers': 'library/logging.html#logger-objects',
+        'library/logging.html#handlers': 'library/logging.html#handler-objects',
+        'library/logging.html#formatters': 'library/logging.html#formatter-objects',
+
+        'library/logging.html#simple-examples': 'howto/logging.html#a-simple-example',
+        'library/logging.html#configuring-logging': 'howto/logging.html#configuring-logging',
+        'library/logging.html#configuring-logging-for-a-library': 'howto/logging.html#configuring-logging-for-a-library',
+        'library/logging.html#library-config': 'howto/logging.html#configuring-logging-for-a-library',
+        'library/logging.html#useful-handlers': 'howto/logging.html#useful-handlers',
+        'library/logging.html#basic-example': 'howto/logging.html#a-simple-example',
+        'library/logging.html#minimal-example': 'howto/logging.html#a-simple-example',
+
+        'library/logging.html#logging-to-multiple-destinations': 'howto/logging-cookbook.html#logging-to-multiple-destinations',
+        'library/logging.html#multiple-destinations': 'howto/logging-cookbook.html#logging-to-multiple-destinations',
+        'library/logging.html#exceptions-raised-during-logging': 'howto/logging.html#exceptions-raised-during-logging',
+        'library/logging.html#logging-exceptions': 'howto/logging.html#exceptions-raised-during-logging',
+        'library/logging.html#adding-contextual-information-to-your-logging-output': 'howto/logging-cookbook.html#adding-contextual-information-to-your-logging-output',
+        'library/logging.html#context-info': 'howto/logging-cookbook.html#adding-contextual-information-to-your-logging-output',
+        'library/logging.html#logging-to-a-single-file-from-multiple-processes': 'howto/logging-cookbook.html#logging-to-a-single-file-from-multiple-processes',
+        'library/logging.html#multiple-processes': 'howto/logging-cookbook.html#logging-to-a-single-file-from-multiple-processes',
+        'library/logging.html#sending-and-receiving-logging-events-across-a-network': 'howto/logging-cookbook.html#sending-and-receiving-logging-events-across-a-network',
+        'library/logging.html#network-logging': 'howto/logging-cookbook.html#sending-and-receiving-logging-events-across-a-network',
+        // Missing short name for this section
+        'library/logging.html#using-arbitrary-objects-as-messages': 'howto/logging.html#using-arbitrary-objects-as-messages',
+        'library/logging.html#optimization': 'howto/logging.html#optimization',
+
+        'library/logging.html#streamhandler': 'library/logging.handlers.html#streamhandler',
+        'library/logging.html#stream-handler': 'library/logging.handlers.html#stream-handler',
+        'library/logging.html#logging.StreamHandler': 'library/logging.handlers.html#logging.StreamHandler',
+        'library/logging.html#logging.StreamHandler.emit': 'library/logging.handlers.html#logging.StreamHandler.emit',
+        'library/logging.html#logging.StreamHandler.flush': 'library/logging.handlers.html#logging.StreamHandler.flush',
+        'library/logging.html#filehandler': 'library/logging.handlers.html#filehandler',
+        'library/logging.html#file-handler': 'library/logging.handlers.html#file-handler',
+        'library/logging.html#logging.FileHandler': 'library/logging.handlers.html#logging.FileHandler',
+        'library/logging.html#logging.FileHandler.close': 'library/logging.handlers.html#logging.FileHandler.close',
+        'library/logging.html#logging.FileHandler.emit': 'library/logging.handlers.html#logging.FileHandler.emit',
+        'library/logging.html#null-handler': 'library/logging.handlers.html#null-handler',
+        'library/logging.html#watchedfilehandler': 'library/logging.handlers.html#watchedfilehandler',
+        'library/logging.html#watched-file-handler': 'library/logging.handlers.html#watched-file-handler',
+        'library/logging.html#logging.WatchedFileHandler': 'library/logging.handlers.html#logging.handlers.WatchedFileHandler',
+        'library/logging.html#logging.WatchedFileHandler.emit': 'library/logging.handlers.html#logging.handlers.WatchedFileHandler.emit',
+        'library/logging.html#rotatingfilehandler': 'library/logging.handlers.html#rotatingfilehandler',
+        'library/logging.html#rotating-file-handler': 'library/logging.handlers.html#rotating-file-handler',
+        'library/logging.html#logging.RotatingFileHandler': 'library/logging.handlers.html#logging.handlers.RotatingFileHandler',
+        'library/logging.html#logging.RotatingFileHandler.doRollover': 'library/logging.handlers.html#logging.handlers.RotatingFileHandler.doRollover',
+        'library/logging.html#logging.RotatingFileHandler.emit': 'library/logging.handlers.html#logging.handlers.RotatingFileHandler.emit',
+        'library/logging.html#timedrotatingfilehandler': 'library/logging.handlers.html#timedrotatingfilehandler',
+        'library/logging.html#timed-rotating-file-handler': 'library/logging.handlers.html#timed-rotating-file-handler',
+        'library/logging.html#logging.TimedRotatingFileHandler': 'library/logging.handlers.html#logging.handlers.TimedRotatingFileHandler',
+        'library/logging.html#logging.TimedRotatingFileHandler.doRollover': 'library/logging.handlers.html#logging.handlers.TimedRotatingFileHandler.doRollover',
+        'library/logging.html#logging.TimedRotatingFileHandler.emit': 'library/logging.handlers.html#logging.handlers.TimedRotatingFileHandler.emit',
+        'library/logging.html#sockethandler': 'library/logging.handlers.html#sockethandler',
+        'library/logging.html#socket-handler': 'library/logging.handlers.html#socket-handler',
+        'library/logging.html#logging.SocketHandler': 'library/logging.handlers.html#logging.handlers.SocketHandler',
+        'library/logging.html#logging.SocketHandler.close': 'library/logging.handlers.html#logging.handlers.SocketHandler.close',
+        'library/logging.html#logging.SocketHandler.emit': 'library/logging.handlers.html#logging.handlers.SocketHandler.emit',
+        'library/logging.html#logging.SocketHandler.handleError': 'library/logging.handlers.html#logging.handlers.SocketHandler.handleError',
+        'library/logging.html#logging.SocketHandler.makeSocket': 'library/logging.handlers.html#logging.handlers.SocketHandler.makeSocket',
+        'library/logging.html#logging.SocketHandler.makePickle': 'library/logging.handlers.html#logging.handlers.SocketHandler.makePickle',
+        'library/logging.html#logging.SocketHandler.send': 'library/logging.handlers.html#logging.handlers.SocketHandler.send',
+        'library/logging.html#datagramhandler': 'library/logging.handlers.html#datagramhandler',
+        'library/logging.html#datagram-handler': 'library/logging.handlers.html#datagram-handler',
+        'library/logging.html#logging.DatagramHandler': 'library/logging.handlers.html#logging.handlers.DatagramHandler',
+        'library/logging.html#logging.DatagramHandler.emit': 'library/logging.handlers.html#logging.handlers.DatagramHandler.emit',
+        'library/logging.html#logging.DatagramHandler.makeSocket': 'library/logging.handlers.html#logging.handlers.DatagramHandler.makeSocket',
+        'library/logging.html#logging.DatagramHandler.send': 'library/logging.handlers.html#logging.handlers.DatagramHandler.send',
+        'library/logging.html#sysloghandler': 'library/logging.handlers.html#sysloghandler',
+        'library/logging.html#syslog-handler': 'library/logging.handlers.html#syslog-handler',
+        'library/logging.html#logging.SysLogHandler': 'library/logging.handlers.html#logging.handlers.SysLogHandler',
+        'library/logging.html#logging.SysLogHandler.close': 'library/logging.handlers.html#logging.handlers.SysLogHandler.close',
+        'library/logging.html#logging.SysLogHandler.emit': 'library/logging.handlers.html#logging.handlers.SysLogHandler.emit',
+        'library/logging.html#logging.SysLogHandler.encodePriority': 'library/logging.handlers.html#logging.handlers.SysLogHandler.encodePriority',
+        'library/logging.html#logging.SysLogHandler.mapPriority': 'library/logging.handlers.html#logging.handlers.SysLogHandler.mapPriority',
+        'library/logging.html#nteventloghandler': 'library/logging.handlers.html#nteventloghandler',
+        'library/logging.html#nt-eventlog-handler': 'library/logging.handlers.html#nt-eventlog-handler',
+        'library/logging.html#logging.NTEventLogHandler': 'library/logging.handlers.html#logging.handlers.NTEventLogHandler',
+        'library/logging.html#logging.NTEventLogHandler.close': 'library/logging.handlers.html#logging.handlers.NTEventLogHandler.close',
+        'library/logging.html#logging.NTEventLogHandler.emit': 'library/logging.handlers.html#logging.handlers.NTEventLogHandler.emit',
+        'library/logging.html#logging.NTEventLogHandler.getEventCategory': 'library/logging.handlers.html#logging.handlers.NTEventLogHandler.getEventCategory',
+        'library/logging.html#logging.NTEventLogHandler.getEventType': 'library/logging.handlers.html#logging.handlers.NTEventLogHandler.getEventType',
+        'library/logging.html#logging.NTEventLogHandler.getMessageID': 'library/logging.handlers.html#logging.handlers.NTEventLogHandler.getMessageID',
+        'library/logging.html#smtphandler': 'library/logging.handlers.html#smtphandler',
+        'library/logging.html#smtp-handler': 'library/logging.handlers.html#smtp-handler',
+        'library/logging.html#logging.SMTPHandler': 'library/logging.handlers.html#logging.handlers.SMTPHandler',
+        'library/logging.html#logging.SMTPHandler.emit': 'library/logging.handlers.html#logging.handlers.SMTPHandler.emit',
+        'library/logging.html#logging.SMTPHandler.getSubject': 'library/logging.handlers.html#logging.handlers.SMTPHandler.getSubject',
+        'library/logging.html#memoryhandler': 'library/logging.handlers.html#memoryhandler',
+        'library/logging.html#memory-handler': 'library/logging.handlers.html#memory-handler',
+        'library/logging.html#logging.BufferingHandler': 'library/logging.handlers.html#logging.handlers.BufferingHandler',
+        'library/logging.html#logging.BufferingHandler.emit': 'library/logging.handlers.html#logging.handlers.BufferingHandler.emit',
+        'library/logging.html#logging.BufferingHandler.flush': 'library/logging.handlers.html#logging.handlers.BufferingHandler.flush',
+        'library/logging.html#logging.BufferingHandler.shouldFlush': 'library/logging.handlers.html#logging.handlers.BufferingHandler.shouldFlush',
+        'library/logging.html#logging.MemoryHandler': 'library/logging.handlers.html#logging.handlers.MemoryHandler',
+        'library/logging.html#logging.MemoryHandler.close': 'library/logging.handlers.html#logging.handlers.MemoryHandler.close',
+        'library/logging.html#logging.MemoryHandler.flush': 'library/logging.handlers.html#logging.handlers.MemoryHandler.flush',
+        'library/logging.html#logging.MemoryHandler.setTarget': 'library/logging.handlers.html#logging.handlers.MemoryHandler.setTarget',
+        'library/logging.html#logging.MemoryHandler.shouldFlush': 'library/logging.handlers.html#logging.handlers.MemoryHandler.shouldFlush',
+        'library/logging.html#httphandler': 'library/logging.handlers.html#httphandler',
+        'library/logging.html#http-handler': 'library/logging.handlers.html#http-handler',
+        'library/logging.html#logging.HTTPHandler': 'library/logging.handlers.html#logging.handlers.HTTPHandler',
+        'library/logging.html#logging.HTTPHandler.emit': 'library/logging.handlers.html#logging.handlers.HTTPHandler.emit',
+        'library/logging.html#formatter': 'library/logging.html#formatter-objects',
+
+        'library/logging.html#configuration': 'library/logging.config.html',
+        'library/logging.html#configuration-functions': 'library/logging.config.html#configuration-functions',
+        'library/logging.html#logging-config-api': 'library/logging.config.html#logging-config-api',
+        'library/logging.html#logging.fileConfig': 'library/logging.config.html#logging.config.fileConfig',
+        'library/logging.html#logging.listen': 'library/logging.config.html#logging.config.listen',
+        'library/logging.html#logging.stopListening': 'library/logging.config.html#logging.config.stopListening',
+        'library/logging.html#configuration-file-format': 'library/logging.config.html#configuration-file-format',
+        'library/logging.html#logging-config-fileformat': 'library/logging.config.html#logging-config-fileformat',
+
+        'library/logging.html#configuration-server-example': 'howto/logging-cookbook.html#configuration-server-example',
+        'library/logging.html#more-examples': 'howto/logging-cookbook.html',
+        'library/logging.html#multiple-handlers-and-formatters': 'howto/logging-cookbook.html#multiple-handlers-and-formatters',
+        'library/logging.html#using-logging-in-multiple-modules': 'howto/logging-cookbook.html#using-logging-in-multiple-modules',
+
+
+        'library/mimetypes.html#mimetypes.MimeTypes.common_types': 'library/mimetypes.html#mimetypes.common_types',
+
+
+        'library/mmap.html#mmap.close': 'library/mmap.html#mmap.mmap.close',
+        'library/mmap.html#mmap.find': 'library/mmap.html#mmap.mmap.find',
+        'library/mmap.html#mmap.flush': 'library/mmap.html#mmap.mmap.flush',
+        'library/mmap.html#mmap.move': 'library/mmap.html#mmap.mmap.move',
+        'library/mmap.html#mmap.read': 'library/mmap.html#mmap.mmap.read',
+        'library/mmap.html#mmap.read_byte': 'library/mmap.html#mmap.mmap.read_byte',
+        'library/mmap.html#mmap.readline': 'library/mmap.html#mmap.mmap.readline',
+        'library/mmap.html#mmap.resize': 'library/mmap.html#mmap.mmap.resize',
+        'library/mmap.html#mmap.rfind': 'library/mmap.html#mmap.mmap.rfind',
+        'library/mmap.html#mmap.seek': 'library/mmap.html#mmap.mmap.seek',
+        'library/mmap.html#mmap.size': 'library/mmap.html#mmap.mmap.size',
+        'library/mmap.html#mmap.tell': 'library/mmap.html#mmap.mmap.tell',
+        'library/mmap.html#mmap.write': 'library/mmap.html#mmap.mmap.write',
+        'library/mmap.html#mmap.write_byte': 'library/mmap.html#mmap.mmap.write_byte',
+
+
+        'library/multiprocessing.html#multiprocessing.Queue.get_no_wait': 'library/multiprocessing.html#multiprocessing.Queue.get_nowait',
+
+        'library/multiprocessing.html#multiprocessing.Connection': 'library/multiprocessing.html#multiprocessing.connection.Connection',
+        'library/multiprocessing.html#multiprocessing.Connection.send': 'library/multiprocessing.html#multiprocessing.connection.Connection.send',
+        'library/multiprocessing.html#multiprocessing.Connection.recv': 'library/multiprocessing.html#multiprocessing.connection.Connection.recv',
+        'library/multiprocessing.html#multiprocessing.Connection.fileno': 'library/multiprocessing.html#multiprocessing.connection.Connection.fileno',
+        'library/multiprocessing.html#multiprocessing.Connection.close': 'library/multiprocessing.html#multiprocessing.connection.Connection.close',
+        'library/multiprocessing.html#multiprocessing.Connection.poll': 'library/multiprocessing.html#multiprocessing.connection.Connection.poll',
+        'library/multiprocessing.html#multiprocessing.Connection.send_bytes': 'library/multiprocessing.html#multiprocessing.connection.Connection.send_bytes',
+        'library/multiprocessing.html#multiprocessing.Connection.recv_bytes': 'library/multiprocessing.html#multiprocessing.connection.Connection.recv_bytes',
+        'library/multiprocessing.html#multiprocessing.Connection.recv_bytes_into': 'library/multiprocessing.html#multiprocessing.connection.Connection.recv_bytes_into',
+
+        'library/multiprocessing.html#namespace-objects': 'library/multiprocessing.html#multiprocessing.managers.Namespace',
+        'library/multiprocessing.html#multiprocessing.connection.answerChallenge': 'library/multiprocessing.html#multiprocessing.connection.answer_challenge',
+
+
+        // There were two "examples", the second one was removed
+        'library/parser.html#examples': 'library/parser.html#example-emulation-of-compile',
+        'library/parser.html#st-examples': 'library/parser.html#example-emulation-of-compile',
+        'library/parser.html#emulation-of-compile': 'library/parser.html#example-emulation-of-compile',
+        'library/parser.html#information-discovery': null,
+
+
+        'library/profile.html#cProfile.run': 'library/profile.html#profile.run',
+        'library/profile.html#cProfile.runctx': 'library/profile.html#profile.runctx',
+        'library/profile.html#profile-limits': 'library/profile.html#profile-limitations',
+        'library/profile.html#extensions-deriving-better-profilers': 'library/profile.html#using-a-custom-timer',
+        'library/profile.html#profiler-extensions': 'library/profile.html#using-a-custom-timer',
+
+
+        // https://docs.python.org/3/library/re.html
+        'library/re.html#matching-vs-searching': 'library/re.html#search-vs-match',
+        'library/re.html#matching-searching': 'library/re.html#search-vs-match',
+        // Removed section, I think because re no longer does recursion.
+        'library/re.html#avoiding-recursion': null,
+
+
+        'library/repr.html#module-repr': 'library/reprlib.html#module-reprlib',
+
+
+        'library/shutil.html#example': 'library/shutil.html#shutil-copytree-example',
+        'library/shutil.html#shutil-example': 'library/shutil.html#shutil-copytree-example',
+
+
+        'library/site.html#envvar-PYTHONNOUSERSITE': 'using/cmdline.html#envvar-PYTHONNOUSERSITE',
+        'library/site.html#envvar-PYTHONUSERBASE': 'using/cmdline.html#envvar-PYTHONUSERBASE',
+
+
+        'library/socketserver.html#requesthandler-objects': 'library/socketserver.html#request-handler-objects',
+        'library/socketserver.html#SocketServer.RequestHandler.finish': 'library/socketserver.html#socketserver.BaseRequestHandler.finish',
+        'library/socketserver.html#SocketServer.RequestHandler.handle': 'library/socketserver.html#socketserver.BaseRequestHandler.handle',
+        'library/socketserver.html#SocketServer.RequestHandler.setup': 'library/socketserver.html#socketserver.BaseRequestHandler.setup',
+
+
+        'library/ssl.html#sslsocket-objects': 'library/ssl.html#ssl-sockets',
+
+
+        'library/stdtypes.html#bit-string-operations-on-integer-types': 'library/stdtypes.html#bitwise-operations-on-integer-types',
+
+        'library/stdtypes.html#sequence-types-str-unicode-list-tuple-buffer-xrange': 'library/stdtypes.html#sequence-types-list-tuple-range',
+
+        'library/stdtypes.html#set.isdisjoint': 'library/stdtypes.html#frozenset.isdisjoint',
+        'library/stdtypes.html#set.issubset': 'library/stdtypes.html#frozenset.issubset',
+        'library/stdtypes.html#set.issuperset': 'library/stdtypes.html#frozenset.issuperset',
+        'library/stdtypes.html#set.union': 'library/stdtypes.html#frozenset.union',
+        'library/stdtypes.html#set.intersection': 'library/stdtypes.html#frozenset.intersection',
+        'library/stdtypes.html#set.difference': 'library/stdtypes.html#frozenset.difference',
+        'library/stdtypes.html#set.symmetric_difference': 'library/stdtypes.html#frozenset.symmetric_difference',
+        'library/stdtypes.html#set.copy': 'library/stdtypes.html#frozenset.copy',
+        'library/stdtypes.html#set.update': 'library/stdtypes.html#frozenset.update',
+        'library/stdtypes.html#set.intersection_update': 'library/stdtypes.html#frozenset.intersection_update',
+        'library/stdtypes.html#set.difference_update': 'library/stdtypes.html#frozenset.difference_update',
+        'library/stdtypes.html#set.symmetric_difference_update': 'library/stdtypes.html#frozenset.symmetric_difference_update',
+        'library/stdtypes.html#set.add': 'library/stdtypes.html#frozenset.add',
+        'library/stdtypes.html#set.remove': 'library/stdtypes.html#frozenset.remove',
+        'library/stdtypes.html#set.discard': 'library/stdtypes.html#frozenset.discard',
+        'library/stdtypes.html#set.pop': 'library/stdtypes.html#frozenset.pop',
+        'library/stdtypes.html#set.clear': 'library/stdtypes.html#frozenset.clear',
+
+        'library/stdtypes.html#class.__name__': 'library/stdtypes.html#definition.__name__',
+
+
+        'library/string.html#grammar-token-replacement_field': 'library/string.html#grammar-token-replacement-field',
+        'library/string.html#grammar-token-field_name': 'library/string.html#grammar-token-field-name',
+        'library/string.html#grammar-token-attribute_name': 'library/string.html#grammar-token-attribute-name',
+        'library/string.html#grammar-token-element_index': 'library/string.html#grammar-token-element-index',
+        'library/string.html#grammar-token-index_string': 'library/string.html#grammar-token-index-string',
+        'library/string.html#grammar-token-format_spec': 'library/string.html#grammar-token-format-spec',
+
+
+        'library/subprocess.html#convenience-functions': 'library/subprocess.html#older-high-level-api',
+
+
+        // Removed function
+        'library/tabnanny.html#tabnanny.tokeneater': null,
+
+
+        'library/tarfile.html#tarfile-mod': 'library/tarfile.html#module-tarfile',
+
+
+        // https://docs.python.org/3/library/test.html
+
+        'library/test.html#running-tests-using-test-regrtest': 'library/test.html#running-tests-using-the-command-line-interface',
+        'library/test.html#test.test_support.TestFailed': 'library/test.html#test.support.TestFailed',
+        // TODO: subclass of TestFailed, removed. Still redirect?
+        'library/test.html#test.test_support.TestSkipped': null,
+        'library/test.html#test.test_support.ResourceDenied': 'library/test.html#test.support.ResourceDenied',
+        'library/test.html#test.test_support.verbose': 'library/test.html#test.support.verbose',
+        'library/test.html#test.test_support.have_unicode': null,
+        'library/test.html#test.test_support.is_jython': 'library/test.html#test.support.is_jython',
+        'library/test.html#test.test_support.TESTFN': 'library/test.html#test.support.TESTFN',
+        'library/test.html#test.test_support.forget': 'library/test.html#test.support.forget',
+        'library/test.html#test.test_support.is_resource_enabled': 'library/test.html#test.support.is_resource_enabled',
+        'library/test.html#test.test_support.requires': 'library/test.html#test.support.requires',
+        'library/test.html#test.test_support.findfile': 'library/test.html#test.support.findfile',
+        'library/test.html#test.test_support.run_unittest': 'library/test.html#test.support.run_unittest',
+        'library/test.html#test.test_support.check_warnings': 'library/test.html#test.support.check_warnings',
+        'library/test.html#test.test_support.captured_stdout': 'library/test.html#test.support.captured_stdout',
+        'library/test.html#test.test_support.TransientResource': 'library/test.html#test.support.TransientResource',
+        'library/test.html#test.test_support.EnvironmentVarGuard': 'library/test.html#test.support.EnvironmentVarGuard',
+        'library/test.html#test.test_support.EnvironmentVarGuard.set': 'library/test.html#test.support.EnvironmentVarGuard.set',
+        'library/test.html#test.test_support.EnvironmentVarGuard.unset': 'library/test.html#test.support.EnvironmentVarGuard.unset',
+        'library/test.html#test.test_support.WarningsRecorder': 'library/test.html#test.support.WarningsRecorder',
+
+
+        // Section header deleted
+        'library/trace.html#meta-options': 'library/trace.html#command-line-usage',
+        'library/trace.html#programming-interface': 'library/trace.html#programmatic-interface',
+
+
+        'library/unittest.html#testresult-objects': 'library/unittest.html#unittest.TestResult',
+        'library/unittest.html#testloader-objects': 'library/unittest.html#unittest.TestLoader',
+
+
+        // https://docs.python.org/2.6/library/urllib2.html#urllib2.HTTPErrorProcessor.unknown_open
+        // TODO: first one is probably right
+        // 'library/urllib2.html#urllib2.HTTPErrorProcessor.unknown_open': 'library/urllib.request.html#urllib.request.HTTPErrorProcessor.http_response',
+        // 'library/urllib2.html#urllib2.HTTPErrorProcessor.unknown_open': 'library/urllib.request.html#urllib.request.BaseHandler.unknown_open',
+        'library/urllib2.html#urllib2.HTTPErrorProcessor.unknown_open': null,
+
+
+        // TODO: base class was removed. it's just a namedtuple
+        // https://github.com/python/cpython/blob/364b5ead1584583db91ef7f9d9f87f01bfbb5774/Lib/urllib/parse.py#L248-L249
+        'library/urlparse.html#urlparse.BaseResult': null,
+
+
+        // https://docs.python.org/3/library/xml.etree.elementtree.html
+        'library/xml.etree.elementtree.html#the-element-interface': 'library/xml.etree.elementtree.html#element-objects',
+        'library/xml.etree.elementtree.html#elementtree-element-interface': 'library/xml.etree.elementtree.html#element-objects',
+
+        // TODO: class name changed and has no .feed() method
+        'library/xml.etree.elementtree.html#xmltreebuilder-objects': 'library/xml.etree.elementtree.html#treebuilder-objects',
+        'library/xml.etree.elementtree.html#elementtree-xmltreebuilder-objects': 'library/xml.etree.elementtree.html#elementtree-treebuilder-objects',
+        'library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder': 'library/xml.etree.elementtree.html#xml.etree.ElementTree.TreeBuilder',
+        'library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder.close': 'library/xml.etree.elementtree.html#xml.etree.ElementTree.TreeBuilder.close',
+        'library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder.doctype': 'library/xml.etree.elementtree.html#xml.etree.ElementTree.TreeBuilder.doctype',
+        'library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder.feed': 'library/xml.etree.elementtree.html#xml.etree.ElementTree.TreeBuilder',
+        // 'library/xml.etree.elementtree.html#xmltreebuilder-objects': null,
+        // 'library/xml.etree.elementtree.html#elementtree-xmltreebuilder-objects': null,
+        // 'library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder': null,
+        // 'library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder.close': null,
+        // 'library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder.doctype': null,
+        // 'library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder.feed': null,
     };
 
     let pyVersion, isEnabled;
