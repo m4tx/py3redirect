@@ -67,6 +67,8 @@
         'library/pickle.html#module-cPickle': 'library/pickle.html',
 
         'library/__builtin__.html': 'library/builtins.html',
+        'library/__builtin__.html#module-__builtin__': 'library/builtins.html#module-builtins',
+        'library/__builtin__.html#builtin-built-in-objects': 'library/builtins.html#module-builtins',
 
         'library/copy_reg.html': 'library/copyreg.html',
 
@@ -258,47 +260,47 @@
         // Not part of 2to3
 
         // All other html files removed from Python 2
-        // 'c-api/class.html': '',
-        // 'c-api/cobject.html': '',
+        // 'c-api/class.html': null,
+        // 'c-api/cobject.html': null,
         // 'c-api/int.html': 'c-api/long.html',
-        // 'c-api/string.html': '',
-        // 'howto/doanddont.html': '',
-        // 'howto/webservers.html': '',
-        // 'library/aepack.html': '',
-        // 'library/aetools.html': '',
-        // 'library/aetypes.html': '',
-        // 'library/al.html': '',
-        // 'library/autogil.html': '',
-        // 'library/bastion.html': '',
-        // 'library/bsddb.html': '',
-        // 'library/carbon.html': '',
-        // 'library/cd.html': '',
-        // 'library/colorpicker.html': '',
-        // 'library/compiler.html': '',
-        // 'library/dbhash.html': '',
-        // 'library/dircache.html': '',
+        // 'c-api/string.html': null,
+        // 'howto/doanddont.html': null,
+        // 'howto/webservers.html': null,
+        // 'library/aepack.html': null,
+        // 'library/aetools.html': null,
+        // 'library/aetypes.html': null,
+        // 'library/al.html': null,
+        // 'library/autogil.html': null,
+        // 'library/bastion.html': null,
+        // 'library/bsddb.html': null,
+        // 'library/carbon.html': null,
+        // 'library/cd.html': null,
+        // 'library/colorpicker.html': null,
+        // 'library/compiler.html': null,
+        // 'library/dbhash.html': null,
+        // 'library/dircache.html': null,
         // 'library/dl.html': 'library/ctypes.html',
-        // 'library/easydialogs.html': '',
+        // 'library/easydialogs.html': null,
         'library/email-examples.html': 'library/email.examples.html',
-        // 'library/fl.html': '',
-        // 'library/fm.html': '',
-        // 'library/fpectl.html': '',
-        // 'library/fpformat.html': '',
-        // 'library/framework.html': '',
-        // 'library/future_builtins.html': '',
-        // 'library/gensuitemodule.html': '',
-        // 'library/gl.html': '',
+        // 'library/fl.html': null,
+        // 'library/fm.html': null,
+        // 'library/fpectl.html': null,
+        // 'library/fpformat.html': null,
+        // 'library/framework.html': null,
+        // 'library/future_builtins.html': null,
+        // 'library/gensuitemodule.html': null,
+        // 'library/gl.html': null,
         // 'library/hotshot.html': 'library/profile.html',
-        // 'library/ic.html': '',
-        // 'library/imageop.html': '',
-        // 'library/imgfile.html': '',
-        // 'library/imputil.html': '',
-        // 'library/jpeg.html': '',
-        // 'library/mac.html': '',
-        // 'library/macos.html': '',
-        // 'library/macosa.html': '',
-        // 'library/macostools.html': '',
-        // 'library/macpath.html': '',
+        // 'library/ic.html': null,
+        // 'library/imageop.html': null,
+        // 'library/imgfile.html': null,
+        // 'library/imputil.html': null,
+        // 'library/jpeg.html': null,
+        // 'library/mac.html': null,
+        // 'library/macos.html': null,
+        // 'library/macosa.html': null,
+        // 'library/macostools.html': null,
+        // 'library/macpath.html': null,
         'library/md5.html': 'library/hashlib.html',
         // 'library/mhlib.html': 'library/mailbox.html',
         // 'library/mimetools.html': 'library/email.html',
@@ -307,25 +309,25 @@
         // 'library/miniaeframe.html': 'library/email.html',
         // Redirect to library/email.html ?
         'library/multifile.html': null,
-        // 'library/mutex.html': '',
-        // 'library/new.html': '',
+        // 'library/mutex.html': null,
+        // 'library/new.html': null,
         // 'library/popen2.html': 'library/subprocess.html',
-        // 'library/posixfile.html': '',
-        // 'library/restricted.html': '',
-        // 'library/rexec.html': '',
+        // 'library/posixfile.html': null,
+        // 'library/restricted.html': null,
+        // 'library/rexec.html': null,
         // 'library/rfc822.html': 'library/email.html',
         // https://docs.python.org/whatsnew/3.0.html#library-changes
         'library/sets.html': 'library/stdtypes.html#set',
-        // 'library/sgi.html': '',
-        // 'library/sgmllib.html': '',
+        // 'library/sgi.html': null,
+        // 'library/sgmllib.html': null,
         'library/sha.html': 'library/hashlib.html',
         // 'library/someos.html': 'library/index.html',
-        // 'library/statvfs.html': '',
+        // 'library/statvfs.html': null,
         // This page is a list of links of related libraries
         'library/strings.html': 'library/text.html',
-        // 'library/sun.html': '',
-        // 'library/sunaudio.html': '',
-        // 'library/user.html': '',
+        // 'library/sun.html': null,
+        // 'library/sunaudio.html': null,
+        // 'library/user.html': null,
 
         'library/collections.html#collections-abstract-base-classes': 'library/collections.abc.html#collections-abstract-base-classes',
         'library/collections.html#collections-high-performance-container-datatypes': 'library/collections.html#collections-container-datatypes',
@@ -1072,14 +1074,13 @@
         'library/simplehttpserver.html#SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map': 'library/http.server.html#http.server.SimpleHTTPRequestHandler.extensions_map',
         'library/simplehttpserver.html#SimpleHTTPServer.SimpleHTTPRequestHandler.server_version': 'library/http.server.html#http.server.SimpleHTTPRequestHandler.server_version',
         'library/simplehttpserver.html#module-SimpleHTTPServer': 'library/http.server.html#module-http.server',
-        // 'library/simplehttpserver.html#simplehttpserver-simple-http-request-handler': 'library/http.server.html#http.server.SimpleHTTPRequestHandler',
+        'library/simplehttpserver.html#simplehttpserver-simple-http-request-handler': 'library/http.server.html#http.server.SimpleHTTPRequestHandler',
 
         'library/cgihttpserver.html#CGIHTTPServer.CGIHTTPRequestHandler': 'library/http.server.html#http.server.CGIHTTPRequestHandler',
         'library/cgihttpserver.html#CGIHTTPServer.CGIHTTPRequestHandler.cgi_directories': 'library/http.server.html#http.server.CGIHTTPRequestHandler.cgi_directories',
         'library/cgihttpserver.html#CGIHTTPServer.CGIHTTPRequestHandler.do_POST': 'library/http.server.html#http.server.CGIHTTPRequestHandler.do_POST',
         'library/cgihttpserver.html#cgihttpserver-cgi-capable-http-request-handler': 'library/http.server.html#http.server-cgi-capable-http-request-handler',
         'library/cgihttpserver.html#module-CGIHTTPServer': 'library/http.server.html#http.server.CGIHTTPRequestHandler',
-
 
         'library/httplib.html#httplib-examples': 'library/http.client.html#examples',
         'library/httplib.html#httplib-http-protocol-client': 'library/http.client.html#http.client-http-protocol-client',
@@ -1490,10 +1491,6 @@
         'library/sets.html#sets.ImmutableSet': 'library/stdtypes.html#frozenset',
 
 
-        'library/__builtin__.html#module-__builtin__': 'library/builtins.html#module-builtins',
-        'library/__builtin__.html#builtin-built-in-objects': 'library/builtins.html#module-builtins',
-
-
         'library/basehttpserver.html#module-BaseHTTPServer': 'library/http.server.html#module-http.server',
         'library/basehttpserver.html#basehttpserver-basic-http-server': 'library/http.server.html#module-http.server',
         'library/basehttpserver.html#more-examples': null,
@@ -1560,9 +1557,6 @@
         'library/random.html#random.jumpahead': null,
         'library/random.html#random.WichmannHill': null,
         'library/random.html#random.whseed': null,
-
-
-        'library/simplehttpserver.html#simplehttpserver-simple-http-request-handler': 'library/http.server.html#http.server.SimpleHTTPRequestHandler',
 
 
         'c-api/concrete.html#mapping-objects': 'c-api/concrete.html#container-objects',
@@ -1685,14 +1679,14 @@
 
         'library/sets.html#module-sets': 'library/stdtypes.html#set',
         'library/sets.html#sets-unordered-collections-of-unique-elements': 'library/stdtypes.html#set',
-        // 'library/sets.html#sets.Set': 'library/stdtypes.html#set',
-        // 'library/sets.html#set-objects': 'library/stdtypes.html#set',
-        // 'library/sets.html#example': null,
-        // 'library/sets.html#set-example': null,
-        // 'library/sets.html#protocol-for-automatic-conversion-to-immutable': null,
-        // 'library/sets.html#immutable-transforms': null,
-        // 'library/sets.html#comparison-to-the-built-in-set-types': null,
-        // 'library/sets.html#comparison-to-builtin-set': null,
+        'library/sets.html#sets.Set': 'library/stdtypes.html#set',
+        'library/sets.html#set-objects': 'library/stdtypes.html#set',
+        'library/sets.html#example': 'tutorial/datastructures.html#sets',
+        'library/sets.html#set-example': 'tutorial/datastructures.html#sets',
+        'library/sets.html#protocol-for-automatic-conversion-to-immutable': 'library/stdtypes.html#frozenset',
+        'library/sets.html#immutable-transforms': 'library/stdtypes.html#frozenset',
+        'library/sets.html#comparison-to-the-built-in-set-types': null,
+        'library/sets.html#comparison-to-builtin-set': null,
 
 
         'library/simplexmlrpcserver.html#simplexmlrpcserver-basic-xml-rpc-server': 'library/xmlrpc.server.html#simple-xmlrpc-servers',
@@ -1871,12 +1865,12 @@
         'reference/datamodel.html#object.__cmp__': null,
         'reference/datamodel.html#object.__rcmp__': null,
 
-        'reference/datamodel.html#object.__unicode__': "reference/datamodel.html#object.__str__",
+        'reference/datamodel.html#object.__unicode__': 'reference/datamodel.html#object.__str__',
 
-        'reference/datamodel.html#more-attribute-access-for-new-style-classes': "reference/datamodel.html#customizing-attribute-access",
-        'reference/datamodel.html#new-style-attribute-access': "reference/datamodel.html#customizing-attribute-access",
+        'reference/datamodel.html#more-attribute-access-for-new-style-classes': 'reference/datamodel.html#customizing-attribute-access',
+        'reference/datamodel.html#new-style-attribute-access': 'reference/datamodel.html#customizing-attribute-access',
 
-        'reference/datamodel.html#__slots__': "reference/datamodel.html#object.__slots__",
+        'reference/datamodel.html#__slots__': 'reference/datamodel.html#object.__slots__',
 
         'reference/datamodel.html#additional-methods-for-emulation-of-sequence-types': null,
         'reference/datamodel.html#sequence-methods': null,
@@ -1884,14 +1878,14 @@
         'reference/datamodel.html#object.__setslice__': null,
         'reference/datamodel.html#object.__delslice__': null,
 
-        'reference/datamodel.html#object.__div__': "reference/datamodel.html#object.__truediv__",
-        'reference/datamodel.html#object.__rdiv__': "reference/datamodel.html#object.__rtruediv__",
-        'reference/datamodel.html#object.__idiv__': "reference/datamodel.html#object.__itruediv__",
+        'reference/datamodel.html#object.__div__': 'reference/datamodel.html#object.__truediv__',
+        'reference/datamodel.html#object.__rdiv__': 'reference/datamodel.html#object.__rtruediv__',
+        'reference/datamodel.html#object.__idiv__': 'reference/datamodel.html#object.__itruediv__',
 
-        'reference/datamodel.html#object.__long__': "reference/datamodel.html#object.__int__",
+        'reference/datamodel.html#object.__long__': 'reference/datamodel.html#object.__int__',
 
-        // 'reference/datamodel.html#object.__oct__': "reference/datamodel.html#object.__index__",
-        // 'reference/datamodel.html#object.__hex__': "reference/datamodel.html#object.__index__",
+        // 'reference/datamodel.html#object.__oct__': 'reference/datamodel.html#object.__index__',
+        // 'reference/datamodel.html#object.__hex__': 'reference/datamodel.html#object.__index__',
         'reference/datamodel.html#object.__oct__': null,
         'reference/datamodel.html#object.__hex__': null,
 
@@ -1901,53 +1895,53 @@
         'reference/datamodel.html#special-method-lookup-for-old-style-classes': null,
         'reference/datamodel.html#old-style-special-lookup': null,
 
-        'reference/datamodel.html#special-method-lookup-for-new-style-classes': "reference/datamodel.html#special-lookup",
-        'reference/datamodel.html#new-style-special-lookup': "reference/datamodel.html#special-lookup",
+        'reference/datamodel.html#special-method-lookup-for-new-style-classes': 'reference/datamodel.html#special-lookup',
+        'reference/datamodel.html#new-style-special-lookup': 'reference/datamodel.html#special-lookup',
 
 
         // TODO: understanding the grammar docs is harder, check these.
 
         // decorated ::= decorators (classdef | funcdef)
         // in Python 3 this grouping was removed
-        'reference/compound_stmts.html#grammar-token-decorated': "reference/compound_stmts.html#function-definitions",
+        'reference/compound_stmts.html#grammar-token-decorated': 'reference/compound_stmts.html#function-definitions',
         // TODO
-        'reference/compound_stmts.html#grammar-token-sublist': "reference/compound_stmts.html#function-definitions",
+        'reference/compound_stmts.html#grammar-token-sublist': 'reference/compound_stmts.html#function-definitions',
 
-        'reference/expressions.html#grammar-token-list-comprehension': "reference/expressions.html#grammar-token-comprehension",
+        'reference/expressions.html#grammar-token-list-comprehension': 'reference/expressions.html#grammar-token-comprehension',
 
         'reference/expressions.html#grammar-token-list-for': 'reference/expressions.html#grammar-token-comp-for',
 
-        'reference/expressions.html#grammar-token-old-expression-list': "reference/expressions.html#displays-for-lists-sets-and-dictionaries",
-        'reference/expressions.html#grammar-token-old-expression': "reference/expressions.html#grammar-token-expression-nocond",
-        'reference/expressions.html#grammar-token-list-iter': "reference/expressions.html#grammar-token-comp-iter",
-        'reference/expressions.html#grammar-token-list-if': "reference/expressions.html#grammar-token-comp-if",
-        'reference/expressions.html#displays-for-sets-and-dictionaries': "reference/expressions.html#displays-for-lists-sets-and-dictionaries",
+        'reference/expressions.html#grammar-token-old-expression-list': 'reference/expressions.html#displays-for-lists-sets-and-dictionaries',
+        'reference/expressions.html#grammar-token-old-expression': 'reference/expressions.html#grammar-token-expression-nocond',
+        'reference/expressions.html#grammar-token-list-iter': 'reference/expressions.html#grammar-token-comp-iter',
+        'reference/expressions.html#grammar-token-list-if': 'reference/expressions.html#grammar-token-comp-if',
+        'reference/expressions.html#displays-for-sets-and-dictionaries': 'reference/expressions.html#displays-for-lists-sets-and-dictionaries',
 
         // Backtick removed in Python 3
         'reference/expressions.html#string-conversions': null,
         'reference/expressions.html#grammar-token-string-conversion': null,
 
-        'reference/expressions.html#grammar-token-simple-slicing': "reference/expressions.html#grammar-token-slicing",
-        'reference/expressions.html#grammar-token-extended-slicing': "reference/expressions.html#grammar-token-slicing",
-        'reference/expressions.html#grammar-token-short-slice': "reference/expressions.html#grammar-token-proper-slice",
-        'reference/expressions.html#grammar-token-long-slice': "reference/expressions.html#grammar-token-proper-slice",
+        'reference/expressions.html#grammar-token-simple-slicing': 'reference/expressions.html#grammar-token-slicing',
+        'reference/expressions.html#grammar-token-extended-slicing': 'reference/expressions.html#grammar-token-slicing',
+        'reference/expressions.html#grammar-token-short-slice': 'reference/expressions.html#grammar-token-proper-slice',
+        'reference/expressions.html#grammar-token-long-slice': 'reference/expressions.html#grammar-token-proper-slice',
         // TODO: the ... isn't allowed in slices anymore? No clue what it meant before
         'reference/expressions.html#grammar-token-ellipsis': null,
 
-        'reference/expressions.html#grammar-token-keyword-arguments': "reference/expressions.html#grammar-token-keywords-arguments",
+        'reference/expressions.html#grammar-token-keyword-arguments': 'reference/expressions.html#grammar-token-keywords-arguments',
 
-        'reference/expressions.html#grammar-token-old-lambda-expr': "reference/expressions.html#grammar-token-lambda-expr-nocond",
+        'reference/expressions.html#grammar-token-old-lambda-expr': 'reference/expressions.html#grammar-token-lambda-expr-nocond',
 
 
         'reference/lexical_analysis.html#logical': 'reference/lexical_analysis.html#logical-lines',
         'reference/lexical_analysis.html#physical': 'reference/lexical_analysis.html#physical-lines',
 
         // Python identifiers can now contain non-ASCII characters so this is more complicated
-        'reference/lexical_analysis.html#grammar-token-letter': "reference/lexical_analysis.html#identifiers",
-        'reference/lexical_analysis.html#grammar-token-lowercase': "reference/lexical_analysis.html#identifiers",
-        'reference/lexical_analysis.html#grammar-token-uppercase': "reference/lexical_analysis.html#identifiers",
+        'reference/lexical_analysis.html#grammar-token-letter': 'reference/lexical_analysis.html#identifiers',
+        'reference/lexical_analysis.html#grammar-token-lowercase': 'reference/lexical_analysis.html#identifiers',
+        'reference/lexical_analysis.html#grammar-token-uppercase': 'reference/lexical_analysis.html#identifiers',
 
-        'reference/lexical_analysis.html#string-literals': "reference/lexical_analysis.html#string-and-bytes-literals",
+        'reference/lexical_analysis.html#string-literals': 'reference/lexical_analysis.html#string-and-bytes-literals',
 
         // 'reference/lexical_analysis.html#grammar-token-escapeseq': 'reference/lexical_analysis.html#grammar-token-bytesescapeseq',
         'reference/lexical_analysis.html#grammar-token-escapeseq': 'reference/lexical_analysis.html#grammar-token-stringescapeseq',
@@ -1962,14 +1956,14 @@
         'reference/lexical_analysis.html#grammar-token-intpart': 'reference/lexical_analysis.html#grammar-token-digitpart',
 
 
-        // 'reference/simple_stmts.html#the-print-statement': "library/functions.html#print",
-        // 'reference/simple_stmts.html#grammar-token-print-stmt': "library/functions.html#print",
+        // 'reference/simple_stmts.html#the-print-statement': 'library/functions.html#print',
+        // 'reference/simple_stmts.html#grammar-token-print-stmt': 'library/functions.html#print',
         'reference/simple_stmts.html#the-print-statement': null,
         'reference/simple_stmts.html#grammar-token-print-stmt': null,
 
         // Just an alias for identifier
-        // 'reference/simple_stmts.html#grammar-token-name': "reference/lexical_analysis.html#grammar-token-identifier",
-        'reference/simple_stmts.html#grammar-token-name': "reference/simple_stmts.html#the-import-statement",
+        // 'reference/simple_stmts.html#grammar-token-name': 'reference/lexical_analysis.html#grammar-token-identifier',
+        'reference/simple_stmts.html#grammar-token-name': 'reference/simple_stmts.html#the-import-statement',
 
         'reference/simple_stmts.html#grammar-token-future-statement': 'reference/simple_stmts.html#grammar-token-future-stmt',
 
@@ -1983,10 +1977,9 @@
         'reference/toplevel_components.html#grammar-token-input-input': null,
 
 
-
-        'tutorial/classes.html#private-variables-and-class-local-references': "tutorial/classes.html#private-variables",
-        'tutorial/classes.html#exceptions-are-classes-too': "tutorial/errors.html#handling-exceptions",
-        'tutorial/classes.html#tut-exceptionclasses': "tutorial/errors.html#handling-exceptions",
+        'tutorial/classes.html#private-variables-and-class-local-references': 'tutorial/classes.html#private-variables',
+        'tutorial/classes.html#exceptions-are-classes-too': 'tutorial/errors.html#handling-exceptions',
+        'tutorial/classes.html#tut-exceptionclasses': 'tutorial/errors.html#handling-exceptions',
 
 
         // Section removed because list comprehensions (the next section) are preferred
@@ -2006,20 +1999,20 @@
         'tutorial/introduction.html#tut-unicodestrings': 'tutorial/introduction.html#tut-strings',
 
 
-        'using/cmdline.html#using-on-optimizations': "using/cmdline.html#cmdoption-o",
+        'using/cmdline.html#using-on-optimizations': 'using/cmdline.html#cmdoption-o',
         'using/cmdline.html#cmdoption-t': null,
         'using/cmdline.html#cmdoption-3': null,
         'using/cmdline.html#envvar-PYTHONY2K': null,
         'using/cmdline.html#envvar-PYTHONHTTPSVERIFY': null,
-        'using/cmdline.html#envvar-PYTHONSHOWALLOCCOUNT': "using/cmdline.html#id5",
-        'using/cmdline.html#envvar-PYTHONSHOWREFCOUNT': "using/cmdline.html#id5",
+        'using/cmdline.html#envvar-PYTHONSHOWALLOCCOUNT': 'using/cmdline.html#id5',
+        'using/cmdline.html#envvar-PYTHONSHOWREFCOUNT': 'using/cmdline.html#id5',
 
 
         'using/unix.html#editors-and-ides': null,
 
 
-        'using/windows.html#installing-python': "using/windows.html#the-full-installer",
-        'using/windows.html#executing-scripts': "using/windows.html#getting-started",
+        'using/windows.html#installing-python': 'using/windows.html#the-full-installer',
+        'using/windows.html#executing-scripts': 'using/windows.html#getting-started',
         'using/windows.html#py2exe': null,
         'using/windows.html#other-resources': null,
 
@@ -2042,34 +2035,34 @@
         'c-api/number.html#c.PyNumber_Coerce': null,
         'c-api/number.html#c.PyNumber_CoerceEx': null,
 
-        'c-api/number.html#c.PyNumber_Int': "c-api/number.html#c.PyNumber_Long",
+        'c-api/number.html#c.PyNumber_Int': 'c-api/number.html#c.PyNumber_Long',
 
 
-        'c-api/objbuffer.html#abstract-buffer': "c-api/objbuffer.html#old-buffer-protocol",
+        'c-api/objbuffer.html#abstract-buffer': 'c-api/objbuffer.html#old-buffer-protocol',
 
 
         'c-api/object.html#c.PyObject_Cmp': null,
         'c-api/object.html#c.PyObject_Compare': null,
 
-        'c-api/object.html#c.PyObject_Unicode': "c-api/object.html#c.PyObject_Str",
+        'c-api/object.html#c.PyObject_Unicode': 'c-api/object.html#c.PyObject_Str',
 
         'c-api/object.html#c.PyObject_AsFileDescriptor': 'c-api/file.html#c.PyObject_AsFileDescriptor',
 
-        'c-api/typeobj.html#c.PyTypeObject.tp_compare': "c-api/typeobj.html#c.PyTypeObject.tp_as_async",
+        'c-api/typeobj.html#c.PyTypeObject.tp_compare': 'c-api/typeobj.html#c.PyTypeObject.tp_as_async',
 
-        // 'c-api/typeobj.html#c.tp_as_number': "c-api/typeobj.html#c.PyTypeObject.tp_as_number",
+        // 'c-api/typeobj.html#c.tp_as_number': 'c-api/typeobj.html#c.PyTypeObject.tp_as_number',
         // 'c-api/typeobj.html#c.tp_as_sequence': 'c-api/typeobj.html#c.PyTypeObject.tp_as_sequence',
         // 'c-api/typeobj.html#c.tp_as_mapping': 'c-api/typeobj.html#c.PyTypeObject.tp_as_mapping',
 
         'c-api/typeobj.html#c.PyNumberMethods.nb_coerce': null,
 
-        'c-api/unicode.html#plain-py-unicode': "c-api/unicode.html#deprecated-py-unicode-apis",
+        'c-api/unicode.html#plain-py-unicode': 'c-api/unicode.html#deprecated-py-unicode-apis',
 
         'c-api/veryhigh.html#c.PyRun_SimpleFileFlags': null,
 
 
 
-        'distributing/index.html#reading-the-guide': "distributing/index.html#reading-the-python-packaging-user-guide",
+        'distributing/index.html#reading-the-guide': 'distributing/index.html#reading-the-python-packaging-user-guide',
 
         'distutils/apiref.html#module-distutils.emxccompiler': null,
         'distutils/apiref.html#distutils-emxccompiler-os-2-emx-compiler': null,
@@ -2095,10 +2088,10 @@
         'extending/newtypes.html#providing-finer-control-over-data-attributes': 'extending/newtypes_tutorial.html#providing-finer-control-over-data-attributes',
         'extending/newtypes.html#supporting-cyclic-garbage-collection': 'extending/newtypes_tutorial.html#supporting-cyclic-garbage-collection',
         'extending/newtypes.html#subclassing-other-types': 'extending/newtypes_tutorial.html#subclassing-other-types',
-        'extending/newtypes.html#type-methods': "extending/newtypes.html#defining-extension-types-assorted-topics",
+        'extending/newtypes.html#type-methods': 'extending/newtypes.html#defining-extension-types-assorted-topics',
 
 
-        'faq/design.html#why-isn-t-all-memory-freed-when-python-exits': "faq/design.html#why-isn-t-all-memory-freed-when-cpython-exits",
+        'faq/design.html#why-isn-t-all-memory-freed-when-python-exits': 'faq/design.html#why-isn-t-all-memory-freed-when-cpython-exits',
 
         'faq/extending.html#what-does-systemerror-pyimport-fixupextension-module-yourmodule-not-loaded-mean': null,
 
@@ -2115,11 +2108,11 @@
 
         'faq/library.html#i-tried-to-open-berkeley-db-file-but-bsddb-produces-bsddb-error-22-invalid-argument-help-how-can-i-restore-my-data': null,
 
-        'faq/programming.html#what-does-unicodeerror-ascii-decoding-encoding-error-ordinal-not-in-range-128-mean': "faq/programming.html#what-does-unicodedecodeerror-or-unicodeencodeerror-error-mean",
+        'faq/programming.html#what-does-unicodeerror-ascii-decoding-encoding-error-ordinal-not-in-range-128-mean': 'faq/programming.html#what-does-unicodedecodeerror-or-unicodeencodeerror-error-mean',
 
         // Dictionaries are now ordered by insertion, question is meaningless.
         'faq/programming.html#how-can-i-get-a-dictionary-to-display-its-keys-in-a-consistent-order': null,
-        // 'faq/programming.html#dictionaries': "faq/programming.html#i-want-to-do-a-complicated-sort-can-you-do-a-schwartzian-transform-in-python",
+        // 'faq/programming.html#dictionaries': 'faq/programming.html#i-want-to-do-a-complicated-sort-can-you-do-a-schwartzian-transform-in-python',
         'faq/programming.html#dictionaries': null,
 
         // You just use os.kill in modern versions of Python
@@ -2131,7 +2124,7 @@
         'glossary.html#term-classic-class': null,
         'glossary.html#term-integer-division': null,
         // TODO: is this an old name for named tuples?
-        'glossary.html#term-struct-sequence': "glossary.html#term-named-tuple",
+        'glossary.html#term-struct-sequence': 'glossary.html#term-named-tuple',
 
 
         // All have been removed
