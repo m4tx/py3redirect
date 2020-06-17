@@ -74,7 +74,11 @@
 
         'library/repr.html': 'library/reprlib.html',
 
+        'library/scrolledtext.html': 'library/tkinter.scrolledtext.html',
         'library/scrolledtext.html#module-ScrolledText': 'library/tkinter.scrolledtext.html#module-tkinter.scrolledtext',
+        'library/scrolledtext.html#scrolledtext-scrolled-text-widget': 'library/tkinter.scrolledtext.html#tkinter-scrolledtext-scrolled-text-widget',
+        'library/scrolledtext.html#ScrolledText.ScrolledText.frame': 'library/tkinter.scrolledtext.html#tkinter.scrolledtext.ScrolledText.frame',
+        'library/scrolledtext.html#ScrolledText.ScrolledText.vbar': 'library/tkinter.scrolledtext.html#tkinter.scrolledtext.ScrolledText.vbar',
 
         'library/tix.html': 'library/tkinter.tix.html',
         'library/ttk.html': 'library/tkinter.ttk.html',
@@ -99,9 +103,10 @@
         'library/docxmlrpcserver.html': 'library/xmlrpc.server.html',
         'library/simplexmlrpcserver.html': 'library/xmlrpc.server.html',
 
-        'library/httplib.html': 'library/http.client.html',
-        'library/htmllib.html#module-htmlentitydefs': 'library/html.entities.html',
+
         'library/htmlparser.html': 'library/html.parser.html',
+
+        'library/httplib.html': 'library/http.client.html',
         'library/cookie.html': 'library/http.cookies.html',
         'library/cookielib.html': 'library/http.cookiejar.html',
         'library/basehttpserver.html': 'library/http.server.html',
@@ -259,75 +264,88 @@
 
         // Not part of 2to3
 
-        // All other html files removed from Python 2
-        // 'c-api/class.html': null,
-        // 'c-api/cobject.html': null,
+        // All other html files removed from Python 2.6/2.7
+        // TODO: group these logically instead of sorting alphabetically
+        'c-api/class.html': null,
+        'c-api/cobject.html': null,
         // 'c-api/int.html': 'c-api/long.html',
-        // 'c-api/string.html': null,
-        // 'howto/doanddont.html': null,
-        // 'howto/webservers.html': null,
-        // 'library/aepack.html': null,
-        // 'library/aetools.html': null,
-        // 'library/aetypes.html': null,
-        // 'library/al.html': null,
-        // 'library/autogil.html': null,
-        // 'library/bastion.html': null,
-        // 'library/bsddb.html': null,
-        // 'library/carbon.html': null,
-        // 'library/cd.html': null,
-        // 'library/colorpicker.html': null,
-        // 'library/compiler.html': null,
-        // 'library/dbhash.html': null,
-        // 'library/dircache.html': null,
-        // 'library/dl.html': 'library/ctypes.html',
-        // 'library/easydialogs.html': null,
+        'c-api/int.html': null,
+        'c-api/string.html': null,
+        'howto/doanddont.html': null,
+        'howto/webservers.html': null,
+        'library/aepack.html': null,
+        'library/aetools.html': null,
+        'library/aetypes.html': null,
+        'library/al.html': null,
+        'library/autogil.html': null,
+        'library/bastion.html': null,
+        'library/bsddb.html': null,
+        'library/carbon.html': null,
+        'library/cd.html': null,
+        'library/colorpicker.html': null,
+        'library/compiler.html': null,
+        'library/dbhash.html': null,
+        'library/dircache.html': null,
+        // "The dl module has been removed in Python 3. Use the ctypes module instead"
+        'library/dl.html': null,
+        'library/easydialogs.html': null,
         'library/email-examples.html': 'library/email.examples.html',
-        // 'library/fl.html': null,
-        // 'library/fm.html': null,
-        // 'library/fpectl.html': null,
-        // 'library/fpformat.html': null,
-        // 'library/framework.html': null,
-        // 'library/future_builtins.html': null,
-        // 'library/gensuitemodule.html': null,
-        // 'library/gl.html': null,
+        'library/fl.html': null,
+        'library/fm.html': null,
+        'library/fpectl.html': null,
+        'library/fpformat.html': null,
+        'library/framework.html': null,
+        'library/future_builtins.html': null,
+        'library/gensuitemodule.html': null,
+        'library/gl.html': null,
         // 'library/hotshot.html': 'library/profile.html',
-        // 'library/ic.html': null,
-        // 'library/imageop.html': null,
-        // 'library/imgfile.html': null,
-        // 'library/imputil.html': null,
-        // 'library/jpeg.html': null,
-        // 'library/mac.html': null,
-        // 'library/macos.html': null,
-        // 'library/macosa.html': null,
-        // 'library/macostools.html': null,
-        // 'library/macpath.html': null,
+        'library/hotshot.html': null,
+        'library/ic.html': null,
+        'library/imageop.html': null,
+        'library/imgfile.html': null,
+        'library/imputil.html': null,
+        'library/jpeg.html': null,
+        'library/mac.html': null,
+        'library/macos.html': null,
+        'library/macosa.html': null,
+        'library/macostools.html': null,
+        'library/macpath.html': null,
         'library/md5.html': 'library/hashlib.html',
         // 'library/mhlib.html': 'library/mailbox.html',
+        'library/mhlib.html': null,
         // 'library/mimetools.html': 'library/email.html',
+        'library/mimetools.html': null,
         // 'library/mimewriter.html': 'library/email.html',
+        'library/mimewriter.html': null,
         // 'library/mimify.html': 'library/email.html',
-        // 'library/miniaeframe.html': 'library/email.html',
-        // Redirect to library/email.html ?
+        'library/mimify.html': null,
+        // 'library/multifile.html': 'library/email.html',
         'library/multifile.html': null,
-        // 'library/mutex.html': null,
-        // 'library/new.html': null,
+
+        'library/miniaeframe.html': null,
+        'library/mutex.html': null,
+        'library/new.html': null,
         // 'library/popen2.html': 'library/subprocess.html',
-        // 'library/posixfile.html': null,
-        // 'library/restricted.html': null,
-        // 'library/rexec.html': null,
-        // 'library/rfc822.html': 'library/email.html',
+        'library/popen2.html': null,
+        'library/posixfile.html': null,
+        'library/restricted.html': null,
+        'library/rexec.html': null,
         // https://docs.python.org/whatsnew/3.0.html#library-changes
         'library/sets.html': 'library/stdtypes.html#set',
-        // 'library/sgi.html': null,
-        // 'library/sgmllib.html': null,
+        // "SGI IRIX Specific Services" all removed.
+        'library/sgi.html': null,
+        'library/sgmllib.html': null,
         'library/sha.html': 'library/hashlib.html',
+        // "Optional Operating System Services" the modules in this list were moved to many sections
+        // Better to not redirect, then clicking on one of the modules will redirect if it still exists.
         // 'library/someos.html': 'library/index.html',
-        // 'library/statvfs.html': null,
-        // This page is a list of links of related libraries
+        'library/someos.html': null,
+        'library/statvfs.html': null,
+        // This is a list of links to related libraries
         'library/strings.html': 'library/text.html',
-        // 'library/sun.html': null,
-        // 'library/sunaudio.html': null,
-        // 'library/user.html': null,
+        'library/sun.html': null,
+        'library/sunaudio.html': null,
+        'library/user.html': null,
 
         'library/collections.html#collections-abstract-base-classes': 'library/collections.abc.html#collections-abstract-base-classes',
         'library/collections.html#collections-high-performance-container-datatypes': 'library/collections.html#collections-container-datatypes',
@@ -1036,6 +1054,15 @@
         'library/htmlparser.html#htmlparser-simple-html-and-xhtml-parser': 'library/html.parser.html#html.parser-simple-html-and-xhtml-parser',
         'library/htmlparser.html#module-HTMLParser': 'library/html.parser.html#module-html.parser',
 
+        // This module was removed in favor of HTMLParser/html.parser on 3
+        'library/htmllib.html': null,
+        // But this part of it was moved.
+        'library/htmllib.html#module-htmlentitydefs': 'library/html.entities.html',
+        'library/htmllib.html#htmlentitydefs-definitions-of-html-general-entities': 'library/html.entities.html#html-entities-definitions-of-html-general-entities',
+        'library/htmllib.html#htmlentitydefs.entitydefs': 'library/html.entities.html#html.entities.entitydefs',
+        'library/htmllib.html#htmlentitydefs.name2codepoint': 'library/html.entities.html#html.entities.name2codepoint',
+        'library/htmllib.html#htmlentitydefs.codepoint2name': 'library/html.entities.html#html.entities.codepoint2name',
+
 
         'library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler': 'library/http.server.html#http.server.BaseHTTPRequestHandler',
         'library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.MessageClass': 'library/http.server.html#http.server.BaseHTTPRequestHandler.MessageClass',
@@ -1445,6 +1472,47 @@
         'library/email.parser.html#email.parser.FeedParser.close': 'library/email.parser.html#email.parser.BytesFeedParser.close',
         'library/email.parser.html#email.parser.FeedParser.feed': 'library/email.parser.html#email.parser.BytesFeedParser.feed',
         'library/email.parser.html#parser-class-api': 'library/email.parser.html#parser-api',
+
+        // "The email package should be used in preference to the rfc822 module"
+        // TODO: redirect?
+        'library/rfc822.html': null,
+        'library/rfc822.html#module-rfc822': null,
+        'library/rfc822.html#rfc822-parse-rfc-2822-mail-headers': null,
+        'library/rfc822.html#rfc822.Message': null,
+        'library/rfc822.html#rfc822.AddressList': null,
+        'library/rfc822.html#rfc822.quote': 'library/email.utils.html#email.utils.quote',
+        'library/rfc822.html#rfc822.unquote': 'library/email.utils.html#email.utils.unquote',
+        'library/rfc822.html#rfc822.parseaddr': 'library/email.utils.html#email.utils.parseaddr',
+        'library/rfc822.html#rfc822.dump_address_pair': null,
+        'library/rfc822.html#rfc822.parsedate': 'library/email.utils.html#email.utils.parsedate',
+        'library/rfc822.html#rfc822.parsedate_tz': 'library/email.utils.html#email.utils.parsedate_tz',
+        'library/rfc822.html#rfc822.mktime_tz': 'library/email.utils.html#email.utils.mktime_tz',
+        'library/rfc822.html#message-objects': null,
+        'library/rfc822.html#rfc822.Message.rewindbody': null,
+        'library/rfc822.html#rfc822.Message.isheader': null,
+        'library/rfc822.html#rfc822.Message.islast': null,
+        'library/rfc822.html#rfc822.Message.iscomment': null,
+        'library/rfc822.html#rfc822.Message.getallmatchingheaders': null,
+        'library/rfc822.html#rfc822.Message.getfirstmatchingheader': null,
+        'library/rfc822.html#rfc822.Message.getrawheader': null,
+        'library/rfc822.html#rfc822.Message.getheader': null,
+        'library/rfc822.html#rfc822.Message.get': null,
+        'library/rfc822.html#rfc822.Message.getaddr': null,
+        'library/rfc822.html#rfc822.Message.getaddrlist': null,
+        'library/rfc822.html#rfc822.Message.getdate': null,
+        'library/rfc822.html#rfc822.Message.getdate_tz': null,
+        'library/rfc822.html#rfc822.Message.headers': null,
+        'library/rfc822.html#rfc822.Message.fp': null,
+        'library/rfc822.html#rfc822.Message.unixfrom': null,
+        // Looks like they no longer exist
+        'library/rfc822.html#addresslist-objects': null,
+        'library/rfc822.html#rfc822.AddressList.__len__': null,
+        'library/rfc822.html#rfc822.AddressList.__str__': null,
+        'library/rfc822.html#rfc822.AddressList.__add__': null,
+        'library/rfc822.html#rfc822.AddressList.__iadd__': null,
+        'library/rfc822.html#rfc822.AddressList.__sub__': null,
+        'library/rfc822.html#rfc822.AddressList.__isub__': null,
+        'library/rfc822.html#rfc822.AddressList.addresslist': null,
 
 
         'library/sys.html#sys.long_info': 'library/sys.html#sys.int_info',
@@ -2017,16 +2085,92 @@
         'using/windows.html#other-resources': null,
 
 
-        // TODO: lots of missing links in c-api/ haven't been added. It's far from complete.
+        // TODO: I've never used the C API, check all these.
+        'c-api/allocation.html#c._PyObject_Del': null,
+        'c-api/allocation.html#c.Py_InitModule': null,
+        'c-api/allocation.html#c.Py_InitModule3': null,
+        'c-api/allocation.html#c.Py_InitModule4': null,
+
+
+        'c-api/buffer.html#buffers-and-memoryview-objects': 'c-api/buffer.html#buffer-protocol',
+        'c-api/buffer.html#the-new-style-py-buffer-struct': 'c-api/buffer.html#buffer-structure',
+
+        'c-api/buffer.html#memoryview-objects': 'c-api/memoryview.html',
+        'c-api/buffer.html#c.PyMemoryView_FromObject': 'c-api/memoryview.html#c.PyMemoryView_FromObject',
+        'c-api/buffer.html#c.PyMemoryView_FromBuffer': 'c-api/memoryview.html#c.PyMemoryView_FromBuffer',
+        'c-api/buffer.html#c.PyMemoryView_GetContiguous': 'c-api/memoryview.html#c.PyMemoryView_GetContiguous',
+        'c-api/buffer.html#c.PyMemoryView_Check': 'c-api/memoryview.html#c.PyMemoryView_Check',
+        'c-api/buffer.html#c.PyMemoryView_GET_BUFFER': 'c-api/memoryview.html#c.PyMemoryView_GET_BUFFER',
+
+        // https://docs.python.org/2/c-api/buffer.html#old-style-buffer-objects
+        'c-api/buffer.html#old-style-buffer-objects': null,
+        'c-api/buffer.html#c.PyBufferObject': null,
+        'c-api/buffer.html#c.PyBuffer_Type': null,
+        'c-api/buffer.html#c.Py_END_OF_BUFFER': null,
+        'c-api/buffer.html#c.PyBuffer_Check': null,
+        'c-api/buffer.html#c.PyBuffer_FromObject': null,
+        'c-api/buffer.html#c.PyBuffer_FromReadWriteObject': null,
+        'c-api/buffer.html#c.PyBuffer_FromMemory': null,
+        'c-api/buffer.html#c.PyBuffer_FromReadWriteMemory': null,
+        'c-api/buffer.html#c.PyBuffer_New': null,
+
+
+        // Deprecated functions
+        'c-api/conversion.html#c.PyOS_ascii_strtod': null,
+        'c-api/conversion.html#c.PyOS_ascii_formatd': null,
+        'c-api/conversion.html#c.PyOS_ascii_atof': null,
+
+
+        // TODO: what happened to this function? Two other functions in the Python 3 docs reference
+        // it but it's missing
+        'c-api/exceptions.html#c.PyErr_SetFromWindowsErrWithFilenameObject': null,
+        // "use PyErr_WarnEx() instead"
+        'c-api/exceptions.html#c.PyErr_Warn': null,
+        'c-api/exceptions.html#c.PyErr_WarnPy3k': null,
+        'c-api/exceptions.html#string-exceptions': null,
+
+
         'c-api/float.html#c.PyFloat_AsString': null,
         'c-api/float.html#c.PyFloat_AsReprString': null,
+
+
+        // "These APIs are a minimal emulation of the Python 2 C API for built-in file objects,
+        // which used to rely on the buffered I/O (FILE*) support from the C standard library"
+        'c-api/file.html#c.PyFileObject': null,
+        'c-api/file.html#c.PyFile_Type': null,
+        'c-api/file.html#c.PyFile_Check': null,
+        'c-api/file.html#c.PyFile_CheckExact': null,
+        'c-api/file.html#c.PyFile_FromString': null,
+        'c-api/file.html#c.PyFile_FromFile': null,
+        'c-api/file.html#c.PyFile_AsFile': null,
+        'c-api/file.html#c.PyFile_IncUseCount': null,
+        'c-api/file.html#c.PyFile_DecUseCount': null,
+        'c-api/file.html#c.PyFile_Name': null,
+        'c-api/file.html#c.PyFile_SetBufSize': null,
+        'c-api/file.html#c.PyFile_SetEncoding': null,
+        'c-api/file.html#c.PyFile_SetEncodingAndErrors': null,
+        'c-api/file.html#c.PyFile_SoftSpace': null,
+
 
         // Macros
         'c-api/gcsupport.html#c._PyObject_GC_TRACK': null,
         'c-api/gcsupport.html#c._PyObject_GC_UNTRACK': null,
 
 
+        // Both are "for internal use only"
+        'c-api/import.html#c._PyImport_FindExtension': null,
+        'c-api/import.html#c._PyImport_FixupExtension': null,
+
+
+        'c-api/init.html#c.PyEval_ReInitThreads': null,
+        'c-api/init.html#c.PyEval_GetCallStats': null,
+
+
         'c-api/long.html#long-integer-objects': 'c-api/long.html#integer-objects',
+
+
+        'c-api/method.html#c.PyMethod_Class': null,
+        'c-api/method.html#c.PyMethod_GET_CLASS': null,
 
 
         'c-api/number.html#c.PyNumber_Divide': 'c-api/number.html#c.PyNumber_TrueDivide',
@@ -2048,18 +2192,56 @@
 
         'c-api/object.html#c.PyObject_AsFileDescriptor': 'c-api/file.html#c.PyObject_AsFileDescriptor',
 
-        'c-api/typeobj.html#c.PyTypeObject.tp_compare': 'c-api/typeobj.html#c.PyTypeObject.tp_as_async',
 
-        // 'c-api/typeobj.html#c.tp_as_number': 'c-api/typeobj.html#c.PyTypeObject.tp_as_number',
-        // 'c-api/typeobj.html#c.tp_as_sequence': 'c-api/typeobj.html#c.PyTypeObject.tp_as_sequence',
-        // 'c-api/typeobj.html#c.tp_as_mapping': 'c-api/typeobj.html#c.PyTypeObject.tp_as_mapping',
+        'c-api/reflection.html#c.PyEval_GetRestricted': null,
+
+
+        // Documented just below this section
+        'c-api/structures.html#METH_KEYWORDS': 'c-api/structures.html#METH_VARARGS',
+        // "This calling convention is deprecated"
+        'c-api/structures.html#METH_OLDARGS': null,
+
+        'c-api/structures.html#c.Py_FindMethod': null,
+
+
+        'c-api/typeobj.html#c.PyTypeObject.tp_compare': 'c-api/typeobj.html#c.PyTypeObject.tp_as_async',
 
         'c-api/typeobj.html#c.PyNumberMethods.nb_coerce': null,
 
+
         'c-api/unicode.html#plain-py-unicode': 'c-api/unicode.html#deprecated-py-unicode-apis',
+
 
         'c-api/veryhigh.html#c.PyRun_SimpleFileFlags': null,
 
+
+        'c-api/sys.html#c.PySys_GetFile': null,
+
+        // TODO: these
+        // "It is possible that the tp_print field will be deprecated"
+        // "instead [...] rely on tp_repr and tp_str for printing"
+        'c-api/typeobj.html#c.PyTypeObject.tp_print': null,
+
+        'c-api/typeobj.html#c.tp_as_number': 'c-api/typeobj.html#c.PyTypeObject.tp_as_number',
+        'c-api/typeobj.html#c.tp_as_sequence': 'c-api/typeobj.html#c.PyTypeObject.tp_as_sequence',
+        'c-api/typeobj.html#c.tp_as_mapping': 'c-api/typeobj.html#c.PyTypeObject.tp_as_mapping',
+
+        'c-api/typeobj.html#Py_TPFLAGS_HAVE_GETCHARBUFFER': null,
+        'c-api/typeobj.html#Py_TPFLAGS_HAVE_SEQUENCE_IN': null,
+        // "This bit is obsolete"
+        'c-api/typeobj.html#Py_TPFLAGS_GC': null,
+
+        'c-api/typeobj.html#Py_TPFLAGS_HAVE_INPLACEOPS': null,
+        'c-api/typeobj.html#Py_TPFLAGS_CHECKTYPES': null,
+        'c-api/typeobj.html#Py_TPFLAGS_HAVE_RICHCOMPARE': null,
+        'c-api/typeobj.html#Py_TPFLAGS_HAVE_WEAKREFS': null,
+        'c-api/typeobj.html#Py_TPFLAGS_HAVE_ITER': null,
+        'c-api/typeobj.html#Py_TPFLAGS_HAVE_CLASS': null,
+
+        'c-api/typeobj.html#c.readbufferproc': null,
+        'c-api/typeobj.html#c.writebufferproc': null,
+        'c-api/typeobj.html#c.segcountproc': null,
+        'c-api/typeobj.html#c.charbufferproc': null,
 
 
         'distributing/index.html#reading-the-guide': 'distributing/index.html#reading-the-python-packaging-user-guide',
@@ -2155,6 +2337,7 @@
 
 
         // Python 2.6
+        // ----------
         'library/2to3.html#2to3fixer-callable': null,
         'library/2to3.html#2to3fixer-standard_error': 'library/2to3.html#2to3fixer-standarderror',
 
@@ -2184,6 +2367,11 @@
         'library/doctest.html#grammar-token-directive_option': 'library/doctest.html#grammar-token-directive-option',
         'library/doctest.html#grammar-token-on_or_off': 'library/doctest.html#grammar-token-on-or-off',
         'library/doctest.html#grammar-token-directive_option_name': 'library/doctest.html#grammar-token-directive-option-name',
+
+
+        'library/email.util.html': 'library/email.utils.html',
+        // TODO: what happened to this method?
+        'library/email.util.html#email.utils.make_msgid': null,
 
 
         'library/functions.html#list': 'library/functions.html#func-list',
