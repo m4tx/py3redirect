@@ -830,7 +830,7 @@
         'library/urllib2.html': 'library/urllib.request.html',
         'library/urllib2.html#module-urllib2': 'library/urllib.request.html#module-urllib.request',
         'library/urllib2.html#urllib2-examples': 'library/urllib.request.html#examples',
-        'library/urllib2.html#urllib2-extensible-library-for-opening-urls': 'library/urllib.request.html#urllib.request-extensible-library-for-opening-urls',
+        'library/urllib2.html#urllib2-extensible-library-for-opening-urls': 'library/urllib.request.html#urllib-request-extensible-library-for-opening-urls',
         'library/urllib2.html#urllib2.AbstractBasicAuthHandler.http_error_auth_reqed': 'library/urllib.request.html#urllib.request.AbstractBasicAuthHandler.http_error_auth_reqed',
         'library/urllib2.html#urllib2.AbstractDigestAuthHandler.http_error_auth_reqed': 'library/urllib.request.html#urllib.request.AbstractDigestAuthHandler.http_error_auth_reqed',
         'library/urllib2.html#urllib2.BaseHandler.add_parent': 'library/urllib.request.html#urllib.request.BaseHandler.add_parent',
@@ -889,7 +889,7 @@
 
 
         'library/robotparser.html#module-robotparser': 'library/urllib.robotparser.html#module-urllib.robotparser',
-        'library/robotparser.html#robotparser-parser-for-robots-txt': 'library/urllib.robotparser.html#urllib.robotparser-parser-for-robots-txt',
+        'library/robotparser.html#robotparser-parser-for-robots-txt': 'library/urllib.robotparser.html#urllib-robotparser-parser-for-robots-txt',
         'library/robotparser.html#robotparser.RobotFileParser': 'library/urllib.robotparser.html#urllib.robotparser.RobotFileParser',
         'library/robotparser.html#robotparser.RobotFileParser.can_fetch': 'library/urllib.robotparser.html#urllib.robotparser.RobotFileParser.can_fetch',
         'library/robotparser.html#robotparser.RobotFileParser.modified': 'library/urllib.robotparser.html#urllib.robotparser.RobotFileParser.modified',
@@ -1051,7 +1051,7 @@
         'library/htmlparser.html#HTMLParser.HTMLParser.handle_starttag': 'library/html.parser.html#html.parser.HTMLParser.handle_starttag',
         'library/htmlparser.html#HTMLParser.HTMLParser.reset': 'library/html.parser.html#html.parser.HTMLParser.reset',
         'library/htmlparser.html#HTMLParser.HTMLParser.unknown_decl': 'library/html.parser.html#html.parser.HTMLParser.unknown_decl',
-        'library/htmlparser.html#htmlparser-simple-html-and-xhtml-parser': 'library/html.parser.html#html.parser-simple-html-and-xhtml-parser',
+        'library/htmlparser.html#htmlparser-simple-html-and-xhtml-parser': 'library/html.parser.html#html-parser-simple-html-and-xhtml-parser',
         'library/htmlparser.html#module-HTMLParser': 'library/html.parser.html#module-html.parser',
 
         // This module was removed in favor of HTMLParser/html.parser on 3
@@ -1106,11 +1106,11 @@
         'library/cgihttpserver.html#CGIHTTPServer.CGIHTTPRequestHandler': 'library/http.server.html#http.server.CGIHTTPRequestHandler',
         'library/cgihttpserver.html#CGIHTTPServer.CGIHTTPRequestHandler.cgi_directories': 'library/http.server.html#http.server.CGIHTTPRequestHandler.cgi_directories',
         'library/cgihttpserver.html#CGIHTTPServer.CGIHTTPRequestHandler.do_POST': 'library/http.server.html#http.server.CGIHTTPRequestHandler.do_POST',
-        'library/cgihttpserver.html#cgihttpserver-cgi-capable-http-request-handler': 'library/http.server.html#http.server-cgi-capable-http-request-handler',
+        'library/cgihttpserver.html#cgihttpserver-cgi-capable-http-request-handler': 'library/http.server.html#http.server.CGIHTTPRequestHandler',
         'library/cgihttpserver.html#module-CGIHTTPServer': 'library/http.server.html#http.server.CGIHTTPRequestHandler',
 
         'library/httplib.html#httplib-examples': 'library/http.client.html#examples',
-        'library/httplib.html#httplib-http-protocol-client': 'library/http.client.html#http.client-http-protocol-client',
+        'library/httplib.html#httplib-http-protocol-client': 'library/http.client.html#http-client-http-protocol-client',
         'library/httplib.html#httplib.BadStatusLine': 'library/http.client.html#http.client.BadStatusLine',
         'library/httplib.html#httplib.CannotSendHeader': 'library/http.client.html#http.client.CannotSendHeader',
         'library/httplib.html#httplib.CannotSendRequest': 'library/http.client.html#http.client.CannotSendRequest',
