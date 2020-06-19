@@ -90,8 +90,7 @@ def read_cases(js):
             if "  };" in line:
                 break
             if line.strip() and not line.strip().startswith("//"):
-                # JSON uses double quotes, the extension JS uses single quotes
-                relevant_lines.append(line.replace("'", '"'))
+                relevant_lines.append(line)
     # remove trailing comma
     relevant_lines = "\n".join(relevant_lines).rstrip(",")
     # print(relevant_lines, file=sys.stderr)
