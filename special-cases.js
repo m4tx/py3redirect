@@ -5,17 +5,13 @@ const SPECIAL_CASES = {
 
     // https://docs.python.org/library/2to3.html#2to3fixer-asserts
     "library/unittest.html#unittest.TestCase.failUnlessEqual": "library/unittest.html#unittest.TestCase.assertEqual",
-    // "library/unittest.html#unittest.TestCase.assertEquals": "library/unittest.html#unittest.TestCase.assertEqual",
     "library/unittest.html#unittest.TestCase.failIfEqual": "library/unittest.html#unittest.TestCase.assertNotEqual",
-    // "library/unittest.html#unittest.TestCase.assertNotEquals": "library/unittest.html#unittest.TestCase.assertNotEqual",
     "library/unittest.html#unittest.TestCase.failUnless": "library/unittest.html#unittest.TestCase.assertTrue",
     "library/unittest.html#unittest.TestCase.assert_": "library/unittest.html#unittest.TestCase.assertTrue",
     "library/unittest.html#unittest.TestCase.failIf": "library/unittest.html#unittest.TestCase.assertFalse",
     "library/unittest.html#unittest.TestCase.failUnlessRaises": "library/unittest.html#unittest.TestCase.assertRaises",
     "library/unittest.html#unittest.TestCase.failUnlessAlmostEqual": "library/unittest.html#unittest.TestCase.assertAlmostEqual",
-    // "library/unittest.html#unittest.TestCase.assertAlmostEquals": "library/unittest.html#unittest.TestCase.assertAlmostEqual",
     "library/unittest.html#unittest.TestCase.failIfAlmostEqual": "library/unittest.html#unittest.TestCase.assertNotAlmostEqual",
-    // "library/unittest.html#unittest.TestCase.assertNotAlmostEquals": "library/unittest.html#unittest.TestCase.assertNotAlmostEqual",
 
     // https://docs.python.org/library/2to3.html#2to3fixer-basestring
     "library/functions.html#basestring": "library/functions.html#func-str",
@@ -67,7 +63,7 @@ const SPECIAL_CASES = {
 
     "library/__builtin__.html": "library/builtins.html",
     "library/__builtin__.html#module-__builtin__": "library/builtins.html#module-builtins",
-    "library/__builtin__.html#builtin-built-in-objects": "library/builtins.html#module-builtins",
+    "library/__builtin__.html#builtin-built-in-objects": "library/builtins.html#builtins-built-in-objects",
 
     "library/copy_reg.html": "library/copyreg.html",
 
@@ -209,6 +205,7 @@ const SPECIAL_CASES = {
     // https://docs.python.org/library/2to3.html#2to3fixer-unicode
     "library/functions.html#unicode": "library/functions.html#func-str",
 
+    "library/urllib.html#high-level-interface": "library/urllib.html#urllib-url-handling-modules",
     // https://docs.python.org/library/2to3.html#2to3fixer-urllib
     // https://github.com/python/cpython/blob/master/Lib/lib2to3/fixes/fix_urllib.py#L12-L45
     // https://github.com/python/cpython/blob/531d1e541284bfd7944f8c66a5e8c3c3234afaff/Lib/lib2to3/fixes/fix_urllib.py#L12-L45
@@ -396,7 +393,6 @@ const SPECIAL_CASES = {
     "library/exceptions.html#exceptions.ReferenceError": "library/exceptions.html#ReferenceError",
     "library/exceptions.html#exceptions.RuntimeError": "library/exceptions.html#RuntimeError",
     "library/exceptions.html#exceptions.RuntimeWarning": "library/exceptions.html#RuntimeWarning",
-    "library/exceptions.html#exceptions.StandardError": null,
     "library/exceptions.html#exceptions.StopIteration": "library/exceptions.html#StopIteration",
     "library/exceptions.html#exceptions.SyntaxError": "library/exceptions.html#SyntaxError",
     "library/exceptions.html#exceptions.SyntaxWarning": "library/exceptions.html#SyntaxWarning",
@@ -811,17 +807,15 @@ const SPECIAL_CASES = {
     "library/urlparse.html#urlparse.urlunsplit": "library/urllib.parse.html#urllib.parse.urlunsplit",
 
     "library/urllib.html#examples": "library/urllib.request.html#examples",
-    // "library/urllib.html#high-level-interface": "library/urllib.request.html#high-level-interface",
     "library/urllib.html#url-opener-objects": "library/urllib.request.html#urllib.request.URLopener",
     "library/urllib.html#urllib-examples": "library/urllib.request.html#urllib-examples",
-    "library/urllib.html#urllib-open-arbitrary-resources-by-url": "library/urllib.request.html#module-urllib.request",
+    "library/urllib.html#urllib-open-arbitrary-resources-by-url": "library/urllib.request.html#urllib-request-extensible-library-for-opening-urls",
     "library/urllib.html#urllib-restrictions": "library/urllib.request.html#urllib-request-restrictions",
     "library/urllib.html#urllib.FancyURLopener.prompt_user_passwd": "library/urllib.request.html#urllib.request.FancyURLopener.prompt_user_passwd",
     "library/urllib.html#urllib.URLopener.open": "library/urllib.request.html#urllib.request.URLopener.open",
     "library/urllib.html#urllib.URLopener.open_unknown": "library/urllib.request.html#urllib.request.URLopener.open_unknown",
     "library/urllib.html#urllib.URLopener.retrieve": "library/urllib.request.html#urllib.request.URLopener.retrieve",
     "library/urllib.html#urllib.URLopener.version": "library/urllib.request.html#urllib.request.URLopener.version",
-    "library/urllib.html#urllib._urlopener": null,
     // The last 3 functions aren't under this heading, just library/urllib.parse.html
     "library/urllib.html#utility-functions": "library/urllib.parse.html#url-quoting",
 
@@ -1379,22 +1373,22 @@ const SPECIAL_CASES = {
     "library/gdbm.html#gdbm.reorganize": "library/dbm.html#dbm.gnu.gdbm.reorganize",
     "library/gdbm.html#gdbm.sync": "library/dbm.html#dbm.gnu.gdbm.sync",
     "library/gdbm.html#module-gdbm": "library/dbm.html#module-dbm.gnu",
-    "library/gdbm.html#gdbm-gnu-s-reinterpretation-of-dbm": "library/dbm.html#module-dbm.gnu",
+    "library/gdbm.html#gdbm-gnu-s-reinterpretation-of-dbm": "library/dbm.html#dbm-gnu-gnu-s-reinterpretation-of-dbm",
 
-    "library/anydbm.html#anydbm-generic-access-to-dbm-style-databases": "library/dbm.html#module-dbm",
+    "library/anydbm.html#anydbm-generic-access-to-dbm-style-databases": "library/dbm.html#dbm-interfaces-to-unix-databases",
     // TODO: or redirect to library/dbm.html#module-dbm ? dbm.close doesn't exist in Python 3
     "library/anydbm.html#anydbm.close": null,
     "library/anydbm.html#anydbm.error": "library/dbm.html#dbm.error",
     "library/anydbm.html#anydbm.open": "library/dbm.html#dbm.open",
     "library/anydbm.html#module-anydbm": "library/dbm.html#module-dbm",
 
-    "library/dbm.html#dbm-simple-database-interface": "library/dbm.html#module-dbm.ndbm",
+    "library/dbm.html#dbm-simple-database-interface": "library/dbm.html#dbm-ndbm-interface-based-on-ndbm",
     "library/dbm.html#dbm.close": "library/dbm.html#dbm.ndbm.ndbm.close",
     "library/dbm.html#dbm.library": "library/dbm.html#dbm.ndbm.library",
 
     // The id was removed but the docs are here.
     "library/dumbdbm.html#dumbdbm-objects": "library/dbm.html#dbm.dumb.dumbdbm.sync",
-    "library/dumbdbm.html#dumbdbm-portable-dbm-implementation": "library/dbm.html#module-dbm.dumb",
+    "library/dumbdbm.html#dumbdbm-portable-dbm-implementation": "library/dbm.html#dbm-dumb-portable-dbm-implementation",
     "library/dumbdbm.html#dumbdbm.close": "library/dbm.html#dbm.dumb.dumbdbm.close",
     "library/dumbdbm.html#dumbdbm.dumbdbm.sync": "library/dbm.html#dbm.dumb.dumbdbm.sync",
     "library/dumbdbm.html#dumbdbm.error": "library/dbm.html#dbm.dumb.error",
@@ -1558,13 +1552,13 @@ const SPECIAL_CASES = {
 
 
     "library/basehttpserver.html#module-BaseHTTPServer": "library/http.server.html#module-http.server",
-    "library/basehttpserver.html#basehttpserver-basic-http-server": "library/http.server.html#module-http.server",
+    "library/basehttpserver.html#basehttpserver-basic-http-server": "library/http.server.html#http-server-http-servers",
     "library/basehttpserver.html#more-examples": null,
 
 
     "library/bdb.html#bdb.Breakpoint.pprint": "library/bdb.html#bdb.Breakpoint.bpprint",
 
-    "library/bz2.html#bz2-compression-compatible-with-bzip2": "library/bz2.html#module-bz2",
+    "library/bz2.html#bz2-compression-compatible-with-bzip2": "library/bz2.html#bz2-support-for-bzip2-compression",
     "library/bz2.html#sequential-de-compression": "library/bz2.html#incremental-de-compression",
 
     "library/cgi.html#old-classes": null,
@@ -1581,11 +1575,11 @@ const SPECIAL_CASES = {
     // Deprecated, the with-statement now supports this functionality directly
     "library/contextlib.html#contextlib.nested": null,
 
-    "library/cookie.html#cookie-http-state-management": "library/http.cookies.html#module-http.cookies",
-    "library/cookielib.html#cookielib-cookie-handling-for-http-clients": "library/http.cookiejar.html#module-http.cookiejar",
+    "library/cookie.html#cookie-http-state-management": "library/http.cookies.html#http-cookies-http-state-management",
+    "library/cookielib.html#cookielib-cookie-handling-for-http-clients": "library/http.cookiejar.html#http-cookiejar-cookie-handling-for-http-clients",
 
     "library/copy_reg.html#module-copy_reg": "library/copyreg.html#module-copyreg",
-    "library/copy_reg.html#copy-reg-register-pickle-support-functions": "library/copyreg.html#module-copyreg",
+    "library/copy_reg.html#copy-reg-register-pickle-support-functions": "library/copyreg.html#copyreg-register-pickle-support-functions",
     "library/copy_reg.html#copy_reg.constructor": "library/copyreg.html#copyreg.constructor",
     "library/copy_reg.html#copy_reg.pickle": "library/copyreg.html#copyreg.pickle",
 
@@ -1613,7 +1607,7 @@ const SPECIAL_CASES = {
     "library/imp.html#imp.load_dynamic": null,
     "library/imp.html#imp.load_source": null,
 
-    // "library/importlib.html#importlib-convenience-wrappers-for-import": "library/importlib.html#module-importlib",
+    "library/importlib.html#importlib-convenience-wrappers-for-import": "library/importlib.html#importlib-the-implementation-of-import",
 
     "library/io.html#module-interface": "library/io.html#high-level-module-interface",
     "library/io.html#advanced-topics": "library/io.html#performance",
@@ -1653,9 +1647,6 @@ const SPECIAL_CASES = {
     "library/idle.html#idle-console-differences": null,
 
     "library/idle.html#additional-help-sources": "library/idle.html#help-sources",
-
-
-    "library/importlib.html#importlib-convenience-wrappers-for-import": "library/importlib.html#importlib-the-implementation-of-import",
 
 
     // Use `in Mailbox.keys`
@@ -1799,8 +1790,7 @@ const SPECIAL_CASES = {
     "library/thread.html#thread-multiple-threads-of-control": "library/_thread.html#thread-low-level-threading-api",
 
 
-    // TODO: full name
-    "library/threading.html#threading-higher-level-threading-interface": "library/threading.html#module-threading",
+    "library/threading.html#threading-higher-level-threading-interface": "library/threading.html#threading-thread-based-parallelism",
     // Removed section. TODO: maybe it was moved?
     "library/threading.html#importing-in-threaded-code": null,
     "library/threading.html#threaded-imports": null,
@@ -1890,7 +1880,6 @@ const SPECIAL_CASES = {
     "library/undoc.html#sgi-specific-extension-modules": null,
 
 
-    "library/urllib.html#high-level-interface": "library/urllib.request.html#module-urllib.request",
 
 
     "library/urlparse.html#urlparse-parse-urls-into-components": "library/urllib.parse.html#urllib-parse-parse-urls-into-components",
