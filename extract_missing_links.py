@@ -297,7 +297,11 @@ def format_loading_percent(f, ndigits=0):
 for version in PYTHON2_VERSIONS:
     total_links = len(docs[version])
     missing_from_newest_version = len(need_special_case[version])
-    missing_are_files = len([x for x in need_special_case[version] if "#" not in x])
+    missing_files = {x for x in need_special_case[version] if "#" not in x}
+    missing_in_existing_files = []
+    for m in need_special_case[version]:
+        if m not in missing_files and m.split('#')[0] not in missing_files:
+            missing_in_existing_files.append(m)
     useless_count = sum(useless[version].values())
     special_cased_count = len(special_cased[version])
     todo_count = len(still_missing[version])
@@ -308,7 +312,8 @@ for version in PYTHON2_VERSIONS:
     print(
         f"  {missing_from_newest_version} missing from Python {NEW_VERSION}",
         f"({format_loading_percent(missing_from_newest_version / total_links)})",
-        f"({missing_are_files} are files)",
+        f"({len(missing_files)} are files)",
+        f"({len(missing_in_existing_files)} are not in the missing files)",
     )
     print(
         f"  - {useless_count} useless",
