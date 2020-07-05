@@ -16,6 +16,7 @@
   "background": {
     "scripts": [
       "browser-wrapper.js",
+      "special-cases.js",
       "background.js"
     ]
   },
