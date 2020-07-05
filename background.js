@@ -20,7 +20,7 @@ function getNewLink(path, fragment) { // fragment might be the empty string
         }
         // change just the file name and redirect to it, unless the special case
         // already has a fragment.
-        if (!SPECIAL_CASES[path].includes('#')) {
+        if (!SPECIAL_CASES[path].includes("#")) {
             return SPECIAL_CASES[path] + fragment;
         }
     }
@@ -31,11 +31,11 @@ function getNewLink(path, fragment) { // fragment might be the empty string
 function getRedirectURL(oldUrl) {
     const parsedUrl = new URL(oldUrl);
     // Remove leading "/". If there's no path, pathComponents with be ['']
-    const pathComponents = parsedUrl.pathname.substr(1).split('/');
+    const pathComponents = parsedUrl.pathname.substr(1).split("/");
     const [version, ...pathComponentsWithoutVersion] = pathComponents;
-    const path = pathComponentsWithoutVersion.join('/');
+    const path = pathComponentsWithoutVersion.join("/");
 
-    if (!(version.startsWith('2') || version.startsWith('3'))
+    if (!(version.startsWith("2") || version.startsWith("3"))
         || version === pyVersion) {
         return oldUrl;
     }
