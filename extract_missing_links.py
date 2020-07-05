@@ -8,8 +8,11 @@ import string
 import subprocess
 import sys
 import tempfile
+from io import BytesIO
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
+from urllib.request import urlopen, urlretrieve
+from zipfile import ZipFile
 
 from bs4 import BeautifulSoup
 
@@ -18,7 +21,10 @@ OLD_VERSION = "2.7"
 
 PYTHON2_VERSIONS = ["2.0", "2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7"]
 
-JS_FILE_WITH_SPECIAL_CASES = Path("background.js")
+JS_FILE_WITH_SPECIAL_CASES = "./special-cases.js"  # has to have leading "./"
+if not Path(JS_FILE_WITH_SPECIAL_CASES).is_file():
+    raise SystemExit(f"Couln't find file {JS_FILE_WITH_SPECIAL_CASES}")
+DOWNLOAD_DOCS_TO = Path("docs.python.org")
 OUTPUT_DIRECTORY = Path("links")
 
 ARCHIVE_URLS = {
@@ -49,58 +55,40 @@ USELESS_IDS = {
 
 
 def version_to_dir(version):
-    return Path(f"python-{version}-docs-html")
+    return DOWNLOAD_DOCS_TO / ("3" if version == NEW_VERSION else version)
 
 
+# Download a local copy of the documentation to ./docs.python.org/{version}/
 for version, url in ARCHIVE_URLS.items():
     output_dir = version_to_dir(version)
-    if not output_dir.is_dir():
-        zip_file = output_dir.parent / (output_dir.name + ".zip")
-        if not zip_file.exists():
-            # print(f"Downloading {url} ...", file=sys.stderr)
-            subprocess.run(["wget", url, "-O", zip_file])
-        # Some of the zip files extract as a bunch of files, others extract as
-        # a single directory containing the files. So extract to a temporary
-        # and then check if it only contains a single directory and move
-        # either the temp directory or the directory *inside* the temp directory
-        # back to the current directory.
-        # print(f"Unzipping {zip_file} ...", file=sys.stderr)
-        with tempfile.TemporaryDirectory() as temp_dir:
-            temp_path = Path(temp_dir) / "python_docs"
-            subprocess.run(["unzip", "-d", temp_path, zip_file])
-            unzipped_contents = list(temp_path.iterdir())
-            if len(unzipped_contents) == 1:
-                temp_path = unzipped_contents[0]
-            temp_path.rename(output_dir)
+    if output_dir.is_dir():
+        continue
 
+    DOWNLOAD_DOCS_TO.mkdir(parents=True, exist_ok=True)
+    zip_file = output_dir.parent / (output_dir.name + ".zip")
+    with tempfile.TemporaryDirectory() as temp_dir:
+        temp_path = Path(temp_dir) / "python_docs"
+        # print(f"Downloading {url} to {temp_path}", file=sys.stderr)
+        with urlopen(url) as f:
+            with ZipFile(BytesIO(f.read())) as docs_zip:
+                docs_zip.extractall(path=temp_path)
 
-def read_cases(js):
-    """reads the list of special cases from the extension's javascript source code
+        # Some archives extract to a single directory, the older ones don't
+        unzipped_contents = list(temp_path.iterdir())
+        if len(unzipped_contents) == 1:
+            temp_path = unzipped_contents[0]
+        temp_path.rename(output_dir)
 
-    by reading the all non-empty, non-comment lines between the first line containing
-    the word "SPECIAL_CASES" and the first line containing "  };" and reading that
-    as a JSON file.
-    """
-    relevant_lines = []
-    collect_lines = False
-    for line in js.splitlines():
-        if "SPECIAL_CASES" in line:
-            collect_lines = True
-        elif collect_lines:
-            if "  };" in line:
-                break
-            if line.strip() and not line.strip().startswith("//"):
-                relevant_lines.append(line)
-    # remove trailing comma
-    relevant_lines = "\n".join(relevant_lines).rstrip(",")
-    # print(relevant_lines, file=sys.stderr)
-    cases = json.loads("{" + relevant_lines + "}")
-    # print(json.dumps(cases, indent=4), file=sys.stderr)
-    return cases
-
-
-with open(JS_FILE_WITH_SPECIAL_CASES) as f:
-    cases = read_cases(f.read())
+cases = json.loads(
+    subprocess.run(
+        [
+            "node",
+            "-e",
+            f"console.log(JSON.stringify(require('{JS_FILE_WITH_SPECIAL_CASES}')))",
+        ],
+        capture_output=True,
+    ).stdout
+)
 
 # moved_files = {c for c, r in cases.items() if ("#" not in c) and (r is not None)}
 # python2_files = {str(p.relative_to(docs["2"])) for p in docs["2"].rglob("*.html")}
@@ -145,8 +133,6 @@ def find_all_linkable(root, version=None):
 docs = {}
 existing_links = {}
 for version, url in ARCHIVE_URLS.items():
-    path = version_to_dir(version)
-
     # Cache linkable and links as JSON, because this takes a while.
     versioned_output_directory = OUTPUT_DIRECTORY / version
     linkable_file = versioned_output_directory / "linkable.json"
@@ -155,7 +141,7 @@ for version, url in ARCHIVE_URLS.items():
     versioned_output_directory.mkdir(parents=True, exist_ok=True)
     if not all(f.is_file() for f in [linkable_file, links_file]):
         print("extracting links from", version_to_dir(version), file=sys.stderr)
-        linkable, links = find_all_linkable(path, version)
+        linkable, links = find_all_linkable(version_to_dir(version), version)
         with open(linkable_file, "w") as f:
             json.dump(linkable, f, indent=4)
         with open(links_file, "w") as f:
@@ -169,8 +155,7 @@ for version, url in ARCHIVE_URLS.items():
     flat_linkable = []
     for filename, ids in linkable.items():
         # The file itself can be linked to
-        flat_linkable.append(filename)
-        flat_linkable += ids
+        flat_linkable += [filename, *ids]
 
     useful_links = {}
     for filename, links_in_file in links.items():
@@ -199,16 +184,13 @@ def starts_with_followed_by_numbers(s, prefix):
     return s.startswith(prefix) and all(c in string.digits for c in s[len(prefix) :])
 
 
-def has_redirect(link, special_cases, new_links):
-    """Uses a list of special cases to check if the link can be mapped to new_links
-    or is explicitly special cased as having no redirect, or is in a file that has been 
-    special cased as having no redirect.
-    
-    useless links are also reported as having a working redirect"""
-    # TODO: we're really interested in this function in the extension, not this
-    link = link.strip()
-    if link in special_cases or link in new_links:
-        return True
+def is_impractical(link, special_cases, new_links):
+    # TODO
+    return False
+
+
+def is_useless(link, special_cases, new_links):
+    """Returns True if the link is a useless link that doesn't or can't be maintained"""
     if "#" in link:
         path, frag = link.split("#")
     else:
@@ -216,61 +198,141 @@ def has_redirect(link, special_cases, new_links):
 
     if frag is not None:
         if frag in USELESS_IDS:
-            return True
+            return f"useless id: {frag}"
         if re.match("id[0-9]+", frag) is not None:
-            return True
+            return "id[0-9]+"
         # Python 2.6 docs
         if re.match("index-[0-9]+", frag) is not None:
-            return True
+            return "index-[0-9]+ (python2.6)"
         # Python 2.5 docs
         if re.match("rfcref-[0-9]+", frag) is not None:
-            return True
+            return "rfcref-[0-9]+ (python2.5)"
 
-        if path in special_cases:
-            # File was deleted, all other links should break
-            if special_cases[path] is None:
-                return True
-            # Check if changing the path using one of the cases produces a
-            # working redirect
-            if special_cases[path] + "#" + frag in new_links:
-                return True
+    # These node<some number> on the <2.6 docs can sometimes move between minor versions
+    # TODO: is that true?
+    if re.match(r"node[0-9]+\.html", path.split("/")[-1]) is not None:
+        return "useless filename (node[0-9]+)"
+
+    return False
+
+
+def has_redirect(link, special_cases, new_links):
+    """Uses a list of special cases to check if the link can be mapped to new_links
+    or is explicitly special cased as having no redirect, or is in a file that has been 
+    special cased as having no redirect."""
+    path, fragment = link.split("#") if "#" in link else (link, "")
+    if fragment:
+        fragment = "#" + fragment
+
+    # TODO: we're really interested in this function in the extension, not Python
+    if link in special_cases:
+        return special_cases[link] is None or special_cases[link] in new_links
+
+    if path in special_cases:
+        if special_cases[path] is None:
+            return True
+        if "#" not in special_cases[path]:
+            return (special_cases[path] + fragment) in new_links
 
     return False
 
 
 need_special_case = {}
-missing = {}
+useless = {}
+still_missing = {}
 special_cased = {}
 
 new_links = set(docs[NEW_VERSION])
 for version in PYTHON2_VERSIONS:
     need_special_case[version] = [l for l in docs[version] if l not in new_links]
-    missing[version] = []
+
+    useless[version] = {}
     special_cased[version] = []
+    still_missing[version] = []
 
     for link_index, link in enumerate(need_special_case[version]):
+
         if has_redirect(link, cases, new_links):
             special_cased[version].append(link)
+        elif (useless_status := is_useless(link, cases, new_links)) :
+            useless[version][useless_status] = (
+                useless[version].get(useless_status, 0) + 1
+            )
         else:
-            # print(f"// https://docs.python.org/2/{link}")
+            # print(f"// https://docs.python.org/{version}/{link}")
             # for match in difflib.get_close_matches(link, new_links):
             #     print(f"// https://docs.python.org/3/{match}")
-            #     print(f"// '{link}': '{match}',")
-            # print(f"'{link}': null,)
+            #     print(f'// "{link}": "{match}",')
+            # print(f'"{link}": null,')
             # print()
-            missing[version].append(link)
+            still_missing[version].append(link)
+
 
 # Only print a link in the last minor version it appeared in
+in_next_version = {}
 for cur_version, next_version in zip(PYTHON2_VERSIONS, PYTHON2_VERSIONS[1:]):
     next_minor_version_links = set(docs[next_version])
-    missing[cur_version] = [
-        l for l in missing[cur_version] if l not in next_minor_version_links
-    ]
+    new_still_missing = []
+    in_next_version[cur_version] = []
+    for l in still_missing[cur_version]:
+        if l in next_minor_version_links:
+            in_next_version[cur_version].append(l)
+        else:
+            new_still_missing.append(l)
+    still_missing[cur_version] = new_still_missing
+in_next_version[PYTHON2_VERSIONS[-1]] = []
+# Print some stats
+import math
+
+
+def format_loading_percent(f, ndigits=0):
+    limit = 10 ** -(ndigits + 2)
+    if limit > f > 0:
+        return f"<{limit:.{ndigits}%}"
+    if 1 > f > (1 - limit):
+        return f">{1 - limit:.{ndigits}%}"
+    return f"{f:.{ndigits}%}"
+
+
+for version in PYTHON2_VERSIONS:
+    total_links = len(docs[version])
+    missing_from_newest_version = len(need_special_case[version])
+    missing_are_files = len([x for x in need_special_case[version] if "#" not in x])
+    useless_count = sum(useless[version].values())
+    special_cased_count = len(special_cased[version])
+    todo_count = len(still_missing[version])
+
+    in_next_version_count = len(in_next_version[version])
+
+    print(f"{version} has {total_links} links total:")
+    print(
+        f"  {missing_from_newest_version} missing from Python {NEW_VERSION}",
+        f"({format_loading_percent(missing_from_newest_version / total_links)})",
+        f"({missing_are_files} are files)",
+    )
+    print(
+        f"  - {useless_count} useless",
+        f"({format_loading_percent(useless_count / missing_from_newest_version)})",
+    )
+    for reason in sorted(useless[version]):
+        print(f"    {useless[version][reason]}: {reason}")
+    print(
+        f"  - {special_cased_count} special cased",
+        f"({format_loading_percent(special_cased_count/ missing_from_newest_version)})",
+    )
+    print(
+        f"  - {in_next_version_count} not special cased but are in the next Python version",
+        f"({format_loading_percent(in_next_version_count / missing_from_newest_version)})",
+    )
+    print(
+        f"  {todo_count} still need a redirect",
+        f"({format_loading_percent(todo_count / missing_from_newest_version, ndigits=1)})",
+    )
 
 with open(OUTPUT_DIRECTORY / "special_cased.json", "w") as f:
     json.dump(special_cased, f, indent=4)
-with open(OUTPUT_DIRECTORY / "missing.json", "w") as f:
-    json.dump(missing, f, indent=4)
+with open(OUTPUT_DIRECTORY / "still_missing.json", "w") as f:
+    json.dump(still_missing, f, indent=4)
 with open(OUTPUT_DIRECTORY / "existing.json", "w") as f:
     json.dump(existing_links, f, indent=4)
 
@@ -286,7 +348,3 @@ for old, redirect in cases.items():
         print("redirect target doesn't exist:", file=sys.stderr)
         print("   ", old, "->", file=sys.stderr)
         print("       ", redirect, file=sys.stderr)
-
-
-# print(f"        '{link}': null,")
-# print()
