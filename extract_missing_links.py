@@ -124,15 +124,20 @@ def find_all_linkable(root, version=None):
             linkable[html_file_relative] = [
                 f"{html_file_relative}#{_id}" for _id in ids
             ]
-            links[html_file_relative] = [
-                tag["href"] for tag in soup.find_all(href=True)
-            ]
+            if (
+                not html_file_relative.startswith("genindex")
+                and "whatsnew" not in html_file_relative
+                and "modindex" not in html_file_relative
+            ):
+                links[html_file_relative] = [
+                    tag["href"] for tag in soup.find_all(href=True)
+                ]
     return linkable, links
 
 
 docs = {}
 existing_links = {}
-for version, url in ARCHIVE_URLS.items():
+for version, url in reversed(ARCHIVE_URLS.items()):
     # Cache linkable and links as JSON, because this takes a while.
     versioned_output_directory = OUTPUT_DIRECTORY / version
     linkable_file = versioned_output_directory / "linkable.json"
@@ -140,7 +145,13 @@ for version, url in ARCHIVE_URLS.items():
 
     versioned_output_directory.mkdir(parents=True, exist_ok=True)
     if not all(f.is_file() for f in [linkable_file, links_file]):
-        print("extracting links from", version_to_dir(version), file=sys.stderr)
+        print(
+            "extracting links from",
+            version_to_dir(version),
+            "to",
+            versioned_output_directory,
+            file=sys.stderr,
+        )
         linkable, links = find_all_linkable(version_to_dir(version), version)
         with open(linkable_file, "w") as f:
             json.dump(linkable, f, indent=4)
@@ -300,7 +311,7 @@ for version in PYTHON2_VERSIONS:
     missing_files = {x for x in need_special_case[version] if "#" not in x}
     missing_in_existing_files = []
     for m in need_special_case[version]:
-        if m not in missing_files and m.split('#')[0] not in missing_files:
+        if m not in missing_files and m.split("#")[0] not in missing_files:
             missing_in_existing_files.append(m)
     useless_count = sum(useless[version].values())
     special_cased_count = len(special_cased[version])
@@ -320,7 +331,7 @@ for version in PYTHON2_VERSIONS:
         f"({format_loading_percent(useless_count / missing_from_newest_version)})",
     )
     for reason in sorted(useless[version]):
-        print(f"    {useless[version][reason]}: {reason}")
+        print(f"    {useless[version][reason]: <4}: {reason}")
     print(
         f"  - {special_cased_count} special cased",
         f"({format_loading_percent(special_cased_count/ missing_from_newest_version)})",
