@@ -23,7 +23,6 @@ const SPECIAL_CASES = {
     // "library/popen2.html": "library/subprocess.html",
     "library/popen2.html": null,
 
-    "library/email-examples.html": "library/email.examples.html",
     // "library/mhlib.html": "library/mailbox.html",
     "library/mhlib.html": null,
     // "library/mimetools.html": "library/email.html",
@@ -119,15 +118,12 @@ const SPECIAL_CASES = {
 
 
 
-    // https://docs.python.org/library/2to3.html#2to3fixer-apply
-    "library/functions.html#apply": "tutorial/controlflow.html#tut-unpacking-arguments",
-
     // https://docs.python.org/library/2to3.html#2to3fixer-basestring
     "library/functions.html#basestring": "library/functions.html#func-str",
 
-    // https://docs.python.org/library/2to3.html#2to3fixer-buffer
-    // maybe this shouldn't redirect, the memoryview API is similar but not exactly the same as that of buffer
-    "library/functions.html#buffer": "library/functions.html#func-memoryview",
+    "library/functions.html#bytearray": "library/functions.html#func-bytearray",
+
+    "library/functions.html#cmp": null,
 
     // https://docs.python.org/library/2to3.html#2to3fixer-execfile
     // Redirecting could be confusing. It's replaced by exec(open(fn).read())
@@ -136,14 +132,15 @@ const SPECIAL_CASES = {
     // "library/functions.html#execfile": "whatsnew/3.0.html#builtins",
     "library/functions.html#execfile": null,
 
-    // https://docs.python.org/library/2to3.html#2to3fixer-intern
-    "library/functions.html#intern": "library/sys.html#sys.intern",
+    "library/functions.html#file": null,
 
     // https://docs.python.org/library/2to3.html#2to3fixer-long
     // long and int were unified
     // TODO: don't redirect?
     // "library/functions.html#long": null,
     "library/functions.html#long": "library/functions.html#int",
+
+    "library/functions.html#range": "library/functions.html#func-range",
 
     // https://docs.python.org/library/2to3.html#2to3fixer-raw_input
     "library/functions.html#raw_input": "library/functions.html#input",
@@ -154,37 +151,67 @@ const SPECIAL_CASES = {
     // https://docs.python.org/library/2to3.html#2to3fixer-reload
     "library/functions.html#reload": "library/importlib.html#importlib.reload",
 
+    "library/functions.html#func-repr": "library/functions.html#repr",
+    "library/functions.html#str": "library/functions.html#func-str",
+    "library/functions.html#tuple": "library/functions.html#func-tuple",
+    "library/functions.html#unichr": "library/functions.html#chr",
+
     // https://docs.python.org/library/2to3.html#2to3fixer-unicode
     "library/functions.html#unicode": "library/functions.html#func-str",
 
     // https://docs.python.org/library/2to3.html#2to3fixer-xrange
     "library/functions.html#xrange": "library/functions.html#func-range",
 
-    "library/functions.html#bytearray": "library/functions.html#func-bytearray",
-    "library/functions.html#cmp": null,
-    "library/functions.html#file": null,
-    "library/functions.html#range": "library/functions.html#func-range",
-    "library/functions.html#func-repr": "library/functions.html#repr",
-    "library/functions.html#str": "library/functions.html#func-str",
-    "library/functions.html#tuple": "library/functions.html#func-tuple",
-    "library/functions.html#unichr": "library/functions.html#chr",
     "library/functions.html#non-essential-built-in-functions": null,
     "library/functions.html#non-essential-built-in-funcs": null,
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-apply
+    // "library/functions.html#apply": "tutorial/controlflow.html#tut-unpacking-arguments",
+    "library/functions.html#apply": null,
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-buffer
+    // TODO: redirect? The memoryview API is similar but not exactly the same as buffer
+    // "library/functions.html#buffer": "library/functions.html#func-memoryview",
+    "library/functions.html#buffer": null,
+
     "library/functions.html#coerce": null,
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-intern
+    "library/functions.html#intern": "library/sys.html#sys.intern",
+
+
+    "library/stdtypes.html#numeric-types-int-float-long-complex": "library/stdtypes.html#numeric-types-int-float-complex",
+    "library/stdtypes.html#long.bit_length": "library/stdtypes.html#int.bit_length",
 
 
     // https://docs.python.org/library/2to3.html#2to3fixer-next
     // x.next() became next(x)
     "library/stdtypes.html#iterator.next": "library/stdtypes.html#iterator.__next__",
     "reference/expressions.html#generator.next": "reference/expressions.html#generator.__next__",
+    // TODO
     // "library/stdtypes.html#file.next": "tutorial/inputoutput.html#methods-of-file-objects",
     // "library/stdtypes.html#file.next": "library/io.html#io.IOBase.readlines",
     "library/stdtypes.html#file.next": null,
     "library/csv.html#csv.csvreader.next": "library/csv.html#csv.csvreader.__next__",
 
 
+    "library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange": "library/stdtypes.html#sequence-types-list-tuple-range",
+    // TODO: redirect this?
+    // "library/stdtypes.html#str.decode": "library/stdtypes.html#bytes.decode",
+    "library/stdtypes.html#str.decode": null,
+    "library/stdtypes.html#unicode.splitlines": "library/stdtypes.html#str.splitlines",
+    "library/stdtypes.html#unicode.isnumeric": "library/stdtypes.html#str.isnumeric",
+    "library/stdtypes.html#unicode.isdecimal": "library/stdtypes.html#str.isdecimal",
+    "library/stdtypes.html#string-formatting-operations": "library/stdtypes.html#printf-style-string-formatting",
+    "library/stdtypes.html#string-formatting": "library/stdtypes.html#printf-style-string-formatting",
+
+    "library/stdtypes.html#xrange-type": "library/stdtypes.html#ranges",
+    "library/stdtypes.html#typesseq-xrange": "library/stdtypes.html#ranges",
+
     // https://docs.python.org/library/2to3.html#2to3fixer-has_key
-    "library/stdtypes.html#dict.has_key": "library/stdtypes.html#dict",
+    // Can't link to the "key in d" section
+    // "library/stdtypes.html#dict.has_key": "library/stdtypes.html#dict",
+    "library/stdtypes.html#dict.has_key": null,
 
     // https://docs.python.org/library/2to3.html#2to3fixer-dict
     "library/stdtypes.html#dict.iteritems": "library/stdtypes.html#dict.items",
@@ -194,54 +221,40 @@ const SPECIAL_CASES = {
     "library/stdtypes.html#dict.viewkeys": "library/stdtypes.html#dict.keys",
     "library/stdtypes.html#dict.viewvalues": "library/stdtypes.html#dict.values",
 
+    // TODO: check these redirects.
+    "library/stdtypes.html#file-objects": "library/io.html#overview",
+    "library/stdtypes.html#bltin-file-objects": "library/io.html#overview",
+    "library/stdtypes.html#file.close": "library/io.html#io.IOBase.close",
+    "library/stdtypes.html#file.flush": "library/io.html#io.IOBase.flush",
+    "library/stdtypes.html#file.fileno": "library/io.html#io.IOBase.fileno",
+    "library/stdtypes.html#file.isatty": "library/io.html#io.IOBase.isatty",
+    "library/stdtypes.html#file.read": "library/io.html#io.RawIOBase.read",
+    "library/stdtypes.html#file.readline": "library/io.html#io.IOBase.readline",
+    "library/stdtypes.html#file.readlines": "library/io.html#io.IOBase.readlines",
     // https://docs.python.org/library/2to3.html#2to3fixer-xreadlines
     // "Deprecated since version 2.3: Use for line in file instead."
     "library/stdtypes.html#file.xreadlines": null,
+    "library/stdtypes.html#file.seek": "library/io.html#io.IOBase.seek",
+    "library/stdtypes.html#file.tell": "library/io.html#io.IOBase.tell",
+    "library/stdtypes.html#file.truncate": "library/io.html#io.IOBase.truncate",
+    // TODO: there are 4 different write() methods
+    "library/stdtypes.html#file.write": "library/io.html#io.TextIOBase.write",
+    "library/stdtypes.html#file.writelines": "library/io.html#io.IOBase.writelines",
 
-    // TODO: this isn't a very good redirect
-    "library/stdtypes.html#bltin-file-objects": "library/io.html#overview",
-    "library/stdtypes.html#file-objects": "library/io.html#overview",
-    "library/stdtypes.html#file.close": "library/io.html#io.IOBase.close",
     "library/stdtypes.html#file.closed": "library/io.html#io.IOBase.closed",
     "library/stdtypes.html#file.encoding": "library/io.html#io.TextIOBase.encoding",
     // TODO: is this right?
     "library/stdtypes.html#file.errors": "library/io.html#io.TextIOBase.errors",
-    "library/stdtypes.html#file.fileno": "library/io.html#io.IOBase.fileno",
-    "library/stdtypes.html#file.flush": "library/io.html#io.IOBase.flush",
-    "library/stdtypes.html#file.isatty": "library/io.html#io.IOBase.isatty",
     "library/stdtypes.html#file.mode": "library/io.html#io.FileIO.mode",
     "library/stdtypes.html#file.name": "library/io.html#io.FileIO.name",
     "library/stdtypes.html#file.newlines": "library/io.html#io.TextIOBase.newlines",
-    "library/stdtypes.html#file.read": "library/io.html#io.RawIOBase.read",
-    "library/stdtypes.html#file.readline": "library/io.html#io.IOBase.readline",
-    "library/stdtypes.html#file.readlines": "library/io.html#io.IOBase.readlines",
-    "library/stdtypes.html#file.seek": "library/io.html#io.IOBase.seek",
     "library/stdtypes.html#file.softspace": null,
-    "library/stdtypes.html#file.tell": "library/io.html#io.IOBase.tell",
-    "library/stdtypes.html#file.truncate": "library/io.html#io.IOBase.truncate",
-    // There are 4 different write() methods
-    "library/stdtypes.html#file.write": "library/io.html#io.TextIOBase.write",
-    "library/stdtypes.html#file.writelines": "library/io.html#io.IOBase.writelines",
 
-    "library/stdtypes.html#long.bit_length": "library/stdtypes.html#int.bit_length",
     "library/stdtypes.html#memoryview-type": "library/stdtypes.html#memory-views",
-    "library/stdtypes.html#numeric-types-int-float-long-complex": "library/stdtypes.html#numeric-types-int-float-complex",
 
     // "Deprecated since version 2.2: Use the built-in function dir() to get a list of an object’s attributes"
     "library/stdtypes.html#object.__methods__": null,
     "library/stdtypes.html#object.__members__": null,
-
-    "library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange": "library/stdtypes.html#sequence-types-list-tuple-range",
-    // TODO: redirect this?
-    // "library/stdtypes.html#str.decode": "library/stdtypes.html#bytes.decode",
-    "library/stdtypes.html#str.decode": null,
-    "library/stdtypes.html#string-formatting": "library/stdtypes.html#printf-style-string-formatting",
-    "library/stdtypes.html#string-formatting-operations": "library/stdtypes.html#printf-style-string-formatting",
-    "library/stdtypes.html#unicode.isnumeric": "library/stdtypes.html#str.isnumeric",
-    "library/stdtypes.html#unicode.isdecimal": "library/stdtypes.html#str.isdecimal",
-    "library/stdtypes.html#unicode.splitlines": "library/stdtypes.html#str.splitlines",
-    "library/stdtypes.html#xrange-type": "library/stdtypes.html#ranges",
-    "library/stdtypes.html#typesseq-xrange": "library/stdtypes.html#ranges",
 
     "library/exceptions.html#module-exceptions": "library/exceptions.html#built-in-exceptions",
     "library/exceptions.html#exceptions.BaseException": "library/exceptions.html#BaseException",
@@ -313,11 +326,15 @@ const SPECIAL_CASES = {
 
 
     // These locale-dependent constants were removed
+    // TODO: don't redirect?
+    // "library/string.html#string.letters": null,
+    // "library/string.html#string.lowercase": null,
+    // "library/string.html#string.uppercase": null,
     "library/string.html#string.letters": "library/string.html#string.ascii_letters",
     "library/string.html#string.lowercase": "library/string.html#string.ascii_lowercase",
     "library/string.html#string.uppercase": "library/string.html#string.ascii_uppercase",
 
-    "library/string.html#new-string-formatting": "library/string.html#formatstrings",
+    "library/string.html#new-string-formatting": "library/string.html#custom-string-formatting",
     "library/string.html#string-functions": "library/stdtypes.html#string-methods",
     "library/string.html#string.maketrans": "library/stdtypes.html#str.maketrans",
     // TODO: Only the first three of these were removed from Python 3. Redirect to "String methods"?
@@ -337,7 +354,13 @@ const SPECIAL_CASES = {
     "library/string.html#string.lower": "library/stdtypes.html#str.lower",
     "library/string.html#string.split": "library/stdtypes.html#str.split",
     "library/string.html#string.rsplit": "library/stdtypes.html#str.rsplit",
+    // "This function behaves identically to split()"
+    // "library/string.html#string.splitfields": "library/stdtypes.html#str.split",
+    "library/string.html#string.splitfields": null,
     "library/string.html#string.join": "library/stdtypes.html#str.join",
+    // "This function behaves identically to join()"
+    // "library/string.html#string.joinfields": "library/stdtypes.html#str.join",
+    "library/string.html#string.joinfields": null,
     "library/string.html#string.lstrip": "library/stdtypes.html#str.lstrip",
     "library/string.html#string.rstrip": "library/stdtypes.html#str.rstrip",
     "library/string.html#string.strip": "library/stdtypes.html#str.strip",
@@ -349,10 +372,6 @@ const SPECIAL_CASES = {
     "library/string.html#string.center": "library/stdtypes.html#str.center",
     "library/string.html#string.zfill": "library/stdtypes.html#str.zfill",
     "library/string.html#string.replace": "library/stdtypes.html#str.replace",
-
-    // Use join() instead of joinfields()
-    "library/string.html#string.joinfields": "library/stdtypes.html#str.join",
-    "library/string.html#string.splitfields": "library/stdtypes.html#str.split",
 
 
     // This flag is redundant on Python 3 and the documentation for the ASCII explains that
@@ -448,9 +467,12 @@ const SPECIAL_CASES = {
     "library/sets.html#sets.Set": "library/stdtypes.html#set",
     "library/sets.html#sets.ImmutableSet": "library/stdtypes.html#frozenset",
     "library/sets.html#set-objects": "library/stdtypes.html#set",
+    // TODO: linking to the tutorial is not great
     "library/sets.html#example": "tutorial/datastructures.html#sets",
     "library/sets.html#set-example": "tutorial/datastructures.html#sets",
+    // TODO: don't redirect this?
     "library/sets.html#protocol-for-automatic-conversion-to-immutable": "library/stdtypes.html#frozenset",
+    // TODO: don't redirect this?
     "library/sets.html#immutable-transforms": "library/stdtypes.html#frozenset",
     "library/sets.html#comparison-to-the-built-in-set-types": null,
     "library/sets.html#comparison-to-builtin-set": null,
@@ -690,27 +712,34 @@ const SPECIAL_CASES = {
 
 
     "library/bz2.html#bz2-compression-compatible-with-bzip2": "library/bz2.html#bz2-support-for-bzip2-compression",
+
+    // None of these methods are documented anymore because they're inherited
     "library/bz2.html#bz2.BZ2File.close": "library/bz2.html#bz2.BZ2File",
     "library/bz2.html#bz2.BZ2File.read": "library/bz2.html#bz2.BZ2File",
     "library/bz2.html#bz2.BZ2File.readline": "library/bz2.html#bz2.BZ2File",
     "library/bz2.html#bz2.BZ2File.readlines": "library/bz2.html#bz2.BZ2File",
+    // TODO: method no longer exists, don't redirect?
+    // "library/bz2.html#bz2.BZ2File.xreadlines": null,
     "library/bz2.html#bz2.BZ2File.xreadlines": "library/bz2.html#bz2.BZ2File",
     "library/bz2.html#bz2.BZ2File.seek": "library/bz2.html#bz2.BZ2File",
     "library/bz2.html#bz2.BZ2File.tell": "library/bz2.html#bz2.BZ2File",
     "library/bz2.html#bz2.BZ2File.write": "library/bz2.html#bz2.BZ2File",
     "library/bz2.html#bz2.BZ2File.writelines": "library/bz2.html#bz2.BZ2File",
+
     "library/bz2.html#sequential-de-compression": "library/bz2.html#incremental-de-compression",
 
 
+    // "The TarFileCompat class has been removed in Python 3"
     "library/tarfile.html#tarfile.TarFileCompat": null,
     "library/tarfile.html#tarfile.TarFileCompat.TAR_PLAIN": null,
     "library/tarfile.html#tarfile.TarFileCompat.TAR_GZIPPED": null,
+    // "Use the format attribute instead"
     "library/tarfile.html#tarfile.TarFile.posix": null,
 
 
-
     "library/configparser.html#module-ConfigParser": "library/configparser.html#module-configparser",
-    "library/configparser.html#ConfigParser.RawConfigParser": "library/configparser.html#configparser.ConfigParser",
+    // TODO: "Legacy variant of the ConfigParser". Redirect to ConfigParser?
+    "library/configparser.html#ConfigParser.RawConfigParser": "library/configparser.html#configparser.RawConfigParser",
     "library/configparser.html#ConfigParser.ConfigParser": "library/configparser.html#configparser.ConfigParser",
     // SafeConfigParser became the default ConfigParser
     "library/configparser.html#ConfigParser.SafeConfigParser": "library/configparser.html#configparser.ConfigParser",
@@ -727,7 +756,7 @@ const SPECIAL_CASES = {
     "library/configparser.html#ConfigParser.MAX_INTERPOLATION_DEPTH": "library/configparser.html#configparser.MAX_INTERPOLATION_DEPTH",
     "library/configparser.html#ConfigParser.RawConfigParser.defaults": "library/configparser.html#configparser.ConfigParser.defaults",
     "library/configparser.html#ConfigParser.RawConfigParser.sections": "library/configparser.html#configparser.ConfigParser.sections",
-    // This method could be redirected to RawConfigParser still
+    // TODO: this method could be redirected to RawConfigParser still
     "library/configparser.html#ConfigParser.RawConfigParser.add_section": "library/configparser.html#configparser.ConfigParser.add_section",
     "library/configparser.html#ConfigParser.RawConfigParser.has_section": "library/configparser.html#configparser.ConfigParser.has_section",
     "library/configparser.html#ConfigParser.RawConfigParser.options": "library/configparser.html#configparser.ConfigParser.options",
@@ -739,7 +768,7 @@ const SPECIAL_CASES = {
     "library/configparser.html#ConfigParser.RawConfigParser.getfloat": "library/configparser.html#configparser.ConfigParser.getfloat",
     "library/configparser.html#ConfigParser.RawConfigParser.getboolean": "library/configparser.html#configparser.ConfigParser.getboolean",
     "library/configparser.html#ConfigParser.RawConfigParser.items": "library/configparser.html#configparser.ConfigParser.items",
-    // This method could be redirected to RawConfigParser still
+    // TODO: this method could be redirected to RawConfigParser still
     "library/configparser.html#ConfigParser.RawConfigParser.set": "library/configparser.html#configparser.ConfigParser.set",
     "library/configparser.html#ConfigParser.RawConfigParser.write": "library/configparser.html#configparser.ConfigParser.write",
     "library/configparser.html#ConfigParser.RawConfigParser.remove_option": "library/configparser.html#configparser.ConfigParser.remove_option",
@@ -769,7 +798,9 @@ const SPECIAL_CASES = {
 
     "library/plistlib.html#plistlib.readPlistFromString": "library/plistlib.html#plistlib.readPlistFromBytes",
     "library/plistlib.html#plistlib.writePlistToString": "library/plistlib.html#plistlib.writePlistToBytes",
+    // "In Python 3.x, this function has been removed"
     "library/plistlib.html#plistlib.readPlistFromResource": null,
+    // "In Python 3.x, this function has been removed"
     "library/plistlib.html#plistlib.writePlistToResource": null,
 
 
@@ -777,6 +808,8 @@ const SPECIAL_CASES = {
     // "library/hashlib.html#hashlib.hashlib.algorithms": "library/hashlib.html#hashlib.algorithms_available",
     "library/hashlib.html#hashlib.hashlib.algorithms": null,
 
+    // "Deprecated since version 2.5: Use the hashlib module instead."
+    // TODO: don't redirect?
     "library/md5.html": "library/hashlib.html",
     "library/md5.html#module-md5": "library/hashlib.html#hash-algorithms",
     "library/md5.html#md5-md5-message-digest-algorithm": "library/hashlib.html#hash-algorithms",
@@ -924,7 +957,7 @@ const SPECIAL_CASES = {
     "library/multiprocessing.html#multiprocessing.connection.AuthenticationError": "library/multiprocessing.html#multiprocessing.AuthenticationError",
     "library/multiprocessing.html#multiprocessing.connection.TimeoutError": "library/multiprocessing.html#multiprocessing.TimeoutError",
     "library/multiprocessing.html#all-platforms": "library/multiprocessing.html#all-start-methods",
-    "library/multiprocessing.html#windows": null,
+    "library/multiprocessing.html#windows": "library/multiprocessing.html#the-spawn-and-forkserver-start-methods",
 
 
     "library/ipc.html#interprocess-communication-and-networking": "library/ipc.html#networking-and-interprocess-communication",
@@ -935,10 +968,11 @@ const SPECIAL_CASES = {
     "library/subprocess.html#replacing-bin-sh-shell-backquote": "library/subprocess.html#replacing-bin-sh-shell-command-substitution",
 
 
-    // Intentionally does not exist in any implementation of Python 3
+    // "intentionally does not exist in any implementation of Python 3"
     "library/ssl.html#ssl._https_verify_certificates": null,
 
 
+    // TODO: was this moved or just deleted?
     "library/asynchat.html#asynchat-auxiliary-classes": null,
     "library/asynchat.html#asynchat.fifo": null,
     "library/asynchat.html#asynchat.fifo.is_empty": null,
@@ -947,58 +981,58 @@ const SPECIAL_CASES = {
     "library/asynchat.html#asynchat.fifo.pop": null,
 
 
-    "library/email.html#differences-from-mimelib": null,
-    "library/email.html#email-pkg-history": null,
     "library/email.html#package-history": null,
+    "library/email.html#email-pkg-history": null,
+    "library/email.html#differences-from-mimelib": null,
 
     "library/email.message.html#email.message.Message": "library/email.message.html#email.message.EmailMessage",
-    "library/email.message.html#email.message.Message.__contains__": "library/email.message.html#email.message.EmailMessage.__contains__",
-    "library/email.message.html#email.message.Message.__delitem__": "library/email.message.html#email.message.EmailMessage.__delitem__",
-    "library/email.message.html#email.message.Message.__getitem__": "library/email.message.html#email.message.EmailMessage.__getitem__",
-    "library/email.message.html#email.message.Message.__len__": "library/email.message.html#email.message.EmailMessage.__len__",
-    "library/email.message.html#email.message.Message.__setitem__": "library/email.message.html#email.message.EmailMessage.__setitem__",
-    "library/email.message.html#email.message.Message.__str__": "library/email.message.html#email.message.EmailMessage.__str__",
-    "library/email.message.html#email.message.Message.add_header": "library/email.message.html#email.message.EmailMessage.add_header",
     "library/email.message.html#email.message.Message.as_string": "library/email.message.html#email.message.EmailMessage.as_string",
-    "library/email.message.html#email.message.Message.defects": "library/email.message.html#email.message.EmailMessage.defects",
-    "library/email.message.html#email.message.Message.del_param": "library/email.message.html#email.message.EmailMessage.del_param",
-    "library/email.message.html#email.message.Message.epilogue": "library/email.message.html#email.message.EmailMessage.epilogue",
+    "library/email.message.html#email.message.Message.__str__": "library/email.message.html#email.message.EmailMessage.__str__",
+    "library/email.message.html#email.message.Message.is_multipart": "library/email.message.html#email.message.EmailMessage.is_multipart",
+    "library/email.message.html#email.message.Message.set_unixfrom": "library/email.message.html#email.message.EmailMessage.set_unixfrom",
+    "library/email.message.html#email.message.Message.get_unixfrom": "library/email.message.html#email.message.EmailMessage.get_unixfrom",
+    "library/email.message.html#email.message.Message.__len__": "library/email.message.html#email.message.EmailMessage.__len__",
+    "library/email.message.html#email.message.Message.__contains__": "library/email.message.html#email.message.EmailMessage.__contains__",
+    "library/email.message.html#email.message.Message.__getitem__": "library/email.message.html#email.message.EmailMessage.__getitem__",
+    "library/email.message.html#email.message.Message.__setitem__": "library/email.message.html#email.message.EmailMessage.__setitem__",
+    "library/email.message.html#email.message.Message.__delitem__": "library/email.message.html#email.message.EmailMessage.__delitem__",
+    // Removed dictionary method, use `in`
+    "library/email.message.html#email.message.Message.has_key": null,
+    "library/email.message.html#email.message.Message.keys": "library/email.message.html#email.message.EmailMessage.keys",
+    "library/email.message.html#email.message.Message.values": "library/email.message.html#email.message.EmailMessage.values",
+    "library/email.message.html#email.message.Message.items": "library/email.message.html#email.message.EmailMessage.items",
     "library/email.message.html#email.message.Message.get": "library/email.message.html#email.message.EmailMessage.get",
     "library/email.message.html#email.message.Message.get_all": "library/email.message.html#email.message.EmailMessage.get_all",
-    "library/email.message.html#email.message.Message.get_boundary": "library/email.message.html#email.message.EmailMessage.get_boundary",
-    "library/email.message.html#email.message.Message.get_charsets": "library/email.message.html#email.message.EmailMessage.get_charsets",
-    "library/email.message.html#email.message.Message.get_content_charset": "library/email.message.html#email.message.EmailMessage.get_content_charset",
+    "library/email.message.html#email.message.Message.add_header": "library/email.message.html#email.message.EmailMessage.add_header",
+    "library/email.message.html#email.message.Message.replace_header": "library/email.message.html#email.message.EmailMessage.replace_header",
+    "library/email.message.html#email.message.Message.get_content_type": "library/email.message.html#email.message.EmailMessage.get_content_type",
     "library/email.message.html#email.message.Message.get_content_maintype": "library/email.message.html#email.message.EmailMessage.get_content_maintype",
     "library/email.message.html#email.message.Message.get_content_subtype": "library/email.message.html#email.message.EmailMessage.get_content_subtype",
-    "library/email.message.html#email.message.Message.get_content_type": "library/email.message.html#email.message.EmailMessage.get_content_type",
     "library/email.message.html#email.message.Message.get_default_type": "library/email.message.html#email.message.EmailMessage.get_default_type",
-    "library/email.message.html#email.message.Message.get_filename": "library/email.message.html#email.message.EmailMessage.get_filename",
-    "library/email.message.html#email.message.Message.get_unixfrom": "library/email.message.html#email.message.EmailMessage.get_unixfrom",
-    "library/email.message.html#email.message.Message.is_multipart": "library/email.message.html#email.message.EmailMessage.is_multipart",
-    "library/email.message.html#email.message.Message.items": "library/email.message.html#email.message.EmailMessage.items",
-    "library/email.message.html#email.message.Message.keys": "library/email.message.html#email.message.EmailMessage.keys",
-    "library/email.message.html#email.message.Message.preamble": "library/email.message.html#email.message.EmailMessage.preamble",
-    "library/email.message.html#email.message.Message.replace_header": "library/email.message.html#email.message.EmailMessage.replace_header",
-    "library/email.message.html#email.message.Message.set_boundary": "library/email.message.html#email.message.EmailMessage.set_boundary",
     "library/email.message.html#email.message.Message.set_default_type": "library/email.message.html#email.message.EmailMessage.set_default_type",
     "library/email.message.html#email.message.Message.set_param": "library/email.message.html#email.message.EmailMessage.set_param",
-    "library/email.message.html#email.message.Message.set_unixfrom": "library/email.message.html#email.message.EmailMessage.set_unixfrom",
-    "library/email.message.html#email.message.Message.values": "library/email.message.html#email.message.EmailMessage.values",
+    "library/email.message.html#email.message.Message.del_param": "library/email.message.html#email.message.EmailMessage.del_param",
+    "library/email.message.html#email.message.Message.set_type": "library/email.compat32-message.html#email.message.Message.set_type",
+    "library/email.message.html#email.message.Message.get_filename": "library/email.message.html#email.message.EmailMessage.get_filename",
+    "library/email.message.html#email.message.Message.get_boundary": "library/email.message.html#email.message.EmailMessage.get_boundary",
+    "library/email.message.html#email.message.Message.set_boundary": "library/email.message.html#email.message.EmailMessage.set_boundary",
+    "library/email.message.html#email.message.Message.get_content_charset": "library/email.message.html#email.message.EmailMessage.get_content_charset",
+    "library/email.message.html#email.message.Message.get_charsets": "library/email.message.html#email.message.EmailMessage.get_charsets",
     "library/email.message.html#email.message.Message.walk": "library/email.message.html#email.message.EmailMessage.walk",
+    "library/email.message.html#email.message.Message.preamble": "library/email.message.html#email.message.EmailMessage.preamble",
+    "library/email.message.html#email.message.Message.epilogue": "library/email.message.html#email.message.EmailMessage.epilogue",
+    "library/email.message.html#email.message.Message.defects": "library/email.message.html#email.message.EmailMessage.defects",
     // The class name was changed to EmailMessage in Python 3, but the old Message class was
     // kept for backwards compatibility. It still defines all the above methods and the following
     // deprecated methods that EmailMessage doesn't:
     // TODO: link to the legacy Message class above as well?
     "library/email.message.html#email.message.Message.attach": "library/email.compat32-message.html#email.message.Message.attach",
-    "library/email.message.html#email.message.Message.get_charset": "library/email.compat32-message.html#email.message.Message.get_charset",
-    "library/email.message.html#email.message.Message.get_param": "library/email.compat32-message.html#email.message.Message.get_param",
-    "library/email.message.html#email.message.Message.get_params": "library/email.compat32-message.html#email.message.Message.get_params",
     "library/email.message.html#email.message.Message.get_payload": "library/email.compat32-message.html#email.message.Message.get_payload",
-    "library/email.message.html#email.message.Message.set_charset": "library/email.compat32-message.html#email.message.Message.set_charset",
     "library/email.message.html#email.message.Message.set_payload": "library/email.compat32-message.html#email.message.Message.set_payload",
-    "library/email.message.html#email.message.Message.set_type": "library/email.compat32-message.html#email.message.Message.set_type",
-    // Removed dictionary method, use `in`
-    "library/email.message.html#email.message.Message.has_key": null,
+    "library/email.message.html#email.message.Message.set_charset": "library/email.compat32-message.html#email.message.Message.set_charset",
+    "library/email.message.html#email.message.Message.get_charset": "library/email.compat32-message.html#email.message.Message.get_charset",
+    "library/email.message.html#email.message.Message.get_params": "library/email.compat32-message.html#email.message.Message.get_params",
+    "library/email.message.html#email.message.Message.get_param": "library/email.compat32-message.html#email.message.Message.get_param",
 
     "library/email.parser.html#email.parser.FeedParser.feed": "library/email.parser.html#email.parser.BytesFeedParser.feed",
     "library/email.parser.html#email.parser.FeedParser.close": "library/email.parser.html#email.parser.BytesFeedParser.close",
@@ -1010,6 +1044,9 @@ const SPECIAL_CASES = {
     "library/email.charset.html#email.charset.Charset.to_splittable": null,
     "library/email.charset.html#email.charset.Charset.from_splittable": null,
     "library/email.charset.html#email.charset.Charset.encoded_header_len": null,
+
+    "library/email-examples.html": "library/email.examples.html",
+
 
     // Use `in Mailbox.keys`
     "library/mailbox.html#mailbox.Mailbox.has_key": null,
@@ -1101,6 +1138,7 @@ const SPECIAL_CASES = {
     "library/htmllib.html#htmlentitydefs.codepoint2name": "library/html.entities.html#html.entities.codepoint2name",
 
 
+    // "Deprecated since version 2.7: Define the TreeBuilder.doctype() method on a custom TreeBuilder target"
     "library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLParser.doctype": null,
     "library/xml.dom.minidom.html#xml.dom.minidom.Node.cloneNode": null,
     "library/xml.dom.pulldom.html#xml.dom.pulldom.PullDOM": "library/xml.dom.pulldom.html#xml.dom.pulldom.PullDom",
@@ -1110,11 +1148,16 @@ const SPECIAL_CASES = {
 
     "library/cgi.html#old-classes": null,
 
-    "library/cgi.html#cgi.parse_qs": "library/urllib.parse.html#urllib.parse.parse_qs",
-    "library/cgi.html#cgi.parse_qsl": "library/urllib.parse.html#urllib.parse.parse_qsl",
-    // cgi.escape hase quote=False and this has quote=True, could be confusing
+    // "This function is deprecated in this module. Use urlparse.parse_qs() instead"
+    // "library/cgi.html#cgi.parse_qs": "library/urllib.parse.html#urllib.parse.parse_qs",
+    "library/cgi.html#cgi.parse_qs": null,
+    // "This function is deprecated in this module. Use urlparse.parse_qsl() instead"
+    // "library/cgi.html#cgi.parse_qsl": "library/urllib.parse.html#urllib.parse.parse_qsl",
+    "library/cgi.html#cgi.parse_qsl": null,
+    // cgi.escape has quote=False and this has quote=True, could be confusing
     "library/cgi.html#cgi.escape": "library/html.html#html.escape",
 
+    // TODO: re-order these two sections
     "library/urllib.html#urllib.urlopen": "library/urllib.request.html#urllib.request.urlopen",
     "library/urllib.html#urllib.urlretrieve": "library/urllib.request.html#urllib.request.urlretrieve",
     // TODO: explain this missing redirect
@@ -1190,9 +1233,8 @@ const SPECIAL_CASES = {
     "library/urllib2.html#urllib2.BaseHandler.close": "library/urllib.request.html#urllib.request.BaseHandler.close",
     "library/urllib2.html#urllib2.BaseHandler.default_open": "library/urllib.request.html#urllib.request.BaseHandler.default_open",
     "library/urllib2.html#urllib2.BaseHandler.http_error_default": "library/urllib.request.html#urllib.request.BaseHandler.http_error_default",
-    // Element doesn't have a linkable id in the Python 3 documentation
-    // "library/urllib2.html#urllib2.BaseHandler.http_error_nnn": "library/urllib.request.html#urllib.request.BaseHandler.http_error_nnn",
-    "library/urllib2.html#urllib2.BaseHandler.http_error_nnn": "library/urllib.request.html#urllib.request.BaseHandler",
+    // This link is different because it has "<" and ">"
+    "library/urllib2.html#urllib2.BaseHandler.http_error_nnn": "library/urllib.request.html#http-error-nnn",
     "library/urllib2.html#urllib2.BaseHandler.parent": "library/urllib.request.html#urllib.request.BaseHandler.parent",
     "library/urllib2.html#urllib2.BaseHandler.unknown_open": "library/urllib.request.html#urllib.request.BaseHandler.unknown_open",
     "library/urllib2.html#urllib2.CacheFTPHandler.setMaxConns": "library/urllib.request.html#urllib.request.CacheFTPHandler.setMaxConns",
@@ -1221,6 +1263,7 @@ const SPECIAL_CASES = {
     "library/urllib2.html#urllib2.OpenerDirector.open": "library/urllib.request.html#urllib.request.OpenerDirector.open",
     "library/urllib2.html#urllib2.ProxyBasicAuthHandler.http_error_407": "library/urllib.request.html#urllib.request.ProxyBasicAuthHandler.http_error_407",
     "library/urllib2.html#urllib2.ProxyDigestAuthHandler.http_error_407": "library/urllib.request.html#urllib.request.ProxyDigestAuthHandler.http_error_407",
+    // TODO: redirect some of these to the properties?
     "library/urllib2.html#urllib2.Request.add_data": null,
     "library/urllib2.html#urllib2.Request.add_header": "library/urllib.request.html#urllib.request.Request.add_header",
     "library/urllib2.html#urllib2.Request.add_unredirected_header": "library/urllib.request.html#urllib.request.Request.add_unredirected_header",
@@ -1398,7 +1441,7 @@ const SPECIAL_CASES = {
     "library/simplehttpserver.html#SimpleHTTPServer.SimpleHTTPRequestHandler.do_HEAD": "library/http.server.html#http.server.SimpleHTTPRequestHandler.do_HEAD",
     "library/simplehttpserver.html#SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET": "library/http.server.html#http.server.SimpleHTTPRequestHandler.do_GET",
 
-    "library/cgihttpserver.html": "library/http.server.html",
+    "library/cgihttpserver.html": "library/http.server.html#http.server.CGIHTTPRequestHandler",
     "library/cgihttpserver.html#module-CGIHTTPServer": "library/http.server.html#http.server.CGIHTTPRequestHandler",
     "library/cgihttpserver.html#cgihttpserver-cgi-capable-http-request-handler": "library/http.server.html#http.server.CGIHTTPRequestHandler",
     "library/cgihttpserver.html#CGIHTTPServer.CGIHTTPRequestHandler": "library/http.server.html#http.server.CGIHTTPRequestHandler",
@@ -1708,6 +1751,7 @@ const SPECIAL_CASES = {
 
     "library/turtle.html#turtle-turtle-graphics-for-tk": "library/turtle.html#turtle-turtle-graphics",
     "library/turtle.html#overview-over-available-turtle-and-screen-methods": "library/turtle.html#overview-of-available-turtle-and-screen-methods",
+    // Removed method, use `begin_fill` and `end_fill` instead
     "library/turtle.html#turtle.fill": null,
     "library/turtle.html#excursus-about-the-use-of-compound-shapes": "library/turtle.html#compound-shapes",
     "library/turtle.html#the-public-classes-of-the-module-turtle": "library/turtle.html#public-classes",
