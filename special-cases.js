@@ -1,901 +1,7 @@
 const SPECIAL_CASES = {
     // Python 2.7
-    // TODO: these commented links might break when 2to3 is removed
-    // https://docs.python.org/library/2to3.html#2to3fixer-apply
-    "library/functions.html#apply": "tutorial/controlflow.html#tut-unpacking-arguments",
 
-    // https://docs.python.org/library/2to3.html#2to3fixer-asserts
-    // Python 2.6 assert statements are further down
-    "library/unittest.html#unittest.TestCase.assertRaisesRegexp": "library/unittest.html#unittest.TestCase.assertRaisesRegex",
-    "library/unittest.html#unittest.TestCase.assertRegexpMatches": "library/unittest.html#unittest.TestCase.assertRegex",
-    "library/unittest.html#unittest.TestCase.assertNotRegexpMatches": "library/unittest.html#unittest.TestCase.assertNotRegex",
-    "library/unittest.html#unittest.TestCase.assertItemsEqual": "library/unittest.html#unittest.TestCase.assertCountEqual",
-
-    "library/unittest.html#unittest.TestCase.assertDictContainsSubset": null,
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-basestring
-    "library/functions.html#basestring": "library/functions.html#func-str",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-buffer
-    // maybe this shouldn't redirect, the memoryview API is similar but not exactly the same as that of buffer
-    "library/functions.html#buffer": "library/functions.html#func-memoryview",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-dict
-    "library/stdtypes.html#dict.iteritems": "library/stdtypes.html#dict.items",
-    "library/stdtypes.html#dict.iterkeys": "library/stdtypes.html#dict.keys",
-    "library/stdtypes.html#dict.itervalues": "library/stdtypes.html#dict.values",
-    "library/stdtypes.html#dict.viewitems": "library/stdtypes.html#dict.items",
-    "library/stdtypes.html#dict.viewkeys": "library/stdtypes.html#dict.keys",
-    "library/stdtypes.html#dict.viewvalues": "library/stdtypes.html#dict.values",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-exec
-    "reference/simple_stmts.html#exec": "library/functions.html#exec",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-execfile
-    // Redirecting could be confusing. It's replaced by exec(open(fn).read())
-    // "library/functions.html#execfile": "library/functions.html#exec",
-    // https://docs.python.org/whatsnew/3.0.html#builtins
-    // "library/functions.html#execfile": "whatsnew/3.0.html#builtins",
-    "library/functions.html#execfile": null,
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-exitfunc
-    // "library/sys.html#sys.exitfunc": "library/atexit.html#module-atexit",
-    "library/sys.html#sys.exitfunc": null,
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-filter
-    // https://docs.python.org/library/2to3.html#2to3fixer-funcattrs
-    // https://docs.python.org/library/2to3.html#2to3fixer-future
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-getcwdu
-    "library/os.html#os.getcwdu": "library/os.html#os.getcwd",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-has_key
-    "library/stdtypes.html#dict.has_key": "library/stdtypes.html#dict",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-idioms
-    // https://docs.python.org/library/2to3.html#2to3fixer-import
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-imports
-    // https://github.com/python/cpython/blob/531d1e541284bfd7944f8c66a5e8c3c3234afaff/Lib/lib2to3/fixes/fix_imports.py#L8-L58
-
-    "library/stringio.html": "library/io.html#io.StringIO",
-    "library/stringio.html#module-StringIO": "library/io.html#io.StringIO",
-    "library/stringio.html#stringio-read-and-write-strings-as-files": "library/io.html#io.StringIO",
-    "library/stringio.html#StringIO.StringIO": "library/io.html#io.StringIO",
-    "library/stringio.html#StringIO.StringIO.getvalue": "library/io.html#io.StringIO.getvalue",
-    // TODO: link to the function it inherits from?
-    // "library/stringio.html#StringIO.StringIO.close": "library/io.html#io.IOBase.close",
-    "library/stringio.html#StringIO.StringIO.close": "library/io.html#io.StringIO",
-    "library/stringio.html#module-cStringIO": "library/io.html#io.StringIO",
-    "library/stringio.html#cstringio-faster-version-of-stringio": "library/io.html#io.StringIO",
-    "library/stringio.html#cStringIO.StringIO": "library/io.html#io.StringIO",
-    // TODO: classes don't exist, link to the module anyway?
-    "library/stringio.html#cStringIO.InputType": null,
-    "library/stringio.html#cStringIO.OutputType": null,
-
-
-    "library/pickle.html#usage": "library/pickle.html#module-interface",
-    "library/pickle.html#pickle.Pickler.clear_memo": null,
-    "library/pickle.html#pickle.Unpickler.noload": null,
-    "library/pickle.html#the-pickle-protocol": "library/pickle.html#pickling-class-instances",
-    "library/pickle.html#pickle-protocol": "library/pickle.html#pickling-class-instances",
-    "library/pickle.html#pickling-and-unpickling-normal-class-instances": "library/pickle.html#pickling-class-instances",
-    // TODO: this method was removed. Figure out where to redirect.
-    "library/pickle.html#object.__getinitargs__": null,
-    "library/pickle.html#pickling-and-unpickling-extension-types": "library/pickle.html#object.__reduce__",
-    "library/pickle.html#pickling-and-unpickling-external-objects": "library/pickle.html#persistence-of-external-objects",
-    "library/pickle.html#subclassing-unpicklers": "library/pickle.html#restricting-globals",
-    "library/pickle.html#pickle-sub": "library/pickle.html#restricting-globals",
-    // pickle tries to use cPickle and falls back to the Python implementation transparently
-    // TODO: don't redirect?
-    // "library/pickle.html#module-cPickle": null,
-    // "library/pickle.html#cpickle-a-faster-pickle": null,
-    "library/pickle.html#module-cPickle": "library/pickle.html",
-    "library/pickle.html#cpickle-a-faster-pickle": "library/pickle.html",
-
-
-    "library/__builtin__.html": "library/builtins.html",
-    "library/__builtin__.html#module-__builtin__": "library/builtins.html#module-builtins",
-    "library/__builtin__.html#builtin-built-in-objects": "library/builtins.html#builtins-built-in-objects",
-
-
-    "library/copy_reg.html": "library/copyreg.html",
-    "library/copy_reg.html#module-copy_reg": "library/copyreg.html#module-copyreg",
-    "library/copy_reg.html#copy-reg-register-pickle-support-functions": "library/copyreg.html#copyreg-register-pickle-support-functions",
-    "library/copy_reg.html#copy_reg.constructor": "library/copyreg.html#copyreg.constructor",
-    "library/copy_reg.html#copy_reg.pickle": "library/copyreg.html#copyreg.pickle",
-
-
-    "library/repr.html": "library/reprlib.html",
-    "library/repr.html#module-repr": "library/reprlib.html#module-reprlib",
-    "library/repr.html#repr-alternate-repr-implementation": "library/reprlib.html#reprlib-alternate-repr-implementation",
-    "library/repr.html#repr.Repr": "library/reprlib.html#reprlib.Repr",
-    "library/repr.html#repr.aRepr": "library/reprlib.html#reprlib.aRepr",
-    "library/repr.html#repr.repr": "library/reprlib.html#reprlib.repr",
-    "library/repr.html#repr.Repr.maxlevel": "library/reprlib.html#reprlib.Repr.maxlevel",
-    "library/repr.html#repr.Repr.maxdict": "library/reprlib.html#reprlib.Repr.maxdict",
-    "library/repr.html#repr.Repr.maxlist": "library/reprlib.html#reprlib.Repr.maxlist",
-    "library/repr.html#repr.Repr.maxtuple": "library/reprlib.html#reprlib.Repr.maxtuple",
-    "library/repr.html#repr.Repr.maxset": "library/reprlib.html#reprlib.Repr.maxset",
-    "library/repr.html#repr.Repr.maxfrozenset": "library/reprlib.html#reprlib.Repr.maxfrozenset",
-    "library/repr.html#repr.Repr.maxdeque": "library/reprlib.html#reprlib.Repr.maxdeque",
-    "library/repr.html#repr.Repr.maxarray": "library/reprlib.html#reprlib.Repr.maxarray",
-    "library/repr.html#repr.Repr.maxlong": "library/reprlib.html#reprlib.Repr.maxlong",
-    "library/repr.html#repr.Repr.maxstring": "library/reprlib.html#reprlib.Repr.maxstring",
-    "library/repr.html#repr.Repr.maxother": "library/reprlib.html#reprlib.Repr.maxother",
-    "library/repr.html#repr.Repr.repr": "library/reprlib.html#reprlib.Repr.repr",
-    "library/repr.html#repr.Repr.repr1": "library/reprlib.html#reprlib.Repr.repr1",
-
-
-    "library/scrolledtext.html": "library/tkinter.scrolledtext.html",
-    "library/scrolledtext.html#module-ScrolledText": "library/tkinter.scrolledtext.html#module-tkinter.scrolledtext",
-    "library/scrolledtext.html#scrolledtext-scrolled-text-widget": "library/tkinter.scrolledtext.html#tkinter-scrolledtext-scrolled-text-widget",
-    "library/scrolledtext.html#ScrolledText.ScrolledText.frame": "library/tkinter.scrolledtext.html#tkinter.scrolledtext.ScrolledText.frame",
-    "library/scrolledtext.html#ScrolledText.ScrolledText.vbar": "library/tkinter.scrolledtext.html#tkinter.scrolledtext.ScrolledText.vbar",
-
-    "library/tix.html": "library/tkinter.tix.html",
-    "library/tix.html#module-Tix": "library/tkinter.tix.html#module-tkinter.tix",
-    "library/tix.html#tix-extension-widgets-for-tk": "library/tkinter.tix.html#tkinter-tix-extension-widgets-for-tk",
-    // This one is different because "import Tix; Tix.Tk()" became "from tkinter import tix; tix.Tk()"
-    "library/tix.html#Tix.Tix": "library/tkinter.tix.html#tkinter.tix.Tk",
-    "library/tix.html#Tix.Balloon": "library/tkinter.tix.html#tkinter.tix.Balloon",
-    "library/tix.html#Tix.ButtonBox": "library/tkinter.tix.html#tkinter.tix.ButtonBox",
-    "library/tix.html#Tix.ComboBox": "library/tkinter.tix.html#tkinter.tix.ComboBox",
-    "library/tix.html#Tix.Control": "library/tkinter.tix.html#tkinter.tix.Control",
-    "library/tix.html#Tix.LabelEntry": "library/tkinter.tix.html#tkinter.tix.LabelEntry",
-    "library/tix.html#Tix.LabelFrame": "library/tkinter.tix.html#tkinter.tix.LabelFrame",
-    "library/tix.html#Tix.Meter": "library/tkinter.tix.html#tkinter.tix.Meter",
-    "library/tix.html#Tix.OptionMenu": "library/tkinter.tix.html#tkinter.tix.OptionMenu",
-    "library/tix.html#Tix.PopupMenu": "library/tkinter.tix.html#tkinter.tix.PopupMenu",
-    "library/tix.html#Tix.Select": "library/tkinter.tix.html#tkinter.tix.Select",
-    "library/tix.html#Tix.StdButtonBox": "library/tkinter.tix.html#tkinter.tix.StdButtonBox",
-    "library/tix.html#Tix.DirList": "library/tkinter.tix.html#tkinter.tix.DirList",
-    "library/tix.html#Tix.DirTree": "library/tkinter.tix.html#tkinter.tix.DirTree",
-    "library/tix.html#Tix.DirSelectDialog": "library/tkinter.tix.html#tkinter.tix.DirSelectDialog",
-    "library/tix.html#Tix.DirSelectBox": "library/tkinter.tix.html#tkinter.tix.DirSelectBox",
-    "library/tix.html#Tix.ExFileSelectBox": "library/tkinter.tix.html#tkinter.tix.ExFileSelectBox",
-    "library/tix.html#Tix.FileSelectBox": "library/tkinter.tix.html#tkinter.tix.FileSelectBox",
-    "library/tix.html#Tix.FileEntry": "library/tkinter.tix.html#tkinter.tix.FileEntry",
-    "library/tix.html#Tix.HList": "library/tkinter.tix.html#tkinter.tix.HList",
-    "library/tix.html#Tix.CheckList": "library/tkinter.tix.html#tkinter.tix.CheckList",
-    "library/tix.html#Tix.Tree": "library/tkinter.tix.html#tkinter.tix.Tree",
-    "library/tix.html#Tix.TList": "library/tkinter.tix.html#tkinter.tix.TList",
-    "library/tix.html#Tix.PanedWindow": "library/tkinter.tix.html#tkinter.tix.PanedWindow",
-    "library/tix.html#Tix.ListNoteBook": "library/tkinter.tix.html#tkinter.tix.ListNoteBook",
-    "library/tix.html#Tix.NoteBook": "library/tkinter.tix.html#tkinter.tix.NoteBook",
-    "library/tix.html#Tix.InputOnly": "library/tkinter.tix.html#tkinter.tix.InputOnly",
-    "library/tix.html#Tix.Form": "library/tkinter.tix.html#tkinter.tix.Form",
-    "library/tix.html#Tix.tixCommand": "library/tkinter.tix.html#tkinter.tix.tixCommand",
-    "library/tix.html#Tix.tixCommand.tix_configure": "library/tkinter.tix.html#tkinter.tix.tixCommand.tix_configure",
-    "library/tix.html#Tix.tixCommand.tix_cget": "library/tkinter.tix.html#tkinter.tix.tixCommand.tix_cget",
-    "library/tix.html#Tix.tixCommand.tix_getbitmap": "library/tkinter.tix.html#tkinter.tix.tixCommand.tix_getbitmap",
-    "library/tix.html#Tix.tixCommand.tix_addbitmapdir": "library/tkinter.tix.html#tkinter.tix.tixCommand.tix_addbitmapdir",
-    "library/tix.html#Tix.tixCommand.tix_filedialog": "library/tkinter.tix.html#tkinter.tix.tixCommand.tix_filedialog",
-    "library/tix.html#Tix.tixCommand.tix_getimage": "library/tkinter.tix.html#tkinter.tix.tixCommand.tix_getimage",
-    "library/tix.html#Tix.tixCommand.tix_option_get": "library/tkinter.tix.html#tkinter.tix.tixCommand.tix_option_get",
-    "library/tix.html#Tix.tixCommand.tix_resetoptions": "library/tkinter.tix.html#tkinter.tix.tixCommand.tix_resetoptions",
-
-
-    "library/ttk.html": "library/tkinter.ttk.html",
-    "library/ttk.html#module-ttk": "library/tkinter.ttk.html#module-tkinter.ttk",
-    "library/ttk.html#ttk-tk-themed-widgets": "library/tkinter.ttk.html#tkinter-ttk-tk-themed-widgets",
-    "library/ttk.html#ttk.Widget": "library/tkinter.ttk.html#tkinter.ttk.Widget",
-    "library/ttk.html#ttk.Widget.identify": "library/tkinter.ttk.html#tkinter.ttk.Widget.identify",
-    "library/ttk.html#ttk.Widget.instate": "library/tkinter.ttk.html#tkinter.ttk.Widget.instate",
-    "library/ttk.html#ttk.Widget.state": "library/tkinter.ttk.html#tkinter.ttk.Widget.state",
-    "library/ttk.html#ttk.Combobox": "library/tkinter.ttk.html#tkinter.ttk.Combobox",
-    "library/ttk.html#ttk.Combobox.current": "library/tkinter.ttk.html#tkinter.ttk.Combobox.current",
-    "library/ttk.html#ttk.Combobox.get": "library/tkinter.ttk.html#tkinter.ttk.Combobox.get",
-    "library/ttk.html#ttk.Combobox.set": "library/tkinter.ttk.html#tkinter.ttk.Combobox.set",
-    "library/ttk.html#ttk.Notebook": "library/tkinter.ttk.html#tkinter.ttk.Notebook",
-    "library/ttk.html#ttk.Notebook.add": "library/tkinter.ttk.html#tkinter.ttk.Notebook.add",
-    "library/ttk.html#ttk.Notebook.forget": "library/tkinter.ttk.html#tkinter.ttk.Notebook.forget",
-    "library/ttk.html#ttk.Notebook.hide": "library/tkinter.ttk.html#tkinter.ttk.Notebook.hide",
-    "library/ttk.html#ttk.Notebook.identify": "library/tkinter.ttk.html#tkinter.ttk.Notebook.identify",
-    "library/ttk.html#ttk.Notebook.index": "library/tkinter.ttk.html#tkinter.ttk.Notebook.index",
-    "library/ttk.html#ttk.Notebook.insert": "library/tkinter.ttk.html#tkinter.ttk.Notebook.insert",
-    "library/ttk.html#ttk.Notebook.select": "library/tkinter.ttk.html#tkinter.ttk.Notebook.select",
-    "library/ttk.html#ttk.Notebook.tab": "library/tkinter.ttk.html#tkinter.ttk.Notebook.tab",
-    "library/ttk.html#ttk.Notebook.tabs": "library/tkinter.ttk.html#tkinter.ttk.Notebook.tabs",
-    "library/ttk.html#ttk.Notebook.enable_traversal": "library/tkinter.ttk.html#tkinter.ttk.Notebook.enable_traversal",
-    "library/ttk.html#ttk.Progressbar": "library/tkinter.ttk.html#tkinter.ttk.Progressbar",
-    "library/ttk.html#ttk.Progressbar.start": "library/tkinter.ttk.html#tkinter.ttk.Progressbar.start",
-    "library/ttk.html#ttk.Progressbar.step": "library/tkinter.ttk.html#tkinter.ttk.Progressbar.step",
-    "library/ttk.html#ttk.Progressbar.stop": "library/tkinter.ttk.html#tkinter.ttk.Progressbar.stop",
-    "library/ttk.html#ttk.Treeview": "library/tkinter.ttk.html#tkinter.ttk.Treeview",
-    "library/ttk.html#ttk.Treeview.bbox": "library/tkinter.ttk.html#tkinter.ttk.Treeview.bbox",
-    "library/ttk.html#ttk.Treeview.get_children": "library/tkinter.ttk.html#tkinter.ttk.Treeview.get_children",
-    "library/ttk.html#ttk.Treeview.set_children": "library/tkinter.ttk.html#tkinter.ttk.Treeview.set_children",
-    "library/ttk.html#ttk.Treeview.column": "library/tkinter.ttk.html#tkinter.ttk.Treeview.column",
-    "library/ttk.html#ttk.Treeview.delete": "library/tkinter.ttk.html#tkinter.ttk.Treeview.delete",
-    "library/ttk.html#ttk.Treeview.detach": "library/tkinter.ttk.html#tkinter.ttk.Treeview.detach",
-    "library/ttk.html#ttk.Treeview.exists": "library/tkinter.ttk.html#tkinter.ttk.Treeview.exists",
-    "library/ttk.html#ttk.Treeview.focus": "library/tkinter.ttk.html#tkinter.ttk.Treeview.focus",
-    "library/ttk.html#ttk.Treeview.heading": "library/tkinter.ttk.html#tkinter.ttk.Treeview.heading",
-    "library/ttk.html#ttk.Treeview.identify": "library/tkinter.ttk.html#tkinter.ttk.Treeview.identify",
-    "library/ttk.html#ttk.Treeview.identify_row": "library/tkinter.ttk.html#tkinter.ttk.Treeview.identify_row",
-    "library/ttk.html#ttk.Treeview.identify_column": "library/tkinter.ttk.html#tkinter.ttk.Treeview.identify_column",
-    "library/ttk.html#ttk.Treeview.identify_region": "library/tkinter.ttk.html#tkinter.ttk.Treeview.identify_region",
-    "library/ttk.html#ttk.Treeview.identify_element": "library/tkinter.ttk.html#tkinter.ttk.Treeview.identify_element",
-    "library/ttk.html#ttk.Treeview.index": "library/tkinter.ttk.html#tkinter.ttk.Treeview.index",
-    "library/ttk.html#ttk.Treeview.insert": "library/tkinter.ttk.html#tkinter.ttk.Treeview.insert",
-    "library/ttk.html#ttk.Treeview.item": "library/tkinter.ttk.html#tkinter.ttk.Treeview.item",
-    "library/ttk.html#ttk.Treeview.move": "library/tkinter.ttk.html#tkinter.ttk.Treeview.move",
-    "library/ttk.html#ttk.Treeview.next": "library/tkinter.ttk.html#tkinter.ttk.Treeview.next",
-    "library/ttk.html#ttk.Treeview.parent": "library/tkinter.ttk.html#tkinter.ttk.Treeview.parent",
-    "library/ttk.html#ttk.Treeview.prev": "library/tkinter.ttk.html#tkinter.ttk.Treeview.prev",
-    "library/ttk.html#ttk.Treeview.reattach": "library/tkinter.ttk.html#tkinter.ttk.Treeview.reattach",
-    "library/ttk.html#ttk.Treeview.see": "library/tkinter.ttk.html#tkinter.ttk.Treeview.see",
-    "library/ttk.html#ttk.Treeview.selection": "library/tkinter.ttk.html#tkinter.ttk.Treeview.selection",
-    "library/ttk.html#ttk.Treeview.selection_set": "library/tkinter.ttk.html#tkinter.ttk.Treeview.selection_set",
-    "library/ttk.html#ttk.Treeview.selection_add": "library/tkinter.ttk.html#tkinter.ttk.Treeview.selection_add",
-    "library/ttk.html#ttk.Treeview.selection_remove": "library/tkinter.ttk.html#tkinter.ttk.Treeview.selection_remove",
-    "library/ttk.html#ttk.Treeview.selection_toggle": "library/tkinter.ttk.html#tkinter.ttk.Treeview.selection_toggle",
-    "library/ttk.html#ttk.Treeview.set": "library/tkinter.ttk.html#tkinter.ttk.Treeview.set",
-    "library/ttk.html#ttk.Treeview.tag_bind": "library/tkinter.ttk.html#tkinter.ttk.Treeview.tag_bind",
-    "library/ttk.html#ttk.Treeview.tag_configure": "library/tkinter.ttk.html#tkinter.ttk.Treeview.tag_configure",
-    "library/ttk.html#ttk.Treeview.tag_has": "library/tkinter.ttk.html#tkinter.ttk.Treeview.tag_has",
-    "library/ttk.html#ttk.Treeview.xview": "library/tkinter.ttk.html#tkinter.ttk.Treeview.xview",
-    "library/ttk.html#ttk.Treeview.yview": "library/tkinter.ttk.html#tkinter.ttk.Treeview.yview",
-    "library/ttk.html#ttk.Style": "library/tkinter.ttk.html#tkinter.ttk.Style",
-    "library/ttk.html#ttk.Style.configure": "library/tkinter.ttk.html#tkinter.ttk.Style.configure",
-    "library/ttk.html#ttk.Style.map": "library/tkinter.ttk.html#tkinter.ttk.Style.map",
-    "library/ttk.html#ttk.Style.lookup": "library/tkinter.ttk.html#tkinter.ttk.Style.lookup",
-    "library/ttk.html#ttk.Style.layout": "library/tkinter.ttk.html#tkinter.ttk.Style.layout",
-    "library/ttk.html#ttk.Style.element_create": "library/tkinter.ttk.html#tkinter.ttk.Style.element_create",
-    "library/ttk.html#ttk.Style.element_names": "library/tkinter.ttk.html#tkinter.ttk.Style.element_names",
-    "library/ttk.html#ttk.Style.element_options": "library/tkinter.ttk.html#tkinter.ttk.Style.element_options",
-    "library/ttk.html#ttk.Style.theme_create": "library/tkinter.ttk.html#tkinter.ttk.Style.theme_create",
-    "library/ttk.html#ttk.Style.theme_settings": "library/tkinter.ttk.html#tkinter.ttk.Style.theme_settings",
-    "library/ttk.html#ttk.Style.theme_names": "library/tkinter.ttk.html#tkinter.ttk.Style.theme_names",
-    "library/ttk.html#ttk.Style.theme_use": "library/tkinter.ttk.html#tkinter.ttk.Style.theme_use",
-
-    "library/tkinter.html#module-Tkinter": "library/tkinter.html#module-tkinter",
-    "library/tkinter.html#Tkinter.Tk": "library/tkinter.html#tkinter.Tk",
-    "library/tkinter.html#Tkinter.Tcl": "library/tkinter.html#tkinter.Tcl",
-    "library/tkinter.html#Tkinter.Widget.tk.createfilehandler": "library/tkinter.html#tkinter.Widget.tk.createfilehandler",
-    "library/tkinter.html#Tkinter.Widget.tk.deletefilehandler": "library/tkinter.html#tkinter.Widget.tk.deletefilehandler",
-    "library/tkinter.html#Tkinter.READABLE": "library/tkinter.html#tkinter.READABLE",
-    "library/tkinter.html#Tkinter.WRITABLE": "library/tkinter.html#tkinter.WRITABLE",
-    "library/tkinter.html#Tkinter.EXCEPTION": "library/tkinter.html#tkinter.EXCEPTION",
-
-
-    "library/_winreg.html": "library/winreg.html",
-    "library/_winreg.html#module-_winreg": "library/winreg.html#module-winreg",
-    "library/_winreg.html#_winreg.CloseKey": "library/winreg.html#winreg.CloseKey",
-    "library/_winreg.html#_winreg.ConnectRegistry": "library/winreg.html#winreg.ConnectRegistry",
-    "library/_winreg.html#_winreg.CreateKey": "library/winreg.html#winreg.CreateKey",
-    "library/_winreg.html#_winreg.CreateKeyEx": "library/winreg.html#winreg.CreateKeyEx",
-    "library/_winreg.html#_winreg.DeleteKey": "library/winreg.html#winreg.DeleteKey",
-    "library/_winreg.html#_winreg.DeleteKeyEx": "library/winreg.html#winreg.DeleteKeyEx",
-    "library/_winreg.html#_winreg.DeleteValue": "library/winreg.html#winreg.DeleteValue",
-    "library/_winreg.html#_winreg.EnumKey": "library/winreg.html#winreg.EnumKey",
-    "library/_winreg.html#_winreg.EnumValue": "library/winreg.html#winreg.EnumValue",
-    "library/_winreg.html#_winreg.ExpandEnvironmentStrings": "library/winreg.html#winreg.ExpandEnvironmentStrings",
-    "library/_winreg.html#_winreg.FlushKey": "library/winreg.html#winreg.FlushKey",
-    "library/_winreg.html#_winreg.LoadKey": "library/winreg.html#winreg.LoadKey",
-    "library/_winreg.html#_winreg.OpenKey": "library/winreg.html#winreg.OpenKey",
-    "library/_winreg.html#_winreg.OpenKeyEx": "library/winreg.html#winreg.OpenKeyEx",
-    "library/_winreg.html#_winreg.QueryInfoKey": "library/winreg.html#winreg.QueryInfoKey",
-    "library/_winreg.html#_winreg.QueryValue": "library/winreg.html#winreg.QueryValue",
-    "library/_winreg.html#_winreg.QueryValueEx": "library/winreg.html#winreg.QueryValueEx",
-    "library/_winreg.html#_winreg.SaveKey": "library/winreg.html#winreg.SaveKey",
-    "library/_winreg.html#_winreg.SetValue": "library/winreg.html#winreg.SetValue",
-    "library/_winreg.html#_winreg.SetValueEx": "library/winreg.html#winreg.SetValueEx",
-    "library/_winreg.html#_winreg.DisableReflectionKey": "library/winreg.html#winreg.DisableReflectionKey",
-    "library/_winreg.html#_winreg.EnableReflectionKey": "library/winreg.html#winreg.EnableReflectionKey",
-    "library/_winreg.html#_winreg.QueryReflectionKey": "library/winreg.html#winreg.QueryReflectionKey",
-    "library/_winreg.html#_winreg.HKEY_CLASSES_ROOT": "library/winreg.html#winreg.HKEY_CLASSES_ROOT",
-    "library/_winreg.html#_winreg.HKEY_CURRENT_USER": "library/winreg.html#winreg.HKEY_CURRENT_USER",
-    "library/_winreg.html#_winreg.HKEY_LOCAL_MACHINE": "library/winreg.html#winreg.HKEY_LOCAL_MACHINE",
-    "library/_winreg.html#_winreg.HKEY_USERS": "library/winreg.html#winreg.HKEY_USERS",
-    "library/_winreg.html#_winreg.HKEY_PERFORMANCE_DATA": "library/winreg.html#winreg.HKEY_PERFORMANCE_DATA",
-    "library/_winreg.html#_winreg.HKEY_CURRENT_CONFIG": "library/winreg.html#winreg.HKEY_CURRENT_CONFIG",
-    "library/_winreg.html#_winreg.HKEY_DYN_DATA": "library/winreg.html#winreg.HKEY_DYN_DATA",
-    "library/_winreg.html#_winreg.KEY_ALL_ACCESS": "library/winreg.html#winreg.KEY_ALL_ACCESS",
-    "library/_winreg.html#_winreg.KEY_WRITE": "library/winreg.html#winreg.KEY_WRITE",
-    "library/_winreg.html#_winreg.KEY_READ": "library/winreg.html#winreg.KEY_READ",
-    "library/_winreg.html#_winreg.KEY_EXECUTE": "library/winreg.html#winreg.KEY_EXECUTE",
-    "library/_winreg.html#_winreg.KEY_QUERY_VALUE": "library/winreg.html#winreg.KEY_QUERY_VALUE",
-    "library/_winreg.html#_winreg.KEY_SET_VALUE": "library/winreg.html#winreg.KEY_SET_VALUE",
-    "library/_winreg.html#_winreg.KEY_CREATE_SUB_KEY": "library/winreg.html#winreg.KEY_CREATE_SUB_KEY",
-    "library/_winreg.html#_winreg.KEY_ENUMERATE_SUB_KEYS": "library/winreg.html#winreg.KEY_ENUMERATE_SUB_KEYS",
-    "library/_winreg.html#_winreg.KEY_NOTIFY": "library/winreg.html#winreg.KEY_NOTIFY",
-    "library/_winreg.html#_winreg.KEY_CREATE_LINK": "library/winreg.html#winreg.KEY_CREATE_LINK",
-    "library/_winreg.html#_winreg.KEY_WOW64_64KEY": "library/winreg.html#winreg.KEY_WOW64_64KEY",
-    "library/_winreg.html#_winreg.KEY_WOW64_32KEY": "library/winreg.html#winreg.KEY_WOW64_32KEY",
-    "library/_winreg.html#_winreg.REG_BINARY": "library/winreg.html#winreg.REG_BINARY",
-    "library/_winreg.html#_winreg.REG_DWORD": "library/winreg.html#winreg.REG_DWORD",
-    "library/_winreg.html#_winreg.REG_DWORD_LITTLE_ENDIAN": "library/winreg.html#winreg.REG_DWORD_LITTLE_ENDIAN",
-    "library/_winreg.html#_winreg.REG_DWORD_BIG_ENDIAN": "library/winreg.html#winreg.REG_DWORD_BIG_ENDIAN",
-    "library/_winreg.html#_winreg.REG_EXPAND_SZ": "library/winreg.html#winreg.REG_EXPAND_SZ",
-    "library/_winreg.html#_winreg.REG_LINK": "library/winreg.html#winreg.REG_LINK",
-    "library/_winreg.html#_winreg.REG_MULTI_SZ": "library/winreg.html#winreg.REG_MULTI_SZ",
-    "library/_winreg.html#_winreg.REG_NONE": "library/winreg.html#winreg.REG_NONE",
-    "library/_winreg.html#_winreg.REG_RESOURCE_LIST": "library/winreg.html#winreg.REG_RESOURCE_LIST",
-    "library/_winreg.html#_winreg.REG_FULL_RESOURCE_DESCRIPTOR": "library/winreg.html#winreg.REG_FULL_RESOURCE_DESCRIPTOR",
-    "library/_winreg.html#_winreg.REG_RESOURCE_REQUIREMENTS_LIST": "library/winreg.html#winreg.REG_RESOURCE_REQUIREMENTS_LIST",
-    "library/_winreg.html#_winreg.REG_SZ": "library/winreg.html#winreg.REG_SZ",
-    "library/_winreg.html#_winreg.PyHKEY.Close": "library/winreg.html#winreg.PyHKEY.Close",
-    "library/_winreg.html#_winreg.PyHKEY.Detach": "library/winreg.html#winreg.PyHKEY.Detach",
-    "library/_winreg.html#_winreg.PyHKEY.__enter__": "library/winreg.html#winreg.PyHKEY.__enter__",
-    "library/_winreg.html#_winreg.PyHKEY.__exit__": "library/winreg.html#winreg.PyHKEY.__exit__",
-
-
-    "library/thread.html": "library/_thread.html",
-    "library/thread.html#module-thread": "library/_thread.html#module-_thread",
-    "library/thread.html#thread-multiple-threads-of-control": "library/_thread.html#thread-low-level-threading-api",
-    "library/thread.html#thread.error": "library/_thread.html#_thread.error",
-    "library/thread.html#thread.LockType": "library/_thread.html#_thread.LockType",
-    "library/thread.html#thread.start_new_thread": "library/_thread.html#_thread.start_new_thread",
-    "library/thread.html#thread.interrupt_main": "library/_thread.html#_thread.interrupt_main",
-    "library/thread.html#thread.exit": "library/_thread.html#_thread.exit",
-    "library/thread.html#thread.allocate_lock": "library/_thread.html#_thread.allocate_lock",
-    "library/thread.html#thread.get_ident": "library/_thread.html#_thread.get_ident",
-    "library/thread.html#thread.stack_size": "library/_thread.html#_thread.stack_size",
-    "library/thread.html#thread.lock.acquire": "library/_thread.html#_thread.lock.acquire",
-    "library/thread.html#thread.lock.release": "library/_thread.html#_thread.lock.release",
-    "library/thread.html#thread.lock.locked": "library/_thread.html#_thread.lock.locked",
-
-    "library/dummy_thread.html": "library/_dummy_thread.html",
-    "library/dummy_thread.html#module-dummy_thread": "library/_dummy_thread.html#module-_dummy_thread",
-
-
-    "library/dumbdbm.html": "library/dbm.html#module-dbm.dumb",
-    "library/dumbdbm.html#module-dumbdbm": "library/dbm.html#module-dbm.dumb",
-    "library/dumbdbm.html#dumbdbm-portable-dbm-implementation": "library/dbm.html#dbm-dumb-portable-dbm-implementation",
-    "library/dumbdbm.html#dumbdbm.error": "library/dbm.html#dbm.dumb.error",
-    "library/dumbdbm.html#dumbdbm.open": "library/dbm.html#dbm.dumb.open",
-    "library/dumbdbm.html#dumbdbm.close": "library/dbm.html#dbm.dumb.dumbdbm.close",
-    // The id was removed but the docs are here.
-    "library/dumbdbm.html#dumbdbm-objects": "library/dbm.html#dbm.dumb.dumbdbm.sync",
-    "library/dumbdbm.html#dumbdbm.dumbdbm.sync": "library/dbm.html#dbm.dumb.dumbdbm.sync",
-
-    "library/dbm.html": "library/dbm.html#module-dbm.ndbm",
-    "library/dbm.html#dbm-simple-database-interface": "library/dbm.html#dbm-ndbm-interface-based-on-ndbm",
-    "library/dbm.html#dbm.library": "library/dbm.html#dbm.ndbm.library",
-    "library/dbm.html#dbm.close": "library/dbm.html#dbm.ndbm.ndbm.close",
-
-    "library/gdbm.html": "library/dbm.html#module-dbm.gnu",
-    "library/gdbm.html#module-gdbm": "library/dbm.html#module-dbm.gnu",
-    "library/gdbm.html#gdbm-gnu-s-reinterpretation-of-dbm": "library/dbm.html#dbm-gnu-gnu-s-reinterpretation-of-dbm",
-    "library/gdbm.html#gdbm.error": "library/dbm.html#dbm.gnu.error",
-    "library/gdbm.html#gdbm.open": "library/dbm.html#dbm.gnu.open",
-    "library/gdbm.html#gdbm.firstkey": "library/dbm.html#dbm.gnu.gdbm.firstkey",
-    "library/gdbm.html#gdbm.nextkey": "library/dbm.html#dbm.gnu.gdbm.nextkey",
-    "library/gdbm.html#gdbm.reorganize": "library/dbm.html#dbm.gnu.gdbm.reorganize",
-    "library/gdbm.html#gdbm.sync": "library/dbm.html#dbm.gnu.gdbm.sync",
-    "library/gdbm.html#gdbm.close": "library/dbm.html#dbm.gnu.gdbm.close",
-
-
-    "library/xmlrpclib.html": "library/xmlrpc.client.html",
-    "library/xmlrpclib.html#module-xmlrpclib": "library/xmlrpc.client.html#module-xmlrpc.client",
-    "library/xmlrpclib.html#xmlrpclib-xml-rpc-client-access": "library/xmlrpc.client.html#xmlrpc-client-xml-rpc-client-access",
-    "library/xmlrpclib.html#xmlrpclib.ServerProxy": "library/xmlrpc.client.html#xmlrpc.client.ServerProxy",
-    "library/xmlrpclib.html#xmlrpclib.ServerProxy.system.listMethods": "library/xmlrpc.client.html#xmlrpc.client.ServerProxy.system.listMethods",
-    "library/xmlrpclib.html#xmlrpclib.ServerProxy.system.methodSignature": "library/xmlrpc.client.html#xmlrpc.client.ServerProxy.system.methodSignature",
-    "library/xmlrpclib.html#xmlrpclib.ServerProxy.system.methodHelp": "library/xmlrpc.client.html#xmlrpc.client.ServerProxy.system.methodHelp",
-    // No longer documented
-    "library/xmlrpclib.html#boolean-objects": null,
-    "library/xmlrpclib.html#xmlrpclib.Boolean.encode": null,
-    "library/xmlrpclib.html#xmlrpclib.DateTime": "library/xmlrpc.client.html#xmlrpc.client.DateTime",
-    "library/xmlrpclib.html#xmlrpclib.DateTime.decode": "library/xmlrpc.client.html#xmlrpc.client.DateTime.decode",
-    "library/xmlrpclib.html#xmlrpclib.DateTime.encode": "library/xmlrpc.client.html#xmlrpc.client.DateTime.encode",
-    "library/xmlrpclib.html#xmlrpclib.Binary": "library/xmlrpc.client.html#xmlrpc.client.Binary",
-    "library/xmlrpclib.html#xmlrpclib.Binary.data": "library/xmlrpc.client.html#xmlrpc.client.Binary.data",
-    "library/xmlrpclib.html#xmlrpclib.Binary.decode": "library/xmlrpc.client.html#xmlrpc.client.Binary.decode",
-    "library/xmlrpclib.html#xmlrpclib.Binary.encode": "library/xmlrpc.client.html#xmlrpc.client.Binary.encode",
-    "library/xmlrpclib.html#xmlrpclib.Fault": "library/xmlrpc.client.html#xmlrpc.client.Fault",
-    "library/xmlrpclib.html#xmlrpclib.Fault.faultCode": "library/xmlrpc.client.html#xmlrpc.client.Fault.faultCode",
-    "library/xmlrpclib.html#xmlrpclib.Fault.faultString": "library/xmlrpc.client.html#xmlrpc.client.Fault.faultString",
-    "library/xmlrpclib.html#xmlrpclib.ProtocolError": "library/xmlrpc.client.html#xmlrpc.client.ProtocolError",
-    "library/xmlrpclib.html#xmlrpclib.ProtocolError.url": "library/xmlrpc.client.html#xmlrpc.client.ProtocolError.url",
-    "library/xmlrpclib.html#xmlrpclib.ProtocolError.errcode": "library/xmlrpc.client.html#xmlrpc.client.ProtocolError.errcode",
-    "library/xmlrpclib.html#xmlrpclib.ProtocolError.errmsg": "library/xmlrpc.client.html#xmlrpc.client.ProtocolError.errmsg",
-    "library/xmlrpclib.html#xmlrpclib.ProtocolError.headers": "library/xmlrpc.client.html#xmlrpc.client.ProtocolError.headers",
-    "library/xmlrpclib.html#xmlrpclib.MultiCall": "library/xmlrpc.client.html#xmlrpc.client.MultiCall",
-    // No longer documented
-    "library/xmlrpclib.html#xmlrpclib.boolean": null,
-    "library/xmlrpclib.html#xmlrpclib.dumps": "library/xmlrpc.client.html#xmlrpc.client.dumps",
-    "library/xmlrpclib.html#xmlrpclib.loads": "library/xmlrpc.client.html#xmlrpc.client.loads",
-
-    "library/simplexmlrpcserver.html": "library/xmlrpc.server.html",
-    "library/simplexmlrpcserver.html#module-SimpleXMLRPCServer": "library/xmlrpc.server.html#module-xmlrpc.server",
-    "library/simplexmlrpcserver.html#simplexmlrpcserver-basic-xml-rpc-server": "library/xmlrpc.server.html#simple-xmlrpc-servers",
-    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCServer": "library/xmlrpc.server.html#xmlrpc.server.SimpleXMLRPCServer",
-    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.CGIXMLRPCRequestHandler": "library/xmlrpc.server.html#xmlrpc.server.CGIXMLRPCRequestHandler",
-    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCRequestHandler": "library/xmlrpc.server.html#xmlrpc.server.SimpleXMLRPCRequestHandler",
-    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCServer.register_function": "library/xmlrpc.server.html#xmlrpc.server.SimpleXMLRPCServer.register_function",
-    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCServer.register_instance": "library/xmlrpc.server.html#xmlrpc.server.SimpleXMLRPCServer.register_instance",
-    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCServer.register_introspection_functions": "library/xmlrpc.server.html#xmlrpc.server.SimpleXMLRPCServer.register_introspection_functions",
-    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCServer.register_multicall_functions": "library/xmlrpc.server.html#xmlrpc.server.SimpleXMLRPCServer.register_multicall_functions",
-    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths": "library/xmlrpc.server.html#xmlrpc.server.SimpleXMLRPCRequestHandler.rpc_paths",
-    // Added in Python 2.7 but not documented in the Python 3 documentation
-    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.encode_threshold": null,
-    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.CGIXMLRPCRequestHandler.register_function": "library/xmlrpc.server.html#xmlrpc.server.CGIXMLRPCRequestHandler.register_function",
-    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.CGIXMLRPCRequestHandler.register_instance": "library/xmlrpc.server.html#xmlrpc.server.CGIXMLRPCRequestHandler.register_instance",
-    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.CGIXMLRPCRequestHandler.register_introspection_functions": "library/xmlrpc.server.html#xmlrpc.server.CGIXMLRPCRequestHandler.register_introspection_functions",
-    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.CGIXMLRPCRequestHandler.register_multicall_functions": "library/xmlrpc.server.html#xmlrpc.server.CGIXMLRPCRequestHandler.register_multicall_functions",
-    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.CGIXMLRPCRequestHandler.handle_request": "library/xmlrpc.server.html#xmlrpc.server.CGIXMLRPCRequestHandler.handle_request",
-
-    "library/docxmlrpcserver.html": "library/xmlrpc.server.html",
-    "library/docxmlrpcserver.html#module-DocXMLRPCServer": "library/xmlrpc.server.html#documenting-xmlrpc-server",
-    "library/docxmlrpcserver.html#docxmlrpcserver-self-documenting-xml-rpc-server": "library/xmlrpc.server.html#documenting-xmlrpc-server",
-    "library/docxmlrpcserver.html#DocXMLRPCServer.DocXMLRPCServer": "library/xmlrpc.server.html#xmlrpc.server.DocXMLRPCServer",
-    "library/docxmlrpcserver.html#DocXMLRPCServer.DocCGIXMLRPCRequestHandler": "library/xmlrpc.server.html#xmlrpc.server.DocCGIXMLRPCRequestHandler",
-    "library/docxmlrpcserver.html#DocXMLRPCServer.DocXMLRPCRequestHandler": "library/xmlrpc.server.html#xmlrpc.server.DocXMLRPCRequestHandler",
-    "library/docxmlrpcserver.html#DocXMLRPCServer.DocXMLRPCServer.set_server_title": "library/xmlrpc.server.html#xmlrpc.server.DocXMLRPCServer.set_server_title",
-    "library/docxmlrpcserver.html#DocXMLRPCServer.DocXMLRPCServer.set_server_name": "library/xmlrpc.server.html#xmlrpc.server.DocXMLRPCServer.set_server_name",
-    "library/docxmlrpcserver.html#DocXMLRPCServer.DocXMLRPCServer.set_server_documentation": "library/xmlrpc.server.html#xmlrpc.server.DocXMLRPCServer.set_server_documentation",
-    "library/docxmlrpcserver.html#DocXMLRPCServer.DocCGIXMLRPCRequestHandler.set_server_title": "library/xmlrpc.server.html#xmlrpc.server.DocCGIXMLRPCRequestHandler.set_server_title",
-    "library/docxmlrpcserver.html#DocXMLRPCServer.DocCGIXMLRPCRequestHandler.set_server_name": "library/xmlrpc.server.html#xmlrpc.server.DocCGIXMLRPCRequestHandler.set_server_name",
-    "library/docxmlrpcserver.html#DocXMLRPCServer.DocCGIXMLRPCRequestHandler.set_server_documentation": "library/xmlrpc.server.html#xmlrpc.server.DocCGIXMLRPCRequestHandler.set_server_documentation",
-
-
-    "library/htmlparser.html": "library/html.parser.html",
-    "library/htmlparser.html#module-HTMLParser": "library/html.parser.html#module-html.parser",
-    "library/htmlparser.html#htmlparser-simple-html-and-xhtml-parser": "library/html.parser.html#html-parser-simple-html-and-xhtml-parser",
-    "library/htmlparser.html#HTMLParser.HTMLParser": "library/html.parser.html#html.parser.HTMLParser",
-    // "the HTMLParseError exception [is] now deprecated"
-    // https://docs.python.org/3/whatsnew/3.3.html#html
-    "library/htmlparser.html#HTMLParser.HTMLParseError": null,
-    "library/htmlparser.html#HTMLParser.HTMLParser.feed": "library/html.parser.html#html.parser.HTMLParser.feed",
-    "library/htmlparser.html#HTMLParser.HTMLParser.close": "library/html.parser.html#html.parser.HTMLParser.close",
-    "library/htmlparser.html#HTMLParser.HTMLParser.reset": "library/html.parser.html#html.parser.HTMLParser.reset",
-    "library/htmlparser.html#HTMLParser.HTMLParser.getpos": "library/html.parser.html#html.parser.HTMLParser.getpos",
-    "library/htmlparser.html#HTMLParser.HTMLParser.get_starttag_text": "library/html.parser.html#html.parser.HTMLParser.get_starttag_text",
-    "library/htmlparser.html#HTMLParser.HTMLParser.handle_starttag": "library/html.parser.html#html.parser.HTMLParser.handle_starttag",
-    "library/htmlparser.html#HTMLParser.HTMLParser.handle_endtag": "library/html.parser.html#html.parser.HTMLParser.handle_endtag",
-    "library/htmlparser.html#HTMLParser.HTMLParser.handle_startendtag": "library/html.parser.html#html.parser.HTMLParser.handle_startendtag",
-    "library/htmlparser.html#HTMLParser.HTMLParser.handle_data": "library/html.parser.html#html.parser.HTMLParser.handle_data",
-    "library/htmlparser.html#HTMLParser.HTMLParser.handle_entityref": "library/html.parser.html#html.parser.HTMLParser.handle_entityref",
-    "library/htmlparser.html#HTMLParser.HTMLParser.handle_charref": "library/html.parser.html#html.parser.HTMLParser.handle_charref",
-    "library/htmlparser.html#HTMLParser.HTMLParser.handle_comment": "library/html.parser.html#html.parser.HTMLParser.handle_comment",
-    "library/htmlparser.html#HTMLParser.HTMLParser.handle_decl": "library/html.parser.html#html.parser.HTMLParser.handle_decl",
-    "library/htmlparser.html#HTMLParser.HTMLParser.handle_pi": "library/html.parser.html#html.parser.HTMLParser.handle_pi",
-    "library/htmlparser.html#HTMLParser.HTMLParser.unknown_decl": "library/html.parser.html#html.parser.HTMLParser.unknown_decl",
-
-
-    "library/httplib.html": "library/http.client.html",
-    "library/httplib.html#module-httplib": "library/http.client.html#module-http.client",
-    "library/httplib.html#httplib-http-protocol-client": "library/http.client.html#http-client-http-protocol-client",
-    "library/httplib.html#httplib.HTTPConnection": "library/http.client.html#http.client.HTTPConnection",
-    "library/httplib.html#httplib.HTTPSConnection": "library/http.client.html#http.client.HTTPSConnection",
-    "library/httplib.html#httplib.HTTPResponse": "library/http.client.html#http.client.HTTPResponse",
-    "library/httplib.html#httplib.HTTPMessage": "library/http.client.html#httpmessage-objects",
-    "library/httplib.html#httplib.HTTPException": "library/http.client.html#http.client.HTTPException",
-    "library/httplib.html#httplib.NotConnected": "library/http.client.html#http.client.NotConnected",
-    "library/httplib.html#httplib.InvalidURL": "library/http.client.html#http.client.InvalidURL",
-    "library/httplib.html#httplib.UnknownProtocol": "library/http.client.html#http.client.UnknownProtocol",
-    "library/httplib.html#httplib.UnknownTransferEncoding": "library/http.client.html#http.client.UnknownTransferEncoding",
-    "library/httplib.html#httplib.UnimplementedFileMode": "library/http.client.html#http.client.UnimplementedFileMode",
-    "library/httplib.html#httplib.IncompleteRead": "library/http.client.html#http.client.IncompleteRead",
-    "library/httplib.html#httplib.ImproperConnectionState": "library/http.client.html#http.client.ImproperConnectionState",
-    "library/httplib.html#httplib.CannotSendRequest": "library/http.client.html#http.client.CannotSendRequest",
-    "library/httplib.html#httplib.CannotSendHeader": "library/http.client.html#http.client.CannotSendHeader",
-    "library/httplib.html#httplib.ResponseNotReady": "library/http.client.html#http.client.ResponseNotReady",
-    "library/httplib.html#httplib.BadStatusLine": "library/http.client.html#http.client.BadStatusLine",
-    "library/httplib.html#httplib.HTTP_PORT": "library/http.client.html#http.client.HTTP_PORT",
-    "library/httplib.html#httplib.HTTPS_PORT": "library/http.client.html#http.client.HTTPS_PORT",
-    "library/httplib.html#httplib.responses": "library/http.client.html#http.client.responses",
-    "library/httplib.html#httplib.HTTPConnection.request": "library/http.client.html#http.client.HTTPConnection.request",
-    "library/httplib.html#httplib.HTTPConnection.getresponse": "library/http.client.html#http.client.HTTPConnection.getresponse",
-    "library/httplib.html#httplib.HTTPConnection.set_debuglevel": "library/http.client.html#http.client.HTTPConnection.set_debuglevel",
-    "library/httplib.html#httplib.HTTPConnection.set_tunnel": "library/http.client.html#http.client.HTTPConnection.set_tunnel",
-    "library/httplib.html#httplib.HTTPConnection.connect": "library/http.client.html#http.client.HTTPConnection.connect",
-    "library/httplib.html#httplib.HTTPConnection.close": "library/http.client.html#http.client.HTTPConnection.close",
-    "library/httplib.html#httplib.HTTPConnection.putrequest": "library/http.client.html#http.client.HTTPConnection.putrequest",
-    "library/httplib.html#httplib.HTTPConnection.putheader": "library/http.client.html#http.client.HTTPConnection.putheader",
-    "library/httplib.html#httplib.HTTPConnection.endheaders": "library/http.client.html#http.client.HTTPConnection.endheaders",
-    "library/httplib.html#httplib.HTTPConnection.send": "library/http.client.html#http.client.HTTPConnection.send",
-    "library/httplib.html#httplib.HTTPResponse.read": "library/http.client.html#http.client.HTTPResponse.read",
-    "library/httplib.html#httplib.HTTPResponse.getheader": "library/http.client.html#http.client.HTTPResponse.getheader",
-    "library/httplib.html#httplib.HTTPResponse.getheaders": "library/http.client.html#http.client.HTTPResponse.getheaders",
-    "library/httplib.html#httplib.HTTPResponse.fileno": "library/http.client.html#http.client.HTTPResponse.fileno",
-    "library/httplib.html#httplib.HTTPResponse.msg": "library/http.client.html#http.client.HTTPResponse.msg",
-    "library/httplib.html#httplib.HTTPResponse.version": "library/http.client.html#http.client.HTTPResponse.version",
-    "library/httplib.html#httplib.HTTPResponse.status": "library/http.client.html#http.client.HTTPResponse.status",
-    "library/httplib.html#httplib.HTTPResponse.reason": "library/http.client.html#http.client.HTTPResponse.reason",
-    "library/httplib.html#httplib-examples": "library/http.client.html#examples",
-
-    "library/cookie.html": "library/http.cookies.html",
-    "library/cookie.html#module-Cookie": "library/http.cookies.html#module-http.cookies",
-    "library/cookie.html#cookie-http-state-management": "library/http.cookies.html#http-cookies-http-state-management",
-    "library/cookie.html#Cookie.CookieError": "library/http.cookies.html#http.cookies.CookieError",
-    "library/cookie.html#Cookie.BaseCookie": "library/http.cookies.html#http.cookies.BaseCookie",
-    "library/cookie.html#Cookie.SimpleCookie": "library/http.cookies.html#http.cookies.SimpleCookie",
-    // "Deprecated since version 2.3"
-    "library/cookie.html#Cookie.SerialCookie": null,
-    "library/cookie.html#Cookie.SmartCookie": null,
-    "library/cookie.html#Cookie.BaseCookie.value_decode": "library/http.cookies.html#http.cookies.BaseCookie.value_decode",
-    "library/cookie.html#Cookie.BaseCookie.value_encode": "library/http.cookies.html#http.cookies.BaseCookie.value_encode",
-    "library/cookie.html#Cookie.BaseCookie.output": "library/http.cookies.html#http.cookies.BaseCookie.output",
-    "library/cookie.html#Cookie.BaseCookie.js_output": "library/http.cookies.html#http.cookies.BaseCookie.js_output",
-    "library/cookie.html#Cookie.BaseCookie.load": "library/http.cookies.html#http.cookies.BaseCookie.load",
-    "library/cookie.html#Cookie.Morsel": "library/http.cookies.html#http.cookies.Morsel",
-    "library/cookie.html#Cookie.Morsel.value": "library/http.cookies.html#http.cookies.Morsel.value",
-    "library/cookie.html#Cookie.Morsel.coded_value": "library/http.cookies.html#http.cookies.Morsel.coded_value",
-    "library/cookie.html#Cookie.Morsel.key": "library/http.cookies.html#http.cookies.Morsel.key",
-    "library/cookie.html#Cookie.Morsel.set": "library/http.cookies.html#http.cookies.Morsel.set",
-    "library/cookie.html#Cookie.Morsel.isReservedKey": "library/http.cookies.html#http.cookies.Morsel.isReservedKey",
-    "library/cookie.html#Cookie.Morsel.output": "library/http.cookies.html#http.cookies.Morsel.output",
-    "library/cookie.html#Cookie.Morsel.js_output": "library/http.cookies.html#http.cookies.Morsel.js_output",
-    "library/cookie.html#Cookie.Morsel.OutputString": "library/http.cookies.html#http.cookies.Morsel.OutputString",
-
-    "library/cookielib.html": "library/http.cookiejar.html",
-    "library/cookielib.html#module-cookielib": "library/http.cookiejar.html#module-http.cookiejar",
-    "library/cookielib.html#cookielib-cookie-handling-for-http-clients": "library/http.cookiejar.html#http-cookiejar-cookie-handling-for-http-clients",
-    "library/cookielib.html#cookielib.LoadError": "library/http.cookiejar.html#http.cookiejar.LoadError",
-    "library/cookielib.html#cookielib.CookieJar": "library/http.cookiejar.html#http.cookiejar.CookieJar",
-    "library/cookielib.html#cookielib.FileCookieJar": "library/http.cookiejar.html#http.cookiejar.FileCookieJar",
-    "library/cookielib.html#cookielib.CookiePolicy": "library/http.cookiejar.html#http.cookiejar.CookiePolicy",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy",
-    "library/cookielib.html#cookielib.Cookie": "library/http.cookiejar.html#http.cookiejar.Cookie",
-    "library/cookielib.html#cookielib.CookieJar.add_cookie_header": "library/http.cookiejar.html#http.cookiejar.CookieJar.add_cookie_header",
-    "library/cookielib.html#cookielib.CookieJar.extract_cookies": "library/http.cookiejar.html#http.cookiejar.CookieJar.extract_cookies",
-    "library/cookielib.html#cookielib.CookieJar.set_policy": "library/http.cookiejar.html#http.cookiejar.CookieJar.set_policy",
-    "library/cookielib.html#cookielib.CookieJar.make_cookies": "library/http.cookiejar.html#http.cookiejar.CookieJar.make_cookies",
-    "library/cookielib.html#cookielib.CookieJar.set_cookie_if_ok": "library/http.cookiejar.html#http.cookiejar.CookieJar.set_cookie_if_ok",
-    "library/cookielib.html#cookielib.CookieJar.set_cookie": "library/http.cookiejar.html#http.cookiejar.CookieJar.set_cookie",
-    "library/cookielib.html#cookielib.CookieJar.clear": "library/http.cookiejar.html#http.cookiejar.CookieJar.clear",
-    "library/cookielib.html#cookielib.CookieJar.clear_session_cookies": "library/http.cookiejar.html#http.cookiejar.CookieJar.clear_session_cookies",
-    "library/cookielib.html#cookielib.FileCookieJar.save": "library/http.cookiejar.html#http.cookiejar.FileCookieJar.save",
-    "library/cookielib.html#cookielib.FileCookieJar.load": "library/http.cookiejar.html#http.cookiejar.FileCookieJar.load",
-    "library/cookielib.html#cookielib.FileCookieJar.revert": "library/http.cookiejar.html#http.cookiejar.FileCookieJar.revert",
-    "library/cookielib.html#cookielib.FileCookieJar.filename": "library/http.cookiejar.html#http.cookiejar.FileCookieJar.filename",
-    "library/cookielib.html#cookielib.FileCookieJar.delayload": "library/http.cookiejar.html#http.cookiejar.FileCookieJar.delayload",
-    "library/cookielib.html#cookielib.MozillaCookieJar": "library/http.cookiejar.html#http.cookiejar.MozillaCookieJar",
-    "library/cookielib.html#cookielib.LWPCookieJar": "library/http.cookiejar.html#http.cookiejar.LWPCookieJar",
-    "library/cookielib.html#cookielib.CookiePolicy.set_ok": "library/http.cookiejar.html#http.cookiejar.CookiePolicy.set_ok",
-    "library/cookielib.html#cookielib.CookiePolicy.return_ok": "library/http.cookiejar.html#http.cookiejar.CookiePolicy.return_ok",
-    "library/cookielib.html#cookielib.CookiePolicy.domain_return_ok": "library/http.cookiejar.html#http.cookiejar.CookiePolicy.domain_return_ok",
-    "library/cookielib.html#cookielib.CookiePolicy.path_return_ok": "library/http.cookiejar.html#http.cookiejar.CookiePolicy.path_return_ok",
-    "library/cookielib.html#cookielib.CookiePolicy.netscape": "library/http.cookiejar.html#http.cookiejar.CookiePolicy.netscape",
-    "library/cookielib.html#cookielib.CookiePolicy.rfc2965": "library/http.cookiejar.html#http.cookiejar.CookiePolicy.rfc2965",
-    "library/cookielib.html#cookielib.CookiePolicy.hide_cookie2": "library/http.cookiejar.html#http.cookiejar.CookiePolicy.hide_cookie2",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy.blocked_domains": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.blocked_domains",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy.set_blocked_domains": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.set_blocked_domains",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy.is_blocked": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.is_blocked",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy.allowed_domains": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.allowed_domains",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy.set_allowed_domains": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.set_allowed_domains",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy.is_not_allowed": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.is_not_allowed",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy.rfc2109_as_netscape": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.rfc2109_as_netscape",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy.strict_domain": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.strict_domain",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy.strict_rfc2965_unverifiable": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.strict_rfc2965_unverifiable",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy.strict_ns_unverifiable": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.strict_ns_unverifiable",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy.strict_ns_domain": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.strict_ns_domain",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy.strict_ns_set_initial_dollar": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.strict_ns_set_initial_dollar",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy.strict_ns_set_path": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.strict_ns_set_path",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy.DomainStrictNoDots": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.DomainStrictNoDots",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy.DomainStrictNonDomain": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.DomainStrictNonDomain",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy.DomainRFC2965Match": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.DomainRFC2965Match",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy.DomainLiberal": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.DomainLiberal",
-    "library/cookielib.html#cookielib.DefaultCookiePolicy.DomainStrict": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.DomainStrict",
-    "library/cookielib.html#cookielib-cookie-objects": "library/http.cookiejar.html#cookie-objects",
-    "library/cookielib.html#cookielib.Cookie.version": "library/http.cookiejar.html#http.cookiejar.Cookie.version",
-    "library/cookielib.html#cookielib.Cookie.name": "library/http.cookiejar.html#http.cookiejar.Cookie.name",
-    "library/cookielib.html#cookielib.Cookie.value": "library/http.cookiejar.html#http.cookiejar.Cookie.value",
-    "library/cookielib.html#cookielib.Cookie.port": "library/http.cookiejar.html#http.cookiejar.Cookie.port",
-    "library/cookielib.html#cookielib.Cookie.path": "library/http.cookiejar.html#http.cookiejar.Cookie.path",
-    "library/cookielib.html#cookielib.Cookie.secure": "library/http.cookiejar.html#http.cookiejar.Cookie.secure",
-    "library/cookielib.html#cookielib.Cookie.expires": "library/http.cookiejar.html#http.cookiejar.Cookie.expires",
-    "library/cookielib.html#cookielib.Cookie.discard": "library/http.cookiejar.html#http.cookiejar.Cookie.discard",
-    "library/cookielib.html#cookielib.Cookie.comment": "library/http.cookiejar.html#http.cookiejar.Cookie.comment",
-    "library/cookielib.html#cookielib.Cookie.comment_url": "library/http.cookiejar.html#http.cookiejar.Cookie.comment_url",
-    "library/cookielib.html#cookielib.Cookie.rfc2109": "library/http.cookiejar.html#http.cookiejar.Cookie.rfc2109",
-    "library/cookielib.html#cookielib.Cookie.port_specified": "library/http.cookiejar.html#http.cookiejar.Cookie.port_specified",
-    "library/cookielib.html#cookielib.Cookie.domain_specified": "library/http.cookiejar.html#http.cookiejar.Cookie.domain_specified",
-    "library/cookielib.html#cookielib.Cookie.domain_initial_dot": "library/http.cookiejar.html#http.cookiejar.Cookie.domain_initial_dot",
-    "library/cookielib.html#cookielib.Cookie.has_nonstandard_attr": "library/http.cookiejar.html#http.cookiejar.Cookie.has_nonstandard_attr",
-    "library/cookielib.html#cookielib.Cookie.get_nonstandard_attr": "library/http.cookiejar.html#http.cookiejar.Cookie.get_nonstandard_attr",
-    "library/cookielib.html#cookielib.Cookie.set_nonstandard_attr": "library/http.cookiejar.html#http.cookiejar.Cookie.set_nonstandard_attr",
-    "library/cookielib.html#cookielib.Cookie.is_expired": "library/http.cookiejar.html#http.cookiejar.Cookie.is_expired",
-    "library/cookielib.html#cookielib-examples": "library/http.cookiejar.html#examples",
-
-    "library/basehttpserver.html": "library/http.server.html",
-    "library/basehttpserver.html#module-BaseHTTPServer": "library/http.server.html#module-http.server",
-    "library/basehttpserver.html#basehttpserver-basic-http-server": "library/http.server.html#http-server-http-servers",
-    "library/basehttpserver.html#BaseHTTPServer.HTTPServer": "library/http.server.html#http.server.HTTPServer",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler": "library/http.server.html#http.server.BaseHTTPRequestHandler",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.client_address": "library/http.server.html#http.server.BaseHTTPRequestHandler.client_address",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.server": "library/http.server.html#http.server.BaseHTTPRequestHandler.server",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.command": "library/http.server.html#http.server.BaseHTTPRequestHandler.command",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.path": "library/http.server.html#http.server.BaseHTTPRequestHandler.path",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.request_version": "library/http.server.html#http.server.BaseHTTPRequestHandler.request_version",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.headers": "library/http.server.html#http.server.BaseHTTPRequestHandler.headers",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.rfile": "library/http.server.html#http.server.BaseHTTPRequestHandler.rfile",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.wfile": "library/http.server.html#http.server.BaseHTTPRequestHandler.wfile",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.server_version": "library/http.server.html#http.server.BaseHTTPRequestHandler.server_version",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.sys_version": "library/http.server.html#http.server.BaseHTTPRequestHandler.sys_version",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.error_message_format": "library/http.server.html#http.server.BaseHTTPRequestHandler.error_message_format",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.error_content_type": "library/http.server.html#http.server.BaseHTTPRequestHandler.error_content_type",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.protocol_version": "library/http.server.html#http.server.BaseHTTPRequestHandler.protocol_version",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.MessageClass": "library/http.server.html#http.server.BaseHTTPRequestHandler.MessageClass",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.responses": "library/http.server.html#http.server.BaseHTTPRequestHandler.responses",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.handle": "library/http.server.html#http.server.BaseHTTPRequestHandler.handle",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.handle_one_request": "library/http.server.html#http.server.BaseHTTPRequestHandler.handle_one_request",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.send_error": "library/http.server.html#http.server.BaseHTTPRequestHandler.send_error",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.send_response": "library/http.server.html#http.server.BaseHTTPRequestHandler.send_response",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.send_header": "library/http.server.html#http.server.BaseHTTPRequestHandler.send_header",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.end_headers": "library/http.server.html#http.server.BaseHTTPRequestHandler.end_headers",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.log_request": "library/http.server.html#http.server.BaseHTTPRequestHandler.log_request",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.log_error": "library/http.server.html#http.server.BaseHTTPRequestHandler.log_error",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.log_message": "library/http.server.html#http.server.BaseHTTPRequestHandler.log_message",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.version_string": "library/http.server.html#http.server.BaseHTTPRequestHandler.version_string",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.date_time_string": "library/http.server.html#http.server.BaseHTTPRequestHandler.date_time_string",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.log_date_time_string": "library/http.server.html#http.server.BaseHTTPRequestHandler.log_date_time_string",
-    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.address_string": "library/http.server.html#http.server.BaseHTTPRequestHandler.address_string",
-    // Example was deleted. TODO: redirect to module anyway?
-    // "library/basehttpserver.html#more-examples": "library/http.server.html",
-    "library/basehttpserver.html#more-examples": null,
-
-    "library/simplehttpserver.html": "library/http.server.html",
-    "library/simplehttpserver.html#module-SimpleHTTPServer": "library/http.server.html#module-http.server",
-    "library/simplehttpserver.html#simplehttpserver-simple-http-request-handler": "library/http.server.html#http.server.SimpleHTTPRequestHandler",
-    "library/simplehttpserver.html#SimpleHTTPServer.SimpleHTTPRequestHandler": "library/http.server.html#http.server.SimpleHTTPRequestHandler",
-    "library/simplehttpserver.html#SimpleHTTPServer.SimpleHTTPRequestHandler.server_version": "library/http.server.html#http.server.SimpleHTTPRequestHandler.server_version",
-    "library/simplehttpserver.html#SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map": "library/http.server.html#http.server.SimpleHTTPRequestHandler.extensions_map",
-    "library/simplehttpserver.html#SimpleHTTPServer.SimpleHTTPRequestHandler.do_HEAD": "library/http.server.html#http.server.SimpleHTTPRequestHandler.do_HEAD",
-    "library/simplehttpserver.html#SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET": "library/http.server.html#http.server.SimpleHTTPRequestHandler.do_GET",
-
-    "library/cgihttpserver.html": "library/http.server.html",
-    "library/cgihttpserver.html#module-CGIHTTPServer": "library/http.server.html#http.server.CGIHTTPRequestHandler",
-    "library/cgihttpserver.html#cgihttpserver-cgi-capable-http-request-handler": "library/http.server.html#http.server.CGIHTTPRequestHandler",
-    "library/cgihttpserver.html#CGIHTTPServer.CGIHTTPRequestHandler": "library/http.server.html#http.server.CGIHTTPRequestHandler",
-    "library/cgihttpserver.html#CGIHTTPServer.CGIHTTPRequestHandler.cgi_directories": "library/http.server.html#http.server.CGIHTTPRequestHandler.cgi_directories",
-    "library/cgihttpserver.html#CGIHTTPServer.CGIHTTPRequestHandler.do_POST": "library/http.server.html#http.server.CGIHTTPRequestHandler.do_POST",
-
-
-    // This is commented out in Lib/lib2to3/fixes/fix_imports.py
-    "library/test.html#module-test.test_support": "library/test.html#module-test.support",
-
-    // TODO: link all functions to subprocess.run specifically?
-    // "library/commands.html": "library/subprocess.html",
-    // "library/commands.html#module-commands": "library/subprocess.html#module-subprocess",
-    // "library/commands.html#commands-utilities-for-running-commands": "library/subprocess.html#subprocess-subprocess-management",
-    // "library/commands.html#commands.getstatusoutput": "library/subprocess.html#subprocess.run",
-    // "library/commands.html#commands.getoutput": "library/subprocess.html#subprocess.run",
-    // "library/commands.html#commands.getstatus": "library/subprocess.html#subprocess.run",
-    "library/commands.html": null,
-
-    "library/userdict.html": "library/collections.html#userdict-objects",
-    "library/userdict.html#module-UserDict": "library/collections.html#userdict-objects",
-    "library/userdict.html#userdict-class-wrapper-for-dictionary-objects": "library/collections.html#userdict-objects",
-    "library/userdict.html#UserDict.UserDict": "library/collections.html#collections.UserDict",
-
-    // "Subclass of UserDict that supports direct iteration"
-    // "For backward compatibility, instances of UserDict [in Python 2] are not iterable"
-    // "library/userdict.html#UserDict.IterableUserDict": null,
-    "library/userdict.html#UserDict.IterableUserDict": "library/collections.html#collections.UserDict",
-    "library/userdict.html#UserDict.IterableUserDict.data": "library/collections.html#collections.UserDict.data",
-
-    // "This mixin should be used as a superclass"
-    // "Starting with Python version 2.6, it is recommended to use collections.MutableMapping instead of DictMixin"
-    // "library/userdict.html#UserDict.DictMixin": "library/collections.abc.html#collections.abc.MutableMapping",
-    // "library/userdict.html#UserDict.DictMixin": "library/collections.html#collections.UserDict",
-    "library/userdict.html#UserDict.DictMixin": null,
-
-    "library/userdict.html#module-UserList": "library/collections.html#userlist-objects",
-    "library/userdict.html#userlist-class-wrapper-for-list-objects": "library/collections.html#userlist-objects",
-    "library/userdict.html#UserList.UserList": "library/collections.html#collections.UserList",
-    "library/userdict.html#UserList.UserList.data": "library/collections.html#collections.UserList.data",
-
-    "library/userdict.html#module-UserString": "library/collections.html#userstring-objects",
-    "library/userdict.html#userstring-class-wrapper-for-string-objects": "library/collections.html#userstring-objects",
-    "library/userdict.html#UserString.UserString": "library/collections.html#collections.UserString",
-    // "The MutableString class has been removed in Python 3"
-    "library/userdict.html#UserString.MutableString": null,
-    // TODO: MutableString doesn't exist but this property also documents .data for UserString. Redirect?
-    // "library/userdict.html#UserString.MutableString.data": "library/collections.html#collections.UserString.data",
-    "library/userdict.html#UserString.MutableString.data": null,
-
-
-    "library/urlparse.html": "library/urllib.parse.html",
-    "library/urlparse.html#module-urlparse": "library/urllib.parse.html#module-urllib.parse",
-    "library/urlparse.html#urlparse-parse-urls-into-components": "library/urllib.parse.html#urllib-parse-parse-urls-into-components",
-    "library/urlparse.html#urlparse.urlparse": "library/urllib.parse.html#urllib.parse.urlparse",
-    "library/urlparse.html#urlparse.parse_qs": "library/urllib.parse.html#urllib.parse.parse_qs",
-    "library/urlparse.html#urlparse.parse_qsl": "library/urllib.parse.html#urllib.parse.parse_qsl",
-    "library/urlparse.html#urlparse.urlunparse": "library/urllib.parse.html#urllib.parse.urlunparse",
-    "library/urlparse.html#urlparse.urlsplit": "library/urllib.parse.html#urllib.parse.urlsplit",
-    "library/urlparse.html#urlparse.urlunsplit": "library/urllib.parse.html#urllib.parse.urlunsplit",
-    "library/urlparse.html#urlparse.urljoin": "library/urllib.parse.html#urllib.parse.urljoin",
-    "library/urlparse.html#urlparse.urldefrag": "library/urllib.parse.html#urllib.parse.urldefrag",
-    "library/urlparse.html#results-of-urlparse-and-urlsplit": "library/urllib.parse.html#structured-parse-results",
-    // This might look wrong, but it's not.
-    "library/urlparse.html#urlparse.ParseResult.geturl": "library/urllib.parse.html#urllib.parse.urllib.parse.SplitResult.geturl",
-    "library/urlparse.html#urlparse.ParseResult": "library/urllib.parse.html#urllib.parse.ParseResult",
-    "library/urlparse.html#urlparse.SplitResult": "library/urllib.parse.html#urllib.parse.SplitResult",
-
-    "library/robotparser.html": "library/urllib.robotparser.html",
-    "library/robotparser.html#module-robotparser": "library/urllib.robotparser.html#module-urllib.robotparser",
-    "library/robotparser.html#robotparser-parser-for-robots-txt": "library/urllib.robotparser.html#urllib-robotparser-parser-for-robots-txt",
-    "library/robotparser.html#robotparser.RobotFileParser": "library/urllib.robotparser.html#urllib.robotparser.RobotFileParser",
-    "library/robotparser.html#robotparser.RobotFileParser.set_url": "library/urllib.robotparser.html#urllib.robotparser.RobotFileParser.set_url",
-    "library/robotparser.html#robotparser.RobotFileParser.read": "library/urllib.robotparser.html#urllib.robotparser.RobotFileParser.read",
-    "library/robotparser.html#robotparser.RobotFileParser.parse": "library/urllib.robotparser.html#urllib.robotparser.RobotFileParser.parse",
-    "library/robotparser.html#robotparser.RobotFileParser.can_fetch": "library/urllib.robotparser.html#urllib.robotparser.RobotFileParser.can_fetch",
-    "library/robotparser.html#robotparser.RobotFileParser.mtime": "library/urllib.robotparser.html#urllib.robotparser.RobotFileParser.mtime",
-    "library/robotparser.html#robotparser.RobotFileParser.modified": "library/urllib.robotparser.html#urllib.robotparser.RobotFileParser.modified",
-
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-imports2
-
-    "library/anydbm.html": "library/dbm.html",
-    "library/anydbm.html#module-anydbm": "library/dbm.html#module-dbm",
-    "library/anydbm.html#anydbm-generic-access-to-dbm-style-databases": "library/dbm.html#dbm-interfaces-to-unix-databases",
-    "library/anydbm.html#anydbm.open": "library/dbm.html#dbm.open",
-    "library/anydbm.html#anydbm.error": "library/dbm.html#dbm.error",
-    // TODO: dbm.close doesn't exist in Python 3. Redirect to module anyway?
-    // "library/anydbm.html#anydbm.close": "library/dbm.html#module-dbm",
-    "library/anydbm.html#anydbm.close": null,
-
-    "library/whichdb.html": "library/dbm.html#dbm.whichdb",
-    "library/whichdb.html#module-whichdb": "library/dbm.html#dbm.whichdb",
-    "library/whichdb.html#whichdb-guess-which-dbm-module-created-a-database": "library/dbm.html#dbm.whichdb",
-    "library/whichdb.html#whichdb.whichdb": "library/dbm.html#dbm.whichdb",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-input
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-intern
-    "library/functions.html#intern": "library/sys.html#sys.intern",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-itertools
-    "library/itertools.html#itertools.ifilter": "library/functions.html#filter",
-    "library/itertools.html#itertools.ifilterfalse": "library/itertools.html#itertools.filterfalse",
-    "library/itertools.html#itertools.imap": "library/functions.html#map",
-    "library/itertools.html#itertools.izip": "library/functions.html#zip",
-    "library/itertools.html#itertools.izip_longest": "library/itertools.html#itertools.zip_longest",
-    "library/itertools.html#recipes": "library/itertools.html#itertools-recipes",
-
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-long
-    // long and int were unified
-    // TODO: don't redirect?
-    // "library/functions.html#long": null,
-    "library/functions.html#long": "library/functions.html#int",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-metaclass
-    // "old metaclass syntax (__metaclass__ = Meta in the class body) to the new (class X(metaclass=Meta))"
-    // TODO: don't redirect? It's different, and might be unexpected/confusing if you click
-    // on a link in an old blog post.
-    // "reference/datamodel.html#__metaclass__": null,
-    "reference/datamodel.html#__metaclass__": "reference/datamodel.html#metaclasses",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-next
-    // x.next() became next(x)
-    "library/stdtypes.html#iterator.next": "library/stdtypes.html#iterator.__next__",
-    "reference/expressions.html#generator.next": "reference/expressions.html#generator.__next__",
-    // "library/stdtypes.html#file.next": "tutorial/inputoutput.html#methods-of-file-objects",
-    // "library/stdtypes.html#file.next": "library/io.html#io.IOBase.readlines",
-    "library/stdtypes.html#file.next": null,
-    "library/csv.html#csv.csvreader.next": "library/csv.html#csv.csvreader.__next__",
-
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-nonzero
-    "reference/datamodel.html#object.__nonzero__": "reference/datamodel.html#object.__bool__",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-numliterals
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-operator
-    "library/operator.html#operator.isCallable": "library/functions.html#callable",
-    // "Deprecated since version 2.0: Use contains() instead."
-    // "library/operator.html#operator.sequenceIncludes": "library/operator.html#operator.contains",
-    "library/operator.html#operator.sequenceIncludes": null,
-
-    // isinstance(obj, collections.abc.Mapping)
-    "library/operator.html#operator.isMappingType": null,
-    // isinstance(obj, numbers.Number)
-    "library/operator.html#operator.isNumberType": null,
-    // isinstance(obj, collections.abc.Sequence)
-    "library/operator.html#operator.isSequenceType": null,
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-print
-    "reference/simple_stmts.html#print": "library/functions.html#print",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-raw_input
-    "library/functions.html#raw_input": "library/functions.html#input",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-reduce
-    "library/functions.html#reduce": "library/functools.html#functools.reduce",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-reload
-    "library/functions.html#reload": "library/importlib.html#importlib.reload",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-renames
-    // "Changes sys.maxint to sys.maxsize."
-    "library/sys.html#sys.maxint": "library/sys.html#sys.maxsize",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-repr
-    // Backtick removed in Python 3. You have to use the repr() builtin
-    // "reference/expressions.html#string-conversions": "library/functions.html#repr",
-    // "reference/expressions.html#grammar-token-string-conversion": "library/functions.html#repr",
-    "reference/expressions.html#string-conversions": null,
-    "reference/expressions.html#grammar-token-string-conversion": null,
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-standarderror
-    // "library/exceptions.html#exceptions.StandardError": null,
-    "library/exceptions.html#exceptions.StandardError": "library/exceptions.html#Exception",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-sys_exc
-    // "Deprecated since version 1.5: Use exc_info() instead"
-    // "library/sys.html#sys.exc_type": "library/sys.html#sys.exc_info",
-    // "library/sys.html#sys.exc_value": "library/sys.html#sys.exc_info",
-    // "library/sys.html#sys.exc_traceback": "library/sys.html#sys.exc_info",
-    "library/sys.html#sys.exc_type": null,
-    "library/sys.html#sys.exc_value": null,
-    "library/sys.html#sys.exc_traceback": null,
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-throw
-    // https://docs.python.org/library/2to3.html#2to3fixer-tuple_params
-    // https://docs.python.org/library/2to3.html#2to3fixer-types
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-unicode
-    "library/functions.html#unicode": "library/functions.html#func-str",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-urllib
-    // https://github.com/python/cpython/blob/master/Lib/lib2to3/fixes/fix_urllib.py#L12-L45
-    // https://github.com/python/cpython/blob/531d1e541284bfd7944f8c66a5e8c3c3234afaff/Lib/lib2to3/fixes/fix_urllib.py#L12-L45
-    "library/urllib.html#urllib.urlopen": "library/urllib.request.html#urllib.request.urlopen",
-    "library/urllib.html#urllib.urlretrieve": "library/urllib.request.html#urllib.request.urlretrieve",
-    // TODO: explain this missing redirect
-    "library/urllib.html#urllib._urlopener": null,
-    "library/urllib.html#urllib.urlcleanup": "library/urllib.request.html#urllib.request.urlcleanup",
-    "library/urllib.html#urllib.quote": "library/urllib.parse.html#urllib.parse.quote",
-    "library/urllib.html#urllib.quote_plus": "library/urllib.parse.html#urllib.parse.quote_plus",
-    "library/urllib.html#urllib.unquote": "library/urllib.parse.html#urllib.parse.unquote",
-    "library/urllib.html#urllib.unquote_plus": "library/urllib.parse.html#urllib.parse.unquote_plus",
-    "library/urllib.html#urllib.urlencode": "library/urllib.parse.html#urllib.parse.urlencode",
-    "library/urllib.html#urllib.pathname2url": "library/urllib.request.html#urllib.request.pathname2url",
-    "library/urllib.html#urllib.url2pathname": "library/urllib.request.html#urllib.request.url2pathname",
-    "library/urllib.html#urllib.getproxies": "library/urllib.request.html#urllib.request.getproxies",
-    "library/urllib.html#urllib.URLopener": "library/urllib.request.html#urllib.request.URLopener",
-    "library/urllib.html#urllib.FancyURLopener": "library/urllib.request.html#urllib.request.FancyURLopener",
-    "library/urllib.html#urllib.ContentTooShortError": "library/urllib.error.html#urllib.error.ContentTooShortError",
-    "library/urllib2.html#urllib2.urlopen": "library/urllib.request.html#urllib.request.urlopen",
-    "library/urllib2.html#urllib2.install_opener": "library/urllib.request.html#urllib.request.install_opener",
-    "library/urllib2.html#urllib2.build_opener": "library/urllib.request.html#urllib.request.build_opener",
-    "library/urllib2.html#urllib2.URLError": "library/urllib.error.html#urllib.error.URLError",
-    "library/urllib2.html#urllib2.HTTPError": "library/urllib.error.html#urllib.error.HTTPError",
-    "library/urllib2.html#urllib2.Request": "library/urllib.request.html#urllib.request.Request",
-    "library/urllib2.html#urllib2.OpenerDirector": "library/urllib.request.html#urllib.request.OpenerDirector",
-    "library/urllib2.html#urllib2.BaseHandler": "library/urllib.request.html#urllib.request.BaseHandler",
-    "library/urllib2.html#urllib2.HTTPDefaultErrorHandler": "library/urllib.request.html#urllib.request.HTTPDefaultErrorHandler",
-    "library/urllib2.html#urllib2.HTTPRedirectHandler": "library/urllib.request.html#urllib.request.HTTPRedirectHandler",
-    "library/urllib2.html#urllib2.HTTPCookieProcessor": "library/urllib.request.html#urllib.request.HTTPCookieProcessor",
-    "library/urllib2.html#urllib2.ProxyHandler": "library/urllib.request.html#urllib.request.ProxyHandler",
-    "library/urllib2.html#urllib2.HTTPPasswordMgr": "library/urllib.request.html#urllib.request.HTTPPasswordMgr",
-    "library/urllib2.html#urllib2.HTTPPasswordMgrWithDefaultRealm": "library/urllib.request.html#urllib.request.HTTPPasswordMgrWithDefaultRealm",
-    "library/urllib2.html#urllib2.AbstractBasicAuthHandler": "library/urllib.request.html#urllib.request.AbstractBasicAuthHandler",
-    "library/urllib2.html#urllib2.HTTPBasicAuthHandler": "library/urllib.request.html#urllib.request.HTTPBasicAuthHandler",
-    "library/urllib2.html#urllib2.ProxyBasicAuthHandler": "library/urllib.request.html#urllib.request.ProxyBasicAuthHandler",
-    "library/urllib2.html#urllib2.AbstractDigestAuthHandler": "library/urllib.request.html#urllib.request.AbstractDigestAuthHandler",
-    "library/urllib2.html#urllib2.HTTPDigestAuthHandler": "library/urllib.request.html#urllib.request.HTTPDigestAuthHandler",
-    "library/urllib2.html#urllib2.ProxyDigestAuthHandler": "library/urllib.request.html#urllib.request.ProxyDigestAuthHandler",
-    "library/urllib2.html#urllib2.HTTPHandler": "library/urllib.request.html#urllib.request.HTTPHandler",
-    "library/urllib2.html#urllib2.HTTPSHandler": "library/urllib.request.html#urllib.request.HTTPSHandler",
-    "library/urllib2.html#urllib2.FileHandler": "library/urllib.request.html#urllib.request.FileHandler",
-    "library/urllib2.html#urllib2.FTPHandler": "library/urllib.request.html#urllib.request.FTPHandler",
-    "library/urllib2.html#urllib2.CacheFTPHandler": "library/urllib.request.html#urllib.request.CacheFTPHandler",
-    "library/urllib2.html#urllib2.UnknownHandler": "library/urllib.request.html#urllib.request.UnknownHandler",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-xrange
-    "library/functions.html#xrange": "library/functions.html#func-range",
-
-    // https://docs.python.org/library/2to3.html#2to3fixer-xreadlines
-    // "Deprecated since version 2.3: Use for line in file instead."
-    "library/stdtypes.html#file.xreadlines": null,
-
-
-    // Not part of 2to3
-
-    // All other html files removed from Python 2.6/2.7
-
-    // This is a list of links to related libraries
-    // TODO: Don't redirect?
-    // "library/strings.html": null,
-    "library/strings.html": "library/text.html",
-    "library/strings.html#string-services": "library/text.html#text-processing-services",
+    // Files that were removed
     "library/fpformat.html": null,
 
     "library/mutex.html": null,
@@ -954,6 +60,15 @@ const SPECIAL_CASES = {
     "library/dl.html": null,
     "library/posixfile.html": null,
 
+    // TODO: link all functions to subprocess.run specifically?
+    // "library/commands.html": "library/subprocess.html",
+    // "library/commands.html#module-commands": "library/subprocess.html#module-subprocess",
+    // "library/commands.html#commands-utilities-for-running-commands": "library/subprocess.html#subprocess-subprocess-management",
+    // "library/commands.html#commands.getstatusoutput": "library/subprocess.html#subprocess.run",
+    // "library/commands.html#commands.getoutput": "library/subprocess.html#subprocess.run",
+    // "library/commands.html#commands.getstatus": "library/subprocess.html#subprocess.run",
+    "library/commands.html": null,
+
     // Contents page - 37. Mac OS X specific services
     "library/mac.html": null,
     "library/ic.html": null,
@@ -1004,6 +119,47 @@ const SPECIAL_CASES = {
 
 
 
+    // https://docs.python.org/library/2to3.html#2to3fixer-apply
+    "library/functions.html#apply": "tutorial/controlflow.html#tut-unpacking-arguments",
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-basestring
+    "library/functions.html#basestring": "library/functions.html#func-str",
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-buffer
+    // maybe this shouldn't redirect, the memoryview API is similar but not exactly the same as that of buffer
+    "library/functions.html#buffer": "library/functions.html#func-memoryview",
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-execfile
+    // Redirecting could be confusing. It's replaced by exec(open(fn).read())
+    // "library/functions.html#execfile": "library/functions.html#exec",
+    // https://docs.python.org/whatsnew/3.0.html#builtins
+    // "library/functions.html#execfile": "whatsnew/3.0.html#builtins",
+    "library/functions.html#execfile": null,
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-intern
+    "library/functions.html#intern": "library/sys.html#sys.intern",
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-long
+    // long and int were unified
+    // TODO: don't redirect?
+    // "library/functions.html#long": null,
+    "library/functions.html#long": "library/functions.html#int",
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-raw_input
+    "library/functions.html#raw_input": "library/functions.html#input",
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-reduce
+    "library/functions.html#reduce": "library/functools.html#functools.reduce",
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-reload
+    "library/functions.html#reload": "library/importlib.html#importlib.reload",
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-unicode
+    "library/functions.html#unicode": "library/functions.html#func-str",
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-xrange
+    "library/functions.html#xrange": "library/functions.html#func-range",
+
     "library/functions.html#bytearray": "library/functions.html#func-bytearray",
     "library/functions.html#cmp": null,
     "library/functions.html#file": null,
@@ -1015,6 +171,32 @@ const SPECIAL_CASES = {
     "library/functions.html#non-essential-built-in-functions": null,
     "library/functions.html#non-essential-built-in-funcs": null,
     "library/functions.html#coerce": null,
+
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-next
+    // x.next() became next(x)
+    "library/stdtypes.html#iterator.next": "library/stdtypes.html#iterator.__next__",
+    "reference/expressions.html#generator.next": "reference/expressions.html#generator.__next__",
+    // "library/stdtypes.html#file.next": "tutorial/inputoutput.html#methods-of-file-objects",
+    // "library/stdtypes.html#file.next": "library/io.html#io.IOBase.readlines",
+    "library/stdtypes.html#file.next": null,
+    "library/csv.html#csv.csvreader.next": "library/csv.html#csv.csvreader.__next__",
+
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-has_key
+    "library/stdtypes.html#dict.has_key": "library/stdtypes.html#dict",
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-dict
+    "library/stdtypes.html#dict.iteritems": "library/stdtypes.html#dict.items",
+    "library/stdtypes.html#dict.iterkeys": "library/stdtypes.html#dict.keys",
+    "library/stdtypes.html#dict.itervalues": "library/stdtypes.html#dict.values",
+    "library/stdtypes.html#dict.viewitems": "library/stdtypes.html#dict.items",
+    "library/stdtypes.html#dict.viewkeys": "library/stdtypes.html#dict.keys",
+    "library/stdtypes.html#dict.viewvalues": "library/stdtypes.html#dict.values",
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-xreadlines
+    // "Deprecated since version 2.3: Use for line in file instead."
+    "library/stdtypes.html#file.xreadlines": null,
 
     // TODO: this isn't a very good redirect
     "library/stdtypes.html#bltin-file-objects": "library/io.html#overview",
@@ -1065,6 +247,9 @@ const SPECIAL_CASES = {
     "library/exceptions.html#exceptions.BaseException": "library/exceptions.html#BaseException",
     "library/exceptions.html#exceptions.BaseException.args": "library/exceptions.html#BaseException.args",
     "library/exceptions.html#exceptions.Exception": "library/exceptions.html#Exception",
+    // https://docs.python.org/library/2to3.html#2to3fixer-standarderror
+    // "library/exceptions.html#exceptions.StandardError": null,
+    "library/exceptions.html#exceptions.StandardError": "library/exceptions.html#Exception",
     "library/exceptions.html#exceptions.ArithmeticError": "library/exceptions.html#ArithmeticError",
     "library/exceptions.html#exceptions.BufferError": "library/exceptions.html#BufferError",
     "library/exceptions.html#exceptions.LookupError": "library/exceptions.html#LookupError",
@@ -1119,70 +304,57 @@ const SPECIAL_CASES = {
     "library/exceptions.html#exceptions.UnicodeWarning": "library/exceptions.html#UnicodeWarning",
     "library/exceptions.html#exceptions.BytesWarning": "library/exceptions.html#BytesWarning",
 
-    "library/string.html#deprecated-string-functions": null,
-    "library/string.html#new-string-formatting": "library/string.html#formatstrings",
-    "library/string.html#string-functions": "library/stdtypes.html#string-methods",
-    "library/string.html#string.atof": "library/functions.html#float",
-    "library/string.html#string.atoi": "library/functions.html#int",
-    "library/string.html#string.atol": "library/functions.html#int",
-    "library/string.html#string.capitalize": "library/stdtypes.html#str.capitalize",
-    "library/string.html#string.center": "library/stdtypes.html#str.center",
-    "library/string.html#string.count": "library/stdtypes.html#str.count",
-    "library/string.html#string.expandtabs": "library/stdtypes.html#str.expandtabs",
-    "library/string.html#string.find": "library/stdtypes.html#str.find",
-    "library/string.html#string.index": "library/stdtypes.html#str.index",
-    "library/string.html#string.join": "library/stdtypes.html#str.join",
-    "library/string.html#string.ljust": "library/stdtypes.html#str.ljust",
-    "library/string.html#string.lower": "library/stdtypes.html#str.lower",
-    "library/string.html#string.lstrip": "library/stdtypes.html#str.lstrip",
-    "library/string.html#string.maketrans": "library/stdtypes.html#str.maketrans",
-    "library/string.html#string.replace": "library/stdtypes.html#str.replace",
-    "library/string.html#string.rfind": "library/stdtypes.html#str.rfind",
-    "library/string.html#string.rindex": "library/stdtypes.html#str.rindex",
-    "library/string.html#string.rjust": "library/stdtypes.html#str.rjust",
-    "library/string.html#string.rsplit": "library/stdtypes.html#str.rsplit",
-    "library/string.html#string.rstrip": "library/stdtypes.html#str.rstrip",
-    "library/string.html#string.split": "library/stdtypes.html#str.split",
-    "library/string.html#string.strip": "library/stdtypes.html#str.strip",
-    "library/string.html#string.swapcase": "library/stdtypes.html#str.swapcase",
-    "library/string.html#string.translate": "library/stdtypes.html#str.translate",
-    "library/string.html#string.upper": "library/stdtypes.html#str.upper",
-    "library/string.html#string.zfill": "library/stdtypes.html#str.zfill",
-    // Use join() instead of joinfields()
-    "library/string.html#string.joinfields": "library/stdtypes.html#str.join",
-    "library/string.html#string.splitfields": "library/stdtypes.html#str.split",
+
+    // This is a list of links to related libraries
+    // TODO: Don't redirect?
+    // "library/strings.html": null,
+    "library/strings.html": "library/text.html",
+    "library/strings.html#string-services": "library/text.html#text-processing-services",
+
+
     // These locale-dependent constants were removed
     "library/string.html#string.letters": "library/string.html#string.ascii_letters",
     "library/string.html#string.lowercase": "library/string.html#string.ascii_lowercase",
     "library/string.html#string.uppercase": "library/string.html#string.ascii_uppercase",
 
-    "library/re.html#examples": "library/re.html#regular-expression-examples",
-    "library/re.html#re.MatchObject": "library/re.html#match-objects",
-    "library/re.html#re.MatchObject.end": "library/re.html#re.Match.end",
-    "library/re.html#re.MatchObject.endpos": "library/re.html#re.Match.endpos",
-    "library/re.html#re.MatchObject.expand": "library/re.html#re.Match.expand",
-    "library/re.html#re.MatchObject.group": "library/re.html#re.Match.group",
-    "library/re.html#re.MatchObject.groupdict": "library/re.html#re.Match.groupdict",
-    "library/re.html#re.MatchObject.groups": "library/re.html#re.Match.groups",
-    "library/re.html#re.MatchObject.lastgroup": "library/re.html#re.Match.lastgroup",
-    "library/re.html#re.MatchObject.lastindex": "library/re.html#re.Match.lastindex",
-    "library/re.html#re.MatchObject.pos": "library/re.html#re.Match.pos",
-    "library/re.html#re.MatchObject.re": "library/re.html#re.Match.re",
-    "library/re.html#re.MatchObject.span": "library/re.html#re.Match.span",
-    "library/re.html#re.MatchObject.start": "library/re.html#re.Match.start",
-    "library/re.html#re.MatchObject.string": "library/re.html#re.Match.string",
-    "library/re.html#re.RegexObject": "library/re.html#regular-expression-objects",
-    "library/re.html#re.RegexObject.findall": "library/re.html#re.Pattern.findall",
-    "library/re.html#re.RegexObject.finditer": "library/re.html#re.Pattern.finditer",
-    "library/re.html#re.RegexObject.flags": "library/re.html#re.Pattern.flags",
-    "library/re.html#re.RegexObject.groupindex": "library/re.html#re.Pattern.groupindex",
-    "library/re.html#re.RegexObject.groups": "library/re.html#re.Pattern.groups",
-    "library/re.html#re.RegexObject.match": "library/re.html#re.Pattern.match",
-    "library/re.html#re.RegexObject.pattern": "library/re.html#re.Pattern.pattern",
-    "library/re.html#re.RegexObject.search": "library/re.html#re.Pattern.search",
-    "library/re.html#re.RegexObject.split": "library/re.html#re.Pattern.split",
-    "library/re.html#re.RegexObject.sub": "library/re.html#re.Pattern.sub",
-    "library/re.html#re.RegexObject.subn": "library/re.html#re.Pattern.subn",
+    "library/string.html#new-string-formatting": "library/string.html#formatstrings",
+    "library/string.html#string-functions": "library/stdtypes.html#string-methods",
+    "library/string.html#string.maketrans": "library/stdtypes.html#str.maketrans",
+    // TODO: Only the first three of these were removed from Python 3. Redirect to "String methods"?
+    // "library/string.html#deprecated-string-functions": "library/stdtypes.html#string-methods",
+    "library/string.html#deprecated-string-functions": null,
+    "library/string.html#string.atof": "library/functions.html#float",
+    "library/string.html#string.atoi": "library/functions.html#int",
+    "library/string.html#string.atol": "library/functions.html#int",
+
+    "library/string.html#string.capitalize": "library/stdtypes.html#str.capitalize",
+    "library/string.html#string.expandtabs": "library/stdtypes.html#str.expandtabs",
+    "library/string.html#string.find": "library/stdtypes.html#str.find",
+    "library/string.html#string.rfind": "library/stdtypes.html#str.rfind",
+    "library/string.html#string.index": "library/stdtypes.html#str.index",
+    "library/string.html#string.rindex": "library/stdtypes.html#str.rindex",
+    "library/string.html#string.count": "library/stdtypes.html#str.count",
+    "library/string.html#string.lower": "library/stdtypes.html#str.lower",
+    "library/string.html#string.split": "library/stdtypes.html#str.split",
+    "library/string.html#string.rsplit": "library/stdtypes.html#str.rsplit",
+    "library/string.html#string.join": "library/stdtypes.html#str.join",
+    "library/string.html#string.lstrip": "library/stdtypes.html#str.lstrip",
+    "library/string.html#string.rstrip": "library/stdtypes.html#str.rstrip",
+    "library/string.html#string.strip": "library/stdtypes.html#str.strip",
+    "library/string.html#string.swapcase": "library/stdtypes.html#str.swapcase",
+    "library/string.html#string.translate": "library/stdtypes.html#str.translate",
+    "library/string.html#string.upper": "library/stdtypes.html#str.upper",
+    "library/string.html#string.ljust": "library/stdtypes.html#str.ljust",
+    "library/string.html#string.rjust": "library/stdtypes.html#str.rjust",
+    "library/string.html#string.center": "library/stdtypes.html#str.center",
+    "library/string.html#string.zfill": "library/stdtypes.html#str.zfill",
+    "library/string.html#string.replace": "library/stdtypes.html#str.replace",
+
+    // Use join() instead of joinfields()
+    "library/string.html#string.joinfields": "library/stdtypes.html#str.join",
+    "library/string.html#string.splitfields": "library/stdtypes.html#str.split",
+
+
     // This flag is redundant on Python 3 and the documentation for the ASCII explains that
     // but redirecting there could be confusing
     // "library/re.html#re.U": "library/re.html#re.A",
@@ -1190,11 +362,58 @@ const SPECIAL_CASES = {
     "library/re.html#re.U": null,
     "library/re.html#re.UNICODE": null,
 
+    "library/re.html#re.RegexObject": "library/re.html#regular-expression-objects",
+    "library/re.html#re.RegexObject.search": "library/re.html#re.Pattern.search",
+    "library/re.html#re.RegexObject.match": "library/re.html#re.Pattern.match",
+    "library/re.html#re.RegexObject.split": "library/re.html#re.Pattern.split",
+    "library/re.html#re.RegexObject.findall": "library/re.html#re.Pattern.findall",
+    "library/re.html#re.RegexObject.finditer": "library/re.html#re.Pattern.finditer",
+    "library/re.html#re.RegexObject.sub": "library/re.html#re.Pattern.sub",
+    "library/re.html#re.RegexObject.subn": "library/re.html#re.Pattern.subn",
+    "library/re.html#re.RegexObject.flags": "library/re.html#re.Pattern.flags",
+    "library/re.html#re.RegexObject.groups": "library/re.html#re.Pattern.groups",
+    "library/re.html#re.RegexObject.groupindex": "library/re.html#re.Pattern.groupindex",
+    "library/re.html#re.RegexObject.pattern": "library/re.html#re.Pattern.pattern",
+    "library/re.html#re.MatchObject": "library/re.html#match-objects",
+    "library/re.html#re.MatchObject.expand": "library/re.html#re.Match.expand",
+    "library/re.html#re.MatchObject.group": "library/re.html#re.Match.group",
+    "library/re.html#re.MatchObject.groups": "library/re.html#re.Match.groups",
+    "library/re.html#re.MatchObject.groupdict": "library/re.html#re.Match.groupdict",
+    "library/re.html#re.MatchObject.start": "library/re.html#re.Match.start",
+    "library/re.html#re.MatchObject.end": "library/re.html#re.Match.end",
+    "library/re.html#re.MatchObject.span": "library/re.html#re.Match.span",
+    "library/re.html#re.MatchObject.pos": "library/re.html#re.Match.pos",
+    "library/re.html#re.MatchObject.endpos": "library/re.html#re.Match.endpos",
+    "library/re.html#re.MatchObject.lastindex": "library/re.html#re.Match.lastindex",
+    "library/re.html#re.MatchObject.lastgroup": "library/re.html#re.Match.lastgroup",
+    "library/re.html#re.MatchObject.re": "library/re.html#re.Match.re",
+    "library/re.html#re.MatchObject.string": "library/re.html#re.Match.string",
+    "library/re.html#examples": "library/re.html#regular-expression-examples",
+
+
     "library/struct.html#struct-interpret-strings-as-packed-binary-data": "library/struct.html#struct-interpret-bytes-as-packed-binary-data",
+
+
+    "library/stringio.html": "library/io.html#io.StringIO",
+    "library/stringio.html#module-StringIO": "library/io.html#io.StringIO",
+    "library/stringio.html#stringio-read-and-write-strings-as-files": "library/io.html#io.StringIO",
+    "library/stringio.html#StringIO.StringIO": "library/io.html#io.StringIO",
+    "library/stringio.html#StringIO.StringIO.getvalue": "library/io.html#io.StringIO.getvalue",
+    // TODO: link to the function it inherits from?
+    // "library/stringio.html#StringIO.StringIO.close": "library/io.html#io.IOBase.close",
+    "library/stringio.html#StringIO.StringIO.close": "library/io.html#io.StringIO",
+    "library/stringio.html#module-cStringIO": "library/io.html#io.StringIO",
+    "library/stringio.html#cstringio-faster-version-of-stringio": "library/io.html#io.StringIO",
+    "library/stringio.html#cStringIO.StringIO": "library/io.html#io.StringIO",
+    // TODO: classes don't exist, link to the module anyway?
+    "library/stringio.html#cStringIO.InputType": null,
+    "library/stringio.html#cStringIO.OutputType": null,
+
 
     // Footnotes
     "library/codecs.html#encoding-note": null,
     "library/codecs.html#decoding-note": null,
+
 
     "library/collections.html#collections-high-performance-container-datatypes": "library/collections.html#collections-container-datatypes",
     "library/collections.html#collections-abstract-base-classes": "library/collections.abc.html#collections-abstract-base-classes",
@@ -1215,10 +434,12 @@ const SPECIAL_CASES = {
     "library/collections.html#collections.KeysView": "library/collections.abc.html#collections.abc.KeysView",
     "library/collections.html#collections.ValuesView": "library/collections.abc.html#collections.abc.ValuesView",
 
+
     // Deprecated aliases and methods
     "library/array.html#array.ArrayType": null,
     "library/array.html#array.array.read": null,
     "library/array.html#array.array.write": null,
+
 
     // https://docs.python.org/whatsnew/3.0.html#library-changes
     "library/sets.html": "library/stdtypes.html#set",
@@ -1258,6 +479,38 @@ const SPECIAL_CASES = {
     "library/weakref.html#weakref.ReferenceError": null,
 
 
+    "library/userdict.html": "library/collections.html#userdict-objects",
+    "library/userdict.html#module-UserDict": "library/collections.html#userdict-objects",
+    "library/userdict.html#userdict-class-wrapper-for-dictionary-objects": "library/collections.html#userdict-objects",
+    "library/userdict.html#UserDict.UserDict": "library/collections.html#collections.UserDict",
+
+    // "Subclass of UserDict that supports direct iteration"
+    // "For backward compatibility, instances of UserDict [in Python 2] are not iterable"
+    // "library/userdict.html#UserDict.IterableUserDict": null,
+    "library/userdict.html#UserDict.IterableUserDict": "library/collections.html#collections.UserDict",
+    "library/userdict.html#UserDict.IterableUserDict.data": "library/collections.html#collections.UserDict.data",
+
+    // "This mixin should be used as a superclass"
+    // "Starting with Python version 2.6, it is recommended to use collections.MutableMapping instead of DictMixin"
+    // "library/userdict.html#UserDict.DictMixin": "library/collections.abc.html#collections.abc.MutableMapping",
+    // "library/userdict.html#UserDict.DictMixin": "library/collections.html#collections.UserDict",
+    "library/userdict.html#UserDict.DictMixin": null,
+
+    "library/userdict.html#module-UserList": "library/collections.html#userlist-objects",
+    "library/userdict.html#userlist-class-wrapper-for-list-objects": "library/collections.html#userlist-objects",
+    "library/userdict.html#UserList.UserList": "library/collections.html#collections.UserList",
+    "library/userdict.html#UserList.UserList.data": "library/collections.html#collections.UserList.data",
+
+    "library/userdict.html#module-UserString": "library/collections.html#userstring-objects",
+    "library/userdict.html#userstring-class-wrapper-for-string-objects": "library/collections.html#userstring-objects",
+    "library/userdict.html#UserString.UserString": "library/collections.html#collections.UserString",
+    // "The MutableString class has been removed in Python 3"
+    "library/userdict.html#UserString.MutableString": null,
+    // TODO: MutableString doesn't exist but this property also documents .data for UserString. Redirect?
+    // "library/userdict.html#UserString.MutableString.data": "library/collections.html#collections.UserString.data",
+    "library/userdict.html#UserString.MutableString.data": null,
+
+
     "library/types.html#types-names-for-built-in-types": "library/types.html#types-dynamic-type-creation-and-names-for-built-in-types",
     // TODO: redirect these to the builtins? Or typing?
     "library/types.html#types.NoneType": null,
@@ -1286,10 +539,50 @@ const SPECIAL_CASES = {
     "library/types.html#types.StringTypes": null,
 
 
+    "library/repr.html": "library/reprlib.html",
+    "library/repr.html#module-repr": "library/reprlib.html#module-reprlib",
+    "library/repr.html#repr-alternate-repr-implementation": "library/reprlib.html#reprlib-alternate-repr-implementation",
+    "library/repr.html#repr.Repr": "library/reprlib.html#reprlib.Repr",
+    "library/repr.html#repr.aRepr": "library/reprlib.html#reprlib.aRepr",
+    "library/repr.html#repr.repr": "library/reprlib.html#reprlib.repr",
+    "library/repr.html#repr.Repr.maxlevel": "library/reprlib.html#reprlib.Repr.maxlevel",
+    "library/repr.html#repr.Repr.maxdict": "library/reprlib.html#reprlib.Repr.maxdict",
+    "library/repr.html#repr.Repr.maxlist": "library/reprlib.html#reprlib.Repr.maxlist",
+    "library/repr.html#repr.Repr.maxtuple": "library/reprlib.html#reprlib.Repr.maxtuple",
+    "library/repr.html#repr.Repr.maxset": "library/reprlib.html#reprlib.Repr.maxset",
+    "library/repr.html#repr.Repr.maxfrozenset": "library/reprlib.html#reprlib.Repr.maxfrozenset",
+    "library/repr.html#repr.Repr.maxdeque": "library/reprlib.html#reprlib.Repr.maxdeque",
+    "library/repr.html#repr.Repr.maxarray": "library/reprlib.html#reprlib.Repr.maxarray",
+    "library/repr.html#repr.Repr.maxlong": "library/reprlib.html#reprlib.Repr.maxlong",
+    "library/repr.html#repr.Repr.maxstring": "library/reprlib.html#reprlib.Repr.maxstring",
+    "library/repr.html#repr.Repr.maxother": "library/reprlib.html#reprlib.Repr.maxother",
+    "library/repr.html#repr.Repr.repr": "library/reprlib.html#reprlib.Repr.repr",
+    "library/repr.html#repr.Repr.repr1": "library/reprlib.html#reprlib.Repr.repr1",
+
+
     "library/random.html#random.jumpahead": null,
     "library/random.html#random.WichmannHill": null,
     "library/random.html#random.whseed": null,
 
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-itertools
+    "library/itertools.html#itertools.ifilter": "library/functions.html#filter",
+    "library/itertools.html#itertools.ifilterfalse": "library/itertools.html#itertools.filterfalse",
+    "library/itertools.html#itertools.imap": "library/functions.html#map",
+    "library/itertools.html#itertools.izip": "library/functions.html#zip",
+    "library/itertools.html#itertools.izip_longest": "library/itertools.html#itertools.zip_longest",
+    "library/itertools.html#recipes": "library/itertools.html#itertools-recipes",
+
+
+    // The / changed to only be true division (ie. return a float)
+    // "library/operator.html#operator.div": "library/operator.html#operator.truediv",
+    // "library/operator.html#operator.div": "library/operator.html#operator.__truediv__",
+    // "library/operator.html#operator.div": "library/operator.html#operator.itruediv",
+    // "library/operator.html#operator.div": "library/operator.html#operator.__itruediv__",
+    "library/operator.html#operator.div": null,
+    "library/operator.html#operator.__div__": null,
+    "library/operator.html#operator.idiv": null,
+    "library/operator.html#operator.__idiv__": null,
 
     // "Deprecated since <x> use <some other function in this module> instead"
     "library/operator.html#operator.delslice": null,
@@ -1302,15 +595,18 @@ const SPECIAL_CASES = {
     "library/operator.html#operator.__repeat__": null,
     "library/operator.html#operator.irepeat": null,
     "library/operator.html#operator.__irepeat__": null,
-    // The / changed to only be true division (ie. return a float)
-    // "library/operator.html#operator.div": "library/operator.html#operator.truediv",
-    // "library/operator.html#operator.div": "library/operator.html#operator.__truediv__",
-    // "library/operator.html#operator.div": "library/operator.html#operator.itruediv",
-    // "library/operator.html#operator.div": "library/operator.html#operator.__itruediv__",
-    "library/operator.html#operator.div": null,
-    "library/operator.html#operator.__div__": null,
-    "library/operator.html#operator.idiv": null,
-    "library/operator.html#operator.__idiv__": null,
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-operator
+    "library/operator.html#operator.isCallable": "library/functions.html#callable",
+    // "Deprecated since version 2.0: Use contains() instead."
+    // "library/operator.html#operator.sequenceIncludes": "library/operator.html#operator.contains",
+    "library/operator.html#operator.sequenceIncludes": null,
+    // isinstance(obj, collections.abc.Mapping)
+    "library/operator.html#operator.isMappingType": null,
+    // isinstance(obj, numbers.Number)
+    "library/operator.html#operator.isNumberType": null,
+    // isinstance(obj, collections.abc.Sequence)
+    "library/operator.html#operator.isSequenceType": null,
 
 
     // TODO: what happened to this? splitdrive()?
@@ -1321,6 +617,76 @@ const SPECIAL_CASES = {
 
 
     "library/tempfile.html#tempfile.template": null,
+
+
+    "library/pickle.html#usage": "library/pickle.html#module-interface",
+    "library/pickle.html#pickle.Pickler.clear_memo": null,
+    "library/pickle.html#pickle.Unpickler.noload": null,
+    "library/pickle.html#the-pickle-protocol": "library/pickle.html#pickling-class-instances",
+    "library/pickle.html#pickle-protocol": "library/pickle.html#pickling-class-instances",
+    "library/pickle.html#pickling-and-unpickling-normal-class-instances": "library/pickle.html#pickling-class-instances",
+    // TODO: this method was removed. Figure out where to redirect.
+    "library/pickle.html#object.__getinitargs__": null,
+    "library/pickle.html#pickling-and-unpickling-extension-types": "library/pickle.html#object.__reduce__",
+    "library/pickle.html#pickling-and-unpickling-external-objects": "library/pickle.html#persistence-of-external-objects",
+    "library/pickle.html#subclassing-unpicklers": "library/pickle.html#restricting-globals",
+    "library/pickle.html#pickle-sub": "library/pickle.html#restricting-globals",
+    // pickle tries to use cPickle and falls back to the Python implementation transparently
+    // TODO: don't redirect?
+    // "library/pickle.html#module-cPickle": null,
+    // "library/pickle.html#cpickle-a-faster-pickle": null,
+    "library/pickle.html#module-cPickle": "library/pickle.html",
+    "library/pickle.html#cpickle-a-faster-pickle": "library/pickle.html",
+
+
+    "library/copy_reg.html": "library/copyreg.html",
+    "library/copy_reg.html#module-copy_reg": "library/copyreg.html#module-copyreg",
+    "library/copy_reg.html#copy-reg-register-pickle-support-functions": "library/copyreg.html#copyreg-register-pickle-support-functions",
+    "library/copy_reg.html#copy_reg.constructor": "library/copyreg.html#copyreg.constructor",
+    "library/copy_reg.html#copy_reg.pickle": "library/copyreg.html#copyreg.pickle",
+
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-imports2
+    "library/anydbm.html": "library/dbm.html",
+    "library/anydbm.html#module-anydbm": "library/dbm.html#module-dbm",
+    "library/anydbm.html#anydbm-generic-access-to-dbm-style-databases": "library/dbm.html#dbm-interfaces-to-unix-databases",
+    "library/anydbm.html#anydbm.open": "library/dbm.html#dbm.open",
+    "library/anydbm.html#anydbm.error": "library/dbm.html#dbm.error",
+    // TODO: dbm.close doesn't exist in Python 3. Redirect to module anyway?
+    // "library/anydbm.html#anydbm.close": "library/dbm.html#module-dbm",
+    "library/anydbm.html#anydbm.close": null,
+
+    "library/whichdb.html": "library/dbm.html#dbm.whichdb",
+    "library/whichdb.html#module-whichdb": "library/dbm.html#dbm.whichdb",
+    "library/whichdb.html#whichdb-guess-which-dbm-module-created-a-database": "library/dbm.html#dbm.whichdb",
+    "library/whichdb.html#whichdb.whichdb": "library/dbm.html#dbm.whichdb",
+
+
+    "library/dumbdbm.html": "library/dbm.html#module-dbm.dumb",
+    "library/dumbdbm.html#module-dumbdbm": "library/dbm.html#module-dbm.dumb",
+    "library/dumbdbm.html#dumbdbm-portable-dbm-implementation": "library/dbm.html#dbm-dumb-portable-dbm-implementation",
+    "library/dumbdbm.html#dumbdbm.error": "library/dbm.html#dbm.dumb.error",
+    "library/dumbdbm.html#dumbdbm.open": "library/dbm.html#dbm.dumb.open",
+    "library/dumbdbm.html#dumbdbm.close": "library/dbm.html#dbm.dumb.dumbdbm.close",
+    // The id was removed but the docs are here.
+    "library/dumbdbm.html#dumbdbm-objects": "library/dbm.html#dbm.dumb.dumbdbm.sync",
+    "library/dumbdbm.html#dumbdbm.dumbdbm.sync": "library/dbm.html#dbm.dumb.dumbdbm.sync",
+
+    "library/dbm.html": "library/dbm.html#module-dbm.ndbm",
+    "library/dbm.html#dbm-simple-database-interface": "library/dbm.html#dbm-ndbm-interface-based-on-ndbm",
+    "library/dbm.html#dbm.library": "library/dbm.html#dbm.ndbm.library",
+    "library/dbm.html#dbm.close": "library/dbm.html#dbm.ndbm.ndbm.close",
+
+    "library/gdbm.html": "library/dbm.html#module-dbm.gnu",
+    "library/gdbm.html#module-gdbm": "library/dbm.html#module-dbm.gnu",
+    "library/gdbm.html#gdbm-gnu-s-reinterpretation-of-dbm": "library/dbm.html#dbm-gnu-gnu-s-reinterpretation-of-dbm",
+    "library/gdbm.html#gdbm.error": "library/dbm.html#dbm.gnu.error",
+    "library/gdbm.html#gdbm.open": "library/dbm.html#dbm.gnu.open",
+    "library/gdbm.html#gdbm.firstkey": "library/dbm.html#dbm.gnu.gdbm.firstkey",
+    "library/gdbm.html#gdbm.nextkey": "library/dbm.html#dbm.gnu.gdbm.nextkey",
+    "library/gdbm.html#gdbm.reorganize": "library/dbm.html#dbm.gnu.gdbm.reorganize",
+    "library/gdbm.html#gdbm.sync": "library/dbm.html#dbm.gnu.gdbm.sync",
+    "library/gdbm.html#gdbm.close": "library/dbm.html#dbm.gnu.gdbm.close",
 
 
     "library/bz2.html#bz2-compression-compatible-with-bzip2": "library/bz2.html#bz2-support-for-bzip2-compression",
@@ -1389,6 +755,18 @@ const SPECIAL_CASES = {
     "library/configparser.html#examples": "library/configparser.html#legacy-api-examples",
 
 
+    "library/robotparser.html": "library/urllib.robotparser.html",
+    "library/robotparser.html#module-robotparser": "library/urllib.robotparser.html#module-urllib.robotparser",
+    "library/robotparser.html#robotparser-parser-for-robots-txt": "library/urllib.robotparser.html#urllib-robotparser-parser-for-robots-txt",
+    "library/robotparser.html#robotparser.RobotFileParser": "library/urllib.robotparser.html#urllib.robotparser.RobotFileParser",
+    "library/robotparser.html#robotparser.RobotFileParser.set_url": "library/urllib.robotparser.html#urllib.robotparser.RobotFileParser.set_url",
+    "library/robotparser.html#robotparser.RobotFileParser.read": "library/urllib.robotparser.html#urllib.robotparser.RobotFileParser.read",
+    "library/robotparser.html#robotparser.RobotFileParser.parse": "library/urllib.robotparser.html#urllib.robotparser.RobotFileParser.parse",
+    "library/robotparser.html#robotparser.RobotFileParser.can_fetch": "library/urllib.robotparser.html#urllib.robotparser.RobotFileParser.can_fetch",
+    "library/robotparser.html#robotparser.RobotFileParser.mtime": "library/urllib.robotparser.html#urllib.robotparser.RobotFileParser.mtime",
+    "library/robotparser.html#robotparser.RobotFileParser.modified": "library/urllib.robotparser.html#urllib.robotparser.RobotFileParser.modified",
+
+
     "library/plistlib.html#plistlib.readPlistFromString": "library/plistlib.html#plistlib.readPlistFromBytes",
     "library/plistlib.html#plistlib.writePlistToString": "library/plistlib.html#plistlib.writePlistToBytes",
     "library/plistlib.html#plistlib.readPlistFromResource": null,
@@ -1436,6 +814,9 @@ const SPECIAL_CASES = {
     // Have to scroll down
     "library/os.html#open-flag-constants": "library/os.html#os.open",
     "library/os.html#open-constants": "library/os.html#os.open",
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-getcwdu
+    "library/os.html#os.getcwdu": "library/os.html#os.getcwd",
 
     // TODO: figure this out.
     "library/os.html#os.stat_float_times": null,
@@ -1493,6 +874,25 @@ const SPECIAL_CASES = {
     // Removed section. TODO: maybe it was moved?
     "library/threading.html#importing-in-threaded-code": null,
     "library/threading.html#threaded-imports": null,
+
+
+    "library/thread.html": "library/_thread.html",
+    "library/thread.html#module-thread": "library/_thread.html#module-_thread",
+    "library/thread.html#thread-multiple-threads-of-control": "library/_thread.html#thread-low-level-threading-api",
+    "library/thread.html#thread.error": "library/_thread.html#_thread.error",
+    "library/thread.html#thread.LockType": "library/_thread.html#_thread.LockType",
+    "library/thread.html#thread.start_new_thread": "library/_thread.html#_thread.start_new_thread",
+    "library/thread.html#thread.interrupt_main": "library/_thread.html#_thread.interrupt_main",
+    "library/thread.html#thread.exit": "library/_thread.html#_thread.exit",
+    "library/thread.html#thread.allocate_lock": "library/_thread.html#_thread.allocate_lock",
+    "library/thread.html#thread.get_ident": "library/_thread.html#_thread.get_ident",
+    "library/thread.html#thread.stack_size": "library/_thread.html#_thread.stack_size",
+    "library/thread.html#thread.lock.acquire": "library/_thread.html#_thread.lock.acquire",
+    "library/thread.html#thread.lock.release": "library/_thread.html#_thread.lock.release",
+    "library/thread.html#thread.lock.locked": "library/_thread.html#_thread.lock.locked",
+
+    "library/dummy_thread.html": "library/_dummy_thread.html",
+    "library/dummy_thread.html#module-dummy_thread": "library/_dummy_thread.html#module-_dummy_thread",
 
 
     "library/multiprocessing.html#multiprocessing-process-based-threading-interface": "library/multiprocessing.html#multiprocessing-process-based-parallelism",
@@ -1667,6 +1067,30 @@ const SPECIAL_CASES = {
     "library/base64.html#base64-rfc-3548-base16-base32-base64-data-encodings": "library/base64.html#base64-base16-base32-base64-base85-data-encodings",
 
 
+    "library/htmlparser.html": "library/html.parser.html",
+    "library/htmlparser.html#module-HTMLParser": "library/html.parser.html#module-html.parser",
+    "library/htmlparser.html#htmlparser-simple-html-and-xhtml-parser": "library/html.parser.html#html-parser-simple-html-and-xhtml-parser",
+    "library/htmlparser.html#HTMLParser.HTMLParser": "library/html.parser.html#html.parser.HTMLParser",
+    // "the HTMLParseError exception [is] now deprecated"
+    // https://docs.python.org/3/whatsnew/3.3.html#html
+    "library/htmlparser.html#HTMLParser.HTMLParseError": null,
+    "library/htmlparser.html#HTMLParser.HTMLParser.feed": "library/html.parser.html#html.parser.HTMLParser.feed",
+    "library/htmlparser.html#HTMLParser.HTMLParser.close": "library/html.parser.html#html.parser.HTMLParser.close",
+    "library/htmlparser.html#HTMLParser.HTMLParser.reset": "library/html.parser.html#html.parser.HTMLParser.reset",
+    "library/htmlparser.html#HTMLParser.HTMLParser.getpos": "library/html.parser.html#html.parser.HTMLParser.getpos",
+    "library/htmlparser.html#HTMLParser.HTMLParser.get_starttag_text": "library/html.parser.html#html.parser.HTMLParser.get_starttag_text",
+    "library/htmlparser.html#HTMLParser.HTMLParser.handle_starttag": "library/html.parser.html#html.parser.HTMLParser.handle_starttag",
+    "library/htmlparser.html#HTMLParser.HTMLParser.handle_endtag": "library/html.parser.html#html.parser.HTMLParser.handle_endtag",
+    "library/htmlparser.html#HTMLParser.HTMLParser.handle_startendtag": "library/html.parser.html#html.parser.HTMLParser.handle_startendtag",
+    "library/htmlparser.html#HTMLParser.HTMLParser.handle_data": "library/html.parser.html#html.parser.HTMLParser.handle_data",
+    "library/htmlparser.html#HTMLParser.HTMLParser.handle_entityref": "library/html.parser.html#html.parser.HTMLParser.handle_entityref",
+    "library/htmlparser.html#HTMLParser.HTMLParser.handle_charref": "library/html.parser.html#html.parser.HTMLParser.handle_charref",
+    "library/htmlparser.html#HTMLParser.HTMLParser.handle_comment": "library/html.parser.html#html.parser.HTMLParser.handle_comment",
+    "library/htmlparser.html#HTMLParser.HTMLParser.handle_decl": "library/html.parser.html#html.parser.HTMLParser.handle_decl",
+    "library/htmlparser.html#HTMLParser.HTMLParser.handle_pi": "library/html.parser.html#html.parser.HTMLParser.handle_pi",
+    "library/htmlparser.html#HTMLParser.HTMLParser.unknown_decl": "library/html.parser.html#html.parser.HTMLParser.unknown_decl",
+
+
     // This module was removed in favor of HTMLParser/html.parser on Python 3
     "library/htmllib.html": null,
     // But this part of it was moved.
@@ -1691,6 +1115,22 @@ const SPECIAL_CASES = {
     // cgi.escape hase quote=False and this has quote=True, could be confusing
     "library/cgi.html#cgi.escape": "library/html.html#html.escape",
 
+    "library/urllib.html#urllib.urlopen": "library/urllib.request.html#urllib.request.urlopen",
+    "library/urllib.html#urllib.urlretrieve": "library/urllib.request.html#urllib.request.urlretrieve",
+    // TODO: explain this missing redirect
+    "library/urllib.html#urllib._urlopener": null,
+    "library/urllib.html#urllib.urlcleanup": "library/urllib.request.html#urllib.request.urlcleanup",
+    "library/urllib.html#urllib.quote": "library/urllib.parse.html#urllib.parse.quote",
+    "library/urllib.html#urllib.quote_plus": "library/urllib.parse.html#urllib.parse.quote_plus",
+    "library/urllib.html#urllib.unquote": "library/urllib.parse.html#urllib.parse.unquote",
+    "library/urllib.html#urllib.unquote_plus": "library/urllib.parse.html#urllib.parse.unquote_plus",
+    "library/urllib.html#urllib.urlencode": "library/urllib.parse.html#urllib.parse.urlencode",
+    "library/urllib.html#urllib.pathname2url": "library/urllib.request.html#urllib.request.pathname2url",
+    "library/urllib.html#urllib.url2pathname": "library/urllib.request.html#urllib.request.url2pathname",
+    "library/urllib.html#urllib.getproxies": "library/urllib.request.html#urllib.request.getproxies",
+    "library/urllib.html#urllib.URLopener": "library/urllib.request.html#urllib.request.URLopener",
+    "library/urllib.html#urllib.FancyURLopener": "library/urllib.request.html#urllib.request.FancyURLopener",
+    "library/urllib.html#urllib.ContentTooShortError": "library/urllib.error.html#urllib.error.ContentTooShortError",
 
     // TODO: explain this
     "library/urllib.html#high-level-interface": "library/urllib.request.html",
@@ -1712,6 +1152,33 @@ const SPECIAL_CASES = {
     "library/urllib.html#urllib.URLopener.open_unknown": "library/urllib.request.html#urllib.request.URLopener.open_unknown",
     "library/urllib.html#urllib.URLopener.retrieve": "library/urllib.request.html#urllib.request.URLopener.retrieve",
     "library/urllib.html#urllib.URLopener.version": "library/urllib.request.html#urllib.request.URLopener.version",
+
+    "library/urllib2.html#urllib2.urlopen": "library/urllib.request.html#urllib.request.urlopen",
+    "library/urllib2.html#urllib2.install_opener": "library/urllib.request.html#urllib.request.install_opener",
+    "library/urllib2.html#urllib2.build_opener": "library/urllib.request.html#urllib.request.build_opener",
+    "library/urllib2.html#urllib2.URLError": "library/urllib.error.html#urllib.error.URLError",
+    "library/urllib2.html#urllib2.HTTPError": "library/urllib.error.html#urllib.error.HTTPError",
+    "library/urllib2.html#urllib2.Request": "library/urllib.request.html#urllib.request.Request",
+    "library/urllib2.html#urllib2.OpenerDirector": "library/urllib.request.html#urllib.request.OpenerDirector",
+    "library/urllib2.html#urllib2.BaseHandler": "library/urllib.request.html#urllib.request.BaseHandler",
+    "library/urllib2.html#urllib2.HTTPDefaultErrorHandler": "library/urllib.request.html#urllib.request.HTTPDefaultErrorHandler",
+    "library/urllib2.html#urllib2.HTTPRedirectHandler": "library/urllib.request.html#urllib.request.HTTPRedirectHandler",
+    "library/urllib2.html#urllib2.HTTPCookieProcessor": "library/urllib.request.html#urllib.request.HTTPCookieProcessor",
+    "library/urllib2.html#urllib2.ProxyHandler": "library/urllib.request.html#urllib.request.ProxyHandler",
+    "library/urllib2.html#urllib2.HTTPPasswordMgr": "library/urllib.request.html#urllib.request.HTTPPasswordMgr",
+    "library/urllib2.html#urllib2.HTTPPasswordMgrWithDefaultRealm": "library/urllib.request.html#urllib.request.HTTPPasswordMgrWithDefaultRealm",
+    "library/urllib2.html#urllib2.AbstractBasicAuthHandler": "library/urllib.request.html#urllib.request.AbstractBasicAuthHandler",
+    "library/urllib2.html#urllib2.HTTPBasicAuthHandler": "library/urllib.request.html#urllib.request.HTTPBasicAuthHandler",
+    "library/urllib2.html#urllib2.ProxyBasicAuthHandler": "library/urllib.request.html#urllib.request.ProxyBasicAuthHandler",
+    "library/urllib2.html#urllib2.AbstractDigestAuthHandler": "library/urllib.request.html#urllib.request.AbstractDigestAuthHandler",
+    "library/urllib2.html#urllib2.HTTPDigestAuthHandler": "library/urllib.request.html#urllib.request.HTTPDigestAuthHandler",
+    "library/urllib2.html#urllib2.ProxyDigestAuthHandler": "library/urllib.request.html#urllib.request.ProxyDigestAuthHandler",
+    "library/urllib2.html#urllib2.HTTPHandler": "library/urllib.request.html#urllib.request.HTTPHandler",
+    "library/urllib2.html#urllib2.HTTPSHandler": "library/urllib.request.html#urllib.request.HTTPSHandler",
+    "library/urllib2.html#urllib2.FileHandler": "library/urllib.request.html#urllib.request.FileHandler",
+    "library/urllib2.html#urllib2.FTPHandler": "library/urllib.request.html#urllib.request.FTPHandler",
+    "library/urllib2.html#urllib2.CacheFTPHandler": "library/urllib.request.html#urllib.request.CacheFTPHandler",
+    "library/urllib2.html#urllib2.UnknownHandler": "library/urllib.request.html#urllib.request.UnknownHandler",
 
     "library/urllib2.html": "library/urllib.request.html",
     "library/urllib2.html#module-urllib2": "library/urllib.request.html#module-urllib.request",
@@ -1774,6 +1241,49 @@ const SPECIAL_CASES = {
     "library/urllib2.html#urllib2.UnknownHandler.unknown_open": "library/urllib.request.html#urllib.request.UnknownHandler.unknown_open",
 
 
+    "library/httplib.html": "library/http.client.html",
+    "library/httplib.html#module-httplib": "library/http.client.html#module-http.client",
+    "library/httplib.html#httplib-http-protocol-client": "library/http.client.html#http-client-http-protocol-client",
+    "library/httplib.html#httplib.HTTPConnection": "library/http.client.html#http.client.HTTPConnection",
+    "library/httplib.html#httplib.HTTPSConnection": "library/http.client.html#http.client.HTTPSConnection",
+    "library/httplib.html#httplib.HTTPResponse": "library/http.client.html#http.client.HTTPResponse",
+    "library/httplib.html#httplib.HTTPMessage": "library/http.client.html#httpmessage-objects",
+    "library/httplib.html#httplib.HTTPException": "library/http.client.html#http.client.HTTPException",
+    "library/httplib.html#httplib.NotConnected": "library/http.client.html#http.client.NotConnected",
+    "library/httplib.html#httplib.InvalidURL": "library/http.client.html#http.client.InvalidURL",
+    "library/httplib.html#httplib.UnknownProtocol": "library/http.client.html#http.client.UnknownProtocol",
+    "library/httplib.html#httplib.UnknownTransferEncoding": "library/http.client.html#http.client.UnknownTransferEncoding",
+    "library/httplib.html#httplib.UnimplementedFileMode": "library/http.client.html#http.client.UnimplementedFileMode",
+    "library/httplib.html#httplib.IncompleteRead": "library/http.client.html#http.client.IncompleteRead",
+    "library/httplib.html#httplib.ImproperConnectionState": "library/http.client.html#http.client.ImproperConnectionState",
+    "library/httplib.html#httplib.CannotSendRequest": "library/http.client.html#http.client.CannotSendRequest",
+    "library/httplib.html#httplib.CannotSendHeader": "library/http.client.html#http.client.CannotSendHeader",
+    "library/httplib.html#httplib.ResponseNotReady": "library/http.client.html#http.client.ResponseNotReady",
+    "library/httplib.html#httplib.BadStatusLine": "library/http.client.html#http.client.BadStatusLine",
+    "library/httplib.html#httplib.HTTP_PORT": "library/http.client.html#http.client.HTTP_PORT",
+    "library/httplib.html#httplib.HTTPS_PORT": "library/http.client.html#http.client.HTTPS_PORT",
+    "library/httplib.html#httplib.responses": "library/http.client.html#http.client.responses",
+    "library/httplib.html#httplib.HTTPConnection.request": "library/http.client.html#http.client.HTTPConnection.request",
+    "library/httplib.html#httplib.HTTPConnection.getresponse": "library/http.client.html#http.client.HTTPConnection.getresponse",
+    "library/httplib.html#httplib.HTTPConnection.set_debuglevel": "library/http.client.html#http.client.HTTPConnection.set_debuglevel",
+    "library/httplib.html#httplib.HTTPConnection.set_tunnel": "library/http.client.html#http.client.HTTPConnection.set_tunnel",
+    "library/httplib.html#httplib.HTTPConnection.connect": "library/http.client.html#http.client.HTTPConnection.connect",
+    "library/httplib.html#httplib.HTTPConnection.close": "library/http.client.html#http.client.HTTPConnection.close",
+    "library/httplib.html#httplib.HTTPConnection.putrequest": "library/http.client.html#http.client.HTTPConnection.putrequest",
+    "library/httplib.html#httplib.HTTPConnection.putheader": "library/http.client.html#http.client.HTTPConnection.putheader",
+    "library/httplib.html#httplib.HTTPConnection.endheaders": "library/http.client.html#http.client.HTTPConnection.endheaders",
+    "library/httplib.html#httplib.HTTPConnection.send": "library/http.client.html#http.client.HTTPConnection.send",
+    "library/httplib.html#httplib.HTTPResponse.read": "library/http.client.html#http.client.HTTPResponse.read",
+    "library/httplib.html#httplib.HTTPResponse.getheader": "library/http.client.html#http.client.HTTPResponse.getheader",
+    "library/httplib.html#httplib.HTTPResponse.getheaders": "library/http.client.html#http.client.HTTPResponse.getheaders",
+    "library/httplib.html#httplib.HTTPResponse.fileno": "library/http.client.html#http.client.HTTPResponse.fileno",
+    "library/httplib.html#httplib.HTTPResponse.msg": "library/http.client.html#http.client.HTTPResponse.msg",
+    "library/httplib.html#httplib.HTTPResponse.version": "library/http.client.html#http.client.HTTPResponse.version",
+    "library/httplib.html#httplib.HTTPResponse.status": "library/http.client.html#http.client.HTTPResponse.status",
+    "library/httplib.html#httplib.HTTPResponse.reason": "library/http.client.html#http.client.HTTPResponse.reason",
+    "library/httplib.html#httplib-examples": "library/http.client.html#examples",
+
+
     // TODO: what happened to this?
     "library/imaplib.html#imaplib.IMAP4_SSL.ssl": null,
 
@@ -1781,6 +1291,24 @@ const SPECIAL_CASES = {
     // "library/nntplib.html#nntplib.NNTP.xgtitle": "library/nntplib.html#nntplib.NNTP.description",
     // "library/nntplib.html#nntplib.NNTP.xgtitle": "library/nntplib.html#nntplib.NNTP.descriptions",
     "library/nntplib.html#nntplib.NNTP.xgtitle": null,
+
+
+    "library/urlparse.html": "library/urllib.parse.html",
+    "library/urlparse.html#module-urlparse": "library/urllib.parse.html#module-urllib.parse",
+    "library/urlparse.html#urlparse-parse-urls-into-components": "library/urllib.parse.html#urllib-parse-parse-urls-into-components",
+    "library/urlparse.html#urlparse.urlparse": "library/urllib.parse.html#urllib.parse.urlparse",
+    "library/urlparse.html#urlparse.parse_qs": "library/urllib.parse.html#urllib.parse.parse_qs",
+    "library/urlparse.html#urlparse.parse_qsl": "library/urllib.parse.html#urllib.parse.parse_qsl",
+    "library/urlparse.html#urlparse.urlunparse": "library/urllib.parse.html#urllib.parse.urlunparse",
+    "library/urlparse.html#urlparse.urlsplit": "library/urllib.parse.html#urllib.parse.urlsplit",
+    "library/urlparse.html#urlparse.urlunsplit": "library/urllib.parse.html#urllib.parse.urlunsplit",
+    "library/urlparse.html#urlparse.urljoin": "library/urllib.parse.html#urllib.parse.urljoin",
+    "library/urlparse.html#urlparse.urldefrag": "library/urllib.parse.html#urllib.parse.urldefrag",
+    "library/urlparse.html#results-of-urlparse-and-urlsplit": "library/urllib.parse.html#structured-parse-results",
+    // This might look wrong, but it's not.
+    "library/urlparse.html#urlparse.ParseResult.geturl": "library/urllib.parse.html#urllib.parse.urllib.parse.SplitResult.geturl",
+    "library/urlparse.html#urlparse.ParseResult": "library/urllib.parse.html#urllib.parse.ParseResult",
+    "library/urlparse.html#urlparse.SplitResult": "library/urllib.parse.html#urllib.parse.SplitResult",
 
 
     "library/socketserver.html#module-SocketServer": "library/socketserver.html#module-socketserver",
@@ -1824,12 +1352,358 @@ const SPECIAL_CASES = {
     "library/socketserver.html#SocketServer.DatagramRequestHandler": "library/socketserver.html#socketserver.DatagramRequestHandler",
 
 
+    "library/basehttpserver.html": "library/http.server.html",
+    "library/basehttpserver.html#module-BaseHTTPServer": "library/http.server.html#module-http.server",
+    "library/basehttpserver.html#basehttpserver-basic-http-server": "library/http.server.html#http-server-http-servers",
+    "library/basehttpserver.html#BaseHTTPServer.HTTPServer": "library/http.server.html#http.server.HTTPServer",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler": "library/http.server.html#http.server.BaseHTTPRequestHandler",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.client_address": "library/http.server.html#http.server.BaseHTTPRequestHandler.client_address",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.server": "library/http.server.html#http.server.BaseHTTPRequestHandler.server",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.command": "library/http.server.html#http.server.BaseHTTPRequestHandler.command",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.path": "library/http.server.html#http.server.BaseHTTPRequestHandler.path",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.request_version": "library/http.server.html#http.server.BaseHTTPRequestHandler.request_version",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.headers": "library/http.server.html#http.server.BaseHTTPRequestHandler.headers",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.rfile": "library/http.server.html#http.server.BaseHTTPRequestHandler.rfile",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.wfile": "library/http.server.html#http.server.BaseHTTPRequestHandler.wfile",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.server_version": "library/http.server.html#http.server.BaseHTTPRequestHandler.server_version",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.sys_version": "library/http.server.html#http.server.BaseHTTPRequestHandler.sys_version",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.error_message_format": "library/http.server.html#http.server.BaseHTTPRequestHandler.error_message_format",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.error_content_type": "library/http.server.html#http.server.BaseHTTPRequestHandler.error_content_type",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.protocol_version": "library/http.server.html#http.server.BaseHTTPRequestHandler.protocol_version",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.MessageClass": "library/http.server.html#http.server.BaseHTTPRequestHandler.MessageClass",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.responses": "library/http.server.html#http.server.BaseHTTPRequestHandler.responses",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.handle": "library/http.server.html#http.server.BaseHTTPRequestHandler.handle",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.handle_one_request": "library/http.server.html#http.server.BaseHTTPRequestHandler.handle_one_request",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.send_error": "library/http.server.html#http.server.BaseHTTPRequestHandler.send_error",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.send_response": "library/http.server.html#http.server.BaseHTTPRequestHandler.send_response",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.send_header": "library/http.server.html#http.server.BaseHTTPRequestHandler.send_header",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.end_headers": "library/http.server.html#http.server.BaseHTTPRequestHandler.end_headers",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.log_request": "library/http.server.html#http.server.BaseHTTPRequestHandler.log_request",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.log_error": "library/http.server.html#http.server.BaseHTTPRequestHandler.log_error",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.log_message": "library/http.server.html#http.server.BaseHTTPRequestHandler.log_message",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.version_string": "library/http.server.html#http.server.BaseHTTPRequestHandler.version_string",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.date_time_string": "library/http.server.html#http.server.BaseHTTPRequestHandler.date_time_string",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.log_date_time_string": "library/http.server.html#http.server.BaseHTTPRequestHandler.log_date_time_string",
+    "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.address_string": "library/http.server.html#http.server.BaseHTTPRequestHandler.address_string",
+    // Example was deleted. TODO: redirect to module anyway?
+    // "library/basehttpserver.html#more-examples": "library/http.server.html",
+    "library/basehttpserver.html#more-examples": null,
+
+    "library/simplehttpserver.html": "library/http.server.html",
+    "library/simplehttpserver.html#module-SimpleHTTPServer": "library/http.server.html#module-http.server",
+    "library/simplehttpserver.html#simplehttpserver-simple-http-request-handler": "library/http.server.html#http.server.SimpleHTTPRequestHandler",
+    "library/simplehttpserver.html#SimpleHTTPServer.SimpleHTTPRequestHandler": "library/http.server.html#http.server.SimpleHTTPRequestHandler",
+    "library/simplehttpserver.html#SimpleHTTPServer.SimpleHTTPRequestHandler.server_version": "library/http.server.html#http.server.SimpleHTTPRequestHandler.server_version",
+    "library/simplehttpserver.html#SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map": "library/http.server.html#http.server.SimpleHTTPRequestHandler.extensions_map",
+    "library/simplehttpserver.html#SimpleHTTPServer.SimpleHTTPRequestHandler.do_HEAD": "library/http.server.html#http.server.SimpleHTTPRequestHandler.do_HEAD",
+    "library/simplehttpserver.html#SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET": "library/http.server.html#http.server.SimpleHTTPRequestHandler.do_GET",
+
+    "library/cgihttpserver.html": "library/http.server.html",
+    "library/cgihttpserver.html#module-CGIHTTPServer": "library/http.server.html#http.server.CGIHTTPRequestHandler",
+    "library/cgihttpserver.html#cgihttpserver-cgi-capable-http-request-handler": "library/http.server.html#http.server.CGIHTTPRequestHandler",
+    "library/cgihttpserver.html#CGIHTTPServer.CGIHTTPRequestHandler": "library/http.server.html#http.server.CGIHTTPRequestHandler",
+    "library/cgihttpserver.html#CGIHTTPServer.CGIHTTPRequestHandler.cgi_directories": "library/http.server.html#http.server.CGIHTTPRequestHandler.cgi_directories",
+    "library/cgihttpserver.html#CGIHTTPServer.CGIHTTPRequestHandler.do_POST": "library/http.server.html#http.server.CGIHTTPRequestHandler.do_POST",
+
+
+    "library/cookielib.html": "library/http.cookiejar.html",
+    "library/cookielib.html#module-cookielib": "library/http.cookiejar.html#module-http.cookiejar",
+    "library/cookielib.html#cookielib-cookie-handling-for-http-clients": "library/http.cookiejar.html#http-cookiejar-cookie-handling-for-http-clients",
+    "library/cookielib.html#cookielib.LoadError": "library/http.cookiejar.html#http.cookiejar.LoadError",
+    "library/cookielib.html#cookielib.CookieJar": "library/http.cookiejar.html#http.cookiejar.CookieJar",
+    "library/cookielib.html#cookielib.FileCookieJar": "library/http.cookiejar.html#http.cookiejar.FileCookieJar",
+    "library/cookielib.html#cookielib.CookiePolicy": "library/http.cookiejar.html#http.cookiejar.CookiePolicy",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy",
+    "library/cookielib.html#cookielib.Cookie": "library/http.cookiejar.html#http.cookiejar.Cookie",
+    "library/cookielib.html#cookielib.CookieJar.add_cookie_header": "library/http.cookiejar.html#http.cookiejar.CookieJar.add_cookie_header",
+    "library/cookielib.html#cookielib.CookieJar.extract_cookies": "library/http.cookiejar.html#http.cookiejar.CookieJar.extract_cookies",
+    "library/cookielib.html#cookielib.CookieJar.set_policy": "library/http.cookiejar.html#http.cookiejar.CookieJar.set_policy",
+    "library/cookielib.html#cookielib.CookieJar.make_cookies": "library/http.cookiejar.html#http.cookiejar.CookieJar.make_cookies",
+    "library/cookielib.html#cookielib.CookieJar.set_cookie_if_ok": "library/http.cookiejar.html#http.cookiejar.CookieJar.set_cookie_if_ok",
+    "library/cookielib.html#cookielib.CookieJar.set_cookie": "library/http.cookiejar.html#http.cookiejar.CookieJar.set_cookie",
+    "library/cookielib.html#cookielib.CookieJar.clear": "library/http.cookiejar.html#http.cookiejar.CookieJar.clear",
+    "library/cookielib.html#cookielib.CookieJar.clear_session_cookies": "library/http.cookiejar.html#http.cookiejar.CookieJar.clear_session_cookies",
+    "library/cookielib.html#cookielib.FileCookieJar.save": "library/http.cookiejar.html#http.cookiejar.FileCookieJar.save",
+    "library/cookielib.html#cookielib.FileCookieJar.load": "library/http.cookiejar.html#http.cookiejar.FileCookieJar.load",
+    "library/cookielib.html#cookielib.FileCookieJar.revert": "library/http.cookiejar.html#http.cookiejar.FileCookieJar.revert",
+    "library/cookielib.html#cookielib.FileCookieJar.filename": "library/http.cookiejar.html#http.cookiejar.FileCookieJar.filename",
+    "library/cookielib.html#cookielib.FileCookieJar.delayload": "library/http.cookiejar.html#http.cookiejar.FileCookieJar.delayload",
+    "library/cookielib.html#cookielib.MozillaCookieJar": "library/http.cookiejar.html#http.cookiejar.MozillaCookieJar",
+    "library/cookielib.html#cookielib.LWPCookieJar": "library/http.cookiejar.html#http.cookiejar.LWPCookieJar",
+    "library/cookielib.html#cookielib.CookiePolicy.set_ok": "library/http.cookiejar.html#http.cookiejar.CookiePolicy.set_ok",
+    "library/cookielib.html#cookielib.CookiePolicy.return_ok": "library/http.cookiejar.html#http.cookiejar.CookiePolicy.return_ok",
+    "library/cookielib.html#cookielib.CookiePolicy.domain_return_ok": "library/http.cookiejar.html#http.cookiejar.CookiePolicy.domain_return_ok",
+    "library/cookielib.html#cookielib.CookiePolicy.path_return_ok": "library/http.cookiejar.html#http.cookiejar.CookiePolicy.path_return_ok",
+    "library/cookielib.html#cookielib.CookiePolicy.netscape": "library/http.cookiejar.html#http.cookiejar.CookiePolicy.netscape",
+    "library/cookielib.html#cookielib.CookiePolicy.rfc2965": "library/http.cookiejar.html#http.cookiejar.CookiePolicy.rfc2965",
+    "library/cookielib.html#cookielib.CookiePolicy.hide_cookie2": "library/http.cookiejar.html#http.cookiejar.CookiePolicy.hide_cookie2",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy.blocked_domains": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.blocked_domains",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy.set_blocked_domains": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.set_blocked_domains",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy.is_blocked": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.is_blocked",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy.allowed_domains": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.allowed_domains",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy.set_allowed_domains": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.set_allowed_domains",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy.is_not_allowed": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.is_not_allowed",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy.rfc2109_as_netscape": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.rfc2109_as_netscape",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy.strict_domain": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.strict_domain",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy.strict_rfc2965_unverifiable": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.strict_rfc2965_unverifiable",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy.strict_ns_unverifiable": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.strict_ns_unverifiable",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy.strict_ns_domain": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.strict_ns_domain",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy.strict_ns_set_initial_dollar": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.strict_ns_set_initial_dollar",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy.strict_ns_set_path": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.strict_ns_set_path",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy.DomainStrictNoDots": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.DomainStrictNoDots",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy.DomainStrictNonDomain": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.DomainStrictNonDomain",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy.DomainRFC2965Match": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.DomainRFC2965Match",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy.DomainLiberal": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.DomainLiberal",
+    "library/cookielib.html#cookielib.DefaultCookiePolicy.DomainStrict": "library/http.cookiejar.html#http.cookiejar.DefaultCookiePolicy.DomainStrict",
+    "library/cookielib.html#cookielib-cookie-objects": "library/http.cookiejar.html#cookie-objects",
+    "library/cookielib.html#cookielib.Cookie.version": "library/http.cookiejar.html#http.cookiejar.Cookie.version",
+    "library/cookielib.html#cookielib.Cookie.name": "library/http.cookiejar.html#http.cookiejar.Cookie.name",
+    "library/cookielib.html#cookielib.Cookie.value": "library/http.cookiejar.html#http.cookiejar.Cookie.value",
+    "library/cookielib.html#cookielib.Cookie.port": "library/http.cookiejar.html#http.cookiejar.Cookie.port",
+    "library/cookielib.html#cookielib.Cookie.path": "library/http.cookiejar.html#http.cookiejar.Cookie.path",
+    "library/cookielib.html#cookielib.Cookie.secure": "library/http.cookiejar.html#http.cookiejar.Cookie.secure",
+    "library/cookielib.html#cookielib.Cookie.expires": "library/http.cookiejar.html#http.cookiejar.Cookie.expires",
+    "library/cookielib.html#cookielib.Cookie.discard": "library/http.cookiejar.html#http.cookiejar.Cookie.discard",
+    "library/cookielib.html#cookielib.Cookie.comment": "library/http.cookiejar.html#http.cookiejar.Cookie.comment",
+    "library/cookielib.html#cookielib.Cookie.comment_url": "library/http.cookiejar.html#http.cookiejar.Cookie.comment_url",
+    "library/cookielib.html#cookielib.Cookie.rfc2109": "library/http.cookiejar.html#http.cookiejar.Cookie.rfc2109",
+    "library/cookielib.html#cookielib.Cookie.port_specified": "library/http.cookiejar.html#http.cookiejar.Cookie.port_specified",
+    "library/cookielib.html#cookielib.Cookie.domain_specified": "library/http.cookiejar.html#http.cookiejar.Cookie.domain_specified",
+    "library/cookielib.html#cookielib.Cookie.domain_initial_dot": "library/http.cookiejar.html#http.cookiejar.Cookie.domain_initial_dot",
+    "library/cookielib.html#cookielib.Cookie.has_nonstandard_attr": "library/http.cookiejar.html#http.cookiejar.Cookie.has_nonstandard_attr",
+    "library/cookielib.html#cookielib.Cookie.get_nonstandard_attr": "library/http.cookiejar.html#http.cookiejar.Cookie.get_nonstandard_attr",
+    "library/cookielib.html#cookielib.Cookie.set_nonstandard_attr": "library/http.cookiejar.html#http.cookiejar.Cookie.set_nonstandard_attr",
+    "library/cookielib.html#cookielib.Cookie.is_expired": "library/http.cookiejar.html#http.cookiejar.Cookie.is_expired",
+    "library/cookielib.html#cookielib-examples": "library/http.cookiejar.html#examples",
+
+    "library/cookie.html": "library/http.cookies.html",
+    "library/cookie.html#module-Cookie": "library/http.cookies.html#module-http.cookies",
+    "library/cookie.html#cookie-http-state-management": "library/http.cookies.html#http-cookies-http-state-management",
+    "library/cookie.html#Cookie.CookieError": "library/http.cookies.html#http.cookies.CookieError",
+    "library/cookie.html#Cookie.BaseCookie": "library/http.cookies.html#http.cookies.BaseCookie",
+    "library/cookie.html#Cookie.SimpleCookie": "library/http.cookies.html#http.cookies.SimpleCookie",
+    // "Deprecated since version 2.3"
+    "library/cookie.html#Cookie.SerialCookie": null,
+    "library/cookie.html#Cookie.SmartCookie": null,
+    "library/cookie.html#Cookie.BaseCookie.value_decode": "library/http.cookies.html#http.cookies.BaseCookie.value_decode",
+    "library/cookie.html#Cookie.BaseCookie.value_encode": "library/http.cookies.html#http.cookies.BaseCookie.value_encode",
+    "library/cookie.html#Cookie.BaseCookie.output": "library/http.cookies.html#http.cookies.BaseCookie.output",
+    "library/cookie.html#Cookie.BaseCookie.js_output": "library/http.cookies.html#http.cookies.BaseCookie.js_output",
+    "library/cookie.html#Cookie.BaseCookie.load": "library/http.cookies.html#http.cookies.BaseCookie.load",
+    "library/cookie.html#Cookie.Morsel": "library/http.cookies.html#http.cookies.Morsel",
+    "library/cookie.html#Cookie.Morsel.value": "library/http.cookies.html#http.cookies.Morsel.value",
+    "library/cookie.html#Cookie.Morsel.coded_value": "library/http.cookies.html#http.cookies.Morsel.coded_value",
+    "library/cookie.html#Cookie.Morsel.key": "library/http.cookies.html#http.cookies.Morsel.key",
+    "library/cookie.html#Cookie.Morsel.set": "library/http.cookies.html#http.cookies.Morsel.set",
+    "library/cookie.html#Cookie.Morsel.isReservedKey": "library/http.cookies.html#http.cookies.Morsel.isReservedKey",
+    "library/cookie.html#Cookie.Morsel.output": "library/http.cookies.html#http.cookies.Morsel.output",
+    "library/cookie.html#Cookie.Morsel.js_output": "library/http.cookies.html#http.cookies.Morsel.js_output",
+    "library/cookie.html#Cookie.Morsel.OutputString": "library/http.cookies.html#http.cookies.Morsel.OutputString",
+
+
+
+    "library/xmlrpclib.html": "library/xmlrpc.client.html",
+    "library/xmlrpclib.html#module-xmlrpclib": "library/xmlrpc.client.html#module-xmlrpc.client",
+    "library/xmlrpclib.html#xmlrpclib-xml-rpc-client-access": "library/xmlrpc.client.html#xmlrpc-client-xml-rpc-client-access",
+    "library/xmlrpclib.html#xmlrpclib.ServerProxy": "library/xmlrpc.client.html#xmlrpc.client.ServerProxy",
+    "library/xmlrpclib.html#xmlrpclib.ServerProxy.system.listMethods": "library/xmlrpc.client.html#xmlrpc.client.ServerProxy.system.listMethods",
+    "library/xmlrpclib.html#xmlrpclib.ServerProxy.system.methodSignature": "library/xmlrpc.client.html#xmlrpc.client.ServerProxy.system.methodSignature",
+    "library/xmlrpclib.html#xmlrpclib.ServerProxy.system.methodHelp": "library/xmlrpc.client.html#xmlrpc.client.ServerProxy.system.methodHelp",
+    // No longer documented
+    "library/xmlrpclib.html#boolean-objects": null,
+    "library/xmlrpclib.html#xmlrpclib.Boolean.encode": null,
+    "library/xmlrpclib.html#xmlrpclib.DateTime": "library/xmlrpc.client.html#xmlrpc.client.DateTime",
+    "library/xmlrpclib.html#xmlrpclib.DateTime.decode": "library/xmlrpc.client.html#xmlrpc.client.DateTime.decode",
+    "library/xmlrpclib.html#xmlrpclib.DateTime.encode": "library/xmlrpc.client.html#xmlrpc.client.DateTime.encode",
+    "library/xmlrpclib.html#xmlrpclib.Binary": "library/xmlrpc.client.html#xmlrpc.client.Binary",
+    "library/xmlrpclib.html#xmlrpclib.Binary.data": "library/xmlrpc.client.html#xmlrpc.client.Binary.data",
+    "library/xmlrpclib.html#xmlrpclib.Binary.decode": "library/xmlrpc.client.html#xmlrpc.client.Binary.decode",
+    "library/xmlrpclib.html#xmlrpclib.Binary.encode": "library/xmlrpc.client.html#xmlrpc.client.Binary.encode",
+    "library/xmlrpclib.html#xmlrpclib.Fault": "library/xmlrpc.client.html#xmlrpc.client.Fault",
+    "library/xmlrpclib.html#xmlrpclib.Fault.faultCode": "library/xmlrpc.client.html#xmlrpc.client.Fault.faultCode",
+    "library/xmlrpclib.html#xmlrpclib.Fault.faultString": "library/xmlrpc.client.html#xmlrpc.client.Fault.faultString",
+    "library/xmlrpclib.html#xmlrpclib.ProtocolError": "library/xmlrpc.client.html#xmlrpc.client.ProtocolError",
+    "library/xmlrpclib.html#xmlrpclib.ProtocolError.url": "library/xmlrpc.client.html#xmlrpc.client.ProtocolError.url",
+    "library/xmlrpclib.html#xmlrpclib.ProtocolError.errcode": "library/xmlrpc.client.html#xmlrpc.client.ProtocolError.errcode",
+    "library/xmlrpclib.html#xmlrpclib.ProtocolError.errmsg": "library/xmlrpc.client.html#xmlrpc.client.ProtocolError.errmsg",
+    "library/xmlrpclib.html#xmlrpclib.ProtocolError.headers": "library/xmlrpc.client.html#xmlrpc.client.ProtocolError.headers",
+    "library/xmlrpclib.html#xmlrpclib.MultiCall": "library/xmlrpc.client.html#xmlrpc.client.MultiCall",
+    // No longer documented
+    "library/xmlrpclib.html#xmlrpclib.boolean": null,
+    "library/xmlrpclib.html#xmlrpclib.dumps": "library/xmlrpc.client.html#xmlrpc.client.dumps",
+    "library/xmlrpclib.html#xmlrpclib.loads": "library/xmlrpc.client.html#xmlrpc.client.loads",
+
+    "library/simplexmlrpcserver.html": "library/xmlrpc.server.html",
+    "library/simplexmlrpcserver.html#module-SimpleXMLRPCServer": "library/xmlrpc.server.html#module-xmlrpc.server",
+    "library/simplexmlrpcserver.html#simplexmlrpcserver-basic-xml-rpc-server": "library/xmlrpc.server.html#simple-xmlrpc-servers",
+    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCServer": "library/xmlrpc.server.html#xmlrpc.server.SimpleXMLRPCServer",
+    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.CGIXMLRPCRequestHandler": "library/xmlrpc.server.html#xmlrpc.server.CGIXMLRPCRequestHandler",
+    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCRequestHandler": "library/xmlrpc.server.html#xmlrpc.server.SimpleXMLRPCRequestHandler",
+    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCServer.register_function": "library/xmlrpc.server.html#xmlrpc.server.SimpleXMLRPCServer.register_function",
+    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCServer.register_instance": "library/xmlrpc.server.html#xmlrpc.server.SimpleXMLRPCServer.register_instance",
+    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCServer.register_introspection_functions": "library/xmlrpc.server.html#xmlrpc.server.SimpleXMLRPCServer.register_introspection_functions",
+    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCServer.register_multicall_functions": "library/xmlrpc.server.html#xmlrpc.server.SimpleXMLRPCServer.register_multicall_functions",
+    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths": "library/xmlrpc.server.html#xmlrpc.server.SimpleXMLRPCRequestHandler.rpc_paths",
+    // Added in Python 2.7 but not documented in the Python 3 documentation
+    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.encode_threshold": null,
+    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.CGIXMLRPCRequestHandler.register_function": "library/xmlrpc.server.html#xmlrpc.server.CGIXMLRPCRequestHandler.register_function",
+    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.CGIXMLRPCRequestHandler.register_instance": "library/xmlrpc.server.html#xmlrpc.server.CGIXMLRPCRequestHandler.register_instance",
+    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.CGIXMLRPCRequestHandler.register_introspection_functions": "library/xmlrpc.server.html#xmlrpc.server.CGIXMLRPCRequestHandler.register_introspection_functions",
+    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.CGIXMLRPCRequestHandler.register_multicall_functions": "library/xmlrpc.server.html#xmlrpc.server.CGIXMLRPCRequestHandler.register_multicall_functions",
+    "library/simplexmlrpcserver.html#SimpleXMLRPCServer.CGIXMLRPCRequestHandler.handle_request": "library/xmlrpc.server.html#xmlrpc.server.CGIXMLRPCRequestHandler.handle_request",
+
+    "library/docxmlrpcserver.html": "library/xmlrpc.server.html",
+    "library/docxmlrpcserver.html#module-DocXMLRPCServer": "library/xmlrpc.server.html#documenting-xmlrpc-server",
+    "library/docxmlrpcserver.html#docxmlrpcserver-self-documenting-xml-rpc-server": "library/xmlrpc.server.html#documenting-xmlrpc-server",
+    "library/docxmlrpcserver.html#DocXMLRPCServer.DocXMLRPCServer": "library/xmlrpc.server.html#xmlrpc.server.DocXMLRPCServer",
+    "library/docxmlrpcserver.html#DocXMLRPCServer.DocCGIXMLRPCRequestHandler": "library/xmlrpc.server.html#xmlrpc.server.DocCGIXMLRPCRequestHandler",
+    "library/docxmlrpcserver.html#DocXMLRPCServer.DocXMLRPCRequestHandler": "library/xmlrpc.server.html#xmlrpc.server.DocXMLRPCRequestHandler",
+    "library/docxmlrpcserver.html#DocXMLRPCServer.DocXMLRPCServer.set_server_title": "library/xmlrpc.server.html#xmlrpc.server.DocXMLRPCServer.set_server_title",
+    "library/docxmlrpcserver.html#DocXMLRPCServer.DocXMLRPCServer.set_server_name": "library/xmlrpc.server.html#xmlrpc.server.DocXMLRPCServer.set_server_name",
+    "library/docxmlrpcserver.html#DocXMLRPCServer.DocXMLRPCServer.set_server_documentation": "library/xmlrpc.server.html#xmlrpc.server.DocXMLRPCServer.set_server_documentation",
+    "library/docxmlrpcserver.html#DocXMLRPCServer.DocCGIXMLRPCRequestHandler.set_server_title": "library/xmlrpc.server.html#xmlrpc.server.DocCGIXMLRPCRequestHandler.set_server_title",
+    "library/docxmlrpcserver.html#DocXMLRPCServer.DocCGIXMLRPCRequestHandler.set_server_name": "library/xmlrpc.server.html#xmlrpc.server.DocCGIXMLRPCRequestHandler.set_server_name",
+    "library/docxmlrpcserver.html#DocXMLRPCServer.DocCGIXMLRPCRequestHandler.set_server_documentation": "library/xmlrpc.server.html#xmlrpc.server.DocCGIXMLRPCRequestHandler.set_server_documentation",
+
+
     "library/gettext.html#gettext.NullTranslations.ugettext": "library/gettext.html#gettext.NullTranslations.gettext",
     "library/gettext.html#gettext.NullTranslations.ungettext": "library/gettext.html#gettext.NullTranslations.ngettext",
     "library/gettext.html#gettext.GNUTranslations.ugettext": "library/gettext.html#gettext.GNUTranslations.gettext",
     "library/gettext.html#gettext.GNUTranslations.ungettext": "library/gettext.html#gettext.GNUTranslations.ngettext",
     // 4 deprecated functions, will be removed in 3.10
     "library/gettext.html#gettext-vs-lgettext": null,
+
+
+    "library/tkinter.html#module-Tkinter": "library/tkinter.html#module-tkinter",
+    "library/tkinter.html#Tkinter.Tk": "library/tkinter.html#tkinter.Tk",
+    "library/tkinter.html#Tkinter.Tcl": "library/tkinter.html#tkinter.Tcl",
+    "library/tkinter.html#Tkinter.Widget.tk.createfilehandler": "library/tkinter.html#tkinter.Widget.tk.createfilehandler",
+    "library/tkinter.html#Tkinter.Widget.tk.deletefilehandler": "library/tkinter.html#tkinter.Widget.tk.deletefilehandler",
+    "library/tkinter.html#Tkinter.READABLE": "library/tkinter.html#tkinter.READABLE",
+    "library/tkinter.html#Tkinter.WRITABLE": "library/tkinter.html#tkinter.WRITABLE",
+    "library/tkinter.html#Tkinter.EXCEPTION": "library/tkinter.html#tkinter.EXCEPTION",
+
+    "library/ttk.html": "library/tkinter.ttk.html",
+    "library/ttk.html#module-ttk": "library/tkinter.ttk.html#module-tkinter.ttk",
+    "library/ttk.html#ttk-tk-themed-widgets": "library/tkinter.ttk.html#tkinter-ttk-tk-themed-widgets",
+    "library/ttk.html#ttk.Widget": "library/tkinter.ttk.html#tkinter.ttk.Widget",
+    "library/ttk.html#ttk.Widget.identify": "library/tkinter.ttk.html#tkinter.ttk.Widget.identify",
+    "library/ttk.html#ttk.Widget.instate": "library/tkinter.ttk.html#tkinter.ttk.Widget.instate",
+    "library/ttk.html#ttk.Widget.state": "library/tkinter.ttk.html#tkinter.ttk.Widget.state",
+    "library/ttk.html#ttk.Combobox": "library/tkinter.ttk.html#tkinter.ttk.Combobox",
+    "library/ttk.html#ttk.Combobox.current": "library/tkinter.ttk.html#tkinter.ttk.Combobox.current",
+    "library/ttk.html#ttk.Combobox.get": "library/tkinter.ttk.html#tkinter.ttk.Combobox.get",
+    "library/ttk.html#ttk.Combobox.set": "library/tkinter.ttk.html#tkinter.ttk.Combobox.set",
+    "library/ttk.html#ttk.Notebook": "library/tkinter.ttk.html#tkinter.ttk.Notebook",
+    "library/ttk.html#ttk.Notebook.add": "library/tkinter.ttk.html#tkinter.ttk.Notebook.add",
+    "library/ttk.html#ttk.Notebook.forget": "library/tkinter.ttk.html#tkinter.ttk.Notebook.forget",
+    "library/ttk.html#ttk.Notebook.hide": "library/tkinter.ttk.html#tkinter.ttk.Notebook.hide",
+    "library/ttk.html#ttk.Notebook.identify": "library/tkinter.ttk.html#tkinter.ttk.Notebook.identify",
+    "library/ttk.html#ttk.Notebook.index": "library/tkinter.ttk.html#tkinter.ttk.Notebook.index",
+    "library/ttk.html#ttk.Notebook.insert": "library/tkinter.ttk.html#tkinter.ttk.Notebook.insert",
+    "library/ttk.html#ttk.Notebook.select": "library/tkinter.ttk.html#tkinter.ttk.Notebook.select",
+    "library/ttk.html#ttk.Notebook.tab": "library/tkinter.ttk.html#tkinter.ttk.Notebook.tab",
+    "library/ttk.html#ttk.Notebook.tabs": "library/tkinter.ttk.html#tkinter.ttk.Notebook.tabs",
+    "library/ttk.html#ttk.Notebook.enable_traversal": "library/tkinter.ttk.html#tkinter.ttk.Notebook.enable_traversal",
+    "library/ttk.html#ttk.Progressbar": "library/tkinter.ttk.html#tkinter.ttk.Progressbar",
+    "library/ttk.html#ttk.Progressbar.start": "library/tkinter.ttk.html#tkinter.ttk.Progressbar.start",
+    "library/ttk.html#ttk.Progressbar.step": "library/tkinter.ttk.html#tkinter.ttk.Progressbar.step",
+    "library/ttk.html#ttk.Progressbar.stop": "library/tkinter.ttk.html#tkinter.ttk.Progressbar.stop",
+    "library/ttk.html#ttk.Treeview": "library/tkinter.ttk.html#tkinter.ttk.Treeview",
+    "library/ttk.html#ttk.Treeview.bbox": "library/tkinter.ttk.html#tkinter.ttk.Treeview.bbox",
+    "library/ttk.html#ttk.Treeview.get_children": "library/tkinter.ttk.html#tkinter.ttk.Treeview.get_children",
+    "library/ttk.html#ttk.Treeview.set_children": "library/tkinter.ttk.html#tkinter.ttk.Treeview.set_children",
+    "library/ttk.html#ttk.Treeview.column": "library/tkinter.ttk.html#tkinter.ttk.Treeview.column",
+    "library/ttk.html#ttk.Treeview.delete": "library/tkinter.ttk.html#tkinter.ttk.Treeview.delete",
+    "library/ttk.html#ttk.Treeview.detach": "library/tkinter.ttk.html#tkinter.ttk.Treeview.detach",
+    "library/ttk.html#ttk.Treeview.exists": "library/tkinter.ttk.html#tkinter.ttk.Treeview.exists",
+    "library/ttk.html#ttk.Treeview.focus": "library/tkinter.ttk.html#tkinter.ttk.Treeview.focus",
+    "library/ttk.html#ttk.Treeview.heading": "library/tkinter.ttk.html#tkinter.ttk.Treeview.heading",
+    "library/ttk.html#ttk.Treeview.identify": "library/tkinter.ttk.html#tkinter.ttk.Treeview.identify",
+    "library/ttk.html#ttk.Treeview.identify_row": "library/tkinter.ttk.html#tkinter.ttk.Treeview.identify_row",
+    "library/ttk.html#ttk.Treeview.identify_column": "library/tkinter.ttk.html#tkinter.ttk.Treeview.identify_column",
+    "library/ttk.html#ttk.Treeview.identify_region": "library/tkinter.ttk.html#tkinter.ttk.Treeview.identify_region",
+    "library/ttk.html#ttk.Treeview.identify_element": "library/tkinter.ttk.html#tkinter.ttk.Treeview.identify_element",
+    "library/ttk.html#ttk.Treeview.index": "library/tkinter.ttk.html#tkinter.ttk.Treeview.index",
+    "library/ttk.html#ttk.Treeview.insert": "library/tkinter.ttk.html#tkinter.ttk.Treeview.insert",
+    "library/ttk.html#ttk.Treeview.item": "library/tkinter.ttk.html#tkinter.ttk.Treeview.item",
+    "library/ttk.html#ttk.Treeview.move": "library/tkinter.ttk.html#tkinter.ttk.Treeview.move",
+    "library/ttk.html#ttk.Treeview.next": "library/tkinter.ttk.html#tkinter.ttk.Treeview.next",
+    "library/ttk.html#ttk.Treeview.parent": "library/tkinter.ttk.html#tkinter.ttk.Treeview.parent",
+    "library/ttk.html#ttk.Treeview.prev": "library/tkinter.ttk.html#tkinter.ttk.Treeview.prev",
+    "library/ttk.html#ttk.Treeview.reattach": "library/tkinter.ttk.html#tkinter.ttk.Treeview.reattach",
+    "library/ttk.html#ttk.Treeview.see": "library/tkinter.ttk.html#tkinter.ttk.Treeview.see",
+    "library/ttk.html#ttk.Treeview.selection": "library/tkinter.ttk.html#tkinter.ttk.Treeview.selection",
+    "library/ttk.html#ttk.Treeview.selection_set": "library/tkinter.ttk.html#tkinter.ttk.Treeview.selection_set",
+    "library/ttk.html#ttk.Treeview.selection_add": "library/tkinter.ttk.html#tkinter.ttk.Treeview.selection_add",
+    "library/ttk.html#ttk.Treeview.selection_remove": "library/tkinter.ttk.html#tkinter.ttk.Treeview.selection_remove",
+    "library/ttk.html#ttk.Treeview.selection_toggle": "library/tkinter.ttk.html#tkinter.ttk.Treeview.selection_toggle",
+    "library/ttk.html#ttk.Treeview.set": "library/tkinter.ttk.html#tkinter.ttk.Treeview.set",
+    "library/ttk.html#ttk.Treeview.tag_bind": "library/tkinter.ttk.html#tkinter.ttk.Treeview.tag_bind",
+    "library/ttk.html#ttk.Treeview.tag_configure": "library/tkinter.ttk.html#tkinter.ttk.Treeview.tag_configure",
+    "library/ttk.html#ttk.Treeview.tag_has": "library/tkinter.ttk.html#tkinter.ttk.Treeview.tag_has",
+    "library/ttk.html#ttk.Treeview.xview": "library/tkinter.ttk.html#tkinter.ttk.Treeview.xview",
+    "library/ttk.html#ttk.Treeview.yview": "library/tkinter.ttk.html#tkinter.ttk.Treeview.yview",
+    "library/ttk.html#ttk.Style": "library/tkinter.ttk.html#tkinter.ttk.Style",
+    "library/ttk.html#ttk.Style.configure": "library/tkinter.ttk.html#tkinter.ttk.Style.configure",
+    "library/ttk.html#ttk.Style.map": "library/tkinter.ttk.html#tkinter.ttk.Style.map",
+    "library/ttk.html#ttk.Style.lookup": "library/tkinter.ttk.html#tkinter.ttk.Style.lookup",
+    "library/ttk.html#ttk.Style.layout": "library/tkinter.ttk.html#tkinter.ttk.Style.layout",
+    "library/ttk.html#ttk.Style.element_create": "library/tkinter.ttk.html#tkinter.ttk.Style.element_create",
+    "library/ttk.html#ttk.Style.element_names": "library/tkinter.ttk.html#tkinter.ttk.Style.element_names",
+    "library/ttk.html#ttk.Style.element_options": "library/tkinter.ttk.html#tkinter.ttk.Style.element_options",
+    "library/ttk.html#ttk.Style.theme_create": "library/tkinter.ttk.html#tkinter.ttk.Style.theme_create",
+    "library/ttk.html#ttk.Style.theme_settings": "library/tkinter.ttk.html#tkinter.ttk.Style.theme_settings",
+    "library/ttk.html#ttk.Style.theme_names": "library/tkinter.ttk.html#tkinter.ttk.Style.theme_names",
+    "library/ttk.html#ttk.Style.theme_use": "library/tkinter.ttk.html#tkinter.ttk.Style.theme_use",
+
+    "library/tix.html": "library/tkinter.tix.html",
+    "library/tix.html#module-Tix": "library/tkinter.tix.html#module-tkinter.tix",
+    "library/tix.html#tix-extension-widgets-for-tk": "library/tkinter.tix.html#tkinter-tix-extension-widgets-for-tk",
+    // This one is different because "import Tix; Tix.Tk()" became "from tkinter import tix; tix.Tk()"
+    "library/tix.html#Tix.Tix": "library/tkinter.tix.html#tkinter.tix.Tk",
+    "library/tix.html#Tix.Balloon": "library/tkinter.tix.html#tkinter.tix.Balloon",
+    "library/tix.html#Tix.ButtonBox": "library/tkinter.tix.html#tkinter.tix.ButtonBox",
+    "library/tix.html#Tix.ComboBox": "library/tkinter.tix.html#tkinter.tix.ComboBox",
+    "library/tix.html#Tix.Control": "library/tkinter.tix.html#tkinter.tix.Control",
+    "library/tix.html#Tix.LabelEntry": "library/tkinter.tix.html#tkinter.tix.LabelEntry",
+    "library/tix.html#Tix.LabelFrame": "library/tkinter.tix.html#tkinter.tix.LabelFrame",
+    "library/tix.html#Tix.Meter": "library/tkinter.tix.html#tkinter.tix.Meter",
+    "library/tix.html#Tix.OptionMenu": "library/tkinter.tix.html#tkinter.tix.OptionMenu",
+    "library/tix.html#Tix.PopupMenu": "library/tkinter.tix.html#tkinter.tix.PopupMenu",
+    "library/tix.html#Tix.Select": "library/tkinter.tix.html#tkinter.tix.Select",
+    "library/tix.html#Tix.StdButtonBox": "library/tkinter.tix.html#tkinter.tix.StdButtonBox",
+    "library/tix.html#Tix.DirList": "library/tkinter.tix.html#tkinter.tix.DirList",
+    "library/tix.html#Tix.DirTree": "library/tkinter.tix.html#tkinter.tix.DirTree",
+    "library/tix.html#Tix.DirSelectDialog": "library/tkinter.tix.html#tkinter.tix.DirSelectDialog",
+    "library/tix.html#Tix.DirSelectBox": "library/tkinter.tix.html#tkinter.tix.DirSelectBox",
+    "library/tix.html#Tix.ExFileSelectBox": "library/tkinter.tix.html#tkinter.tix.ExFileSelectBox",
+    "library/tix.html#Tix.FileSelectBox": "library/tkinter.tix.html#tkinter.tix.FileSelectBox",
+    "library/tix.html#Tix.FileEntry": "library/tkinter.tix.html#tkinter.tix.FileEntry",
+    "library/tix.html#Tix.HList": "library/tkinter.tix.html#tkinter.tix.HList",
+    "library/tix.html#Tix.CheckList": "library/tkinter.tix.html#tkinter.tix.CheckList",
+    "library/tix.html#Tix.Tree": "library/tkinter.tix.html#tkinter.tix.Tree",
+    "library/tix.html#Tix.TList": "library/tkinter.tix.html#tkinter.tix.TList",
+    "library/tix.html#Tix.PanedWindow": "library/tkinter.tix.html#tkinter.tix.PanedWindow",
+    "library/tix.html#Tix.ListNoteBook": "library/tkinter.tix.html#tkinter.tix.ListNoteBook",
+    "library/tix.html#Tix.NoteBook": "library/tkinter.tix.html#tkinter.tix.NoteBook",
+    "library/tix.html#Tix.InputOnly": "library/tkinter.tix.html#tkinter.tix.InputOnly",
+    "library/tix.html#Tix.Form": "library/tkinter.tix.html#tkinter.tix.Form",
+    "library/tix.html#Tix.tixCommand": "library/tkinter.tix.html#tkinter.tix.tixCommand",
+    "library/tix.html#Tix.tixCommand.tix_configure": "library/tkinter.tix.html#tkinter.tix.tixCommand.tix_configure",
+    "library/tix.html#Tix.tixCommand.tix_cget": "library/tkinter.tix.html#tkinter.tix.tixCommand.tix_cget",
+    "library/tix.html#Tix.tixCommand.tix_getbitmap": "library/tkinter.tix.html#tkinter.tix.tixCommand.tix_getbitmap",
+    "library/tix.html#Tix.tixCommand.tix_addbitmapdir": "library/tkinter.tix.html#tkinter.tix.tixCommand.tix_addbitmapdir",
+    "library/tix.html#Tix.tixCommand.tix_filedialog": "library/tkinter.tix.html#tkinter.tix.tixCommand.tix_filedialog",
+    "library/tix.html#Tix.tixCommand.tix_getimage": "library/tkinter.tix.html#tkinter.tix.tixCommand.tix_getimage",
+    "library/tix.html#Tix.tixCommand.tix_option_get": "library/tkinter.tix.html#tkinter.tix.tixCommand.tix_option_get",
+    "library/tix.html#Tix.tixCommand.tix_resetoptions": "library/tkinter.tix.html#tkinter.tix.tixCommand.tix_resetoptions",
+
+    "library/scrolledtext.html": "library/tkinter.scrolledtext.html",
+    "library/scrolledtext.html#module-ScrolledText": "library/tkinter.scrolledtext.html#module-tkinter.scrolledtext",
+    "library/scrolledtext.html#scrolledtext-scrolled-text-widget": "library/tkinter.scrolledtext.html#tkinter-scrolledtext-scrolled-text-widget",
+    "library/scrolledtext.html#ScrolledText.ScrolledText.frame": "library/tkinter.scrolledtext.html#tkinter.scrolledtext.ScrolledText.frame",
+    "library/scrolledtext.html#ScrolledText.ScrolledText.vbar": "library/tkinter.scrolledtext.html#tkinter.scrolledtext.ScrolledText.vbar",
 
 
     "library/turtle.html#turtle-turtle-graphics-for-tk": "library/turtle.html#turtle-turtle-graphics",
@@ -1848,6 +1722,16 @@ const SPECIAL_CASES = {
     "library/idle.html#additional-help-sources": "library/idle.html#help-sources",
 
 
+    // https://docs.python.org/library/2to3.html#2to3fixer-asserts
+    "library/unittest.html#unittest.TestCase.assertRaisesRegexp": "library/unittest.html#unittest.TestCase.assertRaisesRegex",
+    "library/unittest.html#unittest.TestCase.assertRegexpMatches": "library/unittest.html#unittest.TestCase.assertRegex",
+    "library/unittest.html#unittest.TestCase.assertNotRegexpMatches": "library/unittest.html#unittest.TestCase.assertNotRegex",
+    "library/unittest.html#unittest.TestCase.assertItemsEqual": "library/unittest.html#unittest.TestCase.assertCountEqual",
+
+    "library/unittest.html#unittest.TestCase.assertDictContainsSubset": null,
+
+
+    "library/test.html#module-test.test_support": "library/test.html#module-test.support",
     "library/test.html#test-support-utility-functions-for-tests": "library/test.html#test-support-utilities-for-the-python-test-suite",
     "library/test.html#test.support.have_unicode": null,
     "library/test.html#test.support.check_py3k_warnings": null,
@@ -1860,12 +1744,35 @@ const SPECIAL_CASES = {
     "library/timeit.html#cmdoption-timeit-t": null,
     "library/timeit.html#cmdoption-timeit-c": null,
 
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-exitfunc
+    // "library/sys.html#sys.exitfunc": "library/atexit.html#module-atexit",
+    "library/sys.html#sys.exitfunc": null,
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-renames
+    // "Changes sys.maxint to sys.maxsize."
+    "library/sys.html#sys.maxint": "library/sys.html#sys.maxsize",
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-sys_exc
+    // "Deprecated since version 1.5: Use exc_info() instead"
+    // "library/sys.html#sys.exc_type": "library/sys.html#sys.exc_info",
+    // "library/sys.html#sys.exc_value": "library/sys.html#sys.exc_info",
+    // "library/sys.html#sys.exc_traceback": "library/sys.html#sys.exc_info",
+    "library/sys.html#sys.exc_type": null,
+    "library/sys.html#sys.exc_value": null,
+    "library/sys.html#sys.exc_traceback": null,
+
     "library/sys.html#sys.exc_clear": null,
     "library/sys.html#sys.long_info": "library/sys.html#sys.int_info",
     "library/sys.html#sys.py3kwarning": null,
     "library/sys.html#sys.setdefaultencoding": null,
     "library/sys.html#sys.settscdump": null,
     "library/sys.html#sys.subversion": null,
+
+
+    "library/__builtin__.html": "library/builtins.html",
+    "library/__builtin__.html#module-__builtin__": "library/builtins.html#module-builtins",
+    "library/__builtin__.html#builtin-built-in-objects": "library/builtins.html#builtins-built-in-objects",
 
 
     "library/warnings.html#default-warning-filters": "library/warnings.html#default-warning-filter",
@@ -1953,6 +1860,68 @@ const SPECIAL_CASES = {
     "library/dis.html#opcode-CALL_FUNCTION_VAR_KW": null,
 
 
+    "library/_winreg.html": "library/winreg.html",
+    "library/_winreg.html#module-_winreg": "library/winreg.html#module-winreg",
+    "library/_winreg.html#_winreg.CloseKey": "library/winreg.html#winreg.CloseKey",
+    "library/_winreg.html#_winreg.ConnectRegistry": "library/winreg.html#winreg.ConnectRegistry",
+    "library/_winreg.html#_winreg.CreateKey": "library/winreg.html#winreg.CreateKey",
+    "library/_winreg.html#_winreg.CreateKeyEx": "library/winreg.html#winreg.CreateKeyEx",
+    "library/_winreg.html#_winreg.DeleteKey": "library/winreg.html#winreg.DeleteKey",
+    "library/_winreg.html#_winreg.DeleteKeyEx": "library/winreg.html#winreg.DeleteKeyEx",
+    "library/_winreg.html#_winreg.DeleteValue": "library/winreg.html#winreg.DeleteValue",
+    "library/_winreg.html#_winreg.EnumKey": "library/winreg.html#winreg.EnumKey",
+    "library/_winreg.html#_winreg.EnumValue": "library/winreg.html#winreg.EnumValue",
+    "library/_winreg.html#_winreg.ExpandEnvironmentStrings": "library/winreg.html#winreg.ExpandEnvironmentStrings",
+    "library/_winreg.html#_winreg.FlushKey": "library/winreg.html#winreg.FlushKey",
+    "library/_winreg.html#_winreg.LoadKey": "library/winreg.html#winreg.LoadKey",
+    "library/_winreg.html#_winreg.OpenKey": "library/winreg.html#winreg.OpenKey",
+    "library/_winreg.html#_winreg.OpenKeyEx": "library/winreg.html#winreg.OpenKeyEx",
+    "library/_winreg.html#_winreg.QueryInfoKey": "library/winreg.html#winreg.QueryInfoKey",
+    "library/_winreg.html#_winreg.QueryValue": "library/winreg.html#winreg.QueryValue",
+    "library/_winreg.html#_winreg.QueryValueEx": "library/winreg.html#winreg.QueryValueEx",
+    "library/_winreg.html#_winreg.SaveKey": "library/winreg.html#winreg.SaveKey",
+    "library/_winreg.html#_winreg.SetValue": "library/winreg.html#winreg.SetValue",
+    "library/_winreg.html#_winreg.SetValueEx": "library/winreg.html#winreg.SetValueEx",
+    "library/_winreg.html#_winreg.DisableReflectionKey": "library/winreg.html#winreg.DisableReflectionKey",
+    "library/_winreg.html#_winreg.EnableReflectionKey": "library/winreg.html#winreg.EnableReflectionKey",
+    "library/_winreg.html#_winreg.QueryReflectionKey": "library/winreg.html#winreg.QueryReflectionKey",
+    "library/_winreg.html#_winreg.HKEY_CLASSES_ROOT": "library/winreg.html#winreg.HKEY_CLASSES_ROOT",
+    "library/_winreg.html#_winreg.HKEY_CURRENT_USER": "library/winreg.html#winreg.HKEY_CURRENT_USER",
+    "library/_winreg.html#_winreg.HKEY_LOCAL_MACHINE": "library/winreg.html#winreg.HKEY_LOCAL_MACHINE",
+    "library/_winreg.html#_winreg.HKEY_USERS": "library/winreg.html#winreg.HKEY_USERS",
+    "library/_winreg.html#_winreg.HKEY_PERFORMANCE_DATA": "library/winreg.html#winreg.HKEY_PERFORMANCE_DATA",
+    "library/_winreg.html#_winreg.HKEY_CURRENT_CONFIG": "library/winreg.html#winreg.HKEY_CURRENT_CONFIG",
+    "library/_winreg.html#_winreg.HKEY_DYN_DATA": "library/winreg.html#winreg.HKEY_DYN_DATA",
+    "library/_winreg.html#_winreg.KEY_ALL_ACCESS": "library/winreg.html#winreg.KEY_ALL_ACCESS",
+    "library/_winreg.html#_winreg.KEY_WRITE": "library/winreg.html#winreg.KEY_WRITE",
+    "library/_winreg.html#_winreg.KEY_READ": "library/winreg.html#winreg.KEY_READ",
+    "library/_winreg.html#_winreg.KEY_EXECUTE": "library/winreg.html#winreg.KEY_EXECUTE",
+    "library/_winreg.html#_winreg.KEY_QUERY_VALUE": "library/winreg.html#winreg.KEY_QUERY_VALUE",
+    "library/_winreg.html#_winreg.KEY_SET_VALUE": "library/winreg.html#winreg.KEY_SET_VALUE",
+    "library/_winreg.html#_winreg.KEY_CREATE_SUB_KEY": "library/winreg.html#winreg.KEY_CREATE_SUB_KEY",
+    "library/_winreg.html#_winreg.KEY_ENUMERATE_SUB_KEYS": "library/winreg.html#winreg.KEY_ENUMERATE_SUB_KEYS",
+    "library/_winreg.html#_winreg.KEY_NOTIFY": "library/winreg.html#winreg.KEY_NOTIFY",
+    "library/_winreg.html#_winreg.KEY_CREATE_LINK": "library/winreg.html#winreg.KEY_CREATE_LINK",
+    "library/_winreg.html#_winreg.KEY_WOW64_64KEY": "library/winreg.html#winreg.KEY_WOW64_64KEY",
+    "library/_winreg.html#_winreg.KEY_WOW64_32KEY": "library/winreg.html#winreg.KEY_WOW64_32KEY",
+    "library/_winreg.html#_winreg.REG_BINARY": "library/winreg.html#winreg.REG_BINARY",
+    "library/_winreg.html#_winreg.REG_DWORD": "library/winreg.html#winreg.REG_DWORD",
+    "library/_winreg.html#_winreg.REG_DWORD_LITTLE_ENDIAN": "library/winreg.html#winreg.REG_DWORD_LITTLE_ENDIAN",
+    "library/_winreg.html#_winreg.REG_DWORD_BIG_ENDIAN": "library/winreg.html#winreg.REG_DWORD_BIG_ENDIAN",
+    "library/_winreg.html#_winreg.REG_EXPAND_SZ": "library/winreg.html#winreg.REG_EXPAND_SZ",
+    "library/_winreg.html#_winreg.REG_LINK": "library/winreg.html#winreg.REG_LINK",
+    "library/_winreg.html#_winreg.REG_MULTI_SZ": "library/winreg.html#winreg.REG_MULTI_SZ",
+    "library/_winreg.html#_winreg.REG_NONE": "library/winreg.html#winreg.REG_NONE",
+    "library/_winreg.html#_winreg.REG_RESOURCE_LIST": "library/winreg.html#winreg.REG_RESOURCE_LIST",
+    "library/_winreg.html#_winreg.REG_FULL_RESOURCE_DESCRIPTOR": "library/winreg.html#winreg.REG_FULL_RESOURCE_DESCRIPTOR",
+    "library/_winreg.html#_winreg.REG_RESOURCE_REQUIREMENTS_LIST": "library/winreg.html#winreg.REG_RESOURCE_REQUIREMENTS_LIST",
+    "library/_winreg.html#_winreg.REG_SZ": "library/winreg.html#winreg.REG_SZ",
+    "library/_winreg.html#_winreg.PyHKEY.Close": "library/winreg.html#winreg.PyHKEY.Close",
+    "library/_winreg.html#_winreg.PyHKEY.Detach": "library/winreg.html#winreg.PyHKEY.Detach",
+    "library/_winreg.html#_winreg.PyHKEY.__enter__": "library/winreg.html#winreg.PyHKEY.__enter__",
+    "library/_winreg.html#_winreg.PyHKEY.__exit__": "library/winreg.html#winreg.PyHKEY.__exit__",
+
+
     "library/pipes.html#pipes.quote": "library/shlex.html#shlex.quote",
 
 
@@ -2006,12 +1975,22 @@ const SPECIAL_CASES = {
     "reference/datamodel.html#object.__cmp__": null,
     "reference/datamodel.html#object.__rcmp__": null,
 
+    // https://docs.python.org/library/2to3.html#2to3fixer-nonzero
+    "reference/datamodel.html#object.__nonzero__": "reference/datamodel.html#object.__bool__",
+
     "reference/datamodel.html#object.__unicode__": "reference/datamodel.html#object.__str__",
 
     "reference/datamodel.html#more-attribute-access-for-new-style-classes": "reference/datamodel.html#customizing-attribute-access",
     "reference/datamodel.html#new-style-attribute-access": "reference/datamodel.html#customizing-attribute-access",
 
     "reference/datamodel.html#__slots__": "reference/datamodel.html#object.__slots__",
+
+    // https://docs.python.org/library/2to3.html#2to3fixer-metaclass
+    // "old metaclass syntax (__metaclass__ = Meta in the class body) to the new (class X(metaclass=Meta))"
+    // TODO: don't redirect? It's different, and might be unexpected/confusing if you click
+    // on a link in an old blog post.
+    // "reference/datamodel.html#__metaclass__": null,
+    "reference/datamodel.html#__metaclass__": "reference/datamodel.html#metaclasses",
 
     "reference/datamodel.html#additional-methods-for-emulation-of-sequence-types": null,
     "reference/datamodel.html#sequence-methods": null,
@@ -2058,6 +2037,13 @@ const SPECIAL_CASES = {
     "reference/expressions.html#grammar-token-list-if": "reference/expressions.html#grammar-token-comp-if",
     "reference/expressions.html#displays-for-sets-and-dictionaries": "reference/expressions.html#displays-for-lists-sets-and-dictionaries",
 
+    // https://docs.python.org/library/2to3.html#2to3fixer-repr
+    // Backtick removed in Python 3. You have to use the repr() builtin
+    // "reference/expressions.html#string-conversions": "library/functions.html#repr",
+    // "reference/expressions.html#grammar-token-string-conversion": "library/functions.html#repr",
+    "reference/expressions.html#string-conversions": null,
+    "reference/expressions.html#grammar-token-string-conversion": null,
+
     "reference/expressions.html#grammar-token-simple-slicing": "reference/expressions.html#grammar-token-slicing",
     "reference/expressions.html#grammar-token-extended-slicing": "reference/expressions.html#grammar-token-slicing",
     "reference/expressions.html#grammar-token-short-slice": "reference/expressions.html#grammar-token-proper-slice",
@@ -2093,9 +2079,11 @@ const SPECIAL_CASES = {
     "reference/lexical_analysis.html#grammar-token-intpart": "reference/lexical_analysis.html#grammar-token-digitpart",
 
 
+    // https://docs.python.org/library/2to3.html#2to3fixer-print
     // "reference/simple_stmts.html#the-print-statement": "library/functions.html#print",
     // "reference/simple_stmts.html#grammar-token-print-stmt": "library/functions.html#print",
     "reference/simple_stmts.html#the-print-statement": null,
+    "reference/simple_stmts.html#print": "library/functions.html#print",
     "reference/simple_stmts.html#grammar-token-print-stmt": null,
 
     // Just an alias for identifier
@@ -2104,14 +2092,19 @@ const SPECIAL_CASES = {
 
     "reference/simple_stmts.html#grammar-token-future-statement": "reference/simple_stmts.html#grammar-token-future-stmt",
 
+    // https://docs.python.org/library/2to3.html#2to3fixer-exec
+    // TODO: redirect to function?
     // "reference/simple_stmts.html#the-exec-statement": "library/functions.html#exec",
+    // "reference/simple_stmts.html#exec": "library/functions.html#exec",
     // "reference/simple_stmts.html#grammar-token-exec-stmt": "library/functions.html#exec",
     "reference/simple_stmts.html#the-exec-statement": null,
+    "reference/simple_stmts.html#exec": null,
     "reference/simple_stmts.html#grammar-token-exec-stmt": null,
 
 
     // raw_input renamed to input
     "reference/toplevel_components.html#grammar-token-input-input": null,
+
 
 
     "tutorial/introduction.html#unicode-strings": "tutorial/introduction.html#strings",
