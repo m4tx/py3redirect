@@ -1,0 +1,139 @@
+<head>
+<meta charset="utf-8"/>
+<!-- TODO: show Python 2.6 and below special cases -->
+<!-- TODO: intercept clicks on links in the iframes and set the status element and other iframes -->
+<style>
+  body {
+      width:100%;
+      padding: 0px;
+      margin: 0px;
+  }
+
+  .iframes {
+      width: 100%;
+  }
+  .documentation {
+      /* can't put them side-by-side because the side bar
+         with the documentation contents takes up a lot of space */
+      /* width: 49%; */
+      /* height: 100%;   */
+      width: 100%;
+      height: 47%;
+      padding-bottom: 5px;
+      border: none;
+  }
+
+
+  #status {
+      display: flex;
+      width: 99%;
+  }
+  #links {
+      flex: 0 0 65%;
+  }
+  .link {
+      font-family: monospace;
+  }
+  #stats {
+      flex: 1;
+      text-align: right;
+  }
+
+  .missing-redirect {
+      /* dim iframe when the special case is to not redirect at all */
+      filter: brightness(65%);
+  }
+  .is-null {
+      color: red;
+      pointer-events: none;
+      cursor: default;
+      text-decoration: none;
+  }
+</style>
+<script src="special-cases.js"></script>
+<script>
+  // const cases = Object.keys(SPECIAL_CASES).filter((c) => !c.startsWith("c-api"));
+  const cases = Object.keys(SPECIAL_CASES);
+
+  let currentCaseIndex = Number(localStorage.getItem('currentCaseIndex') || 0);  // returns String
+  localStorage.setItem('currentCaseIndex', currentCaseIndex);
+
+  const gotoCase = (caseIndex) => {
+      const fromOld = cases[caseIndex];
+      const toNew = SPECIAL_CASES[fromOld]
+
+      document.getElementById("stats").textContent = "" + (currentCaseIndex + 1) + " / " + cases.length;
+      document.getElementById("from-link").textContent = "" + fromOld;
+      document.getElementById("from-link").href = "https://docs.python.org/2.7/" + fromOld;
+
+      document.getElementById("python2").src = "./docs.python.org/2.7/" + fromOld;
+      // document.getElementById("python2.6").src = "./docs.python.org/2.6/" + fromOld;
+      // document.getElementById("python2.5").src = "./docs.python.org/2.5/" + fromOld;
+      // document.getElementById("python2.4").src = "./docs.python.org/2.4/" + fromOld;
+
+      if (toNew !== null) {
+          document.getElementById("python3").src = "./docs.python.org/3/" + toNew;
+          document.getElementById("python3").classList.remove("missing-redirect");
+          document.getElementById("to-link").classList.remove("is-null");
+          document.getElementById("to-link").textContent = "" + toNew;
+          document.getElementById("to-link").href = "https://docs.python.org/3/" + toNew;
+      } else {
+          // Open the Python 3 version of the old filename, which probably doesn't exist,
+          // but if it does it could be useful for looking for a redirect.
+          document.getElementById("python3").src = "./docs.python.org/3/" + fromOld;
+          document.getElementById("python3").classList.add("missing-redirect");
+          document.getElementById("to-link").classList.add("is-null");
+          document.getElementById("to-link").textContent = "null (not redirected)";
+          document.getElementById("to-link").href = "";
+      }
+  }
+
+  document.onkeypress = e => {
+      if (e.key === "j") {
+          currentCaseIndex += 1;
+      } else if (e.key === "k") {
+          currentCaseIndex -= 1;
+      } else if (e.key === "J") {
+          currentCaseIndex += 10;
+      } else if (e.key === "K") {
+          currentCaseIndex -= 10;
+      } else {
+          return; // not a key we care about
+      }
+      currentCaseIndex = (currentCaseIndex + cases.length) % cases.length;  // wrap around
+      localStorage.setItem('currentCaseIndex', currentCaseIndex);  // persist on page refresh
+      gotoCase(currentCaseIndex);
+  }
+
+  const hideSidebarAndWarning = (iframe) => {
+      return; // need to serve this directory locally for this to work
+      // The red "you're using Python 2" warning
+      if (iframe.id == "python2") {
+          iframe.contentWindow.document.getElementById("outdated-warning").remove();
+      }
+      // Hide the sidebar with documentation contents and search bar, etc.
+      iframe.contentWindow.document.getElementsByClassName("sphinxsidebar")[0].remove();
+      iframe.contentWindow.document.getElementsByClassName("bodywrapper")[0].style.margin = "0px";
+      window.scrollTo(0, 0);
+  }
+</script>
+</head>
+<body>
+  <div id="status">
+    <div id="links">
+      <div><a class="link" id="from-link"></a> → </div>
+      <div><a class="link" id="to-link"></a></div>
+    </div>
+    <div id="stats"></div>
+  </div>
+<div class="iframes">
+<iframe src="./docs.python.org/2.7/library/os.html#os.environ" class="documentation" id="python2" onload="hideSidebarAndWarning(this)"></iframe>
+<iframe src="./docs.python.org/3/library/os.html#os.environ" class="documentation" id="python3" onload="hideSidebarAndWarning(this)"></iframe>
+<!-- <iframe src="./docs.python.org/2.6/library/os.html#os.environ" class="documentation" id="python2.6" onload="hideSidebarAndWarning(this)"></iframe> -->
+<!-- <iframe src="./docs.python.org/2.5/library/os.html#os.environ" class="documentation" id="python2.5" onload="hideSidebarAndWarning(this)"></iframe> -->
+<!-- <iframe src="./docs.python.org/2.4/library/os.html#os.environ" class="documentation" id="python2.4" onload="hideSidebarAndWarning(this)"></iframe> -->
+</div>
+<script>
+  gotoCase(currentCaseIndex);
+</script>
+</body>
