@@ -39,7 +39,8 @@ const SPECIAL_CASES = {
     "library/functions.html#execfile": null,
 
     // https://docs.python.org/library/2to3.html#2to3fixer-exitfunc
-    "library/sys.html#sys.exitfunc": "library/atexit.html#module-atexit",
+    // "library/sys.html#sys.exitfunc": "library/atexit.html#module-atexit",
+    "library/sys.html#sys.exitfunc": null,
 
     // https://docs.python.org/library/2to3.html#2to3fixer-filter
     // https://docs.python.org/library/2to3.html#2to3fixer-funcattrs
@@ -81,12 +82,14 @@ const SPECIAL_CASES = {
     "library/pickle.html#pickling-and-unpickling-normal-class-instances": "library/pickle.html#pickling-class-instances",
     // TODO: this method was removed. Figure out where to redirect.
     "library/pickle.html#object.__getinitargs__": null,
-    // TODO: don't redirect?
     "library/pickle.html#pickling-and-unpickling-extension-types": "library/pickle.html#object.__reduce__",
     "library/pickle.html#pickling-and-unpickling-external-objects": "library/pickle.html#persistence-of-external-objects",
     "library/pickle.html#subclassing-unpicklers": "library/pickle.html#restricting-globals",
     "library/pickle.html#pickle-sub": "library/pickle.html#restricting-globals",
     // pickle tries to use cPickle and falls back to the Python implementation transparently
+    // TODO: don't redirect?
+    // "library/pickle.html#module-cPickle": null,
+    // "library/pickle.html#cpickle-a-faster-pickle": null,
     "library/pickle.html#module-cPickle": "library/pickle.html",
     "library/pickle.html#cpickle-a-faster-pickle": "library/pickle.html",
 
@@ -133,7 +136,7 @@ const SPECIAL_CASES = {
     "library/tix.html": "library/tkinter.tix.html",
     "library/tix.html#module-Tix": "library/tkinter.tix.html#module-tkinter.tix",
     "library/tix.html#tix-extension-widgets-for-tk": "library/tkinter.tix.html#tkinter-tix-extension-widgets-for-tk",
-    // Renamed class
+    // This one is different because "import Tix; Tix.Tk()" became "from tkinter import tix; tix.Tk()"
     "library/tix.html#Tix.Tix": "library/tkinter.tix.html#tkinter.tix.Tk",
     "library/tix.html#Tix.Balloon": "library/tkinter.tix.html#tkinter.tix.Balloon",
     "library/tix.html#Tix.ButtonBox": "library/tkinter.tix.html#tkinter.tix.ButtonBox",
@@ -364,6 +367,7 @@ const SPECIAL_CASES = {
     "library/gdbm.html#gdbm.sync": "library/dbm.html#dbm.gnu.gdbm.sync",
     "library/gdbm.html#gdbm.close": "library/dbm.html#dbm.gnu.gdbm.close",
 
+
     "library/xmlrpclib.html": "library/xmlrpc.client.html",
     "library/xmlrpclib.html#module-xmlrpclib": "library/xmlrpc.client.html#module-xmlrpc.client",
     "library/xmlrpclib.html#xmlrpclib-xml-rpc-client-access": "library/xmlrpc.client.html#xmlrpc-client-xml-rpc-client-access",
@@ -406,7 +410,7 @@ const SPECIAL_CASES = {
     "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCServer.register_introspection_functions": "library/xmlrpc.server.html#xmlrpc.server.SimpleXMLRPCServer.register_introspection_functions",
     "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCServer.register_multicall_functions": "library/xmlrpc.server.html#xmlrpc.server.SimpleXMLRPCServer.register_multicall_functions",
     "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths": "library/xmlrpc.server.html#xmlrpc.server.SimpleXMLRPCRequestHandler.rpc_paths",
-    // Added in Python 2.7 but not in Python 3
+    // Added in Python 2.7 but not documented in the Python 3 documentation
     "library/simplexmlrpcserver.html#SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.encode_threshold": null,
     "library/simplexmlrpcserver.html#SimpleXMLRPCServer.CGIXMLRPCRequestHandler.register_function": "library/xmlrpc.server.html#xmlrpc.server.CGIXMLRPCRequestHandler.register_function",
     "library/simplexmlrpcserver.html#SimpleXMLRPCServer.CGIXMLRPCRequestHandler.register_instance": "library/xmlrpc.server.html#xmlrpc.server.CGIXMLRPCRequestHandler.register_instance",
@@ -427,10 +431,13 @@ const SPECIAL_CASES = {
     "library/docxmlrpcserver.html#DocXMLRPCServer.DocCGIXMLRPCRequestHandler.set_server_name": "library/xmlrpc.server.html#xmlrpc.server.DocCGIXMLRPCRequestHandler.set_server_name",
     "library/docxmlrpcserver.html#DocXMLRPCServer.DocCGIXMLRPCRequestHandler.set_server_documentation": "library/xmlrpc.server.html#xmlrpc.server.DocCGIXMLRPCRequestHandler.set_server_documentation",
 
+
     "library/htmlparser.html": "library/html.parser.html",
     "library/htmlparser.html#module-HTMLParser": "library/html.parser.html#module-html.parser",
     "library/htmlparser.html#htmlparser-simple-html-and-xhtml-parser": "library/html.parser.html#html-parser-simple-html-and-xhtml-parser",
     "library/htmlparser.html#HTMLParser.HTMLParser": "library/html.parser.html#html.parser.HTMLParser",
+    // "the HTMLParseError exception [is] now deprecated"
+    // https://docs.python.org/3/whatsnew/3.3.html#html
     "library/htmlparser.html#HTMLParser.HTMLParseError": null,
     "library/htmlparser.html#HTMLParser.HTMLParser.feed": "library/html.parser.html#html.parser.HTMLParser.feed",
     "library/htmlparser.html#HTMLParser.HTMLParser.close": "library/html.parser.html#html.parser.HTMLParser.close",
@@ -497,6 +504,7 @@ const SPECIAL_CASES = {
     "library/cookie.html#Cookie.CookieError": "library/http.cookies.html#http.cookies.CookieError",
     "library/cookie.html#Cookie.BaseCookie": "library/http.cookies.html#http.cookies.BaseCookie",
     "library/cookie.html#Cookie.SimpleCookie": "library/http.cookies.html#http.cookies.SimpleCookie",
+    // "Deprecated since version 2.3"
     "library/cookie.html#Cookie.SerialCookie": null,
     "library/cookie.html#Cookie.SmartCookie": null,
     "library/cookie.html#Cookie.BaseCookie.value_decode": "library/http.cookies.html#http.cookies.BaseCookie.value_decode",
@@ -617,6 +625,8 @@ const SPECIAL_CASES = {
     "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.date_time_string": "library/http.server.html#http.server.BaseHTTPRequestHandler.date_time_string",
     "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.log_date_time_string": "library/http.server.html#http.server.BaseHTTPRequestHandler.log_date_time_string",
     "library/basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler.address_string": "library/http.server.html#http.server.BaseHTTPRequestHandler.address_string",
+    // Example was deleted. TODO: redirect to module anyway?
+    // "library/basehttpserver.html#more-examples": "library/http.server.html",
     "library/basehttpserver.html#more-examples": null,
 
     "library/simplehttpserver.html": "library/http.server.html",
@@ -650,22 +660,33 @@ const SPECIAL_CASES = {
 
     "library/userdict.html": "library/collections.html#userdict-objects",
     "library/userdict.html#module-UserDict": "library/collections.html#userdict-objects",
-    "library/userdict.html#userdict-class-wrapper-for-dictionary-objects": "library/collections.html#collections.UserDict",
+    "library/userdict.html#userdict-class-wrapper-for-dictionary-objects": "library/collections.html#userdict-objects",
     "library/userdict.html#UserDict.UserDict": "library/collections.html#collections.UserDict",
+
+    // "Subclass of UserDict that supports direct iteration"
+    // "For backward compatibility, instances of UserDict [in Python 2] are not iterable"
+    // "library/userdict.html#UserDict.IterableUserDict": null,
     "library/userdict.html#UserDict.IterableUserDict": "library/collections.html#collections.UserDict",
     "library/userdict.html#UserDict.IterableUserDict.data": "library/collections.html#collections.UserDict.data",
-    "library/userdict.html#UserDict.DictMixin": "library/collections.html#collections.UserDict",
+
+    // "This mixin should be used as a superclass"
+    // "Starting with Python version 2.6, it is recommended to use collections.MutableMapping instead of DictMixin"
+    // "library/userdict.html#UserDict.DictMixin": "library/collections.abc.html#collections.abc.MutableMapping",
+    // "library/userdict.html#UserDict.DictMixin": "library/collections.html#collections.UserDict",
+    "library/userdict.html#UserDict.DictMixin": null,
 
     "library/userdict.html#module-UserList": "library/collections.html#userlist-objects",
-    "library/userdict.html#userlist-class-wrapper-for-list-objects": "library/collections.html#collections.UserList",
+    "library/userdict.html#userlist-class-wrapper-for-list-objects": "library/collections.html#userlist-objects",
     "library/userdict.html#UserList.UserList": "library/collections.html#collections.UserList",
     "library/userdict.html#UserList.UserList.data": "library/collections.html#collections.UserList.data",
 
     "library/userdict.html#module-UserString": "library/collections.html#userstring-objects",
-    "library/userdict.html#userstring-class-wrapper-for-string-objects": "library/collections.html#collections.UserString",
+    "library/userdict.html#userstring-class-wrapper-for-string-objects": "library/collections.html#userstring-objects",
     "library/userdict.html#UserString.UserString": "library/collections.html#collections.UserString",
+    // "The MutableString class has been removed in Python 3"
     "library/userdict.html#UserString.MutableString": null,
-    // Mutable string doesn't exist but this property also documents .data for UserString
+    // TODO: MutableString doesn't exist but this property also documents .data for UserString. Redirect?
+    // "library/userdict.html#UserString.MutableString.data": "library/collections.html#collections.UserString.data",
     "library/userdict.html#UserString.MutableString.data": null,
 
 
@@ -729,12 +750,20 @@ const SPECIAL_CASES = {
 
 
     // https://docs.python.org/library/2to3.html#2to3fixer-long
+    // long and int were unified
+    // TODO: don't redirect?
+    // "library/functions.html#long": null,
     "library/functions.html#long": "library/functions.html#int",
 
     // https://docs.python.org/library/2to3.html#2to3fixer-metaclass
+    // "old metaclass syntax (__metaclass__ = Meta in the class body) to the new (class X(metaclass=Meta))"
+    // TODO: don't redirect? It's different, and might be unexpected/confusing if you click
+    // on a link in an old blog post.
+    // "reference/datamodel.html#__metaclass__": null,
     "reference/datamodel.html#__metaclass__": "reference/datamodel.html#metaclasses",
 
     // https://docs.python.org/library/2to3.html#2to3fixer-next
+    // x.next() became next(x)
     "library/stdtypes.html#iterator.next": "library/stdtypes.html#iterator.__next__",
     "reference/expressions.html#generator.next": "reference/expressions.html#generator.__next__",
     // "library/stdtypes.html#file.next": "tutorial/inputoutput.html#methods-of-file-objects",
@@ -749,18 +778,10 @@ const SPECIAL_CASES = {
     // https://docs.python.org/library/2to3.html#2to3fixer-numliterals
 
     // https://docs.python.org/library/2to3.html#2to3fixer-operator
-    "library/operator.html#operator.delslice": "library/operator.html#operator.delitem",
-    "library/operator.html#operator.__delslice__": "library/operator.html#operator.__delitem__",
-    "library/operator.html#operator.getslice": "library/operator.html#operator.getitem",
-    "library/operator.html#operator.__getslice__": "library/operator.html#operator.__getitem__",
-    "library/operator.html#operator.setslice": "library/operator.html#operator.setitem",
-    "library/operator.html#operator.__setslice__": "library/operator.html#operator.__setitem__",
-    "library/operator.html#operator.repeat": "library/operator.html#operator.mul",
-    "library/operator.html#operator.__repeat__": "library/operator.html#operator.__mul__",
-    "library/operator.html#operator.irepeat": "library/operator.html#operator.imul",
-    "library/operator.html#operator.__irepeat__": "library/operator.html#operator.__imul__",
     "library/operator.html#operator.isCallable": "library/functions.html#callable",
-    "library/operator.html#operator.sequenceIncludes": "library/operator.html#operator.contains",
+    // "Deprecated since version 2.0: Use contains() instead."
+    // "library/operator.html#operator.sequenceIncludes": "library/operator.html#operator.contains",
+    "library/operator.html#operator.sequenceIncludes": null,
 
     // isinstance(obj, collections.abc.Mapping)
     "library/operator.html#operator.isMappingType": null,
@@ -782,17 +803,28 @@ const SPECIAL_CASES = {
     "library/functions.html#reload": "library/importlib.html#importlib.reload",
 
     // https://docs.python.org/library/2to3.html#2to3fixer-renames
+    // "Changes sys.maxint to sys.maxsize."
     "library/sys.html#sys.maxint": "library/sys.html#sys.maxsize",
 
     // https://docs.python.org/library/2to3.html#2to3fixer-repr
+    // Backtick removed in Python 3. You have to use the repr() builtin
+    // "reference/expressions.html#string-conversions": "library/functions.html#repr",
+    // "reference/expressions.html#grammar-token-string-conversion": "library/functions.html#repr",
+    "reference/expressions.html#string-conversions": null,
+    "reference/expressions.html#grammar-token-string-conversion": null,
 
     // https://docs.python.org/library/2to3.html#2to3fixer-standarderror
+    // "library/exceptions.html#exceptions.StandardError": null,
     "library/exceptions.html#exceptions.StandardError": "library/exceptions.html#Exception",
 
     // https://docs.python.org/library/2to3.html#2to3fixer-sys_exc
-    "library/sys.html#sys.exc_type": "library/sys.html#sys.exc_info",
-    "library/sys.html#sys.exc_value": "library/sys.html#sys.exc_info",
-    "library/sys.html#sys.exc_traceback": "library/sys.html#sys.exc_info",
+    // "Deprecated since version 1.5: Use exc_info() instead"
+    // "library/sys.html#sys.exc_type": "library/sys.html#sys.exc_info",
+    // "library/sys.html#sys.exc_value": "library/sys.html#sys.exc_info",
+    // "library/sys.html#sys.exc_traceback": "library/sys.html#sys.exc_info",
+    "library/sys.html#sys.exc_type": null,
+    "library/sys.html#sys.exc_value": null,
+    "library/sys.html#sys.exc_traceback": null,
 
     // https://docs.python.org/library/2to3.html#2to3fixer-throw
     // https://docs.python.org/library/2to3.html#2to3fixer-tuple_params
@@ -801,12 +833,12 @@ const SPECIAL_CASES = {
     // https://docs.python.org/library/2to3.html#2to3fixer-unicode
     "library/functions.html#unicode": "library/functions.html#func-str",
 
-    "library/urllib.html#high-level-interface": "library/urllib.html#urllib-url-handling-modules",
     // https://docs.python.org/library/2to3.html#2to3fixer-urllib
     // https://github.com/python/cpython/blob/master/Lib/lib2to3/fixes/fix_urllib.py#L12-L45
     // https://github.com/python/cpython/blob/531d1e541284bfd7944f8c66a5e8c3c3234afaff/Lib/lib2to3/fixes/fix_urllib.py#L12-L45
     "library/urllib.html#urllib.urlopen": "library/urllib.request.html#urllib.request.urlopen",
     "library/urllib.html#urllib.urlretrieve": "library/urllib.request.html#urllib.request.urlretrieve",
+    // TODO: explain this missing redirect
     "library/urllib.html#urllib._urlopener": null,
     "library/urllib.html#urllib.urlcleanup": "library/urllib.request.html#urllib.request.urlcleanup",
     "library/urllib.html#urllib.quote": "library/urllib.parse.html#urllib.parse.quote",
@@ -851,6 +883,7 @@ const SPECIAL_CASES = {
     "library/functions.html#xrange": "library/functions.html#func-range",
 
     // https://docs.python.org/library/2to3.html#2to3fixer-xreadlines
+    // "Deprecated since version 2.3: Use for line in file instead."
     "library/stdtypes.html#file.xreadlines": null,
 
 
@@ -859,8 +892,10 @@ const SPECIAL_CASES = {
     // All other html files removed from Python 2.6/2.7
 
     // This is a list of links to related libraries
+    // TODO: Don't redirect?
+    // "library/strings.html": null,
     "library/strings.html": "library/text.html",
-    "library/strings.html#string-services": "library/text.html#stringservices",
+    "library/strings.html#string-services": "library/text.html#text-processing-services",
     "library/fpformat.html": null,
 
     "library/mutex.html": null,
@@ -981,12 +1016,13 @@ const SPECIAL_CASES = {
     "library/functions.html#non-essential-built-in-funcs": null,
     "library/functions.html#coerce": null,
 
-    // This isn't a very good redirect
+    // TODO: this isn't a very good redirect
     "library/stdtypes.html#bltin-file-objects": "library/io.html#overview",
     "library/stdtypes.html#file-objects": "library/io.html#overview",
     "library/stdtypes.html#file.close": "library/io.html#io.IOBase.close",
     "library/stdtypes.html#file.closed": "library/io.html#io.IOBase.closed",
     "library/stdtypes.html#file.encoding": "library/io.html#io.TextIOBase.encoding",
+    // TODO: is this right?
     "library/stdtypes.html#file.errors": "library/io.html#io.TextIOBase.errors",
     "library/stdtypes.html#file.fileno": "library/io.html#io.IOBase.fileno",
     "library/stdtypes.html#file.flush": "library/io.html#io.IOBase.flush",
@@ -1004,78 +1040,84 @@ const SPECIAL_CASES = {
     // There are 4 different write() methods
     "library/stdtypes.html#file.write": "library/io.html#io.TextIOBase.write",
     "library/stdtypes.html#file.writelines": "library/io.html#io.IOBase.writelines",
+
     "library/stdtypes.html#long.bit_length": "library/stdtypes.html#int.bit_length",
     "library/stdtypes.html#memoryview-type": "library/stdtypes.html#memory-views",
     "library/stdtypes.html#numeric-types-int-float-long-complex": "library/stdtypes.html#numeric-types-int-float-complex",
-    // Could redirect these to dir()
-    "library/stdtypes.html#object.__members__": null,
+
+    // "Deprecated since version 2.2: Use the built-in function dir() to get a list of an object’s attributes"
     "library/stdtypes.html#object.__methods__": null,
+    "library/stdtypes.html#object.__members__": null,
+
     "library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange": "library/stdtypes.html#sequence-types-list-tuple-range",
+    // TODO: redirect this?
+    // "library/stdtypes.html#str.decode": "library/stdtypes.html#bytes.decode",
     "library/stdtypes.html#str.decode": null,
     "library/stdtypes.html#string-formatting": "library/stdtypes.html#printf-style-string-formatting",
     "library/stdtypes.html#string-formatting-operations": "library/stdtypes.html#printf-style-string-formatting",
-    "library/stdtypes.html#typesseq-xrange": "library/stdtypes.html#ranges",
-    "library/stdtypes.html#unicode.isdecimal": "library/stdtypes.html#str.isdecimal",
     "library/stdtypes.html#unicode.isnumeric": "library/stdtypes.html#str.isnumeric",
+    "library/stdtypes.html#unicode.isdecimal": "library/stdtypes.html#str.isdecimal",
     "library/stdtypes.html#unicode.splitlines": "library/stdtypes.html#str.splitlines",
     "library/stdtypes.html#xrange-type": "library/stdtypes.html#ranges",
+    "library/stdtypes.html#typesseq-xrange": "library/stdtypes.html#ranges",
 
-    "library/exceptions.html#exceptions.ArithmeticError": "library/exceptions.html#ArithmeticError",
-    "library/exceptions.html#exceptions.AssertionError": "library/exceptions.html#AssertionError",
-    "library/exceptions.html#exceptions.AttributeError": "library/exceptions.html#AttributeError",
+    "library/exceptions.html#module-exceptions": "library/exceptions.html#built-in-exceptions",
     "library/exceptions.html#exceptions.BaseException": "library/exceptions.html#BaseException",
     "library/exceptions.html#exceptions.BaseException.args": "library/exceptions.html#BaseException.args",
-    "library/exceptions.html#exceptions.BufferError": "library/exceptions.html#BufferError",
-    "library/exceptions.html#exceptions.BytesWarning": "library/exceptions.html#BytesWarning",
-    "library/exceptions.html#exceptions.DeprecationWarning": "library/exceptions.html#DeprecationWarning",
-    "library/exceptions.html#exceptions.EOFError": "library/exceptions.html#EOFError",
-    "library/exceptions.html#exceptions.EnvironmentError": "library/exceptions.html#EnvironmentError",
     "library/exceptions.html#exceptions.Exception": "library/exceptions.html#Exception",
+    "library/exceptions.html#exceptions.ArithmeticError": "library/exceptions.html#ArithmeticError",
+    "library/exceptions.html#exceptions.BufferError": "library/exceptions.html#BufferError",
+    "library/exceptions.html#exceptions.LookupError": "library/exceptions.html#LookupError",
+    "library/exceptions.html#exceptions.EnvironmentError": "library/exceptions.html#EnvironmentError",
+    "library/exceptions.html#exceptions.AssertionError": "library/exceptions.html#AssertionError",
+    "library/exceptions.html#exceptions.AttributeError": "library/exceptions.html#AttributeError",
+    "library/exceptions.html#exceptions.EOFError": "library/exceptions.html#EOFError",
     "library/exceptions.html#exceptions.FloatingPointError": "library/exceptions.html#FloatingPointError",
-    "library/exceptions.html#exceptions.FutureWarning": "library/exceptions.html#FutureWarning",
     "library/exceptions.html#exceptions.GeneratorExit": "library/exceptions.html#GeneratorExit",
     "library/exceptions.html#exceptions.IOError": "library/exceptions.html#IOError",
     "library/exceptions.html#exceptions.ImportError": "library/exceptions.html#ImportError",
-    "library/exceptions.html#exceptions.ImportWarning": "library/exceptions.html#ImportWarning",
-    "library/exceptions.html#exceptions.IndentationError": "library/exceptions.html#IndentationError",
     "library/exceptions.html#exceptions.IndexError": "library/exceptions.html#IndexError",
     "library/exceptions.html#exceptions.KeyError": "library/exceptions.html#KeyError",
     "library/exceptions.html#exceptions.KeyboardInterrupt": "library/exceptions.html#KeyboardInterrupt",
-    "library/exceptions.html#exceptions.LookupError": "library/exceptions.html#LookupError",
     "library/exceptions.html#exceptions.MemoryError": "library/exceptions.html#MemoryError",
     "library/exceptions.html#exceptions.NameError": "library/exceptions.html#NameError",
     "library/exceptions.html#exceptions.NotImplementedError": "library/exceptions.html#NotImplementedError",
     "library/exceptions.html#exceptions.OSError": "library/exceptions.html#OSError",
     "library/exceptions.html#exceptions.OverflowError": "library/exceptions.html#OverflowError",
-    "library/exceptions.html#exceptions.PendingDeprecationWarning": "library/exceptions.html#PendingDeprecationWarning",
     "library/exceptions.html#exceptions.ReferenceError": "library/exceptions.html#ReferenceError",
     "library/exceptions.html#exceptions.RuntimeError": "library/exceptions.html#RuntimeError",
-    "library/exceptions.html#exceptions.RuntimeWarning": "library/exceptions.html#RuntimeWarning",
     "library/exceptions.html#exceptions.StopIteration": "library/exceptions.html#StopIteration",
     "library/exceptions.html#exceptions.SyntaxError": "library/exceptions.html#SyntaxError",
-    "library/exceptions.html#exceptions.SyntaxWarning": "library/exceptions.html#SyntaxWarning",
+    "library/exceptions.html#exceptions.IndentationError": "library/exceptions.html#IndentationError",
+    "library/exceptions.html#exceptions.TabError": "library/exceptions.html#TabError",
     "library/exceptions.html#exceptions.SystemError": "library/exceptions.html#SystemError",
     "library/exceptions.html#exceptions.SystemExit": "library/exceptions.html#SystemExit",
-    "library/exceptions.html#exceptions.TabError": "library/exceptions.html#TabError",
     "library/exceptions.html#exceptions.TypeError": "library/exceptions.html#TypeError",
     "library/exceptions.html#exceptions.UnboundLocalError": "library/exceptions.html#UnboundLocalError",
-    "library/exceptions.html#exceptions.UnicodeDecodeError": "library/exceptions.html#UnicodeDecodeError",
-    "library/exceptions.html#exceptions.UnicodeEncodeError": "library/exceptions.html#UnicodeEncodeError",
     "library/exceptions.html#exceptions.UnicodeError": "library/exceptions.html#UnicodeError",
     "library/exceptions.html#exceptions.UnicodeError.encoding": "library/exceptions.html#UnicodeError.encoding",
-    "library/exceptions.html#exceptions.UnicodeError.end": "library/exceptions.html#UnicodeError.end",
-    "library/exceptions.html#exceptions.UnicodeError.object": "library/exceptions.html#UnicodeError.object",
     "library/exceptions.html#exceptions.UnicodeError.reason": "library/exceptions.html#UnicodeError.reason",
+    "library/exceptions.html#exceptions.UnicodeError.object": "library/exceptions.html#UnicodeError.object",
     "library/exceptions.html#exceptions.UnicodeError.start": "library/exceptions.html#UnicodeError.start",
+    "library/exceptions.html#exceptions.UnicodeError.end": "library/exceptions.html#UnicodeError.end",
+    "library/exceptions.html#exceptions.UnicodeEncodeError": "library/exceptions.html#UnicodeEncodeError",
+    "library/exceptions.html#exceptions.UnicodeDecodeError": "library/exceptions.html#UnicodeDecodeError",
     "library/exceptions.html#exceptions.UnicodeTranslateError": "library/exceptions.html#UnicodeTranslateError",
-    "library/exceptions.html#exceptions.UnicodeWarning": "library/exceptions.html#UnicodeWarning",
-    "library/exceptions.html#exceptions.UserWarning": "library/exceptions.html#UserWarning",
-    "library/exceptions.html#exceptions.VMSError": null,
     "library/exceptions.html#exceptions.ValueError": "library/exceptions.html#ValueError",
-    "library/exceptions.html#exceptions.Warning": "library/exceptions.html#Warning",
+    // "Only available on VMS"
+    "library/exceptions.html#exceptions.VMSError": null,
     "library/exceptions.html#exceptions.WindowsError": "library/exceptions.html#WindowsError",
     "library/exceptions.html#exceptions.ZeroDivisionError": "library/exceptions.html#ZeroDivisionError",
-    "library/exceptions.html#module-exceptions": "library/exceptions.html#built-in-exceptions",
+    "library/exceptions.html#exceptions.Warning": "library/exceptions.html#Warning",
+    "library/exceptions.html#exceptions.UserWarning": "library/exceptions.html#UserWarning",
+    "library/exceptions.html#exceptions.DeprecationWarning": "library/exceptions.html#DeprecationWarning",
+    "library/exceptions.html#exceptions.PendingDeprecationWarning": "library/exceptions.html#PendingDeprecationWarning",
+    "library/exceptions.html#exceptions.SyntaxWarning": "library/exceptions.html#SyntaxWarning",
+    "library/exceptions.html#exceptions.RuntimeWarning": "library/exceptions.html#RuntimeWarning",
+    "library/exceptions.html#exceptions.FutureWarning": "library/exceptions.html#FutureWarning",
+    "library/exceptions.html#exceptions.ImportWarning": "library/exceptions.html#ImportWarning",
+    "library/exceptions.html#exceptions.UnicodeWarning": "library/exceptions.html#UnicodeWarning",
+    "library/exceptions.html#exceptions.BytesWarning": "library/exceptions.html#BytesWarning",
 
     "library/string.html#deprecated-string-functions": null,
     "library/string.html#new-string-formatting": "library/string.html#formatstrings",
@@ -1249,6 +1291,22 @@ const SPECIAL_CASES = {
     "library/random.html#random.whseed": null,
 
 
+    // "Deprecated since <x> use <some other function in this module> instead"
+    "library/operator.html#operator.delslice": null,
+    "library/operator.html#operator.__delslice__": null,
+    "library/operator.html#operator.getslice": null,
+    "library/operator.html#operator.__getslice__": null,
+    "library/operator.html#operator.setslice": null,
+    "library/operator.html#operator.__setslice__": null,
+    "library/operator.html#operator.repeat": null,
+    "library/operator.html#operator.__repeat__": null,
+    "library/operator.html#operator.irepeat": null,
+    "library/operator.html#operator.__irepeat__": null,
+    // The / changed to only be true division (ie. return a float)
+    // "library/operator.html#operator.div": "library/operator.html#operator.truediv",
+    // "library/operator.html#operator.div": "library/operator.html#operator.__truediv__",
+    // "library/operator.html#operator.div": "library/operator.html#operator.itruediv",
+    // "library/operator.html#operator.div": "library/operator.html#operator.__itruediv__",
     "library/operator.html#operator.div": null,
     "library/operator.html#operator.__div__": null,
     "library/operator.html#operator.idiv": null,
@@ -1634,6 +1692,16 @@ const SPECIAL_CASES = {
     "library/cgi.html#cgi.escape": "library/html.html#html.escape",
 
 
+    // TODO: explain this
+    "library/urllib.html#high-level-interface": "library/urllib.request.html",
+    // The first 5 functions under this heading: "quote", "quote_plus", "unquote", "unquote_plus" and "urlencode"
+    // went to library/urllib.parse.html#url-quoting
+    // The last 3: "pathname2url", "url2pathname" and "getproxies"
+    // went to library/urllib.request.html
+    // "library/urllib.html#utility-functions": "library/urllib.parse.html#url-quoting",
+    // "library/urllib.html#utility-functions": "library/urllib.request.html",
+    "library/urllib.html#utility-functions": null,
+
     "library/urllib.html#examples": "library/urllib.request.html#examples",
     "library/urllib.html#url-opener-objects": "library/urllib.request.html#urllib.request.URLopener",
     "library/urllib.html#urllib-examples": "library/urllib.request.html#urllib-examples",
@@ -1644,8 +1712,6 @@ const SPECIAL_CASES = {
     "library/urllib.html#urllib.URLopener.open_unknown": "library/urllib.request.html#urllib.request.URLopener.open_unknown",
     "library/urllib.html#urllib.URLopener.retrieve": "library/urllib.request.html#urllib.request.URLopener.retrieve",
     "library/urllib.html#urllib.URLopener.version": "library/urllib.request.html#urllib.request.URLopener.version",
-    // The last 3 functions aren't under this heading, just library/urllib.parse.html
-    "library/urllib.html#utility-functions": "library/urllib.parse.html#url-quoting",
 
     "library/urllib2.html": "library/urllib.request.html",
     "library/urllib2.html#module-urllib2": "library/urllib.request.html#module-urllib.request",
@@ -1991,10 +2057,6 @@ const SPECIAL_CASES = {
     "reference/expressions.html#grammar-token-list-iter": "reference/expressions.html#grammar-token-comp-iter",
     "reference/expressions.html#grammar-token-list-if": "reference/expressions.html#grammar-token-comp-if",
     "reference/expressions.html#displays-for-sets-and-dictionaries": "reference/expressions.html#displays-for-lists-sets-and-dictionaries",
-
-    // Backtick removed in Python 3
-    "reference/expressions.html#string-conversions": null,
-    "reference/expressions.html#grammar-token-string-conversion": null,
 
     "reference/expressions.html#grammar-token-simple-slicing": "reference/expressions.html#grammar-token-slicing",
     "reference/expressions.html#grammar-token-extended-slicing": "reference/expressions.html#grammar-token-slicing",
