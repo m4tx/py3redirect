@@ -54,16 +54,16 @@
     }
 
     /**
-    * Check whether given URL returns 200 HTTP status code and redirects
-    * to it if so.
-    *
-    * Also, save the new URL in the localStorage so the onBeforeRequest
-    * listener can redirect immediately next time visiting the same page.
-    *
-    * @param {string} url New URL
-    * @param {number} tabId current tab ID
-    * @param {function} redirectFunc function that will redirect
-    */
+     * Check whether given URL returns 200 HTTP status code and redirects
+     * to it if so.
+     *
+     * Also, save the new URL in the localStorage so the onBeforeRequest
+     * listener can redirect immediately next time visiting the same page.
+     *
+     * @param {string} url New URL
+     * @param {number} tabId current tab ID
+     * @param {function} redirectFunc function that will redirect
+     */
     function redirectIfExists(url, tabId, redirectFunc) {
         browserAPI.api.pageAction.setTitle({
             tabId: tabId,
@@ -92,9 +92,9 @@
     }
 
     /**
-    * Redirect to the right docs immediately if the page to redirect to has been
-    * visited before (using localStorage cache)
-    */
+     * Redirect to the right docs immediately if the page to redirect to has been
+     * visited before (using localStorage cache)
+     */
     browserAPI.api.webRequest.onBeforeRequest.addListener(
         function (details) {
             let newUrl = getRedirectURL(details.url);
