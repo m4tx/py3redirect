@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 
 import difflib
+from io import BytesIO
 import itertools
 import json
 import re
 import string
 import subprocess
-import sys
 import tempfile
-from io import BytesIO
-from pathlib import Path
 from urllib.parse import urljoin, urlparse
-from urllib.request import urlopen, urlretrieve
+from urllib.request import urlopen
 from zipfile import ZipFile
 
 from bs4 import BeautifulSoup
+from pathlib import Path
+import sys
 
 NEW_VERSION = "3.8"
 OLD_VERSION = "2.7"
@@ -23,7 +23,7 @@ PYTHON2_VERSIONS = ["2.0", "2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7"]
 
 JS_FILE_WITH_SPECIAL_CASES = "./special-cases.js"  # has to have leading "./"
 if not Path(JS_FILE_WITH_SPECIAL_CASES).is_file():
-    raise SystemExit(f"Couln't find file {JS_FILE_WITH_SPECIAL_CASES}")
+    raise SystemExit(f"Couldn't find file {JS_FILE_WITH_SPECIAL_CASES}")
 DOWNLOAD_DOCS_TO = Path("docs.python.org")
 OUTPUT_DIRECTORY = Path("links")
 
@@ -206,6 +206,8 @@ def is_useless(link, special_cases, new_links):
         path, frag = link.split("#")
     else:
         path, frag = link, None
+    if path.startswith("modindex.html"):
+        return "module index"
 
     if frag is not None:
         if frag in USELESS_IDS:
@@ -292,11 +294,10 @@ for cur_version, next_version in zip(PYTHON2_VERSIONS, PYTHON2_VERSIONS[1:]):
             new_still_missing.append(l)
     still_missing[cur_version] = new_still_missing
 in_next_version[PYTHON2_VERSIONS[-1]] = []
-# Print some stats
-import math
 
 
 def format_loading_percent(f, ndigits=0):
+    """format .0001 as "<1%" instead of 0%"""
     limit = 10 ** -(ndigits + 2)
     if limit > f > 0:
         return f"<{limit:.{ndigits}%}"
@@ -304,7 +305,7 @@ def format_loading_percent(f, ndigits=0):
         return f">{1 - limit:.{ndigits}%}"
     return f"{f:.{ndigits}%}"
 
-
+# Print some stats
 for version in PYTHON2_VERSIONS:
     total_links = len(docs[version])
     missing_from_newest_version = len(need_special_case[version])
