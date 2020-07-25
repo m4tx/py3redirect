@@ -31,7 +31,7 @@
 
     function getRedirectURL(oldUrl) {
         const parsedUrl = new URL(oldUrl);
-        // Remove leading "/". If there's no path, pathComponents with be ['']
+        // Remove leading "/". If there's no path, pathComponents will be ['']
         const pathComponents = parsedUrl.pathname.substr(1).split("/");
         const [version, ...pathComponentsWithoutVersion] = pathComponents;
         const path = pathComponentsWithoutVersion.join("/");
