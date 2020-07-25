@@ -2466,6 +2466,18 @@ const SPECIAL_CASES = {
     // ----------
     "modindex.html": "py-modindex.html",
 
+    "howto/advocacy.html": null,
+
+    // TODO: this was moved to a separate subdomain
+    // https://devguide.python.org/documenting/#documenting
+    "documenting/index.html": null,
+    "documenting/intro.html": null,
+    "documenting/style.html": null,
+    "documenting/rest.html": null,
+    "documenting/markup.html": null,
+    "documenting/fromlatex.html": null,
+    "documenting/building.html": null,
+
 
     "library/functions.html#list": "library/functions.html#func-list",
 
@@ -2854,6 +2866,209 @@ const SPECIAL_CASES = {
     "library/dis.html#opcode-JUMP_IF_FALSE": null,
 
 
+
+    // Replacing _ with -
+    "reference/introduction.html#grammar-token-lc_letter": "reference/introduction.html#grammar-token-lc-letter",
+
+    "reference/expressions.html#grammar-token-parenth_form": "reference/expressions.html#grammar-token-parenth-form",
+    "reference/expressions.html#grammar-token-list_display": "reference/expressions.html#grammar-token-list-display",
+    "reference/expressions.html#grammar-token-generator_expression": "reference/expressions.html#grammar-token-generator-expression",
+    "reference/expressions.html#grammar-token-dict_display": "reference/expressions.html#grammar-token-dict-display",
+    "reference/expressions.html#grammar-token-key_datum_list": "reference/expressions.html#grammar-token-key-datum-list",
+    "reference/expressions.html#grammar-token-key_datum": "reference/expressions.html#grammar-token-key-datum",
+    "reference/expressions.html#grammar-token-yield_atom": "reference/expressions.html#grammar-token-yield-atom",
+    "reference/expressions.html#grammar-token-yield_expression": "reference/expressions.html#grammar-token-yield-expression",
+    "reference/expressions.html#grammar-token-slice_list": "reference/expressions.html#grammar-token-slice-list",
+    "reference/expressions.html#grammar-token-slice_item": "reference/expressions.html#grammar-token-slice-item",
+    "reference/expressions.html#grammar-token-proper_slice": "reference/expressions.html#grammar-token-proper-slice",
+    "reference/expressions.html#grammar-token-lower_bound": "reference/expressions.html#grammar-token-lower-bound",
+    "reference/expressions.html#grammar-token-upper_bound": "reference/expressions.html#grammar-token-upper-bound",
+    "reference/expressions.html#grammar-token-argument_list": "reference/expressions.html#grammar-token-argument-list",
+    "reference/expressions.html#grammar-token-positional_arguments": "reference/expressions.html#grammar-token-positional-arguments",
+    "reference/expressions.html#grammar-token-keyword_item": "reference/expressions.html#grammar-token-keyword-item",
+    "reference/expressions.html#grammar-token-u_expr": "reference/expressions.html#grammar-token-u-expr",
+    "reference/expressions.html#grammar-token-m_expr": "reference/expressions.html#grammar-token-m-expr",
+    "reference/expressions.html#grammar-token-a_expr": "reference/expressions.html#grammar-token-a-expr",
+    "reference/expressions.html#grammar-token-shift_expr": "reference/expressions.html#grammar-token-shift-expr",
+    "reference/expressions.html#grammar-token-and_expr": "reference/expressions.html#grammar-token-and-expr",
+    "reference/expressions.html#grammar-token-xor_expr": "reference/expressions.html#grammar-token-xor-expr",
+    "reference/expressions.html#grammar-token-or_expr": "reference/expressions.html#grammar-token-or-expr",
+    "reference/expressions.html#grammar-token-comp_operator": "reference/expressions.html#grammar-token-comp-operator",
+    "reference/expressions.html#grammar-token-or_test": "reference/expressions.html#grammar-token-or-test",
+    "reference/expressions.html#grammar-token-and_test": "reference/expressions.html#grammar-token-and-test",
+    "reference/expressions.html#grammar-token-not_test": "reference/expressions.html#grammar-token-not-test",
+    "reference/expressions.html#grammar-token-conditional_expression": "reference/expressions.html#grammar-token-conditional-expression",
+    "reference/expressions.html#grammar-token-expression_list": "reference/expressions.html#grammar-token-expression-list",
+
+    "reference/simple_stmts.html#grammar-token-simple_stmt": "reference/simple_stmts.html#grammar-token-simple-stmt",
+    "reference/simple_stmts.html#grammar-token-expression_stmt": "reference/simple_stmts.html#grammar-token-expression-stmt",
+    "reference/simple_stmts.html#grammar-token-assignment_stmt": "reference/simple_stmts.html#grammar-token-assignment-stmt",
+    "reference/simple_stmts.html#grammar-token-target_list": "reference/simple_stmts.html#grammar-token-target-list",
+    "reference/simple_stmts.html#grammar-token-augmented_assignment_stmt": "reference/simple_stmts.html#grammar-token-augmented-assignment-stmt",
+    "reference/simple_stmts.html#grammar-token-assert_stmt": "reference/simple_stmts.html#grammar-token-assert-stmt",
+    "reference/simple_stmts.html#grammar-token-pass_stmt": "reference/simple_stmts.html#grammar-token-pass-stmt",
+    "reference/simple_stmts.html#grammar-token-del_stmt": "reference/simple_stmts.html#grammar-token-del-stmt",
+    "reference/simple_stmts.html#grammar-token-return_stmt": "reference/simple_stmts.html#grammar-token-return-stmt",
+    "reference/simple_stmts.html#grammar-token-yield_stmt": "reference/simple_stmts.html#grammar-token-yield-stmt",
+    "reference/simple_stmts.html#grammar-token-raise_stmt": "reference/simple_stmts.html#grammar-token-raise-stmt",
+    "reference/simple_stmts.html#grammar-token-break_stmt": "reference/simple_stmts.html#grammar-token-break-stmt",
+    "reference/simple_stmts.html#grammar-token-continue_stmt": "reference/simple_stmts.html#grammar-token-continue-stmt",
+    "reference/simple_stmts.html#grammar-token-import_stmt": "reference/simple_stmts.html#grammar-token-import-stmt",
+    "reference/simple_stmts.html#grammar-token-relative_module": "reference/simple_stmts.html#grammar-token-relative-module",
+    "reference/simple_stmts.html#grammar-token-global_stmt": "reference/simple_stmts.html#grammar-token-global-stmt",
+
+    "reference/compound_stmts.html#grammar-token-compound_stmt": "reference/compound_stmts.html#grammar-token-compound-stmt",
+    "reference/compound_stmts.html#grammar-token-stmt_list": "reference/compound_stmts.html#grammar-token-stmt-list",
+    "reference/compound_stmts.html#grammar-token-if_stmt": "reference/compound_stmts.html#grammar-token-if-stmt",
+    "reference/compound_stmts.html#grammar-token-while_stmt": "reference/compound_stmts.html#grammar-token-while-stmt",
+    "reference/compound_stmts.html#grammar-token-for_stmt": "reference/compound_stmts.html#grammar-token-for-stmt",
+    "reference/compound_stmts.html#grammar-token-try_stmt": "reference/compound_stmts.html#grammar-token-try-stmt",
+    "reference/compound_stmts.html#grammar-token-try1_stmt": "reference/compound_stmts.html#grammar-token-try1-stmt",
+    "reference/compound_stmts.html#grammar-token-try2_stmt": "reference/compound_stmts.html#grammar-token-try2-stmt",
+    "reference/compound_stmts.html#grammar-token-with_stmt": "reference/compound_stmts.html#grammar-token-with-stmt",
+    "reference/compound_stmts.html#grammar-token-dotted_name": "reference/compound_stmts.html#grammar-token-dotted-name",
+    "reference/compound_stmts.html#grammar-token-parameter_list": "reference/compound_stmts.html#grammar-token-parameter-list",
+
+    "reference/toplevel_components.html#grammar-token-file_input": "reference/toplevel_components.html#grammar-token-file-input",
+    "reference/toplevel_components.html#grammar-token-interactive_input": "reference/toplevel_components.html#grammar-token-interactive-input",
+    "reference/toplevel_components.html#grammar-token-eval_input": "reference/toplevel_components.html#grammar-token-eval-input",
+
+    // Replace _ with - and copy/paste the redirect from Python 2.7
+    "reference/expressions.html#grammar-token-list_comprehension": "reference/expressions.html#grammar-token-comprehension",
+    "reference/expressions.html#grammar-token-list_for": "reference/expressions.html#grammar-token-comp-for",
+    "reference/expressions.html#grammar-token-old_expression_list": "reference/expressions.html#displays-for-lists-sets-and-dictionaries",
+    "reference/expressions.html#grammar-token-old_expression": "reference/expressions.html#grammar-token-expression-nocond",
+    "reference/expressions.html#grammar-token-list_iter": "reference/expressions.html#grammar-token-comp-iter",
+    "reference/expressions.html#grammar-token-list_if": "reference/expressions.html#grammar-token-comp-if",
+    "reference/expressions.html#grammar-token-string_conversion": null,
+    "reference/expressions.html#grammar-token-simple_slicing": "reference/expressions.html#grammar-token-slicing",
+    "reference/expressions.html#grammar-token-extended_slicing": "reference/expressions.html#grammar-token-slicing",
+    "reference/expressions.html#grammar-token-short_slice": "reference/expressions.html#grammar-token-proper-slice",
+    "reference/expressions.html#grammar-token-long_slice": "reference/expressions.html#grammar-token-proper-slice",
+    "reference/expressions.html#grammar-token-keyword_arguments": "reference/expressions.html#grammar-token-keywords-arguments",
+    "reference/simple_stmts.html#grammar-token-print_stmt": "library/functions.html#print",
+    "reference/simple_stmts.html#grammar-token-future_statement": "reference/simple_stmts.html#grammar-token-future-stmt",
+    "reference/simple_stmts.html#grammar-token-exec_stmt": "library/functions.html#exec",
+    "reference/toplevel_components.html#grammar-token-input_input": null,
+
+
+    // TODO: more specific?
+    "reference/expressions.html#grammar-token-genexpr_for": "reference/expressions.html#generator-expressions",
+    "reference/expressions.html#grammar-token-genexpr_iter": "reference/expressions.html#generator-expressions",
+    "reference/expressions.html#grammar-token-genexpr_if": "reference/expressions.html#generator-expressions",
+
+    // missing -
+    "reference/expressions.html#notin": "reference/expressions.html#not-in",
+    "reference/expressions.html#isnot": "reference/expressions.html#is-not",
+
+    // "lambda form" renamed to "lambda expression"
+    "reference/expressions.html#grammar-token-lambda_form": "reference/expressions.html#grammar-token-lambda-expr",
+    "reference/expressions.html#grammar-token-old_lambda_form": "reference/expressions.html#grammar-token-lambda-expr-nocond",
+
+    // Renamed section
+    "reference/expressions.html#summary": "reference/expressions.html#operator-precedence",
+
+
+
+    // TODO: when was this removed?
+    "distutils/apiref.html#module-distutils.mwerkscompiler": null,
+    // TODO: when was this removed?
+    "distutils/apiref.html#distutils.util.grok_environment_error": null,
+    "distutils/apiref.html#distutils.command.register.Command.initialize_options": "distutils/apiref.html#distutils.cmd.Command.initialize_options",
+    "distutils/apiref.html#distutils.command.register.Command.finalize_options": "distutils/apiref.html#distutils.cmd.Command.finalize_options",
+    "distutils/apiref.html#distutils.command.register.Command.run": "distutils/apiref.html#distutils.cmd.Command.run",
+
+    "distutils/index.html#distributing-python-modules": "distutils/index.html#distributing-python-modules-legacy-version",
+    // TODO: moved to https://packaging.python.org/tutorials/packaging-projects/#uploading-your-project-to-pypi
+    "distutils/packageindex.html#registering-with-the-package-index": "distutils/packageindex.html",
+    // TODO: moved to https://packaging.python.org/specifications/pypirc/
+    "distutils/packageindex.html#the-pypirc-file": "distutils/packageindex.html",
+    "distutils/packageindex.html#pypirc": "distutils/packageindex.html",
+    // TODO: moved to https://packaging.python.org/tutorials/packaging-projects/#uploading-your-project-to-pypi
+    "distutils/uploading.html#package-upload": "distutils/uploading.html",
+
+
+    "extending/embedding.html#linking-requirements": "extending/embedding.html#compiling-and-linking-under-unix-like-systems",
+    "extending/extending.html#using-cobjects": "extending/extending.html#using-capsules",
+
+
+    "faq/design.html#why-can-t-lambda-forms-contain-statements": "faq/design.html#why-can-t-lambda-expressions-contain-statements",
+    "faq/design.html#how-are-lists-implemented": "faq/design.html#how-are-lists-implemented-in-cpython",
+    "faq/design.html#how-are-dictionaries-implemented": "faq/design.html#how-are-dictionaries-implemented-in-cpython",
+    // TODO: the "don't use references to mutable values as default function arguments"
+    "faq/design.html#why-are-default-values-shared-between-objects": null,
+
+    "faq/general.html#is-python-y2k-year-2000-compliant": null,
+
+    "faq/gui.html#fox": null,
+
+    "faq/windows.html#where-is-freeze-for-windows": null,
+
+    // Why doesn't anything work on Windows 95?
+    "faq/windows.html#how-do-i-use-python-for-cgi": null,
+    "faq/windows.html#why-does-os-path-isdir-fail-on-nt-shared-directories": null,
+    "faq/windows.html#cgi-py-or-other-cgi-programming-doesn-t-work-sometimes-on-nt-or-win95": null,
+    "faq/windows.html#why-doesn-t-os-popen-work-in-pythonwin-on-nt": null,
+    "faq/windows.html#why-doesn-t-os-popen-win32pipe-popen-work-on-win9x": null,
+    "faq/windows.html#pyrun-simplefile-crashes-on-windows-but-not-on-unix-why": null,
+    "faq/windows.html#importing-tkinter-fails-on-windows-95-98-why": null,
+    "faq/windows.html#missing-cw3215mt-dll-or-missing-cw3215-dll": null,
+    "faq/windows.html#warning-about-ctl3d32-version-from-installer": null,
+
+
+    "glossary.html#term-": "glossary.html#term-0",
+    "glossary.html#term-to3": "glossary.html#term-2to3",
+
+
+    // TODO: did this section move somewhere?
+    "howto/functional.html#the-functional-module": null,
+
+    "howto/regex.html#not-using-re-verbose": "howto/regex.html#using-re-verbose",
+
+
+    "install/index.html#installing-python-modules": "install/index.html#installing-python-modules-legacy-version",
+    // TODO: home/prefix ids might've been flipped
+    "install/index.html#inst-alt-install-prefix": "install/index.html#inst-alt-install-home",
+    "install/index.html#inst-alt-install-windows": "install/index.html#inst-alt-install-prefix-windows",
+
+
+    "tutorial/controlflow.html#lambda-forms": "tutorial/controlflow.html#lambda-expressions",
+    "tutorial/inputoutput.html#the-pickle-module": "tutorial/inputoutput.html#saving-structured-data-with-json",
+    "tutorial/inputoutput.html#tut-pickle": "tutorial/inputoutput.html#tut-json",
+
+    "tutorial/interpreter.html#error-handling": "tutorial/appendix.html#error-handling",
+    "tutorial/interpreter.html#tut-error": "tutorial/appendix.html#tut-error",
+    "tutorial/interpreter.html#executable-python-scripts": "tutorial/appendix.html#executable-python-scripts",
+    "tutorial/interpreter.html#tut-scripts": "tutorial/appendix.html#tut-scripts",
+    "tutorial/interpreter.html#the-interactive-startup-file": "tutorial/appendix.html#the-interactive-startup-file",
+    "tutorial/interpreter.html#tut-startup": "tutorial/appendix.html#tut-startup",
+
+    // TODO: check all the Python 2.7 ids here, because they might be redirecting to the wrong thing, like -U
+    // the ids in the URL were lowercased.
+    "using/cmdline.html#cmdoption--help": "using/cmdline.html#cmdoption-help",
+    "using/cmdline.html#cmdoption-V": "using/cmdline.html#cmdoption-v",
+    "using/cmdline.html#cmdoption--version": "using/cmdline.html#cmdoption-version",
+    "using/cmdline.html#cmdoption-E": "using/cmdline.html#cmdoption-e",
+    "using/cmdline.html#cmdoption-O": "using/cmdline.html#cmdoption-o",
+    "using/cmdline.html#cmdoption-OO": "using/cmdline.html#cmdoption-oo",
+    "using/cmdline.html#cmdoption-R": "using/cmdline.html#cmdoption-r",
+    "using/cmdline.html#cmdoption-S": null,
+    "using/cmdline.html#cmdoption-W": "using/cmdline.html#cmdoption-w",
+    "using/cmdline.html#cmdoption-J": "using/cmdline.html#cmdoption-j",
+    // "using/cmdline.html#cmdoption-B": "using/cmdline.html#id1",
+    "using/cmdline.html#cmdoption-B": null,
+    "using/cmdline.html#cmdoption-q": null,
+    "using/cmdline.html#cmdoption-Q": null,
+    "using/cmdline.html#cmdoption-u": null,
+    "using/cmdline.html#cmdoption-U": null,
+    // TODO: This id could change. Don't redirect?
+    "using/cmdline.html#cmdoption-X": "using/cmdline.html#id5",
+
+    // Section renamed in 2.7
+    "using/index.html#using-python": "using/index.html#python-setup-and-usage",
+    // Section removed in 2.7
+    "using/mac.html#application-scripting": null,
+    "using/unix.html#editors": null, // Renamed to "using/unix.html#editors-and-ides", on 2.7 then deleted
 
     // Add "c." to a bunch of ids in c-api
     "c-api/veryhigh.html#Py_Main": "c-api/veryhigh.html#c.Py_Main",
@@ -3603,6 +3818,161 @@ const SPECIAL_CASES = {
     "c-api/gcsupport.html#traverseproc": "c-api/gcsupport.html#c.traverseproc",
     "c-api/gcsupport.html#Py_VISIT": "c-api/gcsupport.html#c.Py_VISIT",
     "c-api/gcsupport.html#inquiry": "c-api/gcsupport.html#c.inquiry",
+
+
+    // Copy special cases from Python 2.7 and add c.
+    "c-api/veryhigh.html#PyRun_SimpleFileFlags": null,
+
+    "c-api/exceptions.html#PyErr_Warn": null,
+    "c-api/exceptions.html#PyErr_WarnPy3k": null,
+
+    "c-api/sys.html#PySys_GetFile": null,
+
+    "c-api/import.html#_PyImport_FindExtension": null,
+    "c-api/import.html#_PyImport_FixupExtension": null,
+
+    "c-api/conversion.html#PyOS_ascii_strtod": null,
+    "c-api/conversion.html#PyOS_ascii_formatd": null,
+    "c-api/conversion.html#PyOS_ascii_atof": null,
+
+    "c-api/reflection.html#PyEval_GetRestricted": null,
+
+    "c-api/object.html#PyObject_Cmp": null,
+    "c-api/object.html#PyObject_Compare": null,
+    "c-api/object.html#PyObject_Unicode": "c-api/object.html#c.PyObject_Str",
+    "c-api/object.html#PyObject_AsFileDescriptor": "c-api/file.html#c.PyObject_AsFileDescriptor",
+
+    "c-api/number.html#PyNumber_Divide": "c-api/number.html#c.PyNumber_TrueDivide",
+    "c-api/number.html#PyNumber_InPlaceDivide": "c-api/number.html#c.PyNumber_InPlaceTrueDivide",
+    "c-api/number.html#PyNumber_Coerce": null,
+    "c-api/number.html#PyNumber_CoerceEx": null,
+    "c-api/number.html#PyNumber_Int": "c-api/number.html#c.PyNumber_Long",
+
+    "c-api/buffer.html#PyBufferObject": null,
+    "c-api/buffer.html#PyBuffer_Type": null,
+    "c-api/buffer.html#Py_END_OF_BUFFER": null,
+    "c-api/buffer.html#PyBuffer_Check": null,
+    "c-api/buffer.html#PyBuffer_FromObject": null,
+    "c-api/buffer.html#PyBuffer_FromReadWriteObject": null,
+    "c-api/buffer.html#PyBuffer_FromMemory": null,
+    "c-api/buffer.html#PyBuffer_FromReadWriteMemory": null,
+    "c-api/buffer.html#PyBuffer_New": null,
+
+    "c-api/method.html#PyMethod_Class": null,
+    "c-api/method.html#PyMethod_GET_CLASS": null,
+
+    "c-api/file.html#PyFileObject": null,
+    "c-api/file.html#PyFile_Type": null,
+    "c-api/file.html#PyFile_Check": null,
+    "c-api/file.html#PyFile_CheckExact": null,
+    "c-api/file.html#PyFile_FromString": null,
+    "c-api/file.html#PyFile_FromFile": null,
+    "c-api/file.html#PyFile_AsFile": null,
+    "c-api/file.html#PyFile_IncUseCount": null,
+    "c-api/file.html#PyFile_DecUseCount": null,
+    "c-api/file.html#PyFile_Name": null,
+    "c-api/file.html#PyFile_SetBufSize": null,
+    "c-api/file.html#PyFile_SetEncoding": null,
+    "c-api/file.html#PyFile_SetEncodingAndErrors": null,
+    "c-api/file.html#PyFile_SoftSpace": null,
+
+    "c-api/init.html#PyEval_ReInitThreads": null,
+    "c-api/init.html#PyEval_GetCallStats": null,
+
+    "c-api/allocation.html#_PyObject_Del": null,
+    "c-api/allocation.html#Py_InitModule": null,
+    "c-api/allocation.html#Py_InitModule3": null,
+    "c-api/allocation.html#Py_InitModule4": null,
+
+    "c-api/structures.html#Py_FindMethod": null,
+
+    "c-api/typeobj.html#tp_as_number": "c-api/typeobj.html#c.PyTypeObject.tp_as_number",
+    "c-api/typeobj.html#tp_as_sequence": "c-api/typeobj.html#c.PyTypeObject.tp_as_sequence",
+    "c-api/typeobj.html#tp_as_mapping": "c-api/typeobj.html#c.PyTypeObject.tp_as_mapping",
+    "c-api/typeobj.html#readbufferproc": null,
+    "c-api/typeobj.html#writebufferproc": null,
+    "c-api/typeobj.html#segcountproc": null,
+    "c-api/typeobj.html#charbufferproc": null,
+
+    "c-api/gcsupport.html#_PyObject_GC_TRACK": null,
+    "c-api/gcsupport.html#_PyObject_GC_UNTRACK": null,
+
+
+    "c-api/typeobj.html#_ob_next": "c-api/typeobj.html#c.PyObject._ob_next",
+    "c-api/typeobj.html#_ob_prev": "c-api/typeobj.html#c.PyObject._ob_prev",
+    "c-api/typeobj.html#ob_refcnt": "c-api/typeobj.html#c.PyObject.ob_refcnt",
+    "c-api/typeobj.html#ob_type": "c-api/typeobj.html#c.PyObject.ob_type",
+    "c-api/typeobj.html#ob_size": "c-api/typeobj.html#c.PyVarObject.ob_size",
+    "c-api/typeobj.html#tp_name": "c-api/typeobj.html#c.PyTypeObject.tp_name",
+    "c-api/typeobj.html#tp_basicsize": "c-api/typeobj.html#c.PyTypeObject.tp_basicsize",
+    "c-api/typeobj.html#tp_itemsize": "c-api/typeobj.html#c.PyTypeObject.tp_itemsize",
+    "c-api/typeobj.html#tp_dealloc": "c-api/typeobj.html#c.PyTypeObject.tp_dealloc",
+    // "This slot was used for print formatting in Python 2.x.
+    // In Python 3.0 to 3.7, it was reserved and named tp_print"
+    "c-api/typeobj.html#tp_print": "c-api/typeobj.html#c.PyTypeObject.tp_vectorcall_offset",
+    "c-api/typeobj.html#tp_getattr": "c-api/typeobj.html#c.PyTypeObject.tp_getattr",
+    "c-api/typeobj.html#tp_setattr": "c-api/typeobj.html#c.PyTypeObject.tp_setattr",
+    // "Formerly known as tp_compare and tp_reserved"
+    "c-api/typeobj.html#tp_compare": "c-api/typeobj.html#c.PyTypeObject.tp_as_async",
+    "c-api/typeobj.html#tp_repr": "c-api/typeobj.html#c.PyTypeObject.tp_repr",
+    "c-api/typeobj.html#tp_hash": "c-api/typeobj.html#c.PyTypeObject.tp_hash",
+    "c-api/typeobj.html#tp_call": "c-api/typeobj.html#c.PyTypeObject.tp_call",
+    "c-api/typeobj.html#tp_str": "c-api/typeobj.html#c.PyTypeObject.tp_str",
+    "c-api/typeobj.html#tp_getattro": "c-api/typeobj.html#c.PyTypeObject.tp_getattro",
+    "c-api/typeobj.html#tp_setattro": "c-api/typeobj.html#c.PyTypeObject.tp_setattro",
+    "c-api/typeobj.html#tp_as_buffer": "c-api/typeobj.html#c.PyTypeObject.tp_as_buffer",
+    "c-api/typeobj.html#tp_flags": "c-api/typeobj.html#c.PyTypeObject.tp_flags",
+    "c-api/typeobj.html#tp_doc": "c-api/typeobj.html#c.PyTypeObject.tp_doc",
+    "c-api/typeobj.html#tp_traverse": "c-api/typeobj.html#c.PyTypeObject.tp_traverse",
+    "c-api/typeobj.html#tp_clear": "c-api/typeobj.html#c.PyTypeObject.tp_clear",
+    "c-api/typeobj.html#tp_richcompare": "c-api/typeobj.html#c.PyTypeObject.tp_richcompare",
+    "c-api/typeobj.html#tp_weaklistoffset": "c-api/typeobj.html#c.PyTypeObject.tp_weaklistoffset",
+    "c-api/typeobj.html#tp_iter": "c-api/typeobj.html#c.PyTypeObject.tp_iter",
+    "c-api/typeobj.html#tp_iternext": "c-api/typeobj.html#c.PyTypeObject.tp_iternext",
+    "c-api/typeobj.html#tp_methods": "c-api/typeobj.html#c.PyTypeObject.tp_methods",
+    "c-api/typeobj.html#tp_members": "c-api/typeobj.html#c.PyTypeObject.tp_members",
+    "c-api/typeobj.html#tp_getset": "c-api/typeobj.html#c.PyTypeObject.tp_getset",
+    "c-api/typeobj.html#tp_base": "c-api/typeobj.html#c.PyTypeObject.tp_base",
+    "c-api/typeobj.html#tp_dict": "c-api/typeobj.html#c.PyTypeObject.tp_dict",
+    "c-api/typeobj.html#tp_descr_get": "c-api/typeobj.html#c.PyTypeObject.tp_descr_get",
+    "c-api/typeobj.html#tp_descr_set": "c-api/typeobj.html#c.PyTypeObject.tp_descr_set",
+    "c-api/typeobj.html#tp_dictoffset": "c-api/typeobj.html#c.PyTypeObject.tp_dictoffset",
+    "c-api/typeobj.html#tp_init": "c-api/typeobj.html#c.PyTypeObject.tp_init",
+    "c-api/typeobj.html#tp_alloc": "c-api/typeobj.html#c.PyTypeObject.tp_alloc",
+    "c-api/typeobj.html#tp_new": "c-api/typeobj.html#c.PyTypeObject.tp_new",
+    "c-api/typeobj.html#tp_free": "c-api/typeobj.html#c.PyTypeObject.tp_free",
+    "c-api/typeobj.html#tp_is_gc": "c-api/typeobj.html#c.PyTypeObject.tp_is_gc",
+    "c-api/typeobj.html#tp_bases": "c-api/typeobj.html#c.PyTypeObject.tp_bases",
+    "c-api/typeobj.html#tp_mro": "c-api/typeobj.html#c.PyTypeObject.tp_mro",
+    "c-api/typeobj.html#tp_cache": "c-api/typeobj.html#c.PyTypeObject.tp_cache",
+    "c-api/typeobj.html#tp_subclasses": "c-api/typeobj.html#c.PyTypeObject.tp_subclasses",
+    "c-api/typeobj.html#tp_weaklist": "c-api/typeobj.html#c.PyTypeObject.tp_weaklist",
+    "c-api/typeobj.html#tp_allocs": "c-api/typeobj.html#c.PyTypeObject.tp_allocs",
+    "c-api/typeobj.html#tp_frees": "c-api/typeobj.html#c.PyTypeObject.tp_frees",
+    "c-api/typeobj.html#tp_maxalloc": "c-api/typeobj.html#c.PyTypeObject.tp_maxalloc",
+    "c-api/typeobj.html#tp_next": "c-api/typeobj.html#c.PyTypeObject.tp_next",
+    "c-api/typeobj.html#nb_coerce": null,
+    "c-api/typeobj.html#mp_length": "c-api/typeobj.html#c.PyMappingMethods.mp_length",
+    "c-api/typeobj.html#mp_subscript": "c-api/typeobj.html#c.PyMappingMethods.mp_subscript",
+    "c-api/typeobj.html#mp_ass_subscript": "c-api/typeobj.html#c.PyMappingMethods.mp_ass_subscript",
+    "c-api/typeobj.html#sq_length": "c-api/typeobj.html#c.PySequenceMethods.sq_length",
+    "c-api/typeobj.html#sq_concat": "c-api/typeobj.html#c.PySequenceMethods.sq_concat",
+    "c-api/typeobj.html#sq_repeat": "c-api/typeobj.html#c.PySequenceMethods.sq_repeat",
+    "c-api/typeobj.html#sq_item": "c-api/typeobj.html#c.PySequenceMethods.sq_item",
+    "c-api/typeobj.html#sq_ass_item": "c-api/typeobj.html#c.PySequenceMethods.sq_ass_item",
+    "c-api/typeobj.html#sq_contains": "c-api/typeobj.html#c.PySequenceMethods.sq_contains",
+    "c-api/typeobj.html#sq_inplace_concat": "c-api/typeobj.html#c.PySequenceMethods.sq_inplace_concat",
+    "c-api/typeobj.html#sq_inplace_repeat": "c-api/typeobj.html#c.PySequenceMethods.sq_inplace_repeat",
+
+    "c-api/exceptions.html#deprecation-of-string-exceptions": null,
+
+    // "c-api/buffer.html#buffers-and-memoryview-objects" on 2.7
+    "c-api/buffer.html#buffer-objects": "c-api/buffer.html#buffer-protocol",
+    // TODO: when was this removed?
+    "c-api/buffer.html#PyObject_CopyToObject": null,
+    // TODO: when was this removed?
+    "c-api/sys.html#PyOS_GetLastModificationTime": null,
+
 };
 
 // Make file importable from nodejs for processing
