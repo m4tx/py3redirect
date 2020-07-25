@@ -2,13 +2,11 @@
     let pyVersion, isEnabled;
 
     // HTML ids of non-documentation elements
-    USELESS_IDS = new Set([
+    const USELESS_IDS = new Set([
         "documentation_options",
         "outdated-warning",
         "searchbox",
         "searchlabel",
-        // Python 2.5
-        "top-navigation-panel",
     ]);
 
     browserAPI.getStorageData(
@@ -22,10 +20,7 @@
     function isBadFragment(fragment) {
         return USELESS_IDS.has(fragment)
             || fragment.match(/^#id[0-9]+$/)
-            // Python 2.6 docs
-            || fragment.match(/^#index-[0-9]+$/)
-            // Python 2.5 docs
-            || fragment.match(/^#rfcref-[0-9]+$/);
+            || fragment.match(/^#index-[0-9]+$/);
     }
 
     function getNewLink(path, fragment) {
