@@ -1,6 +1,16 @@
 (function () {
     let pyVersion, isEnabled;
 
+    // HTML ids of non-documentation elements
+    USELESS_IDS = new Set([
+        "documentation_options",
+        "outdated-warning",
+        "searchbox",
+        "searchlabel",
+        // Python 2.5
+        "top-navigation-panel",
+    ]);
+
     browserAPI.getStorageData(
         {pyVersion: "3", isEnabled: true},
         data => {
@@ -9,11 +19,21 @@
         }
     );
 
-    function getNewLink(path, fragment) { // fragment might be the empty string
+    function isBadFragment(fragment) {
+        return USELESS_IDS.has(fragment)
+            || fragment.match(/^#id[0-9]+$/)
+            // Python 2.6 docs
+            || fragment.match(/^#index-[0-9]+$/)
+            // Python 2.5 docs
+            || fragment.match(/^#rfcref-[0-9]+$/);
+    }
+
+    function getNewLink(path, fragment) {
         if ((path + fragment) in SPECIAL_CASES) {
             return SPECIAL_CASES[path + fragment];
         }
-        // If link is not a special case, but is in a file that is special-cased...
+        fragment = isBadFragment(fragment) ? '' : fragment;
+        // If the full link is not a special case, but is in a file that is special-cased...
         if (path in SPECIAL_CASES) {
             // don't redirect if the file is special-cased as deleted (null)
             if (SPECIAL_CASES[path] === null) {
@@ -25,7 +45,8 @@
                 return SPECIAL_CASES[path] + fragment;
             }
         }
-        // There's no relevant special case, return the orginial link
+        // There's no relevant special case, return the orginial link (possibly without
+        // the fragment, in case it can't be rewritten safely)
         return path + fragment;
     }
 
