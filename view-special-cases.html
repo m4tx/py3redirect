@@ -15,11 +15,11 @@
   .documentation {
       /* can't put them side-by-side because the side bar
          with the documentation contents takes up a lot of space */
-      /* width: 49%; */
-      /* height: 100%;   */
-      width: 100%;
-      height: 47%;
-      padding-bottom: 5px;
+      width: 49%;
+      height: 96%;
+      /* width: 100%; */
+      /* height: 47%; */
+      padding-top: 5px;
       border: none;
   }
 
@@ -58,29 +58,41 @@
   let currentCaseIndex = Number(localStorage.getItem('currentCaseIndex') || 0);  // returns String
   localStorage.setItem('currentCaseIndex', currentCaseIndex);
 
+  let fromVersionIndex = Number(localStorage.getItem('fromVersionIndex')) || 0;
+  let toVersionIndex = Number(localStorage.getItem('toVersionIndex')) || 0;
+  localStorage.setItem('fromVersionIndex', fromVersionIndex);
+  localStorage.setItem('toVersionIndex', toVersionIndex);
+
   const gotoCase = (caseIndex) => {
-      const fromOld = cases[caseIndex];
-      const toNew = SPECIAL_CASES[fromOld]
+      caseIndex = (caseIndex === undefined) ? currentCaseIndex : caseIndex;
+
+      const fromLink = cases[caseIndex];
+      const toLink = SPECIAL_CASES[fromLink]
+
+      const fromVersionSelect = document.getElementById("from-version-select");
+      const toVersionSelect = document.getElementById("to-version-select");
+      const fromVersion = fromVersionSelect.options[fromVersionIndex].value;
+      const toVersion = toVersionSelect.options[toVersionIndex].value;
 
       document.getElementById("stats").textContent = "" + (currentCaseIndex + 1) + " / " + cases.length;
-      document.getElementById("from-link").textContent = "" + fromOld;
-      document.getElementById("from-link").href = "https://docs.python.org/2.7/" + fromOld;
 
-      document.getElementById("python2").src = "./docs.python.org/2.7/" + fromOld;
-      // document.getElementById("python2.6").src = "./docs.python.org/2.6/" + fromOld;
-      // document.getElementById("python2.5").src = "./docs.python.org/2.5/" + fromOld;
-      // document.getElementById("python2.4").src = "./docs.python.org/2.4/" + fromOld;
+      document.getElementById("from-link").textContent = "" + fromLink;
+      document.getElementById("from-link").href = "https://docs.python.org/" + fromVersion + "/" + fromLink;
+      document.getElementById("python2").src = "./docs.python.org/" + fromVersion + "/" + fromLink;
+      // document.getElementById("python2.6").src = "./docs.python.org/2.6/" + fromLink;
+      // document.getElementById("python2.5").src = "./docs.python.org/2.5/" + fromLink;
+      // document.getElementById("python2.4").src = "./docs.python.org/2.4/" + fromLink;
 
-      if (toNew !== null) {
-          document.getElementById("python3").src = "./docs.python.org/3/" + toNew;
+      if (toLink !== null) {
+          document.getElementById("python3").src = "./docs.python.org/" + toVersion + "/" + toLink;
           document.getElementById("python3").classList.remove("missing-redirect");
           document.getElementById("to-link").classList.remove("is-null");
-          document.getElementById("to-link").textContent = "" + toNew;
-          document.getElementById("to-link").href = "https://docs.python.org/3/" + toNew;
+          document.getElementById("to-link").textContent = "" + toLink;
+          document.getElementById("to-link").href = "https://docs.python.org/" + toVersion + "/" + toLink;
       } else {
           // Open the Python 3 version of the old filename, which probably doesn't exist,
           // but if it does it could be useful for looking for a redirect.
-          document.getElementById("python3").src = "./docs.python.org/3/" + fromOld;
+          document.getElementById("python3").src = "./docs.python.org/" + toVersion + "/" + fromLink;
           document.getElementById("python3").classList.add("missing-redirect");
           document.getElementById("to-link").classList.add("is-null");
           document.getElementById("to-link").textContent = "null (not redirected)";
@@ -124,16 +136,57 @@
       <div><a class="link" id="from-link"></a> → </div>
       <div><a class="link" id="to-link"></a></div>
     </div>
+    <div>
+      from
+      <select name="from" id="from-version-select">
+          <option value="2.7">2.7</option>
+          <option value="2.6">2.6</option>
+          <option value="2.5">2.5</option>
+          <option value="2.4">2.4</option>
+          <option value="2.3">2.3</option>
+          <option value="2.2">2.2</option>
+          <option value="2.1">2.1</option>
+          <option value="2.0">2.0</option>
+      </select>
+      to
+      <select name="from" id="to-version-select" disabled="true">
+          <option value="3">3</option>
+          <option value="3.8">3.8</option>
+          <option value="3.7">3.7</option>
+          <option value="3.6">3.6</option>
+          <option value="3.5">3.5</option>
+      </select>
+
+    </div>
     <div id="stats"></div>
   </div>
 <div class="iframes">
-<iframe src="./docs.python.org/2.7/library/os.html#os.environ" class="documentation" id="python2" onload="hideSidebarAndWarning(this)"></iframe>
-<iframe src="./docs.python.org/3/library/os.html#os.environ" class="documentation" id="python3" onload="hideSidebarAndWarning(this)"></iframe>
+<iframe src="./docs.python.org/2.7/index.html" class="documentation" id="python2" onload="hideSidebarAndWarning(this)"></iframe>
+<iframe src="./docs.python.org/3/index.html" class="documentation" id="python3" onload="hideSidebarAndWarning(this)"></iframe>
 <!-- <iframe src="./docs.python.org/2.6/library/os.html#os.environ" class="documentation" id="python2.6" onload="hideSidebarAndWarning(this)"></iframe> -->
 <!-- <iframe src="./docs.python.org/2.5/library/os.html#os.environ" class="documentation" id="python2.5" onload="hideSidebarAndWarning(this)"></iframe> -->
 <!-- <iframe src="./docs.python.org/2.4/library/os.html#os.environ" class="documentation" id="python2.4" onload="hideSidebarAndWarning(this)"></iframe> -->
 </div>
 <script>
   gotoCase(currentCaseIndex);
+
+  const storeSelectedVersionAndGoToIt = () => {
+    localStorage.setItem('currentCaseIndex', currentCaseIndex);
+
+  };
+  const fromVersionSelect = document.getElementById("from-version-select");
+  fromVersionSelect.selectedIndex = fromVersionIndex;
+  fromVersionSelect.onchange = (e) => {
+      fromVersionIndex = e.target.selectedIndex;
+      localStorage.setItem('fromVersionIndex', fromVersionIndex);
+      gotoCase();
+  };
+  const toVersionSelect = document.getElementById("to-version-select");
+  toVersionSelect.selectedIndex = toVersionIndex;
+  toVersionSelect.onchange = (e) => {
+      toVersionIndex = e.target.selectedIndex;
+      localStorage.setItem('toVersionIndex', toVersionIndex);
+      gotoCase();
+  };
 </script>
 </body>
