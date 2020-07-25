@@ -2495,6 +2495,7 @@ const SPECIAL_CASES = {
     "library/stdtypes.html#class.__name__": "library/stdtypes.html#definition.__name__",
 
 
+    // _ became -
     "library/string.html#grammar-token-replacement_field": "library/string.html#grammar-token-replacement-field",
     "library/string.html#grammar-token-field_name": "library/string.html#grammar-token-field-name",
     "library/string.html#grammar-token-attribute_name": "library/string.html#grammar-token-attribute-name",
@@ -2520,6 +2521,7 @@ const SPECIAL_CASES = {
     "library/itertools.html#itertools-example": null,
 
 
+    // Uppercase "hmac"
     "library/hmac.html#hmac.hmac.update": "library/hmac.html#hmac.HMAC.update",
     "library/hmac.html#hmac.hmac.digest": "library/hmac.html#hmac.HMAC.digest",
     "library/hmac.html#hmac.hmac.hexdigest": "library/hmac.html#hmac.HMAC.hexdigest",
@@ -2540,30 +2542,36 @@ const SPECIAL_CASES = {
     "library/shutil.html#shutil-example": "library/shutil.html#shutil-copytree-example",
 
 
-    "library/logging.html#logging-tutorial": "library/logging.html",
+
     "library/logging.html#loggers": "library/logging.html#logger-objects",
     "library/logging.html#handlers": "library/logging.html#handler-objects",
     "library/logging.html#formatters": "library/logging.html#formatter-objects",
 
+    // TODO: find when this was moved
+    // Not all of the examples in this entire section were moved here, but the second
+    // paragraph was.
+    // "library/logging.html#logging-tutorial": "howto/logging-cookbook.html",
+    // "library/logging.html#logging-tutorial": "library/logging.html",
+    "library/logging.html#logging-tutorial": "howto/logging.html",
+
     "library/logging.html#simple-examples": "howto/logging.html#a-simple-example",
     "library/logging.html#configuring-logging": "howto/logging.html#configuring-logging",
     "library/logging.html#configuring-logging-for-a-library": "howto/logging.html#configuring-logging-for-a-library",
-    "library/logging.html#library-config": "howto/logging.html#configuring-logging-for-a-library",
+    "library/logging.html#library-config": "howto/logging.html#library-config",
     "library/logging.html#useful-handlers": "howto/logging.html#useful-handlers",
     "library/logging.html#basic-example": "howto/logging.html#a-simple-example",
     "library/logging.html#minimal-example": "howto/logging.html#a-simple-example",
 
     "library/logging.html#logging-to-multiple-destinations": "howto/logging-cookbook.html#logging-to-multiple-destinations",
-    "library/logging.html#multiple-destinations": "howto/logging-cookbook.html#logging-to-multiple-destinations",
+    "library/logging.html#multiple-destinations": "howto/logging-cookbook.html#multiple-destinations",
     "library/logging.html#exceptions-raised-during-logging": "howto/logging.html#exceptions-raised-during-logging",
-    "library/logging.html#logging-exceptions": "howto/logging.html#exceptions-raised-during-logging",
+    "library/logging.html#logging-exceptions": "howto/logging.html#logging-exceptions",
     "library/logging.html#adding-contextual-information-to-your-logging-output": "howto/logging-cookbook.html#adding-contextual-information-to-your-logging-output",
-    "library/logging.html#context-info": "howto/logging-cookbook.html#adding-contextual-information-to-your-logging-output",
+    "library/logging.html#context-info": "howto/logging-cookbook.html#context-info",
     "library/logging.html#logging-to-a-single-file-from-multiple-processes": "howto/logging-cookbook.html#logging-to-a-single-file-from-multiple-processes",
-    "library/logging.html#multiple-processes": "howto/logging-cookbook.html#logging-to-a-single-file-from-multiple-processes",
+    "library/logging.html#multiple-processes": "howto/logging-cookbook.html#multiple-processes",
     "library/logging.html#sending-and-receiving-logging-events-across-a-network": "howto/logging-cookbook.html#sending-and-receiving-logging-events-across-a-network",
-    "library/logging.html#network-logging": "howto/logging-cookbook.html#sending-and-receiving-logging-events-across-a-network",
-    // Missing short name for this section
+    "library/logging.html#network-logging": "howto/logging-cookbook.html#network-logging",
     "library/logging.html#using-arbitrary-objects-as-messages": "howto/logging.html#using-arbitrary-objects-as-messages",
     "library/logging.html#optimization": "howto/logging.html#optimization",
 
@@ -2718,29 +2726,28 @@ const SPECIAL_CASES = {
     "library/xml.etree.elementtree.html#the-element-interface": "library/xml.etree.elementtree.html#element-objects",
     "library/xml.etree.elementtree.html#elementtree-element-interface": "library/xml.etree.elementtree.html#element-objects",
 
-    // TODO: class name changed and has no .feed() method
-    "library/xml.etree.elementtree.html#xmltreebuilder-objects": "library/xml.etree.elementtree.html#treebuilder-objects",
-    "library/xml.etree.elementtree.html#elementtree-xmltreebuilder-objects": "library/xml.etree.elementtree.html#elementtree-treebuilder-objects",
-    "library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder": "library/xml.etree.elementtree.html#xml.etree.ElementTree.TreeBuilder",
-    "library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder.close": "library/xml.etree.elementtree.html#xml.etree.ElementTree.TreeBuilder.close",
-    "library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder.doctype": "library/xml.etree.elementtree.html#xml.etree.ElementTree.TreeBuilder.doctype",
-    "library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder.feed": "library/xml.etree.elementtree.html#xml.etree.ElementTree.TreeBuilder",
+    // TODO: class name changed from 2.6 to 2.7. Don't redirect?
     // "library/xml.etree.elementtree.html#xmltreebuilder-objects": null,
     // "library/xml.etree.elementtree.html#elementtree-xmltreebuilder-objects": null,
     // "library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder": null,
     // "library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder.close": null,
     // "library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder.doctype": null,
     // "library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder.feed": null,
+    "library/xml.etree.elementtree.html#xmltreebuilder-objects": "library/xml.etree.elementtree.html#xmlparser-objects",
+    "library/xml.etree.elementtree.html#elementtree-xmltreebuilder-objects": "library/xml.etree.elementtree.html#elementtree-xmlparser-objects",
+    "library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder": "library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLParser",
+    "library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder.close": "library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLParser.close",
+    // 2.7 docs say "Deprecated since version 2.7: Define the TreeBuilder.doctype() method on a custom TreeBuilder target."
+    "library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder.doctype": "library/xml.etree.elementtree.html#xml.etree.ElementTree.TreeBuilder.doctype",
+    "library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLTreeBuilder.feed": "library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLParser.feed",
 
 
-    // https://docs.python.org/2.6/library/urllib2.html#urllib2.HTTPErrorProcessor.unknown_open
-    // TODO: first one is probably right
-    // "library/urllib2.html#urllib2.HTTPErrorProcessor.unknown_open": "library/urllib.request.html#urllib.request.HTTPErrorProcessor.http_response",
-    // "library/urllib2.html#urllib2.HTTPErrorProcessor.unknown_open": "library/urllib.request.html#urllib.request.BaseHandler.unknown_open",
-    "library/urllib2.html#urllib2.HTTPErrorProcessor.unknown_open": null,
+    // TODO: method name changed between 2.6 and 2.7. Don't redirect?
+    // "library/urllib2.html#urllib2.HTTPErrorProcessor.unknown_open": null,
+    "library/urllib2.html#urllib2.HTTPErrorProcessor.unknown_open": "library/urllib.request.html#urllib.request.HTTPErrorProcessor.http_response",
 
 
-    // TODO: base class was removed. it's just a namedtuple
+    // Base class was removed, it's just a namedtuple
     // https://github.com/python/cpython/blob/364b5ead1584583db91ef7f9d9f87f01bfbb5774/Lib/urllib/parse.py#L248-L249
     "library/urlparse.html#urlparse.BaseResult": null,
 
@@ -2753,7 +2760,6 @@ const SPECIAL_CASES = {
 
     "library/idle.html#file-menu": "library/idle.html#file-menu-shell-and-editor",
     "library/idle.html#edit-menu": "library/idle.html#edit-menu-shell-and-editor",
-    // "library/idle.html#windows-menu": "library/idle.html#options-menu-shell-and-editor",
     "library/idle.html#windows-menu": "library/idle.html#window-menu-shell-and-editor",
     "library/idle.html#debug-menu-in-the-python-shell-window-only": "library/idle.html#debug-menu-shell-window-only",
     "library/idle.html#basic-editing-and-navigation": "library/idle.html#editing-and-navigation",
@@ -2761,6 +2767,7 @@ const SPECIAL_CASES = {
     "library/idle.html#startup": "library/idle.html#startup-and-code-execution",
 
 
+    // _ became -
     "library/doctest.html#grammar-token-directive_options": "library/doctest.html#grammar-token-directive-options",
     "library/doctest.html#grammar-token-directive_option": "library/doctest.html#grammar-token-directive-option",
     "library/doctest.html#grammar-token-on_or_off": "library/doctest.html#grammar-token-on-or-off",
@@ -2788,7 +2795,7 @@ const SPECIAL_CASES = {
 
     "library/test.html#running-tests-using-test-regrtest": "library/test.html#running-tests-using-the-command-line-interface",
     "library/test.html#test.test_support.TestFailed": "library/test.html#test.support.TestFailed",
-    // TODO: subclass of TestFailed, removed. Still redirect?
+    // Subclass of TestFailed. Removed between 2.6 and 2.7
     "library/test.html#test.test_support.TestSkipped": null,
     "library/test.html#test.test_support.ResourceDenied": "library/test.html#test.support.ResourceDenied",
     "library/test.html#test.test_support.verbose": "library/test.html#test.support.verbose",
@@ -2829,6 +2836,7 @@ const SPECIAL_CASES = {
     "library/parser.html#examples": "library/parser.html#example-emulation-of-compile",
     "library/parser.html#st-examples": "library/parser.html#example-emulation-of-compile",
     "library/parser.html#emulation-of-compile": "library/parser.html#example-emulation-of-compile",
+    // Removed in 3.1
     "library/parser.html#information-discovery": null,
 
 
@@ -2839,7 +2847,9 @@ const SPECIAL_CASES = {
     "library/tabnanny.html#tabnanny.tokeneater": null,
 
 
-    // TODO: check this
+    // https://bugs.python.org/issue4715
+    // "library/dis.html#opcode-JUMP_IF_TRUE": "library/dis.html#opcode-POP_JUMP_IF_TRUE",
+    // "library/dis.html#opcode-JUMP_IF_FALSE": "library/dis.html#opcode-POP_JUMP_IF_FALSE",
     "library/dis.html#opcode-JUMP_IF_TRUE": null,
     "library/dis.html#opcode-JUMP_IF_FALSE": null,
 
