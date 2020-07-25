@@ -2000,6 +2000,7 @@ const SPECIAL_CASES = {
 
 
 
+    // The first part of this page was moved to another page
     "extending/newtypes.html#defining-new-types": "extending/newtypes_tutorial.html#defining-new-types",
     "extending/newtypes.html#the-basics": "extending/newtypes_tutorial.html#the-basics",
     "extending/newtypes.html#dnt-basics": "extending/newtypes_tutorial.html#dnt-basics",
@@ -2007,6 +2008,7 @@ const SPECIAL_CASES = {
     "extending/newtypes.html#providing-finer-control-over-data-attributes": "extending/newtypes_tutorial.html#providing-finer-control-over-data-attributes",
     "extending/newtypes.html#supporting-cyclic-garbage-collection": "extending/newtypes_tutorial.html#supporting-cyclic-garbage-collection",
     "extending/newtypes.html#subclassing-other-types": "extending/newtypes_tutorial.html#subclassing-other-types",
+    // newtypes.html now begins with this section
     "extending/newtypes.html#type-methods": "extending/newtypes.html#defining-extension-types-assorted-topics",
 
     "extending/embedding.html#link-reqs": "extending/embedding.html#compiling",
@@ -2042,12 +2044,16 @@ const SPECIAL_CASES = {
     "reference/datamodel.html#object.__setslice__": null,
     "reference/datamodel.html#object.__delslice__": null,
 
-    "reference/datamodel.html#object.__div__": "reference/datamodel.html#object.__truediv__",
-    "reference/datamodel.html#object.__rdiv__": "reference/datamodel.html#object.__rtruediv__",
-    "reference/datamodel.html#object.__idiv__": "reference/datamodel.html#object.__itruediv__",
+    // "reference/datamodel.html#object.__div__": "reference/datamodel.html#object.__truediv__",
+    // "reference/datamodel.html#object.__rdiv__": "reference/datamodel.html#object.__rtruediv__",
+    // "reference/datamodel.html#object.__idiv__": "reference/datamodel.html#object.__itruediv__",
+    "reference/datamodel.html#object.__div__": null,
+    "reference/datamodel.html#object.__rdiv__": null,
+    "reference/datamodel.html#object.__idiv__": null,
 
     "reference/datamodel.html#object.__long__": "reference/datamodel.html#object.__int__",
 
+    // The documentation doesn't explain that these are replaced by __index__ in Python 3
     // "reference/datamodel.html#object.__oct__": "reference/datamodel.html#object.__index__",
     // "reference/datamodel.html#object.__hex__": "reference/datamodel.html#object.__index__",
     "reference/datamodel.html#object.__oct__": null,
@@ -2063,22 +2069,24 @@ const SPECIAL_CASES = {
     "reference/datamodel.html#new-style-special-lookup": "reference/datamodel.html#special-lookup",
 
 
-    // TODO: understanding the grammar docs is harder, check these.
 
     // decorated ::= decorators (classdef | funcdef)
-    // in Python 3 this grouping was removed
+    // this grouping is saying both classes and functions can have decorators, and is used in
+    // the definition of a compound statement
+    // In Python 3, the classdef definition says that it can have decorators instead
     "reference/compound_stmts.html#grammar-token-decorated": "reference/compound_stmts.html#function-definitions",
-    // TODO
+    // TODO: explain
     "reference/compound_stmts.html#grammar-token-sublist": "reference/compound_stmts.html#function-definitions",
 
     "reference/expressions.html#grammar-token-list-comprehension": "reference/expressions.html#grammar-token-comprehension",
-
     "reference/expressions.html#grammar-token-list-for": "reference/expressions.html#grammar-token-comp-for",
-
+    // TODO
     "reference/expressions.html#grammar-token-old-expression-list": "reference/expressions.html#displays-for-lists-sets-and-dictionaries",
+    // TODO
     "reference/expressions.html#grammar-token-old-expression": "reference/expressions.html#grammar-token-expression-nocond",
     "reference/expressions.html#grammar-token-list-iter": "reference/expressions.html#grammar-token-comp-iter",
     "reference/expressions.html#grammar-token-list-if": "reference/expressions.html#grammar-token-comp-if",
+
     "reference/expressions.html#displays-for-sets-and-dictionaries": "reference/expressions.html#displays-for-lists-sets-and-dictionaries",
 
     // https://docs.python.org/library/2to3.html#2to3fixer-repr
@@ -2124,11 +2132,10 @@ const SPECIAL_CASES = {
 
 
     // https://docs.python.org/library/2to3.html#2to3fixer-print
-    // "reference/simple_stmts.html#the-print-statement": "library/functions.html#print",
-    // "reference/simple_stmts.html#grammar-token-print-stmt": "library/functions.html#print",
-    "reference/simple_stmts.html#the-print-statement": null,
+    // print became a function.
+    "reference/simple_stmts.html#the-print-statement": "library/functions.html#print",
     "reference/simple_stmts.html#print": "library/functions.html#print",
-    "reference/simple_stmts.html#grammar-token-print-stmt": null,
+    "reference/simple_stmts.html#grammar-token-print-stmt": "library/functions.html#print",
 
     // Just an alias for identifier
     // "reference/simple_stmts.html#grammar-token-name": "reference/lexical_analysis.html#grammar-token-identifier",
@@ -2137,16 +2144,15 @@ const SPECIAL_CASES = {
     "reference/simple_stmts.html#grammar-token-future-statement": "reference/simple_stmts.html#grammar-token-future-stmt",
 
     // https://docs.python.org/library/2to3.html#2to3fixer-exec
-    // TODO: redirect to function?
-    // "reference/simple_stmts.html#the-exec-statement": "library/functions.html#exec",
-    // "reference/simple_stmts.html#exec": "library/functions.html#exec",
-    // "reference/simple_stmts.html#grammar-token-exec-stmt": "library/functions.html#exec",
-    "reference/simple_stmts.html#the-exec-statement": null,
-    "reference/simple_stmts.html#exec": null,
-    "reference/simple_stmts.html#grammar-token-exec-stmt": null,
+    // exec became a function.
+    "reference/simple_stmts.html#the-exec-statement": "library/functions.html#exec",
+    "reference/simple_stmts.html#exec": "library/functions.html#exec",
+    "reference/simple_stmts.html#grammar-token-exec-stmt": "library/functions.html#exec",
 
 
-    // raw_input renamed to input
+    // This is saying the line returned by the old input() function must be a valid
+    // Python expression followed by a newline.
+    // The input() function was replaced with the raw_input() function.
     "reference/toplevel_components.html#grammar-token-input-input": null,
 
 
@@ -2175,14 +2181,19 @@ const SPECIAL_CASES = {
     "using/cmdline.html#cmdoption-3": null,
     "using/cmdline.html#envvar-PYTHONY2K": null,
     "using/cmdline.html#envvar-PYTHONHTTPSVERIFY": null,
-    "using/cmdline.html#envvar-PYTHONSHOWALLOCCOUNT": "using/cmdline.html#id5",
-    "using/cmdline.html#envvar-PYTHONSHOWREFCOUNT": "using/cmdline.html#id5",
+    // This option is specified (or at least documented) by passing "-X showalloccount"
+    // "using/cmdline.html#envvar-PYTHONSHOWALLOCCOUNT": "using/cmdline.html#id5",
+    "using/cmdline.html#envvar-PYTHONSHOWALLOCCOUNT": null,
+    // This option is specified (or at least documented) by passing "-X showrefcount"
+    // "using/cmdline.html#envvar-PYTHONSHOWREFCOUNT": "using/cmdline.html#id5",
+    "using/cmdline.html#envvar-PYTHONSHOWREFCOUNT": null,
 
 
     "using/unix.html#editors-and-ides": null,
 
 
     "using/windows.html#installing-python": "using/windows.html#the-full-installer",
+    // TODO: this redirect is not exactly the same content.
     "using/windows.html#executing-scripts": "using/windows.html#getting-started",
     "using/windows.html#py2exe": null,
     "using/windows.html#other-resources": null,
@@ -2201,6 +2212,7 @@ const SPECIAL_CASES = {
     "c-api/buffer.html#buffers-and-memoryview-objects": "c-api/buffer.html#buffer-protocol",
     "c-api/buffer.html#the-new-style-py-buffer-struct": "c-api/buffer.html#buffer-structure",
 
+    // Section moved to its own file
     "c-api/buffer.html#memoryview-objects": "c-api/memoryview.html",
     "c-api/buffer.html#c.PyMemoryView_FromObject": "c-api/memoryview.html#c.PyMemoryView_FromObject",
     "c-api/buffer.html#c.PyMemoryView_FromBuffer": "c-api/memoryview.html#c.PyMemoryView_FromBuffer",
@@ -2208,7 +2220,7 @@ const SPECIAL_CASES = {
     "c-api/buffer.html#c.PyMemoryView_Check": "c-api/memoryview.html#c.PyMemoryView_Check",
     "c-api/buffer.html#c.PyMemoryView_GET_BUFFER": "c-api/memoryview.html#c.PyMemoryView_GET_BUFFER",
 
-    // https://docs.python.org/2/c-api/buffer.html#old-style-buffer-objects
+    // Removed
     "c-api/buffer.html#old-style-buffer-objects": null,
     "c-api/buffer.html#c.PyBufferObject": null,
     "c-api/buffer.html#c.PyBuffer_Type": null,
@@ -2369,19 +2381,28 @@ const SPECIAL_CASES = {
 
     // This section is deleted, don't redirect
     "howto/sockets.html#performance": null,
-    // This section is deleted, don't redirect
+
+    // The section explaining the history was deleted, but this is where it starts
+    // if someone is linking to the section, maybe they want to read the old paragraphs
+    // that were there.
+    // "howto/unicode.html#history-of-character-codes": "howto/unicode.html#definitions",
     "howto/unicode.html#history-of-character-codes": null,
+
     "howto/unicode.html#python-2-x-s-unicode-support": "howto/unicode.html#python-s-unicode-support",
-    "howto/unicode.html#revision-history-and-acknowledgements": "howto/unicode.html#acknowledgements",
     "howto/unicode.html#the-unicode-type": "howto/unicode.html#the-string-type",
+    "howto/unicode.html#revision-history-and-acknowledgements": "howto/unicode.html#acknowledgements",
     // This file should be renamed to urllib.html
-    "howto/urllib2.html#howto-fetch-internet-resources-using-urllib2": "howto/urllib2.html#urllib-howto",
+    "howto/urllib2.html#howto-fetch-internet-resources-using-urllib2": "howto/urllib2.html#howto-fetch-internet-resources-using-the-urllib-package",
 
 
     "faq/general.html#upgrading-python": null,
     "faq/general.html#what-is-this-bsddb185-module-my-application-keeps-complaining-about": null,
 
+    // This section became a link to the Unicode HOWTO
+    // "faq/programming.html#what-does-unicodeerror-ascii-decoding-encoding-error-ordinal-not-in-range-128-mean": null,
     "faq/programming.html#what-does-unicodeerror-ascii-decoding-encoding-error-ordinal-not-in-range-128-mean": "faq/programming.html#what-does-unicodedecodeerror-or-unicodeencodeerror-error-mean",
+    // This section had three questions but only the first was actually about dictionaries.
+    // That first question was removed along with the section header.
     // "faq/programming.html#dictionaries": "faq/programming.html#i-want-to-do-a-complicated-sort-can-you-do-a-schwartzian-transform-in-python",
     "faq/programming.html#dictionaries": null,
     // Dictionaries are now ordered by insertion, question is meaningless.
@@ -2405,8 +2426,11 @@ const SPECIAL_CASES = {
 
     "glossary.html#term-classic-class": null,
     "glossary.html#term-integer-division": null,
-    // TODO: is this an old name for named tuples?
-    "glossary.html#term-struct-sequence": "glossary.html#term-named-tuple",
+    // These are similar to named tuples but defined in C and unlike collections.namedtuple,
+    // don't have ._make and ._asdict methods, which is still true for the two examples the Python 2
+    // documentation gives: sys.float_info and the return value of os.stat()
+    // "glossary.html#term-struct-sequence": "glossary.html#term-named-tuple",
+    "glossary.html#term-struct-sequence": null,
 
 
     // Licenses for removed code
@@ -2429,10 +2453,10 @@ const SPECIAL_CASES = {
     "distutils/sourcedist.html#commands": null,
 
 
-    // TODO: move these 3
     "install/index.html#best-case-trivial-installation": null,
     "install/index.html#inst-trivial-install": null,
     "install/index.html#the-new-standard-distutils": "install/index.html#inst-new-standard",
+
 
     "whatsnew/2.6.html#module-contextlib": "whatsnew/2.6.html#new-module-contextlib",
 
