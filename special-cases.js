@@ -3973,6 +3973,1744 @@ const SPECIAL_CASES = {
     // TODO: when was this removed?
     "c-api/sys.html#PyOS_GetLastModificationTime": null,
 
+
+
+    // Python 2.5
+    "dist/about.html": "distutils/index.html",
+    "dist/dist.html": "distutils/index.html",
+    "dist/index.html": "distutils/index.html",
+
+    "dist/built-dist.html": "distutils/builtdist.html",
+    // Empty section
+    "dist/creating-dumb.html": null,
+    "dist/creating-rpms.html": "distutils/builtdist.html#creating-rpm-packages",
+    "dist/postinstallation-script.html": "distutils/builtdist.html#creating-windows-installers",
+
+    "dist/intro.html": "distutils/introduction.html",
+    "dist/concepts.html": "distutils/introduction.html#concepts-terminology",
+    "dist/simple-example.html": "distutils/introduction.html#a-simple-example",
+    "dist/python-terms.html": "distutils/introduction.html#general-python-terminology",
+    "dist/distutils-term.html": "distutils/introduction.html#distutils-specific-terminology",
+
+    "dist/setup-script.html": "distutils/setupscript.html",
+    "dist/listing-packages.html": "distutils/setupscript.html#listing-whole-packages",
+    "dist/listing-modules.html": "distutils/setupscript.html#listing-individual-modules",
+    "dist/describing-extensions.html": "distutils/setupscript.html#describing-extension-modules",
+    "dist/meta-data.html": "distutils/setupscript.html#additional-meta-data",
+
+    "dist/extending.html": "distutils/extending.html",
+
+    "dist/reference.html": "distutils/commandref.html",
+    "dist/install-scripts-cmd.html": "distutils/commandref.html#installing-modules-the-install-command-family",
+    "dist/sdist-cmd.html": "distutils/commandref.html#creating-a-source-distribution-the-sdist-command",
+
+    "dist/source-dist.html": "distutils/sourcedist.html",
+    "dist/manifest.html": "distutils/sourcedist.html#specifying-the-files-to-distribute",
+    "dist/manifest-options.html": "distutils/sourcedist.html#manifest-related-options",
+
+    "dist/api-reference.html": "distutils/apiref.html",
+    // TODO: redirect?
+    // "dist/modindex.html": "distutils/apiref.html",
+    "dist/modindex.html": null,
+    "dist/module-distutils.core.html": "distutils/apiref.html#module-distutils.core",
+    "dist/module-distutils.ccompiler.html": "distutils/apiref.html#module-distutils.ccompiler",
+    "dist/module-distutils.unixccompiler.html": "distutils/apiref.html#module-distutils.unixccompiler",
+    "dist/module-distutils.msvccompiler.html": "distutils/apiref.html#module-distutils.msvccompiler",
+    "dist/module-distutils.bcppcompiler.html": "distutils/apiref.html#module-distutils.bcppcompiler",
+    "dist/module-distutils.cygwinccompiler.html": "distutils/apiref.html#module-distutils.cygwinccompiler",
+    // Removed
+    "dist/module-distutils.emxccompiler.html": null,
+    // Removed
+    "dist/module-distutils.mwerkscompiler.html": null,
+    "dist/module-distutils.archiveutil.html": "distutils/apiref.html#module-distutils.archive_util",
+    "dist/module-distutils.deputil.html": "distutils/apiref.html#module-distutils.dep_util",
+    "dist/module-distutils.dirutil.html": "distutils/apiref.html#module-distutils.dir_util",
+    "dist/module-distutils.fileutil.html": "distutils/apiref.html#module-distutils.file_util",
+    "dist/module-distutils.util.html": "distutils/apiref.html#module-distutils.util",
+    "dist/module-distutils.dist.html": "distutils/apiref.html#module-distutils.dist",
+    "dist/module-distutils.extension.html": "distutils/apiref.html#module-distutils.extension",
+    "dist/module-distutils.debug.html": "distutils/apiref.html#module-distutils.debug",
+    "dist/module-distutils.errors.html": "distutils/apiref.html#module-distutils.errors",
+    "dist/module-distutils.fancygetopt.html": "distutils/apiref.html#module-distutils.fancy_getopt",
+    "dist/module-distutils.filelist.html": "distutils/apiref.html#module-distutils.filelist",
+    "dist/module-distutils.log.html": "distutils/apiref.html#module-distutils.log",
+    "dist/module-distutils.spawn.html": "distutils/apiref.html#module-distutils.spawn",
+    "dist/module-distutils.sysconfig.html": "distutils/apiref.html#module-distutils.sysconfig",
+    "dist/module-distutils.textfile.html": "distutils/apiref.html#module-distutils.text_file",
+    "dist/module-distutils.version.html": "distutils/apiref.html#module-distutils.version",
+    "dist/module-distutils.cmd.html": "distutils/apiref.html#module-distutils.cmd",
+    "dist/module-distutils.command.html": "distutils/apiref.html#module-distutils.command",
+    "dist/module-distutils.command.bdist.html": "distutils/apiref.html#module-distutils.command.bdist",
+    "dist/module-distutils.command.bdistpackager.html": "distutils/apiref.html#module-distutils.command.bdist_packager",
+    "dist/module-distutils.command.bdistdumb.html": "distutils/apiref.html#module-distutils.command.bdist_dumb",
+    "dist/module-distutils.command.bdistmsi.html": "distutils/apiref.html#module-distutils.command.bdist_msi",
+    "dist/module-distutils.command.bdistrpm.html": "distutils/apiref.html#module-distutils.command.bdist_rpm",
+    "dist/module-distutils.command.bdistwininst.html": "distutils/apiref.html#module-distutils.command.bdist_wininst",
+    "dist/module-distutils.command.sdist.html": "distutils/apiref.html#module-distutils.command.sdist",
+    "dist/module-distutils.command.build.html": "distutils/apiref.html#module-distutils.command.build",
+    "dist/module-distutils.command.buildclib.html": "distutils/apiref.html#module-distutils.command.build_clib",
+    "dist/module-distutils.command.buildext.html": "distutils/apiref.html#module-distutils.command.build_ext",
+    "dist/module-distutils.command.buildpy.html": "distutils/apiref.html#module-distutils.command.build_py",
+    "dist/module-distutils.command.buildscripts.html": "distutils/apiref.html#module-distutils.command.build_scripts",
+    "dist/module-distutils.command.clean.html": "distutils/apiref.html#module-distutils.command.clean",
+    "dist/module-distutils.command.config.html": "distutils/apiref.html#module-distutils.command.config",
+    "dist/module-distutils.command.install.html": "distutils/apiref.html#module-distutils.command.install",
+    "dist/module-distutils.command.installdata.html": "distutils/apiref.html#module-distutils.command.install_data",
+    "dist/module-distutils.command.installheaders.html": "distutils/apiref.html#module-distutils.command.install_headers",
+    "dist/module-distutils.command.installlib.html": "distutils/apiref.html#module-distutils.command.install_lib",
+    "dist/module-distutils.command.installscripts.html": "distutils/apiref.html#module-distutils.command.install_scripts",
+    "dist/module-distutils.command.register.html": "distutils/apiref.html#module-distutils.command.register",
+
+    "dist/package-index.html": "distutils/packageindex.html",
+
+    "dist/examples.html": "distutils/examples.html#distutils-examples",
+    "dist/pure-mod.html": "distutils/examples.html#pure-python-distribution-by-module",
+    "dist/pure-pkg.html": "distutils/examples.html#pure-python-distribution-by-package",
+    "dist/single-ext.html": "distutils/examples.html#single-extension-module",
+
+    "dist/pypirc.html": "distutils/uploading.html",
+
+    "dist/setup-config.html": "distutils/configfile.html",
+
+    "inst/about.html": "install/index.html",
+    "inst/index.html": "install/index.html",
+    "inst/inst.html": "install/index.html",
+    "inst/trivial-install.html": "install/index.html",
+    "inst/standard-install.html": "install/index.html#standard-build-and-install",
+    "inst/alt-install-windows.html": "install/index.html#alternate-installation",
+    "inst/search-path.html": "install/index.html#custom-installation",
+    "inst/config-syntax.html": "install/index.html#distutils-configuration-files",
+    "inst/tweak-flags.html": "install/index.html#building-extensions-tips-and-tricks",
+
+    "tut/about.html": "tutorial/index.html",
+    "tut/index.html": "tutorial/index.html",
+    "tut/tut.html": "tutorial/index.html",
+
+    "lib/set-example.html": "tutorial/datastructures.html#sets",
+
+    "mac/getting-OSX.html": "using/mac.html#getting-and-installing-macpython",
+    "mac/IDE.html": "using/mac.html#the-ide",
+    "mac/mac-package-manager.html": "using/mac.html#installing-additional-python-packages",
+
+    "ref/about.html": "reference/index.html",
+    "ref/contents.html": "reference/index.html",
+    "ref/front.html": "reference/index.html",
+    "ref/index.html": "reference/index.html",
+    "ref/ref.html": "reference/index.html",
+
+    "ref/introduction.html": "reference/introduction.html",
+    "ref/implementations.html": "reference/introduction.html#alternate-implementations",
+    "ref/notation.html": "reference/introduction.html#notation",
+
+    "ref/lexical.html": "reference/lexical_analysis.html",
+    "ref/line-structure.html": "reference/lexical_analysis.html#line-structure",
+    "ref/logical.html": "reference/lexical_analysis.html#logical-lines",
+    "ref/physical.html": "reference/lexical_analysis.html#physical-lines",
+    "ref/comments.html": "reference/lexical_analysis.html#comments",
+    "ref/encodings.html": "reference/lexical_analysis.html#encoding-declarations",
+    "ref/explicit-joining.html": "reference/lexical_analysis.html#explicit-line-joining",
+    "ref/implicit-joining.html": "reference/lexical_analysis.html#implicit-line-joining",
+    "ref/blank-lines.html": "reference/lexical_analysis.html#blank-lines",
+    "ref/indentation.html": "reference/lexical_analysis.html#indentation",
+    "ref/whitespace.html": "reference/lexical_analysis.html#whitespace-between-tokens",
+    "ref/other-tokens.html": "reference/lexical_analysis.html#other-tokens",
+    "ref/identifiers.html": "reference/lexical_analysis.html#identifiers",
+    "ref/keywords.html": "reference/lexical_analysis.html#keywords",
+    "ref/id-classes.html": "reference/lexical_analysis.html#reserved-classes-of-identifiers",
+    "ref/literals.html": "reference/lexical_analysis.html#literals",
+    "ref/strings.html": "reference/lexical_analysis.html#string-and-bytes-literals",
+    "ref/string-catenation.html": "reference/lexical_analysis.html#string-literal-concatenation",
+    "ref/numbers.html": "reference/lexical_analysis.html#numeric-literals",
+    "ref/integers.html": "reference/lexical_analysis.html#integer-literals",
+    "ref/floating.html": "reference/lexical_analysis.html#floating-point-literals",
+    "ref/imaginary.html": "reference/lexical_analysis.html#imaginary-literals",
+    "ref/operators.html": "reference/lexical_analysis.html#operators",
+    "ref/delimiters.html": "reference/lexical_analysis.html#delimiters",
+
+    "ref/datamodel.html": "reference/datamodel.html",
+    "ref/objects.html": "reference/datamodel.html#objects-values-and-types",
+    "ref/types.html": "reference/datamodel.html#the-standard-type-hierarchy",
+    "ref/specialnames.html": "reference/datamodel.html#special-method-names",
+    "ref/customization.html": "reference/datamodel.html#basic-customization",
+    "ref/attribute-access.html": "reference/datamodel.html#customizing-attribute-access",
+    "ref/new-style-attribute-access.html": "reference/datamodel.html#customizing-attribute-access",
+    "ref/descriptors.html": "reference/datamodel.html#implementing-descriptors",
+    "ref/slots.html": "reference/datamodel.html#slots",
+    "ref/metaclasses.html": "reference/datamodel.html#customizing-class-creation",
+    "ref/callable-types.html": "reference/datamodel.html#emulating-callable-objects",
+    "ref/sequence-types.html": "reference/datamodel.html#emulating-container-types",
+    "ref/numeric-types.html": "reference/datamodel.html#emulating-numeric-types",
+    "ref/context-managers.html": "reference/datamodel.html#with-statement-context-managers",
+
+    "ref/execmodel.html": "reference/executionmodel.html",
+    "ref/naming.html": "reference/executionmodel.html#naming-and-binding",
+    "ref/dynamic-features.html": "reference/executionmodel.html#interaction-with-dynamic-features",
+    "ref/exceptions.html": "reference/executionmodel.html#exceptions",
+
+    "ref/expressions.html": "reference/expressions.html",
+    "ref/conversions.html": "reference/expressions.html#arithmetic-conversions",
+    "ref/atoms.html": "reference/expressions.html#atoms",
+    "ref/atom-identifiers.html": "reference/expressions.html#atom-identifiers",
+    "ref/atom-literals.html": "reference/expressions.html#literals",
+    "ref/parenthesized.html": "reference/expressions.html#parenthesized-forms",
+    "ref/lists.html": "reference/expressions.html#list-displays",
+    "ref/dict.html": "reference/expressions.html#dictionary-displays",
+    "ref/genexpr.html": "reference/expressions.html#generator-expressions",
+    "ref/yieldexpr.html": "reference/expressions.html#yield-expressions",
+    "ref/primaries.html": "reference/expressions.html#primaries",
+    "ref/attribute-references.html": "reference/expressions.html#attribute-references",
+    "ref/subscriptions.html": "reference/expressions.html#subscriptions",
+    "ref/slicings.html": "reference/expressions.html#slicings",
+    "ref/calls.html": "reference/expressions.html#calls",
+    "ref/power.html": "reference/expressions.html#the-power-operator",
+    "ref/unary.html": "reference/expressions.html#unary-arithmetic-and-bitwise-operations",
+    "ref/binary.html": "reference/expressions.html#binary-arithmetic-operations",
+    "ref/shifting.html": "reference/expressions.html#shifting-operations",
+    "ref/bitwise.html": "reference/expressions.html#binary-bitwise-operations",
+    "ref/comparisons.html": "reference/expressions.html#comparisons",
+    "ref/Booleans.html": "reference/expressions.html#boolean-operations",
+    "ref/lambdas.html": "reference/expressions.html#lambda",
+    "ref/exprlists.html": "reference/expressions.html#expression-lists",
+    "ref/evalorder.html": "reference/expressions.html#evaluation-order",
+    "ref/summary.html": "reference/expressions.html#operator-precedence",
+
+    "ref/simple.html": "reference/simple_stmts.html",
+    "ref/exprstmts.html": "reference/simple_stmts.html#expression-statements",
+    "ref/assignment.html": "reference/simple_stmts.html#assignment-statements",
+    "ref/augassign.html": "reference/simple_stmts.html#augmented-assignment-statements",
+    "ref/assert.html": "reference/simple_stmts.html#the-assert-statement",
+    "ref/pass.html": "reference/simple_stmts.html#the-pass-statement",
+    "ref/del.html": "reference/simple_stmts.html#the-del-statement",
+    "ref/return.html": "reference/simple_stmts.html#the-return-statement",
+    "ref/yield.html": "reference/simple_stmts.html#the-yield-statement",
+    "ref/raise.html": "reference/simple_stmts.html#the-raise-statement",
+    "ref/break.html": "reference/simple_stmts.html#the-break-statement",
+    "ref/continue.html": "reference/simple_stmts.html#the-continue-statement",
+    "ref/import.html": "reference/simple_stmts.html#the-import-statement",
+    "ref/future.html": "reference/simple_stmts.html#future-statements",
+    "ref/global.html": "reference/simple_stmts.html#the-global-statement",
+
+    "ref/compound.html": "reference/compound_stmts.html",
+    "ref/if.html": "reference/compound_stmts.html#the-if-statement",
+    "ref/while.html": "reference/compound_stmts.html#the-while-statement",
+    "ref/for.html": "reference/compound_stmts.html#the-for-statement",
+    "ref/try.html": "reference/compound_stmts.html#the-try-statement",
+    "ref/with.html": "reference/compound_stmts.html#the-with-statement",
+    "ref/function.html": "reference/compound_stmts.html#function-definitions",
+    "ref/class.html": "reference/compound_stmts.html#class-definitions",
+
+    "ref/top-level.html": "reference/toplevel_components.html",
+    "ref/programs.html": "reference/toplevel_components.html#complete-python-programs",
+    "ref/file-input.html": "reference/toplevel_components.html#file-input",
+    "ref/interactive.html": "reference/toplevel_components.html#interactive-input",
+    "ref/expression-input.html": "reference/toplevel_components.html#expression-input",
+
+    "lib/about.html": "library/index.html",
+    "lib/contents.html": "library/index.html",
+    "lib/front.html": "library/index.html",
+    "lib/index.html": "library/index.html",
+    "lib/lib.html": "library/index.html",
+    // Top level "Built-in Objects" section was removed
+    "lib/builtin.html": "library/index.html",
+
+    "lib/intro.html": "library/intro.html",
+
+    "lib/built-in-funcs.html": "library/functions.html",
+    "ref/exec.html": "library/functions.html#exec",
+    "ref/print.html": "library/functions.html#print",
+
+    "lib/types.html": "library/stdtypes.html",
+    "lib/truth.html": "library/stdtypes.html#truth-value-testing",
+    "lib/boolean.html": "library/stdtypes.html#boolean-operations-and-or-not",
+    "lib/comparisons.html": "library/stdtypes.html#comparisons",
+    "lib/typesnumeric.html": "library/stdtypes.html#numeric-types-int-float-complex",
+    "lib/bitstring-ops.html": "library/stdtypes.html#bitwise-operations-on-integer-types",
+    "lib/typeiter.html": "library/stdtypes.html#iterator-types",
+    "lib/typesseq.html": "library/stdtypes.html#sequence-types-list-tuple-range",
+    "lib/typesseq-mutable.html": "library/stdtypes.html#mutable-sequence-types",
+    "lib/typesseq-xrange.html": "library/stdtypes.html#ranges",
+    "lib/string-methods.html": "library/stdtypes.html#string-methods",
+    "lib/typesseq-strings.html": "library/stdtypes.html#printf-style-string-formatting",
+    "lib/types-set.html": "library/stdtypes.html#set-types-set-frozenset",
+    "lib/module-sets.html": "library/stdtypes.html#set-types-set-frozenset",
+    "lib/set-objects.html": "library/stdtypes.html#set",
+    "lib/typesmapping.html": "library/stdtypes.html#mapping-types-dict",
+    "lib/typecontextmanager.html": "library/stdtypes.html#context-manager-types",
+    "lib/typesother.html": "library/stdtypes.html#other-built-in-types",
+    "lib/typesmodules.html": "library/stdtypes.html#modules",
+    "lib/typesobjects.html": "library/stdtypes.html#classes-and-class-instances",
+    "lib/typesfunctions.html": "library/stdtypes.html#functions",
+    "lib/typesmethods.html": "library/stdtypes.html#methods",
+    "lib/bltin-code-objects.html": "library/stdtypes.html#code-objects",
+    "lib/bltin-type-objects.html": "library/stdtypes.html#type-objects",
+    "lib/bltin-null-object.html": "library/stdtypes.html#the-null-object",
+    "lib/bltin-ellipsis-object.html": "library/stdtypes.html#the-ellipsis-object",
+    "lib/typesinternal.html": "library/stdtypes.html#internal-objects",
+    "lib/specialattrs.html": "library/stdtypes.html#special-attributes",
+
+    "lib/module-exceptions.html": "library/exceptions.html",
+
+    "lib/strings.html": "library/text.html",
+
+    "lib/module-string.html": "library/string.html",
+
+    "lib/module-re.html": "library/re.html",
+    "lib/re-syntax.html": "library/re.html#regular-expression-syntax",
+    "lib/re-objects.html": "library/re.html#regular-expression-objects",
+    "lib/match-objects.html": "library/re.html#match-objects",
+
+    "lib/module-difflib.html": "library/difflib.html",
+    "lib/sequence-matcher.html": "library/difflib.html#sequencematcher-objects",
+    "lib/sequencematcher-examples.html": "library/difflib.html#sequencematcher-examples",
+    "lib/differ-objects.html": "library/difflib.html#differ-objects",
+    "lib/differ-examples.html": "library/difflib.html#differ-example",
+
+    "lib/module-textwrap.html": "library/textwrap.html",
+
+    "lib/module-unicodedata.html": "library/unicodedata.html",
+
+    "lib/module-stringprep.html": "library/stringprep.html",
+
+    "lib/module-readline.html": "library/readline.html",
+    "lib/readline-example.html": "library/readline.html#example",
+
+    "lib/module-rlcompleter.html": "library/rlcompleter.html",
+    "lib/completer-objects.html": "library/rlcompleter.html#completer-objects",
+
+    "lib/module-struct.html": "library/struct.html",
+    "lib/struct-objects.html": "library/struct.html#classes",
+
+    "lib/module-codecs.html": "library/codecs.html",
+    "lib/codec-objects.html": "library/codecs.html",
+    "lib/codec-base-classes.html": "library/codecs.html#codec-base-classes",
+    "lib/incremental-encoder-objects.html": "library/codecs.html#incrementalencoder-objects",
+    "lib/incremental-decoder-objects.html": "library/codecs.html#incrementaldecoder-objects",
+    "lib/stream-writer-objects.html": "library/codecs.html#streamwriter-objects",
+    "lib/stream-reader-objects.html": "library/codecs.html#streamreader-objects",
+    "lib/stream-reader-writer.html": "library/codecs.html#streamreaderwriter-objects",
+    "lib/stream-recoder-objects.html": "library/codecs.html#streamrecoder-objects",
+    "lib/encodings-overview.html": "library/codecs.html#encodings-and-unicode",
+    "lib/standard-encodings.html": "library/codecs.html#standard-encodings",
+    "lib/module-encodings.idna.html": "library/codecs.html#module-encodings.idna",
+    "lib/module-encodings.utf-8-sig.html": "library/codecs.html#module-encodings.utf_8_sig",
+
+    "lib/datatypes.html": "library/datatypes.html",
+
+    "lib/module-datetime.html": "library/datetime.html",
+    "lib/datetime-timedelta.html": "library/datetime.html#timedelta-objects",
+    "lib/datetime-date.html": "library/datetime.html#date-objects",
+    "lib/datetime-datetime.html": "library/datetime.html#datetime-objects",
+    "lib/datetime-time.html": "library/datetime.html#time-objects",
+    "lib/datetime-tzinfo.html": "library/datetime.html#tzinfo-objects",
+    "lib/strftime-behavior.html": "library/datetime.html#strftime-and-strptime-behavior",
+
+    "lib/module-calendar.html": "library/calendar.html",
+
+    "lib/module-collections.html": "library/collections.html",
+    "lib/deque-objects.html": "library/collections.html#deque-objects",
+    "lib/deque-recipes.html": "library/collections.html#deque-recipes",
+    "lib/defaultdict-objects.html": "library/collections.html#defaultdict-objects",
+    "lib/defaultdict-examples.html": "library/collections.html#defaultdict-examples",
+    "lib/module-UserDict.html": "library/collections.html#userdict-objects",
+    "lib/module-UserList.html": "library/collections.html#userlist-objects",
+    "lib/module-UserString.html": "library/collections.html#userstring-objects",
+
+    "lib/module-heapq.html": "library/heapq.html",
+
+    "lib/module-bisect.html": "library/bisect.html",
+    "lib/bisect-example.html": "library/bisect.html#other-examples",
+
+    "lib/module-array.html": "library/array.html",
+
+    "lib/module-weakref.html": "library/weakref.html",
+    "lib/weakref-objects.html": "library/weakref.html#weak-reference-objects",
+    "lib/weakref-example.html": "library/weakref.html#example",
+
+    "lib/module-types.html": "library/types.html",
+
+    "lib/module-copy.html": "library/copy.html",
+
+    "lib/module-pprint.html": "library/pprint.html",
+
+    "lib/module-repr.html": "library/reprlib.html",
+    "lib/Repr-objects.html": "library/reprlib.html#repr-objects",
+    "lib/subclassing-reprs.html": "library/reprlib.html#subclassing-repr-objects",
+
+    "lib/numeric.html": "library/numeric.html",
+
+    "lib/module-math.html": "library/math.html",
+
+    "lib/module-cmath.html": "library/cmath.html",
+
+    "lib/module-decimal.html": "library/decimal.html",
+    "lib/decimal-tutorial.html": "library/decimal.html#quick-start-tutorial",
+    "lib/decimal-decimal.html": "library/decimal.html#context-objects",
+    "lib/decimal-signals.html": "library/decimal.html#signals",
+    "lib/decimal-notes.html": "library/decimal.html#floating-point-notes",
+    "lib/decimal-threads.html": "library/decimal.html#working-with-threads",
+    "lib/decimal-recipes.html": "library/decimal.html#recipes",
+    "lib/decimal-faq.html": "library/decimal.html#decimal-faq",
+
+    "lib/module-random.html": "library/random.html",
+
+    "lib/module-itertools.html": "library/itertools.html",
+    "lib/itertools-functions.html": "library/itertools.html#itertool-functions",
+    "lib/itertools-recipes.html": "library/itertools.html#itertools-recipes",
+
+    "lib/module-functools.html": "library/functools.html",
+    "lib/partial-objects.html": "library/functools.html#partial-objects",
+
+    "lib/module-operator.html": "library/operator.html",
+    "lib/operator-map.html": "library/operator.html#mapping-operators-to-functions",
+
+    "lib/filesys.html": "library/filesys.html",
+
+    "lib/module-os.path.html": "library/os.path.html",
+
+    "lib/module-fileinput.html": "library/fileinput.html",
+
+    "lib/module-stat.html": "library/stat.html",
+
+    "lib/module-filecmp.html": "library/filecmp.html",
+    "lib/dircmp-objects.html": "library/filecmp.html#the-dircmp-class",
+
+    "lib/module-tempfile.html": "library/tempfile.html",
+
+    "lib/module-glob.html": "library/glob.html",
+
+    "lib/module-fnmatch.html": "library/fnmatch.html",
+
+    "lib/module-linecache.html": "library/linecache.html",
+
+    "lib/module-shutil.html": "library/shutil.html",
+    "lib/shutil-example.html": "library/shutil.html#copytree-example",
+
+    "lib/persistence.html": "library/persistence.html",
+
+    "lib/module-pickle.html": "library/pickle.html",
+    // TODO: don't redirect?
+    "lib/module-cPickle.html": "library/pickle.html",
+    "lib/pickle-protocol.html": "library/pickle.html#pickling-class-instances",
+    "lib/pickle-inst.html": "library/pickle.html#pickling-class-instances",
+    "lib/pickle-sub.html": "library/pickle.html#restricting-globals",
+    "lib/pickle-example.html": "library/pickle.html#examples",
+
+    "lib/module-copyreg.html": "library/copyreg.html",
+
+    "lib/module-shelve.html": "library/shelve.html",
+
+    "lib/module-marshal.html": "library/marshal.html",
+
+    "lib/module-anydbm.html": "library/dbm.html",
+    // TODO: why did I redirected this to ndbm in Python 2.6
+    "lib/module-dbm.html": "library/dbm.html",
+    "lib/module-whichdb.html": "library/dbm.html#dbm.whichdb",
+    "lib/module-gdbm.html": "library/dbm.html#module-dbm.gnu",
+    "lib/dumbdbm-objects.html": "library/dbm.html#module-dbm.dumb",
+
+    // TODO
+    // "lib/module-bsddb.html": "library/dbm.html",
+    // "lib/module-bsddb.html": "library/dbm.html#module-dbm.ndbm",
+    "lib/module-bsddb.html": null,
+    "lib/module-dbhash.html": null,
+    "lib/dbhash-objects.html": null,
+
+    "lib/module-dumbdbm.html": "library/dbm.html#module-dbm.dumb",
+
+    "lib/module-sqlite3.html": "library/sqlite3.html",
+    "lib/sqlite3-Module-Contents.html": "library/sqlite3.html#module-functions-and-constants",
+    "lib/sqlite3-Connection-Objects.html": "library/sqlite3.html#connection-objects",
+    "lib/sqlite3-Cursor-Objects.html": "library/sqlite3.html#cursor-objects",
+    "lib/sqlite3-Types.html": "library/sqlite3.html#sqlite-and-python-types",
+    "lib/sqlite3-Controlling-Transactions.html": "library/sqlite3.html#sqlite3-controlling-transactions",
+
+    "lib/archiving.html": "library/archiving.html",
+
+    "lib/module-zlib.html": "library/zlib.html",
+
+    "lib/module-gzip.html": "library/gzip.html",
+
+    "lib/module-bz2.html": "library/bz2.html",
+
+    "lib/module-zipfile.html": "library/zipfile.html",
+    "lib/zipfile-objects.html": "library/zipfile.html#zipfile-objects",
+    "lib/pyzipfile-objects.html": "library/zipfile.html#pyzipfile-objects",
+    "lib/zipinfo-objects.html": "library/zipfile.html#zipinfo-objects",
+
+    "lib/module-tarfile.html": "library/tarfile.html",
+    "lib/tarfile-objects.html": "library/tarfile.html#tarfile-objects",
+    "lib/tarinfo-objects.html": "library/tarfile.html#tarinfo-objects",
+    "lib/tar-examples.html": "library/tarfile.html#examples",
+
+    "lib/fileformats.html": "library/fileformats.html",
+
+    "lib/module-csv.html": "library/csv.html",
+    "lib/csv-contents.html": "library/csv.html#module-contents",
+    "lib/csv-fmt-params.html": "library/csv.html#dialects-and-formatting-parameters",
+    "lib/csv-examples.html": "library/csv.html#examples",
+
+    "lib/module-ConfigParser.html": "library/configparser.html",
+    "lib/ConfigParser-objects.html": "library/configparser.html#configparser-objects",
+    // TODO: class name changed. Don't redirect?
+    "lib/SafeConfigParser-objects.html": "library/configparser.html#rawconfigparser-objects",
+    "lib/RawConfigParser-objects.html": "library/configparser.html#rawconfigparser-objects",
+
+    "lib/module-netrc.html": "library/netrc.html",
+    "lib/netrc-objects.html": "library/netrc.html#netrc-objects",
+
+    "lib/module-xdrlib.html": "library/xdrlib.html",
+    "lib/xdr-packer-objects.html": "library/xdrlib.html#packer-objects",
+    "lib/xdr-unpacker-objects.html": "library/xdrlib.html#unpacker-objects",
+    "lib/xdr-exceptions.html": "library/xdrlib.html#exceptions",
+
+    "lib/crypto.html": "library/crypto.html",
+
+    "lib/module-hashlib.html": "library/hashlib.html",
+    // TODO: module was removed. Don't redirect?
+    "lib/module-sha.html": "library/hashlib.html",
+    // TODO: module was removed. Don't redirect?
+    "lib/module-md5.html": "library/hashlib.html",
+
+    "lib/module-hmac.html": "library/hmac.html",
+
+    "lib/allos.html": "library/allos.html",
+
+    "lib/module-os.html": "library/os.html",
+    "lib/os-procinfo.html": "library/os.html#process-parameters",
+    "lib/os-newstreams.html": "library/os.html#file-object-creation",
+    "lib/os-fd-ops.html": "library/os.html#file-descriptor-operations",
+    "lib/os-file-dir.html": "library/os.html#files-and-directories",
+    "lib/os-process.html": "library/os.html#process-management",
+    "lib/os-path.html": "library/os.html#miscellaneous-system-information",
+    "lib/os-miscfunc.html": "library/os.html#random-numbers",
+
+    "lib/bltin-file-objects.html": "library/io.html",
+    "lib/module-StringIO.html": "library/io.html#io.StringIO",
+    "lib/module-cStringIO.html": "library/io.html#io.StringIO",
+
+    "lib/module-time.html": "library/time.html",
+
+    "lib/module-getopt.html": "library/getopt.html",
+
+    "lib/module-logging.html": "library/logging.html",
+
+    "lib/logging-config-api.html": "library/logging.config.html#configuration-functions",
+    "lib/logging-config-fileformat.html": "library/logging.config.html#configuration-file-format",
+
+    "lib/module-getpass.html": "library/getpass.html",
+
+    "lib/module-curses.html": "library/curses.html",
+    "lib/curses-functions.html": "library/curses.html#functions",
+    "lib/module-curses.wrapper.html": "library/curses.html#curses.wrapper",
+    "lib/curses-window-objects.html": "library/curses.html#window-objects",
+    "lib/module-curses.textpad.html": "library/curses.html#module-curses.textpad",
+    "lib/curses-textpad-objects.html": "library/curses.html#textbox-objects",
+
+    "lib/module-curses.ascii.html": "library/curses.ascii.html",
+
+    "lib/module-curses.panel.html": "library/curses.panel.html",
+    "lib/cursespanel-functions.html": "library/curses.panel.html#functions",
+    "lib/curses-panel-objects.html": "library/curses.panel.html#panel-objects",
+
+    "lib/module-platform.html": "library/platform.html",
+
+    "lib/module-errno.html": "library/errno.html",
+
+    "lib/module-ctypes.html": "library/ctypes.html",
+    "lib/ctypes-ctypes-tutorial.html": "library/ctypes.html#ctypes-tutorial",
+    "lib/ctypes-loading-dynamic-link-libraries.html": "library/ctypes.html#loading-dynamic-link-libraries",
+    "lib/ctypes-accessing-functions-from-loaded-dlls.html": "library/ctypes.html#accessing-functions-from-loaded-dlls",
+    "lib/ctypes-calling-functions.html": "library/ctypes.html#calling-functions",
+    "lib/ctypes-calling-functions-continued.html": "library/ctypes.html#calling-functions-continued",
+    "lib/ctypes-calling-functions-with-own-custom-data-types.html": "library/ctypes.html#calling-functions-with-your-own-custom-data-types",
+    "lib/ctypes-specifying-required-argument-types.html": "library/ctypes.html#specifying-the-required-argument-types-function-prototypes",
+    "lib/ctypes-return-types.html": "library/ctypes.html#return-types",
+    "lib/ctypes-passing-pointers.html": "library/ctypes.html#passing-pointers-or-passing-parameters-by-reference",
+    "lib/ctypes-structures-unions.html": "library/ctypes.html#structures-and-unions",
+    "lib/ctypes-structureunion-alignment-byte-order.html": "library/ctypes.html#structure-union-alignment-and-byte-order",
+    "lib/ctypes-bit-fields-in-structures-unions.html": "library/ctypes.html#bit-fields-in-structures-and-unions",
+    "lib/ctypes-arrays.html": "library/ctypes.html#arrays",
+    "lib/ctypes-pointers.html": "library/ctypes.html#pointers",
+    "lib/ctypes-type-conversions.html": "library/ctypes.html#type-conversions",
+    "lib/ctypes-incomplete-types.html": "library/ctypes.html#incomplete-types",
+    "lib/ctypes-callback-functions.html": "library/ctypes.html#callback-functions",
+    "lib/ctypes-accessing-values-exported-from-dlls.html": "library/ctypes.html#accessing-values-exported-from-dlls",
+    "lib/ctypes-surprises.html": "library/ctypes.html#surprises",
+    "lib/ctypes-variable-sized-data-types.html": "library/ctypes.html#variable-sized-data-types",
+
+    "lib/ctypes-ctypes-reference.html": "library/ctypes.html#ctypes-reference",
+    "lib/ctypes-finding-shared-libraries.html": "library/ctypes.html#finding-shared-libraries",
+    "lib/ctypes-loading-shared-libraries.html": "library/ctypes.html#loading-shared-libraries",
+    "lib/ctypes-foreign-functions.html": "library/ctypes.html#foreign-functions",
+    "lib/ctypes-function-prototypes.html": "library/ctypes.html#function-prototypes",
+    "lib/ctypes-utility-functions.html": "library/ctypes.html#utility-functions",
+    "lib/ctypes-data-types.html": "library/ctypes.html#data-types",
+    "lib/ctypes-fundamental-data-types.html": "library/ctypes.html#ctypes-fundamental-data-types-2",
+    "lib/ctypes-structured-data-types.html": "library/ctypes.html#structured-data-types",
+    "lib/ctypes-arrays-pointers.html": "library/ctypes.html#arrays-and-pointers",
+
+    "lib/module-threading.html": "library/threading.html",
+    "lib/thread-objects.html": "library/threading.html#thread-objects",
+    "lib/lock-objects.html": "library/threading.html#lock-objects",
+    "lib/rlock-objects.html": "library/threading.html#rlock-objects",
+    "lib/condition-objects.html": "library/threading.html#condition-objects",
+    "lib/semaphore-objects.html": "library/threading.html#semaphore-objects",
+    "lib/semaphore-examples.html": "library/threading.html#semaphore-example",
+    "lib/event-objects.html": "library/threading.html#event-objects",
+    "lib/timer-objects.html": "library/threading.html#timer-objects",
+    "lib/with-locks.html": "library/threading.html#using-locks-conditions-and-semaphores-in-the-with-statement",
+
+    "lib/module-subprocess.html": "library/subprocess.html",
+
+    "lib/module-sched.html": "library/sched.html",
+    "lib/scheduler-objects.html": "library/sched.html#scheduler-objects",
+
+    "lib/module-Queue.html": "library/queue.html",
+    "lib/QueueObjects.html": "library/queue.html#queue-objects",
+
+    "lib/module-thread.html": "library/_thread.html",
+
+    "lib/module-dummythread.html": "library/_dummy_thread.html",
+
+    "lib/module-dummythreading.html": "library/dummy_threading.html",
+
+    "lib/ipc.html": "library/ipc.html",
+
+    "lib/module-socket.html": "library/socket.html",
+    "lib/socket-objects.html": "library/socket.html#socket-objects",
+    "lib/socket-example.html": "library/socket.html#example",
+
+    "lib/module-select.html": "library/select.html",
+    "lib/poll-objects.html": "library/select.html#polling-objects",
+
+    "lib/module-asyncore.html": "library/asyncore.html",
+    "lib/asyncore-example.html": "library/asyncore.html#asyncore-example-basic-http-client",
+
+    "lib/module-asynchat.html": "library/asynchat.html",
+    "lib/asynchat-example.html": "library/asynchat.html#asynchat-example",
+
+    "lib/module-signal.html": "library/signal.html",
+
+    "lib/module-mmap.html": "library/mmap.html",
+
+    "lib/netdata.html": "library/netdata.html",
+
+    "lib/module-email.html": "library/email.html",
+
+    "lib/module-email.parser.html": "library/email.parser.html",
+
+    "lib/module-email.generator.html": "library/email.generator.html",
+
+    "lib/module-email.errors.html": "library/email.errors.html",
+
+    "lib/module-email.message.html": "library/email.compat32-message.html",
+
+    "lib/module-email.mime.text.html": "library/email.mime.html",
+
+    "lib/module-email.header.html": "library/email.header.html",
+
+    "lib/module-email.charset.html": "library/email.charset.html",
+
+    "lib/module-email.encoders.html": "library/email.encoders.html",
+
+    "lib/module-email.utils.html": "library/email.utils.html",
+
+    "lib/module-email.iterators.html": "library/email.iterators.html",
+
+    "lib/module-mailcap.html": "library/mailcap.html",
+
+    "lib/module-mailbox.html": "library/mailbox.html",
+    "lib/mailbox-objects.html": "library/mailbox.html#mailbox-objects",
+    "lib/mailbox-maildir.html": "library/mailbox.html#maildir",
+    "lib/mailbox-mbox.html": "library/mailbox.html#mbox",
+    "lib/mailbox-mh.html": "library/mailbox.html#mh",
+    "lib/mailbox-babyl.html": "library/mailbox.html#babyl",
+    "lib/mailbox-mmdf.html": "library/mailbox.html#mmdf",
+    "lib/mailbox-message-objects.html": "library/mailbox.html#message-objects",
+    "lib/mailbox-maildirmessage.html": "library/mailbox.html#maildirmessage",
+    "lib/mailbox-mboxmessage.html": "library/mailbox.html#mboxmessage",
+    "lib/mailbox-mhmessage.html": "library/mailbox.html#mhmessage",
+    "lib/mailbox-babylmessage.html": "library/mailbox.html#babylmessage",
+    "lib/mailbox-mmdfmessage.html": "library/mailbox.html#mmdfmessage",
+    "lib/mailbox-examples.html": "library/mailbox.html#examples",
+
+    // TODO: don't redirect?
+    "lib/mailbox-mh.html": "library/mailbox.html#mh",
+    "lib/mh-objects.html": "library/mailbox.html#mh",
+    "lib/module-mhlib.html": "library/mailbox.html#mh",
+
+    "lib/module-mimetypes.html": "library/mimetypes.html",
+    "lib/mimetypes-objects.html": "library/mimetypes.html#mimetypes-objects",
+
+    "lib/module-base64.html": "library/base64.html",
+
+    "lib/module-binhex.html": "library/binhex.html",
+    "lib/binhex-notes.html": "library/binhex.html#notes",
+
+    "lib/module-binascii.html": "library/binascii.html",
+
+    "lib/module-quopri.html": "library/quopri.html",
+
+    "lib/module-uu.html": "library/uu.html",
+
+    "lib/markup.html": "library/markup.html",
+
+    "lib/module-htmllib.html": "library/html.parser.html",
+    "lib/htmlparser-example.html": "library/html.parser.html#examples",
+
+    // TODO: this is a diferent HTMLParser object. Redirect?
+    // "lib/html-parser-objects.html": "library/html.parser.html",
+    // "lib/module-HTMLParser.html": null,
+    "lib/html-parser-objects.html": null,
+    "lib/module-HTMLParser.html": "library/html.parser.html",
+
+    "lib/module-htmlentitydefs.html": "library/html.entities.html",
+
+    "lib/module-xml.etree.ElementTree.html": "library/xml.etree.elementtree.html",
+    "lib/elementtree-functions.html": "library/xml.etree.elementtree.html#functions",
+    "lib/elementtree-elementtree-objects.html": "library/xml.etree.elementtree.html#elementtree-objects",
+    "lib/elementtree-qname-objects.html": "library/xml.etree.elementtree.html#qname-objects",
+    // TODO: class renamed, don't redirect?
+    "lib/elementtree-treebuilder-objects.html": "library/xml.etree.elementtree.html#treebuilder-objects",
+    "lib/elementtree-xmltreebuilder-objects.html": "library/xml.etree.elementtree.html#xmlparser-objects",
+
+    "lib/module-xml.dom.html": "library/xml.dom.html",
+    "lib/dom-implementation-objects.html": "library/xml.dom.html#domimplementation-objects",
+    "lib/dom-node-objects.html": "library/xml.dom.html#node-objects",
+    "lib/dom-nodelist-objects.html": "library/xml.dom.html#nodelist-objects",
+    "lib/dom-documenttype-objects.html": "library/xml.dom.html#documenttype-objects",
+    "lib/dom-document-objects.html": "library/xml.dom.html#document-objects",
+    "lib/dom-element-objects.html": "library/xml.dom.html#element-objects",
+    "lib/dom-attr-objects.html": "library/xml.dom.html#attr-objects",
+    "lib/dom-attributelist-objects.html": "library/xml.dom.html#namednodemap-objects",
+    "lib/dom-comment-objects.html": "library/xml.dom.html#comment-objects",
+    "lib/dom-text-objects.html": "library/xml.dom.html#text-and-cdatasection-objects",
+    "lib/dom-pi-objects.html": "library/xml.dom.html#processinginstruction-objects",
+    "lib/dom-exceptions.html": "library/xml.dom.html#exceptions",
+    "lib/dom-conformance.html": "library/xml.dom.html#conformance",
+    "lib/dom-type-mapping.html": "library/xml.dom.html#type-mapping",
+    "lib/dom-accessor-methods.html": "library/xml.dom.html#accessor-methods",
+
+    "lib/module-xml.dom.minidom.html": "library/xml.dom.minidom.html",
+    "lib/dom-objects.html": "library/xml.dom.minidom.html#dom-objects",
+    "lib/dom-example.html": "library/xml.dom.minidom.html#dom-example",
+    "lib/minidom-and-dom.html": "library/xml.dom.minidom.html#minidom-and-the-dom-standard",
+
+    "lib/module-xml.dom.pulldom.html": "library/xml.dom.pulldom.html",
+    "lib/domeventstream-objects.html": "library/xml.dom.pulldom.html#domeventstream-objects",
+
+    "lib/module-xml.sax.html": "library/xml.sax.html",
+    "lib/sax-exception-objects.html": "library/xml.sax.html#saxexception-objects",
+
+    "lib/module-xml.sax.handler.html": "library/xml.sax.handler.html",
+    "lib/content-handler-objects.html": "library/xml.sax.handler.html#contenthandler-objects",
+    "lib/dtd-handler-objects.html": "library/xml.sax.handler.html#dtdhandler-objects",
+    "lib/entity-resolver-objects.html": "library/xml.sax.handler.html#entityresolver-objects",
+    "lib/sax-error-handler.html": "library/xml.sax.handler.html#errorhandler-objects",
+
+    "lib/module-xml.sax.saxutils.html": "library/xml.sax.utils.html",
+
+    "lib/module-xml.sax.xmlreader.html": "library/xml.sax.reader.html",
+    "lib/xmlreader-objects.html": "library/xml.sax.reader.html#xmlreader-objects",
+    "lib/incremental-parser-objects.html": "library/xml.sax.reader.html#incrementalparser-objects",
+    "lib/locator-objects.html": "library/xml.sax.reader.html#locator-objects",
+    "lib/input-source-objects.html": "library/xml.sax.reader.html#inputsource-objects",
+    "lib/attributes-objects.html": "library/xml.sax.reader.html#the-attributes-interface",
+    "lib/attributes-ns-objects.html": "library/xml.sax.reader.html#the-attributesns-interface",
+
+    "lib/module-xml.parsers.expat.html": "library/pyexpat.html",
+    "lib/xmlparser-objects.html": "library/pyexpat.html#xmlparser-objects",
+    "lib/expaterror-objects.html": "library/pyexpat.html#expaterror-exceptions",
+    "lib/expat-example.html": "library/pyexpat.html#example",
+    "lib/expat-content-models.html": "library/pyexpat.html#module-xml.parsers.expat.model",
+    "lib/expat-errors.html": "library/pyexpat.html#module-xml.parsers.expat.errors",
+
+    "lib/internet.html": "library/internet.html",
+
+    "lib/module-webbrowser.html": "library/webbrowser.html",
+    "lib/browser-controllers.html": "library/webbrowser.html#browser-controller-objects",
+
+    "lib/module-cgi.html": "library/cgi.html",
+    "lib/cgi-intro.html": "library/cgi.html#introduction",
+    "lib/cgi-security.html": "library/cgi.html#caring-about-security",
+
+    "lib/module-cgitb.html": "library/cgitb.html",
+
+    "lib/module-wsgiref.html": "library/wsgiref.html",
+    "lib/module-wsgiref.util.html": "library/wsgiref.html#module-wsgiref.util",
+    "lib/module-wsgiref.headers.html": "library/wsgiref.html#module-wsgiref.headers",
+    "lib/module-wsgiref.simpleserver.html": "library/wsgiref.html#module-wsgiref.simple_server",
+    "lib/module-wsgiref.validate.html": "library/wsgiref.html#module-wsgiref.validate",
+    "lib/module-wsgiref.handlers.html": "library/wsgiref.html#module-wsgiref.handlers",
+
+    "lib/module-urllib2.html": "library/urllib.request.html",
+    "lib/module-urllib.html": "library/urllib.request.html",
+    "lib/request-objects.html": "library/urllib.request.html#request-objects",
+    "lib/opener-director-objects.html": "library/urllib.request.html#openerdirector-objects",
+    "lib/base-handler-objects.html": "library/urllib.request.html#basehandler-objects",
+    "lib/http-redirect-handler.html": "library/urllib.request.html#httpredirecthandler-objects",
+    "lib/http-cookie-processor.html": "library/urllib.request.html#httpcookieprocessor-objects",
+    "lib/proxy-handler.html": "library/urllib.request.html#proxyhandler-objects",
+    "lib/http-password-mgr.html": "library/urllib.request.html#httppasswordmgr-objects",
+    "lib/abstract-basic-auth-handler.html": "library/urllib.request.html#abstractbasicauthhandler-objects",
+    "lib/http-basic-auth-handler.html": "library/urllib.request.html#httpbasicauthhandler-objects",
+    "lib/proxy-basic-auth-handler.html": "library/urllib.request.html#proxybasicauthhandler-objects",
+    "lib/abstract-digest-auth-handler.html": "library/urllib.request.html#abstractdigestauthhandler-objects",
+    "lib/http-digest-auth-handler.html": "library/urllib.request.html#httpdigestauthhandler-objects",
+    "lib/proxy-digest-auth-handler.html": "library/urllib.request.html#proxydigestauthhandler-objects",
+    "lib/http-handler-objects.html": "library/urllib.request.html#httphandler-objects",
+    "lib/https-handler-objects.html": "library/urllib.request.html#httpshandler-objects",
+    "lib/file-handler-objects.html": "library/urllib.request.html#filehandler-objects",
+    "lib/ftp-handler-objects.html": "library/urllib.request.html#ftphandler-objects",
+    "lib/cacheftp-handler-objects.html": "library/urllib.request.html#cacheftphandler-objects",
+    "lib/unknown-handler-objects.html": "library/urllib.request.html#unknownhandler-objects",
+    "lib/http-error-processor-objects.html": "library/urllib.request.html#httperrorprocessor-objects",
+    "lib/urllib2-examples.html": "library/urllib.request.html#examples",
+    "lib/urlopener-objs.html": "library/urllib.request.html#urllib.request.URLopener",
+
+    "lib/module-urlparse.html": "library/urllib.parse.html",
+    "lib/urlparse-result-object.html": "library/urllib.parse.html#structured-parse-results",
+
+    "lib/module-robotparser.html": "library/urllib.robotparser.html",
+
+    "lib/module-httplib.html": "library/http.client.html",
+    "lib/httpconnection-objects.html": "library/http.client.html#httpconnection-objects",
+    "lib/httpresponse-objects.html": "library/http.client.html#httpresponse-objects",
+    "lib/httplib-examples.html": "library/http.client.html#examples",
+
+    "lib/module-ftplib.html": "library/ftplib.html",
+    "lib/ftp-objects.html": "library/ftplib.html#ftp-objects",
+
+    "lib/module-poplib.html": "library/poplib.html",
+    "lib/pop3-objects.html": "library/poplib.html#pop3-objects",
+    "lib/pop3-example.html": "library/poplib.html#pop3-example",
+
+    "lib/module-imaplib.html": "library/imaplib.html",
+    "lib/imap4-objects.html": "library/imaplib.html#imap4-objects",
+    "lib/imap4-example.html": "library/imaplib.html#imap4-example",
+
+    "lib/module-nntplib.html": "library/nntplib.html",
+    "lib/nntp-objects.html": "library/nntplib.html#nntp-objects",
+
+    "lib/module-smtplib.html": "library/smtplib.html",
+    "lib/SMTP-objects.html": "library/smtplib.html#smtp-objects",
+    "lib/SMTP-example.html": "library/smtplib.html#smtp-example",
+
+    "lib/module-smtpd.html": "library/smtpd.html",
+
+    "lib/module-telnetlib.html": "library/telnetlib.html",
+    "lib/telnet-objects.html": "library/telnetlib.html#telnet-objects",
+    "lib/telnet-example.html": "library/telnetlib.html#telnet-example",
+
+    "lib/module-uuid.html": "library/uuid.html",
+    "lib/uuid-example.html": "library/uuid.html#example",
+
+    "lib/module-SocketServer.html": "library/socketserver.html",
+
+    "lib/module-BaseHTTPServer.html": "library/http.server.html",
+    "lib/module-SimpleHTTPServer.html": "library/http.server.html#http.server.SimpleHTTPRequestHandler",
+    "lib/module-CGIHTTPServer.html": "library/http.server.html#http.server.CGIHTTPRequestHandler",
+
+    "lib/module-Cookie.html": "library/http.cookies.html",
+    "lib/cookie-objects.html": "library/http.cookies.html#cookie-objects",
+    "lib/morsel-objects.html": "library/http.cookies.html#morsel-objects",
+    "lib/cookie-example.html": "library/http.cookies.html#example",
+
+    "lib/module-cookielib.html": "library/http.cookiejar.html",
+    "lib/cookie-jar-objects.html": "library/http.cookiejar.html#cookiejar-and-filecookiejar-objects",
+    "lib/file-cookie-jar-classes.html": "library/http.cookiejar.html#filecookiejar-subclasses-and-co-operation-with-web-browsers",
+    "lib/cookie-policy-objects.html": "library/http.cookiejar.html#cookiepolicy-objects",
+    "lib/default-cookie-policy-objects.html": "library/http.cookiejar.html#defaultcookiepolicy-objects",
+    "lib/cookielib-examples.html": "library/http.cookiejar.html#examples",
+
+    "lib/module-xmlrpclib.html": "library/xmlrpc.client.html",
+    "lib/serverproxy-objects.html": "library/xmlrpc.client.html#serverproxy-objects",
+    "lib/datetime-objects.html": "library/xmlrpc.client.html#datetime-objects",
+    "lib/binary-objects.html": "library/xmlrpc.client.html#binary-objects",
+    "lib/fault-objects.html": "library/xmlrpc.client.html#fault-objects",
+    "lib/protocol-error-objects.html": "library/xmlrpc.client.html#protocolerror-objects",
+    "lib/xmlrpc-client-example.html": "library/xmlrpc.client.html#example-of-client-usage",
+
+    "lib/module-SimpleXMLRPCServer.html": "library/xmlrpc.server.html",
+    "lib/simple-xmlrpc-servers.html": "library/xmlrpc.server.html#simplexmlrpcserver-objects",
+    "lib/module-DocXMLRPCServer.html": "library/xmlrpc.server.html#documenting-xmlrpc-server",
+    "lib/doc-xmlrpc-servers.html": "library/xmlrpc.server.html#docxmlrpcserver-objects",
+
+    "lib/mmedia.html": "library/mm.html",
+
+    "lib/module-audioop.html": "library/audioop.html",
+
+    "lib/module-aifc.html": "library/aifc.html",
+
+    "lib/module-sunau.html": "library/sunau.html",
+    "lib/au-read-objects.html": "library/sunau.html#au-read-objects",
+    "lib/au-write-objects.html": "library/sunau.html#au-write-objects",
+
+    "lib/module-wave.html": "library/wave.html",
+    "lib/Wave-read-objects.html": "library/wave.html#wave-read-objects",
+    "lib/Wave-write-objects.html": "library/wave.html#wave-write-objects",
+
+    "lib/module-chunk.html": "library/chunk.html",
+
+    "lib/module-colorsys.html": "library/colorsys.html",
+
+    "lib/module-imghdr.html": "library/imghdr.html",
+
+    "lib/module-sndhdr.html": "library/sndhdr.html",
+
+    "lib/module-ossaudiodev.html": "library/ossaudiodev.html",
+    "lib/ossaudio-device-objects.html": "library/ossaudiodev.html#audio-device-objects",
+    "lib/mixer-device-objects.html": "library/ossaudiodev.html#mixer-device-objects",
+
+    "lib/i18n.html": "library/i18n.html",
+
+    "lib/module-gettext.html": "library/gettext.html",
+
+    "lib/module-locale.html": "library/locale.html",
+    "lib/embedding-locale.html": "library/locale.html#for-extension-writers-and-programs-that-embed-python",
+    "lib/locale-gettext.html": "library/locale.html#access-to-message-catalogs",
+
+    "lib/frameworks.html": "library/frameworks.html",
+
+    "lib/module-turtle.html": "library/turtle.html",
+    "lib/pen-rawpen-objects.html": "library/turtle.html#settings-for-measurement",
+
+    "lib/module-cmd.html": "library/cmd.html",
+    "lib/Cmd-objects.html": "library/cmd.html#cmd-objects",
+
+    "lib/module-shlex.html": "library/shlex.html",
+    "lib/shlex-objects.html": "library/shlex.html#shlex-objects",
+    "lib/shlex-parsing-rules.html": "library/shlex.html#parsing-rules",
+
+    "lib/tkinter.html": "library/tk.html",
+
+    "lib/module-Tkinter.html": "library/tkinter.html",
+    "lib/tkinter-basic-mapping.html": "library/tkinter.html#mapping-basic-tk-into-tkinter",
+    "lib/tkinter-setting-options.html": "library/tkinter.html#setting-options",
+
+    "lib/module-Tix.html": "library/tkinter.tix.html",
+
+    "lib/module-ScrolledText.html": "library/tkinter.scrolledtext.html",
+
+    "lib/idle.html": "library/idle.html",
+
+    "lib/other-gui-packages.html": "library/othergui.html",
+
+    "lib/development.html": "library/development.html",
+
+    "lib/module-pydoc.html": "library/pydoc.html",
+
+    "lib/module-doctest.html": "library/doctest.html",
+    "lib/doctest-simple-testmod.html": "library/doctest.html#simple-usage-checking-examples-in-docstrings",
+    "lib/doctest-simple-testfile.html": "library/doctest.html#simple-usage-checking-examples-in-a-text-file",
+    "lib/doctest-how-it-works.html": "library/doctest.html#how-it-works",
+    "lib/doctest-which-docstrings.html": "library/doctest.html#which-docstrings-are-examined",
+    "lib/doctest-finding-examples.html": "library/doctest.html#how-are-docstring-examples-recognized",
+    "lib/doctest-execution-context.html": "library/doctest.html#what-s-the-execution-context",
+    "lib/doctest-exceptions.html": "library/doctest.html#what-about-exceptions",
+    "lib/doctest-options.html": "library/doctest.html#option-flags",
+    "lib/doctest-warnings.html": "library/doctest.html#warnings",
+    "lib/doctest-basic-api.html": "library/doctest.html#basic-api",
+    "lib/doctest-unittest-api.html": "library/doctest.html#unittest-api",
+    "lib/doctest-advanced-api.html": "library/doctest.html#advanced-api",
+    "lib/doctest-DocTest.html": "library/doctest.html#doctest-objects",
+    "lib/doctest-Example.html": "library/doctest.html#example-objects",
+    "lib/doctest-DocTestFinder.html": "library/doctest.html#doctestfinder-objects",
+    "lib/doctest-DocTestParser.html": "library/doctest.html#doctestparser-objects",
+    "lib/doctest-DocTestRunner.html": "library/doctest.html#doctestrunner-objects",
+    "lib/doctest-OutputChecker.html": "library/doctest.html#outputchecker-objects",
+    "lib/doctest-debugging.html": "library/doctest.html#debugging",
+    "lib/doctest-soapbox.html": "library/doctest.html#soapbox",
+
+    "lib/module-unittest.html": "library/unittest.html",
+    "lib/minimal-example.html": "library/unittest.html#basic-example",
+    "lib/organizing-tests.html": "library/unittest.html#organizing-test-code",
+    "lib/legacy-unit-tests.html": "library/unittest.html#re-using-old-test-code",
+    "lib/unittest-contents.html": "library/unittest.html#classes-and-functions",
+    "lib/testcase-objects.html": "library/unittest.html#unittest.TestCase",
+    "lib/testsuite-objects.html": "library/unittest.html#unittest.TestSuite",
+    "lib/testloader-objects.html": "library/unittest.html#unittest.TestLoader",
+    "lib/testresult-objects.html": "library/unittest.html#unittest.TestResult",
+
+    "lib/module-test.html": "library/test.html",
+    "lib/writing-tests.html": "library/test.html#writing-unit-tests-for-the-test-package",
+    "lib/regrtest.html": "library/test.html#running-tests-using-the-command-line-interface",
+    "lib/module-test.testsupport.html": "library/test.html#module-test.support",
+
+    "lib/module-pdb.html": "library/pdb.html",
+    "lib/debugger-commands.html": "library/pdb.html#debugger-commands",
+
+    "lib/profile.html": "library/profile.html",
+    // TODO: don't redirect hotshot?
+    "lib/module-hotshot.html": "library/profile.html",
+    "lib/module-hotshot.stats.html": "library/profile.html",
+    "lib/profile-instant.html": "library/profile.html#instant-user-s-manual",
+    "lib/hotshot-objects.html": "library/profile.html#module-cProfile",
+    "lib/module-profile.html": "library/profile.html#module-cProfile",
+    "lib/profile-stats.html": "library/profile.html#the-stats-class",
+    "lib/profile-limits.html": "library/profile.html#limitations",
+    "lib/profile-calibration.html": "library/profile.html#calibration",
+
+    "lib/module-timeit.html": "library/timeit.html",
+
+    "lib/module-trace.html": "library/trace.html",
+    "lib/trace-cli.html": "library/trace.html#command-line-usage",
+    "lib/trace-api.html": "library/trace.html#programmatic-interface",
+
+    "lib/module-distutils.html": "library/distutils.html",
+
+    "lib/python.html": "library/python.html",
+
+    "lib/module-sys.html": "library/sys.html",
+
+    "lib/module-builtin.html": "library/builtins.html",
+
+    "lib/module-main.html": "library/__main__.html",
+
+    "lib/module-warnings.html": "library/warnings.html",
+    "lib/warning-categories.html": "library/warnings.html#warning-categories",
+    "lib/warning-filter.html": "library/warnings.html#the-warnings-filter",
+    "lib/warning-functions.html": "library/warnings.html#available-functions",
+
+    "lib/module-contextlib.html": "library/contextlib.html",
+
+    "lib/module-atexit.html": "library/atexit.html",
+    "lib/atexit-example.html": "library/atexit.html#atexit-example",
+
+    "lib/module-traceback.html": "library/traceback.html",
+    "lib/traceback-example.html": "library/traceback.html#traceback-examples",
+
+    "lib/module-future.html": "library/__future__.html",
+
+    "lib/module-gc.html": "library/gc.html",
+
+    "lib/module-inspect.html": "library/inspect.html",
+    "lib/inspect-types.html": "library/inspect.html#types-and-members",
+    "lib/inspect-source.html": "library/inspect.html#retrieving-source-code",
+    "lib/inspect-classes-functions.html": "library/inspect.html#classes-and-functions",
+    "lib/inspect-stack.html": "library/inspect.html#the-interpreter-stack",
+
+    "lib/module-site.html": "library/site.html",
+
+    "lib/custominterp.html": "library/custominterp.html",
+
+    "lib/module-code.html": "library/code.html",
+    "lib/interpreter-objects.html": "library/code.html#interactive-interpreter-objects",
+    "lib/console-objects.html": "library/code.html#interactive-console-objects",
+
+    "lib/module-codeop.html": "library/codeop.html",
+
+    "lib/modules.html": "library/modules.html",
+
+    "lib/module-zipimport.html": "library/zipimport.html",
+    "lib/zipimporter-objects.html": "library/zipimport.html#zipimporter-objects",
+
+    "lib/module-pkgutil.html": "library/pkgutil.html",
+
+    "lib/module-modulefinder.html": "library/modulefinder.html",
+
+    "lib/module-runpy.html": "library/runpy.html",
+
+    // TODO: the "compiler" package was removed
+    "lib/compiler.html": "library/language.html",
+    "lib/language.html": "library/language.html",
+
+    "lib/module-parser.html": "library/parser.html",
+
+    "lib/module-compiler.ast.html": "library/ast.html",
+    "lib/ast.html": "library/ast.html",
+    // TODO: this isn't great, the API changed.
+    "lib/module-compiler.visitor.html": "library/ast.html#ast.NodeVisitor",
+
+    "lib/module-symbol.html": "library/symbol.html",
+
+    "lib/module-token.html": "library/token.html",
+
+    "lib/module-keyword.html": "library/keyword.html",
+
+    "lib/module-tokenize.html": "library/tokenize.html",
+
+    "lib/module-tabnanny.html": "library/tabnanny.html",
+
+    "lib/module-pyclbr.html": "library/pyclbr.html",
+    "lib/pyclbr-function-objects.html": "library/pyclbr.html#function-objects",
+    "lib/pyclbr-class-objects.html": "library/pyclbr.html#class-objects",
+
+    "lib/module-pycompile.html": "library/py_compile.html",
+
+    "lib/module-compileall.html": "library/compileall.html",
+
+    "lib/module-dis.html": "library/dis.html",
+    "lib/bytecodes.html": "library/dis.html#python-bytecode-instructions",
+
+    "lib/module-pickletools.html": "library/pickletools.html",
+
+    "lib/misc.html": "library/misc.html",
+
+    "lib/module-formatter.html": "library/formatter.html",
+    "lib/formatter-interface.html": "library/formatter.html#the-formatter-interface",
+    "lib/formatter-impls.html": "library/formatter.html#formatter-implementations",
+    "lib/writer-interface.html": "library/formatter.html#the-writer-interface",
+    "lib/writer-impls.html": "library/formatter.html#writer-implementations",
+
+    "lib/module-msilib.html": "library/msilib.html",
+    "lib/database-objects.html": "library/msilib.html#database-objects",
+    "lib/view-objects.html": "library/msilib.html#view-objects",
+    "lib/summary-objects.html": "library/msilib.html#summary-information-objects",
+    "lib/record-objects.html": "library/msilib.html#record-objects",
+    "lib/msi-errors.html": "library/msilib.html#errors",
+    "lib/cab.html": "library/msilib.html#cab-objects",
+    "lib/msi-directory.html": "library/msilib.html#directory-objects",
+    "lib/features.html": "library/msilib.html#features",
+    "lib/msi-gui.html": "library/msilib.html#gui-classes",
+    "lib/msi-tables.html": "library/msilib.html#precomputed-tables",
+
+    "lib/module-msvcrt.html": "library/msvcrt.html",
+    "lib/msvcrt-files.html": "library/msvcrt.html#file-operations",
+    "lib/msvcrt-console.html": "library/msvcrt.html#console-i-o",
+    "lib/msvcrt-other.html": "library/msvcrt.html#other-functions",
+
+    "lib/module--winreg.html": "library/winreg.html",
+    "lib/handle-object.html": "library/winreg.html#registry-handle-objects",
+
+    "lib/module-winsound.html": "library/winsound.html",
+
+    "lib/unix.html": "library/unix.html",
+
+    "lib/module-posix.html": "library/posix.html",
+    "lib/posix-large-files.html": "library/posix.html#large-file-support",
+    "lib/posix-contents.html": "library/posix.html#notable-module-contents",
+
+    "lib/module-pwd.html": "library/pwd.html",
+
+    "lib/module-spwd.html": "library/spwd.html",
+
+    "lib/module-grp.html": "library/grp.html",
+
+    "lib/module-crypt.html": "library/crypt.html",
+
+    "lib/module-termios.html": "library/termios.html",
+
+    "lib/module-tty.html": "library/tty.html",
+
+    "lib/module-pty.html": "library/pty.html",
+
+    "lib/module-fcntl.html": "library/fcntl.html",
+
+    "lib/module-pipes.html": "library/pipes.html",
+    "lib/template-objects.html": "library/pipes.html#template-objects",
+
+    "lib/module-resource.html": "library/resource.html",
+
+    "lib/module-nis.html": "library/nis.html",
+
+    "lib/module-syslog.html": "library/syslog.html",
+
+    "lib/module-optparse.html": "library/optparse.html",
+    "lib/optparse-background.html": "library/optparse.html#background",
+    "lib/optparse-terminology.html": "library/optparse.html#terminology",
+    "lib/optparse-what-options-for.html": "library/optparse.html#what-are-options-for",
+    "lib/optparse-what-positional-arguments-for.html": "library/optparse.html#what-are-positional-arguments-for",
+    "lib/optparse-tutorial.html": "library/optparse.html#tutorial",
+    "lib/optparse-understanding-option-actions.html": "library/optparse.html#understanding-option-actions",
+    "lib/optparse-store-action.html": "library/optparse.html#the-store-action",
+    "lib/optparse-handling-boolean-options.html": "library/optparse.html#handling-boolean-flag-options",
+    "lib/optparse-other-actions.html": "library/optparse.html#other-actions",
+    "lib/optparse-default-values.html": "library/optparse.html#default-values",
+    "lib/optparse-generating-help.html": "library/optparse.html#generating-help",
+    "lib/optparse-printing-version-string.html": "library/optparse.html#printing-a-version-string",
+    "lib/optparse-how-optparse-handles-errors.html": "library/optparse.html#how-optparse-handles-errors",
+    "lib/optparse-putting-it-all-together.html": "library/optparse.html#putting-it-all-together",
+    "lib/optparse-reference-guide.html": "library/optparse.html#reference-guide",
+    "lib/optparse-creating-parser.html": "library/optparse.html#creating-the-parser",
+    "lib/optparse-populating-parser.html": "library/optparse.html#populating-the-parser",
+    "lib/optparse-defining-options.html": "library/optparse.html#defining-options",
+    "lib/optparse-option-attributes.html": "library/optparse.html#option-attributes",
+    "lib/optparse-standard-option-actions.html": "library/optparse.html#standard-option-actions",
+    "lib/optparse-standard-option-types.html": "library/optparse.html#standard-option-types",
+    "lib/optparse-parsing-arguments.html": "library/optparse.html#parsing-arguments",
+    "lib/optparse-querying-manipulating-option-parser.html": "library/optparse.html#querying-and-manipulating-your-option-parser",
+    "lib/optparse-conflicts-between-options.html": "library/optparse.html#conflicts-between-options",
+    "lib/optparse-cleanup.html": "library/optparse.html#cleanup",
+    "lib/optparse-other-methods.html": "library/optparse.html#other-methods",
+    "lib/optparse-option-callbacks.html": "library/optparse.html#option-callbacks",
+    "lib/optparse-defining-callback-option.html": "library/optparse.html#defining-a-callback-option",
+    "lib/optparse-how-callbacks-called.html": "library/optparse.html#how-callbacks-are-called",
+    "lib/optparse-raising-errors-in-callback.html": "library/optparse.html#raising-errors-in-a-callback",
+    "lib/optparse-callback-example-1.html": "library/optparse.html#callback-example-1-trivial-callback",
+    "lib/optparse-callback-example-2.html": "library/optparse.html#callback-example-2-check-option-order",
+    "lib/optparse-callback-example-3.html": "library/optparse.html#callback-example-3-check-option-order-generalized",
+    "lib/optparse-callback-example-4.html": "library/optparse.html#callback-example-4-check-arbitrary-condition",
+    "lib/optparse-callback-example-5.html": "library/optparse.html#callback-example-5-fixed-arguments",
+    "lib/optparse-callback-example-6.html": "library/optparse.html#callback-example-6-variable-arguments",
+    "lib/optparse-extending-optparse.html": "library/optparse.html#extending-optparse",
+    "lib/optparse-adding-new-types.html": "library/optparse.html#adding-new-types",
+    "lib/optparse-adding-new-actions.html": "library/optparse.html#adding-new-actions",
+
+    "lib/module-imp.html": "library/imp.html",
+    "lib/examples-imp.html": "library/imp.html#examples",
+
+    "lib/undoc.html": "library/undoc.html",
+
+    "ext/about.html": "extending/index.html",
+    "ext/contents.html": "extending/index.html",
+    "ext/ext.html": "extending/index.html",
+    "ext/front.html": "extending/index.html",
+    "ext/index.html": "extending/index.html",
+
+    "ext/intro.html": "extending/extending.html",
+    "ext/simpleExample.html": "extending/extending.html#a-simple-example",
+    "ext/errors.html": "extending/extending.html#intermezzo-errors-and-exceptions",
+    "ext/backToExample.html": "extending/extending.html#back-to-the-example",
+    "ext/methodTable.html": "extending/extending.html#the-module-s-method-table-and-initialization-function",
+    "ext/compilation.html": "extending/extending.html#compilation-and-linkage",
+    "ext/callingPython.html": "extending/extending.html#calling-python-functions-from-c",
+    "ext/parseTuple.html": "extending/extending.html#extracting-parameters-in-extension-functions",
+    "ext/parseTupleAndKeywords.html": "extending/extending.html#keyword-parameters-for-extension-functions",
+    "ext/buildValue.html": "extending/extending.html#building-arbitrary-values",
+    "ext/refcounts.html": "extending/extending.html#reference-counts",
+    "ext/refcountsInPython.html": "extending/extending.html#reference-counting-in-python",
+    "ext/ownershipRules.html": "extending/extending.html#ownership-rules",
+    "ext/thinIce.html": "extending/extending.html#thin-ice",
+    "ext/nullPointers.html": "extending/extending.html#null-pointers",
+    "ext/cplusplus.html": "extending/extending.html#writing-extensions-in-c",
+    "ext/using-cobjects.html": "extending/extending.html#providing-a-c-api-for-an-extension-module",
+
+    "ext/defining-new-types.html": "extending/newtypes_tutorial.html",
+    "ext/dnt-basics.html": "extending/newtypes_tutorial.html#the-basics",
+
+    "ext/dnt-type-methods.html": "extending/newtypes.html",
+    "ext/weakref-support.html": "extending/newtypes.html#weak-reference-support",
+
+    "ext/building.html": "extending/building.html#building-c-and-c-extensions-with-distutils",
+    "ext/distributing.html": "extending/building.html#distributing-your-extension-modules",
+
+    "ext/building-on-windows.html": "extending/windows.html",
+    "ext/win-cookbook.html": "extending/windows.html#a-cookbook-approach",
+    "ext/dynamic-linking.html": "extending/windows.html#differences-between-unix-and-windows",
+    "ext/win-dlls.html": "extending/windows.html#using-dlls-in-practice",
+
+    "ext/embedding.html": "extending/embedding.html",
+    "ext/high-level-embedding.html": "extending/embedding.html#very-high-level-embedding",
+    "ext/lower-level-embedding.html": "extending/embedding.html#beyond-very-high-level-embedding-an-overview",
+    "ext/pure-embedding.html": "extending/embedding.html#pure-embedding",
+    "ext/extending-with-embedding.html": "extending/embedding.html#extending-embedded-python",
+    "ext/embeddingInCplusplus.html": "extending/embedding.html#embedding-python-in-c",
+    "ext/link-reqs.html": "extending/embedding.html#compiling-and-linking-under-unix-like-systems",
+
+    "api/about.html": "c-api/index.html",
+    "api/api.html": "c-api/index.html",
+    "api/contents.html": "c-api/index.html",
+    "api/front.html": "c-api/index.html",
+    "api/index.html": "c-api/index.html",
+
+    "api/intro.html": "c-api/intro.html",
+    "api/includes.html": "c-api/intro.html#include-files",
+    "api/objects.html": "c-api/intro.html#objects-types-and-reference-counts",
+    "api/refcounts.html": "c-api/intro.html#reference-counts",
+    "api/refcountDetails.html": "c-api/intro.html#reference-count-details",
+    "api/types.html": "c-api/intro.html#types",
+    "api/exceptions.html": "c-api/intro.html#exceptions",
+    "api/embedding.html": "c-api/intro.html#embedding-python",
+    "api/debugging.html": "c-api/intro.html#debugging-builds",
+
+    "api/veryhigh.html": "c-api/veryhigh.html",
+
+    "api/countingRefs.html": "c-api/refcounting.html",
+
+    "api/exceptionHandling.html": "c-api/exceptions.html",
+    "api/standardExceptions.html": "c-api/exceptions.html#standard-exceptions",
+
+    "api/utilities.html": "c-api/utilities.html",
+
+    "api/os.html": "c-api/sys.html",
+    "api/processControl.html": "c-api/sys.html#process-control",
+
+    "api/importing.html": "c-api/import.html",
+
+    "api/marshalling-utils.html": "c-api/marshal.html",
+
+    "api/arg-parsing.html": "c-api/arg.html",
+
+    "api/string-formatting.html": "c-api/conversion.html",
+
+    "api/abstract.html": "c-api/abstract.html",
+
+    "api/object.html": "c-api/object.html",
+
+    "api/number.html": "c-api/number.html",
+
+    "api/sequence.html": "c-api/sequence.html",
+
+    "api/mapping.html": "c-api/mapping.html",
+
+    "api/iterator.html": "c-api/iter.html",
+
+    "api/abstract-buffer.html": "c-api/objbuffer.html",
+
+    "api/concrete.html": "c-api/concrete.html",
+    "api/fundamental.html": "c-api/concrete.html#fundamental-objects",
+    "api/numericObjects.html": "c-api/concrete.html#numeric-objects",
+    "api/sequenceObjects.html": "c-api/concrete.html#sequence-objects",
+    "api/mapObjects.html": "c-api/concrete.html#container-objects",
+    "api/otherObjects.html": "c-api/concrete.html#other-objects",
+
+    "api/typeObjects.html": "c-api/type.html",
+
+    "api/noneObject.html": "c-api/none.html",
+
+    "api/intObjects.html": "c-api/long.html",
+    "api/longObjects.html": "c-api/long.html",
+
+    "api/boolObjects.html": "c-api/bool.html",
+
+    "api/floatObjects.html": "c-api/float.html",
+
+    "api/complexObjects.html": "c-api/complex.html",
+
+    "api/unicodeObjects.html": "c-api/unicode.html",
+    "api/stringObjects.html": "c-api/unicode.html",
+    "api/builtinCodecs.html": "c-api/unicode.html#built-in-codecs",
+    "api/unicodeMethodsAndSlots.html": "c-api/unicode.html#methods-and-slot-functions",
+
+    "api/tupleObjects.html": "c-api/tuple.html",
+
+    "api/listObjects.html": "c-api/list.html",
+
+    "api/dictObjects.html": "c-api/dict.html",
+
+    "api/setObjects.html": "c-api/set.html",
+
+    "api/function-objects.html": "c-api/function.html",
+
+    "api/instanceObjects.html": "c-api/method.html",
+    "api/method-objects.html": "c-api/method.html#method-objects",
+
+    "api/cell-objects.html": "c-api/cell.html",
+
+    "api/fileObjects.html": "c-api/file.html",
+
+    "api/moduleObjects.html": "c-api/module.html",
+
+    "api/iterator-objects.html": "c-api/iterator.html",
+
+    "api/descriptor-objects.html": "c-api/descriptor.html",
+
+    "api/slice-objects.html": "c-api/slice.html",
+
+    "api/weakref-objects.html": "c-api/weakref.html",
+
+    "api/cObjects.html": "c-api/capsule.html",
+
+    "api/gen-objects.html": "c-api/gen.html",
+
+    "api/datetime-objects.html": "c-api/datetime.html",
+
+    "api/initialization.html": "c-api/init.html",
+    "api/threads.html": "c-api/init.html#thread-state-and-the-global-interpreter-lock",
+    "api/profiling.html": "c-api/init.html#profiling-and-tracing",
+    "api/advanced-debugging.html": "c-api/init.html#advanced-debugger-support",
+
+    "api/memory.html": "c-api/memory.html",
+    "api/memoryOverview.html": "c-api/memory.html#overview",
+    "api/memoryInterface.html": "c-api/memory.html#memory-interface",
+    "api/memoryExamples.html": "c-api/memory.html#examples",
+
+    "api/newTypes.html": "c-api/objimpl.html",
+
+    "api/allocating-objects.html": "c-api/allocation.html",
+
+    "api/common-structs.html": "c-api/structures.html",
+
+    "api/type-structs.html": "c-api/typeobj.html",
+    "api/number-structs.html": "c-api/typeobj.html#number-object-structures",
+    "api/mapping-structs.html": "c-api/typeobj.html#mapping-object-structures",
+    "api/sequence-structs.html": "c-api/typeobj.html#sequence-object-structures",
+    "api/buffer-structs.html": "c-api/typeobj.html#buffer-object-structures",
+
+    "api/supporting-cycle-detection.html": "c-api/gcsupport.html",
+
+    "dist/package-upload.html": "distributing/index.html#reading-the-python-packaging-user-guide",
+
+    "ref/descriptor-invocation.html": "howto/descriptor.html#invoking-descriptors",
+
+    "lib/multiple-destinations.html": "howto/logging-cookbook.html#logging-to-multiple-destinations",
+    "lib/network-logging.html": "howto/logging-cookbook.html#sending-and-receiving-logging-events-across-a-network",
+
+    "lib/matching-searching.html": "howto/regex.html#match-versus-search",
+
+    "ext/reporting-bugs.html": "bugs.html",
+    "lib/reporting-bugs.html": "bugs.html",
+    "api/reporting-bugs.html": "bugs.html",
+
+    // TODO: move this into the above and explain everything
+    "acks.html": null,
+    "api/bufferObjects.html": null,
+    "api/supporting-iteration.html": null,
+    "lib/MimeWriter-objects.html": null,
+    "lib/MultiFile-objects.html": null,
+    "lib/addresslist-objects.html": null,
+    "lib/al-config-objects.html": null,
+    "lib/al-port-objects.html": null,
+    "lib/boolean-objects.html": null,
+    "lib/bsddb-objects.html": null,
+    "lib/cd-parser-objects.html": null,
+    "lib/comparison-to-builtin-set.html": null,
+    "lib/ctypes-bugs-todo-non-implemented-things.html": null,
+    "lib/debugger-hooks.html": null,
+    "lib/dl-objects.html": null,
+    "lib/email-pkg-history.html": null,
+    "lib/form-objects.html": null,
+    "lib/forms-objects.html": null,
+    "lib/fpectl-example.html": null,
+    "lib/fpectl-limitations.html": null,
+    "lib/gopher-handler.html": null,
+    "lib/hotshot-example.html": null,
+    "lib/immutable-transforms.html": null,
+    "lib/itertools-example.html": null,
+    "lib/mailbox-deprecated.html": null,
+    "lib/message-objects.html": null,
+    "lib/mh-folder-objects.html": null,
+    "lib/mh-message-objects.html": null,
+    "lib/mimetools-message-objects.html": null,
+    "lib/modindex.html": null,
+    "lib/module-Bastion.html": null,
+    "lib/module-DEVICE.html": null,
+    "lib/module-MimeWriter.html": null,
+    "lib/module-al-constants.html": null,
+    "lib/module-al.html": null,
+    "lib/module-cd.html": null,
+    "lib/module-commands.html": null,
+    "lib/module-compiler.html": null,
+    "lib/module-dircache.html": null,
+    "lib/module-dl.html": null,
+    "lib/module-fl-constants.html": null,
+    "lib/module-fl.html": null,
+    "lib/module-flp.html": null,
+    "lib/module-fm.html": null,
+    "lib/module-fpectl.html": null,
+    "lib/module-fpformat.html": null,
+    "lib/module-gl-constants.html": null,
+    "lib/module-gl.html": null,
+    "lib/module-gopherlib.html": null,
+    "lib/module-imageop.html": null,
+    "lib/module-imgfile.html": null,
+    "lib/module-jpeg.html": null,
+    "lib/module-mimetools.html": null,
+    "lib/module-mimify.html": null,
+    "lib/module-multifile.html": null,
+    "lib/module-mutex.html": null,
+    "lib/module-new.html": null,
+    "lib/module-popen2.html": null,
+    "lib/module-posixfile.html": null,
+    "lib/module-rexec.html": null,
+    "lib/module-rfc822.html": null,
+    "lib/module-rgbimg.html": null,
+    "lib/module-sgmllib.html": null,
+    "lib/module-statvfs.html": null,
+    "lib/module-sunaudiodev-constants.html": null,
+    "lib/module-sunaudiodev.html": null,
+    // This is SunOS specific
+    // "lib/audio-device-objects.html": "library/ossaudiodev.html#audio-device-objects",
+    "lib/audio-device-objects.html": null,
+    "lib/module-user.html": null,
+    "lib/multifile-example.html": null,
+    "lib/mutex-objects.html": null,
+    "lib/non-essential-built-in-funcs.html": null,
+    "lib/obsolete-modules.html": null,
+    "lib/player-objects.html": null,
+    "lib/popen2-flow-control.html": null,
+    "lib/popen3-objects.html": null,
+    "lib/restricted.html": null,
+    "lib/rexec-extension.html": null,
+    "lib/rexec-objects.html": null,
+    "lib/sgi.html": null,
+    "lib/someos.html": null,
+    "lib/ssl-objects.html": null,
+    "lib/sunos.html": null,
+    "ref/coercion-rules.html": null,
+    "ref/sequence-methods.html": null,
+    "ref/string-conversions.html": null,
+
+    // TODO: link to https://devguide.python.org/docquality/#helping-with-documentation
+    "doc/about.html": "index.html",
+    "doc/classes.html": null,
+    "doc/contents.html": null,
+    "doc/cygwin.html": null,
+    "doc/directories.html": null,
+    "doc/discussion.html": null,
+    "doc/doc.html": null,
+    "doc/futures.html": null,
+    "doc/grammar-displays.html": null,
+    "doc/graphics.html": null,
+    "doc/gui-markup.html": null,
+    "doc/index.html": null,
+    "doc/indexing.html": null,
+    "doc/info-units.html": null,
+    "doc/inline-markup.html": null,
+    "doc/intro.html": null,
+    "doc/latex-environments.html": null,
+    "doc/latex-primer.html": null,
+    "doc/latex-structure.html": null,
+    "doc/latex-syntax.html": null,
+    "doc/library-markup.html": null,
+    "doc/meta-info.html": null,
+    "doc/misc-text-markup.html": null,
+    "doc/module-markup.html": null,
+    "doc/preamble-info.html": null,
+    "doc/references.html": null,
+    "doc/showing-examples.html": null,
+    "doc/special-constructs.html": null,
+    "doc/structured.html": null,
+    "doc/style-guide.html": null,
+    "doc/table-markup.html": null,
+    "doc/tools-external.html": null,
+    "doc/tools-internal.html": null,
+    "doc/tools.html": null,
+
+    "mac/about.html": null,
+    "mac/aeserver-objects.html": null,
+    "mac/alias-objects.html": null,
+    "mac/application-objects.html": null,
+    "mac/contents.html": null,
+    "mac/controlswindow-object.html": null,
+    "mac/dialogwindow-objects.html": null,
+    "mac/finfo-objects.html": null,
+    "mac/front.html": null,
+    "mac/fsspec-objects.html": null,
+    "mac/index.html": null,
+    "mac/mac.html": null,
+    "mac/macpython-modules.html": null,
+    "mac/modindex.html": null,
+    "mac/module-Carbon.AE.html": null,
+    "mac/module-Carbon.AH.html": null,
+    "mac/module-Carbon.App.html": null,
+    "mac/module-Carbon.CF.html": null,
+    "mac/module-Carbon.CG.html": null,
+    "mac/module-Carbon.CarbonEvt.html": null,
+    "mac/module-Carbon.Cm.html": null,
+    "mac/module-Carbon.Ctl.html": null,
+    "mac/module-Carbon.Dlg.html": null,
+    "mac/module-Carbon.Evt.html": null,
+    "mac/module-Carbon.Fm.html": null,
+    "mac/module-Carbon.Folder.html": null,
+    "mac/module-Carbon.Help.html": null,
+    "mac/module-Carbon.List.html": null,
+    "mac/module-Carbon.Menu.html": null,
+    "mac/module-Carbon.Mlte.html": null,
+    "mac/module-Carbon.Qd.html": null,
+    "mac/module-Carbon.Qdoffs.html": null,
+    "mac/module-Carbon.Qt.html": null,
+    "mac/module-Carbon.Res.html": null,
+    "mac/module-Carbon.Scrap.html": null,
+    "mac/module-Carbon.Snd.html": null,
+    "mac/module-Carbon.TE.html": null,
+    "mac/module-Carbon.Win.html": null,
+    "mac/module-ColorPicker.html": null,
+    "mac/module-EasyDialogs.html": null,
+    "mac/module-FrameWork.html": null,
+    "mac/module-MacOS.html": null,
+    "mac/module-MiniAEFrame.html": null,
+    "mac/module-Nav.html": null,
+    "mac/module-PixMapWrapper.html": null,
+    "mac/module-W.html": null,
+    "mac/module-aepack.html": null,
+    "mac/module-aetools.html": null,
+    "mac/module-aetypes.html": null,
+    "mac/module-applesingle.html": null,
+    "mac/module-autoGIL.html": null,
+    "mac/module-buildtools.html": null,
+    "mac/module-cfmfile.html": null,
+    "mac/module-findertools.html": null,
+    "mac/module-gensuitemodule.html": null,
+    "mac/module-ic.html": null,
+    "mac/module-icopen.html": null,
+    "mac/module-macerrors.html": null,
+    "mac/module-macfs.html": null,
+    "mac/module-macostools.html": null,
+    "mac/module-macpath.html": null,
+    "mac/module-macresource.html": null,
+    "mac/module-videoreader.html": null,
+    "mac/osx-gui-scripts.html": null,
+    "mac/progressbar-objects.html": null,
+    "mac/scripting.html": null,
+    "mac/scrolledwindow-object.html": null,
+    "mac/toolbox.html": null,
+    "mac/undocumented-modules.html": null,
+    "mac/using.html": null,
+    "mac/window-objects.html": null,
+
+
+    // TODO: on the Python 2.5 page, this page is about 2.5, on 3 it's a contents page for
+    // all the whats new's
+    // So, while whatsnew/index.html exists in the 3 documentation, don't redirect it.
+    // "whatsnew/index.html": "whatsnew/index.html",
+    // "whatsnew/contents.html": "whatsnew/2.5.html",
+    "whatsnew/index.html": null,
+    "whatsnew/contents.html": null,
+    "whatsnew/about.html": null,
+    "whatsnew/acks.html": null,
+    "whatsnew/modules.html": null,
+    "whatsnew/other-lang.html": null,
+    "whatsnew/pep-308.html": null,
+    "whatsnew/pep-309.html": null,
+    "whatsnew/pep-314.html": null,
+    "whatsnew/pep-328.html": null,
+    "whatsnew/pep-338.html": null,
+    "whatsnew/pep-341.html": null,
+    "whatsnew/pep-342.html": null,
+    "whatsnew/pep-343.html": null,
+    "whatsnew/pep-352.html": null,
+    "whatsnew/pep-353.html": null,
+    "whatsnew/pep-357.html": null,
+    "whatsnew/porting.html": null,
+    "whatsnew/ports.html": null,
+    "whatsnew/whatsnew25.html": null,
+
+    // replace "tok" with "grammar-token" and "_" with "-"
+    "lib/doctest-options.html#tok-directive": "library/doctest.html#grammar-token-directive",
+    "lib/doctest-options.html#tok-directive_options": "library/doctest.html#grammar-token-directive-options",
+    "lib/doctest-options.html#tok-directive_option": "library/doctest.html#grammar-token-directive-option",
+    "lib/doctest-options.html#tok-on_or_off": "library/doctest.html#grammar-token-on-or-off",
+    "lib/doctest-options.html#tok-directive_option_name": "library/doctest.html#grammar-token-directive-option-name",
+    "ref/Booleans.html#tok-expression": "reference/expressions.html#grammar-token-expression",
+    "ref/Booleans.html#tok-conditional_expression": "reference/expressions.html#grammar-token-conditional-expression",
+    "ref/Booleans.html#tok-or_test": "reference/expressions.html#grammar-token-or-test",
+    "ref/Booleans.html#tok-and_test": "reference/expressions.html#grammar-token-and-test",
+    "ref/Booleans.html#tok-not_test": "reference/expressions.html#grammar-token-not-test",
+    "ref/assert.html#tok-assert_stmt": "reference/simple_stmts.html#grammar-token-assert-stmt",
+    "ref/assignment.html#tok-assignment_stmt": "reference/simple_stmts.html#grammar-token-assignment-stmt",
+    "ref/assignment.html#tok-target_list": "reference/simple_stmts.html#grammar-token-target-list",
+    "ref/assignment.html#tok-target": "reference/simple_stmts.html#grammar-token-target",
+    "ref/atom-literals.html#tok-literal": "reference/expressions.html#grammar-token-literal",
+    "ref/atoms.html#tok-atom": "reference/expressions.html#grammar-token-atom",
+    "ref/atoms.html#tok-enclosure": "reference/expressions.html#grammar-token-enclosure",
+    "ref/attribute-references.html#tok-attributeref": "reference/expressions.html#grammar-token-attributeref",
+    "ref/augassign.html#tok-augmented_assignment_stmt": "reference/simple_stmts.html#grammar-token-augmented-assignment-stmt",
+    "ref/augassign.html#tok-augop": "reference/simple_stmts.html#grammar-token-augop",
+    "ref/binary.html#tok-m_expr": "reference/expressions.html#grammar-token-m-expr",
+    "ref/binary.html#tok-a_expr": "reference/expressions.html#grammar-token-a-expr",
+    "ref/bitwise.html#tok-and_expr": "reference/expressions.html#grammar-token-and-expr",
+    "ref/bitwise.html#tok-xor_expr": "reference/expressions.html#grammar-token-xor-expr",
+    "ref/bitwise.html#tok-or_expr": "reference/expressions.html#grammar-token-or-expr",
+    "ref/break.html#tok-break_stmt": "reference/simple_stmts.html#grammar-token-break-stmt",
+    "ref/calls.html#tok-call": "reference/expressions.html#grammar-token-call",
+    "ref/calls.html#tok-argument_list": "reference/expressions.html#grammar-token-argument-list",
+    "ref/calls.html#tok-positional_arguments": "reference/expressions.html#grammar-token-positional-arguments",
+    "ref/calls.html#tok-keyword_item": "reference/expressions.html#grammar-token-keyword-item",
+    "ref/class.html#tok-classdef": "reference/compound_stmts.html#grammar-token-classdef",
+    "ref/class.html#tok-inheritance": "reference/compound_stmts.html#grammar-token-inheritance",
+    "ref/class.html#tok-classname": "reference/compound_stmts.html#grammar-token-classname",
+    "ref/comparisons.html#tok-comparison": "reference/expressions.html#grammar-token-comparison",
+    "ref/comparisons.html#tok-comp_operator": "reference/expressions.html#grammar-token-comp-operator",
+    "ref/compound.html#tok-compound_stmt": "reference/compound_stmts.html#grammar-token-compound-stmt",
+    "ref/compound.html#tok-suite": "reference/compound_stmts.html#grammar-token-suite",
+    "ref/compound.html#tok-statement": "reference/compound_stmts.html#grammar-token-statement",
+    "ref/compound.html#tok-stmt_list": "reference/compound_stmts.html#grammar-token-stmt-list",
+    "ref/continue.html#tok-continue_stmt": "reference/simple_stmts.html#grammar-token-continue-stmt",
+    "ref/del.html#tok-del_stmt": "reference/simple_stmts.html#grammar-token-del-stmt",
+    "ref/dict.html#tok-dict_display": "reference/expressions.html#grammar-token-dict-display",
+    "ref/dict.html#tok-key_datum_list": "reference/expressions.html#grammar-token-key-datum-list",
+    "ref/dict.html#tok-key_datum": "reference/expressions.html#grammar-token-key-datum",
+    "ref/expression-input.html#tok-eval_input": "reference/toplevel_components.html#grammar-token-eval-input",
+    "ref/exprlists.html#tok-expression_list": "reference/expressions.html#grammar-token-expression-list",
+    "ref/exprstmts.html#tok-expression_stmt": "reference/simple_stmts.html#grammar-token-expression-stmt",
+    "ref/file-input.html#tok-file_input": "reference/toplevel_components.html#grammar-token-file-input",
+    "ref/floating.html#tok-floatnumber": "reference/lexical_analysis.html#grammar-token-floatnumber",
+    "ref/floating.html#tok-pointfloat": "reference/lexical_analysis.html#grammar-token-pointfloat",
+    "ref/floating.html#tok-exponentfloat": "reference/lexical_analysis.html#grammar-token-exponentfloat",
+    "ref/floating.html#tok-fraction": "reference/lexical_analysis.html#grammar-token-fraction",
+    "ref/floating.html#tok-exponent": "reference/lexical_analysis.html#grammar-token-exponent",
+    "ref/for.html#tok-for_stmt": "reference/compound_stmts.html#grammar-token-for-stmt",
+    "ref/function.html#tok-funcdef": "reference/compound_stmts.html#grammar-token-funcdef",
+    "ref/function.html#tok-decorators": "reference/compound_stmts.html#grammar-token-decorators",
+    "ref/function.html#tok-decorator": "reference/compound_stmts.html#grammar-token-decorator",
+    "ref/function.html#tok-dotted_name": "reference/compound_stmts.html#grammar-token-dotted-name",
+    "ref/function.html#tok-parameter_list": "reference/compound_stmts.html#grammar-token-parameter-list",
+    "ref/function.html#tok-defparameter": "reference/compound_stmts.html#grammar-token-defparameter",
+    "ref/function.html#tok-parameter": "reference/compound_stmts.html#grammar-token-parameter",
+    "ref/function.html#tok-funcname": "reference/compound_stmts.html#grammar-token-funcname",
+    "ref/genexpr.html#tok-generator_expression": "reference/expressions.html#grammar-token-generator-expression",
+    "ref/global.html#tok-global_stmt": "reference/simple_stmts.html#grammar-token-global-stmt",
+    "ref/identifiers.html#tok-identifier": "reference/lexical_analysis.html#grammar-token-identifier",
+    "ref/identifiers.html#tok-digit": "reference/lexical_analysis.html#grammar-token-digit",
+    "ref/if.html#tok-if_stmt": "reference/compound_stmts.html#grammar-token-if-stmt",
+    "ref/imaginary.html#tok-imagnumber": "reference/lexical_analysis.html#grammar-token-imagnumber",
+    "ref/import.html#tok-import_stmt": "reference/simple_stmts.html#grammar-token-import-stmt",
+    "ref/import.html#tok-module": "reference/simple_stmts.html#grammar-token-module",
+    "ref/import.html#tok-relative_module": "reference/simple_stmts.html#grammar-token-relative-module",
+    "ref/integers.html#tok-integer": "reference/lexical_analysis.html#grammar-token-integer",
+    "ref/integers.html#tok-octinteger": "reference/lexical_analysis.html#grammar-token-octinteger",
+    "ref/integers.html#tok-hexinteger": "reference/lexical_analysis.html#grammar-token-hexinteger",
+    "ref/integers.html#tok-nonzerodigit": "reference/lexical_analysis.html#grammar-token-nonzerodigit",
+    "ref/integers.html#tok-octdigit": "reference/lexical_analysis.html#grammar-token-octdigit",
+    "ref/integers.html#tok-hexdigit": "reference/lexical_analysis.html#grammar-token-hexdigit",
+    "ref/interactive.html#tok-interactive_input": "reference/toplevel_components.html#grammar-token-interactive-input",
+    "ref/lists.html#tok-list_display": "reference/expressions.html#grammar-token-list-display",
+    "ref/parenthesized.html#tok-parenth_form": "reference/expressions.html#grammar-token-parenth-form",
+    "ref/pass.html#tok-pass_stmt": "reference/simple_stmts.html#grammar-token-pass-stmt",
+    "ref/power.html#tok-power": "reference/expressions.html#grammar-token-power",
+    "ref/primaries.html#tok-primary": "reference/expressions.html#grammar-token-primary",
+    "ref/raise.html#tok-raise_stmt": "reference/simple_stmts.html#grammar-token-raise-stmt",
+    "ref/return.html#tok-return_stmt": "reference/simple_stmts.html#grammar-token-return-stmt",
+    "ref/shifting.html#tok-shift_expr": "reference/expressions.html#grammar-token-shift-expr",
+    "ref/simple.html#tok-simple_stmt": "reference/simple_stmts.html#grammar-token-simple-stmt",
+    "ref/slicings.html#tok-slicing": "reference/expressions.html#grammar-token-slicing",
+    "ref/slicings.html#tok-slice_list": "reference/expressions.html#grammar-token-slice-list",
+    "ref/slicings.html#tok-slice_item": "reference/expressions.html#grammar-token-slice-item",
+    "ref/slicings.html#tok-proper_slice": "reference/expressions.html#grammar-token-proper-slice",
+    "ref/slicings.html#tok-lower_bound": "reference/expressions.html#grammar-token-lower-bound",
+    "ref/slicings.html#tok-upper_bound": "reference/expressions.html#grammar-token-upper-bound",
+    "ref/slicings.html#tok-stride": "reference/expressions.html#grammar-token-stride",
+    "ref/strings.html#tok-stringliteral": "reference/lexical_analysis.html#grammar-token-stringliteral",
+    "ref/strings.html#tok-stringprefix": "reference/lexical_analysis.html#grammar-token-stringprefix",
+    "ref/strings.html#tok-shortstring": "reference/lexical_analysis.html#grammar-token-shortstring",
+    "ref/strings.html#tok-longstring": "reference/lexical_analysis.html#grammar-token-longstring",
+    "ref/strings.html#tok-shortstringitem": "reference/lexical_analysis.html#grammar-token-shortstringitem",
+    "ref/strings.html#tok-longstringitem": "reference/lexical_analysis.html#grammar-token-longstringitem",
+    "ref/strings.html#tok-shortstringchar": "reference/lexical_analysis.html#grammar-token-shortstringchar",
+    "ref/strings.html#tok-longstringchar": "reference/lexical_analysis.html#grammar-token-longstringchar",
+    "ref/subscriptions.html#tok-subscription": "reference/expressions.html#grammar-token-subscription",
+    "ref/try.html#tok-try_stmt": "reference/compound_stmts.html#grammar-token-try-stmt",
+    "ref/try.html#tok-try1_stmt": "reference/compound_stmts.html#grammar-token-try1-stmt",
+    "ref/try.html#tok-try2_stmt": "reference/compound_stmts.html#grammar-token-try2-stmt",
+    "ref/unary.html#tok-u_expr": "reference/expressions.html#grammar-token-u-expr",
+    "ref/while.html#tok-while_stmt": "reference/compound_stmts.html#grammar-token-while-stmt",
+    "ref/with.html#tok-with_stmt": "reference/compound_stmts.html#grammar-token-with-stmt",
+    "ref/yield.html#tok-yield_stmt": "reference/simple_stmts.html#grammar-token-yield-stmt",
+    "ref/yieldexpr.html#tok-yield_atom": "reference/expressions.html#grammar-token-yield-atom",
+    "ref/yieldexpr.html#tok-yield_expression": "reference/expressions.html#grammar-token-yield-expression",
+
+    // Do the above replacement and then find and copy/paste the associated Python 2.6 or 2.7 special case
+    "ref/Booleans.html#tok-old_expression": "reference/expressions.html#grammar-token-expression-nocond",
+    "ref/calls.html#tok-keyword_arguments": "reference/expressions.html#grammar-token-keywords-arguments",
+    "ref/exec.html#tok-exec_stmt": "library/functions.html#exec",
+    "ref/expression-input.html#tok-input_input": null,
+    "ref/floating.html#tok-intpart": "reference/lexical_analysis.html#grammar-token-digitpart",
+    "ref/function.html#tok-sublist": "reference/compound_stmts.html#function-definitions",
+    "ref/identifiers.html#tok-letter": "reference/lexical_analysis.html#identifiers",
+    "ref/identifiers.html#tok-lowercase": "reference/lexical_analysis.html#identifiers",
+    "ref/identifiers.html#tok-uppercase": "reference/lexical_analysis.html#identifiers",
+    "ref/import.html#tok-name": "reference/simple_stmts.html#the-import-statement",
+    "ref/integers.html#tok-longinteger": "reference/lexical_analysis.html#grammar-token-integer",
+    "ref/integers.html#tok-decimalinteger": "reference/lexical_analysis.html#grammar-token-decinteger",
+    "ref/lists.html#tok-list_comprehension": "reference/expressions.html#grammar-token-comprehension",
+    "ref/lists.html#tok-list_for": "reference/expressions.html#grammar-token-comp-for",
+    "ref/lists.html#tok-old_expression_list": "reference/expressions.html#displays-for-lists-sets-and-dictionaries",
+    "ref/lists.html#tok-list_iter": "reference/expressions.html#grammar-token-comp-iter",
+    "ref/lists.html#tok-list_if": "reference/expressions.html#grammar-token-comp-if",
+    "ref/slicings.html#tok-simple_slicing": "reference/expressions.html#grammar-token-slicing",
+    "ref/slicings.html#tok-extended_slicing": "reference/expressions.html#grammar-token-slicing",
+    "ref/slicings.html#tok-short_slice": "reference/expressions.html#grammar-token-proper-slice",
+    "ref/slicings.html#tok-long_slice": "reference/expressions.html#grammar-token-proper-slice",
+    "ref/slicings.html#tok-ellipsis": null,
+    "ref/strings.html#tok-escapeseq": "reference/lexical_analysis.html#grammar-token-stringescapeseq",
+    "ref/genexpr.html#tok-genexpr_for": "reference/expressions.html#generator-expressions",
+    "ref/genexpr.html#tok-genexpr_iter": "reference/expressions.html#generator-expressions",
+    "ref/genexpr.html#tok-genexpr_if": "reference/expressions.html#generator-expressions",
+    "ref/lambdas.html#tok-lambda_form": "reference/expressions.html#grammar-token-lambda-expr",
+    "ref/lambdas.html#tok-old_lambda_form": "reference/expressions.html#grammar-token-lambda-expr-nocond",
+    "ref/print.html#tok-print_stmt": "library/functions.html#print",
 };
 
 // Make file importable from nodejs for processing
