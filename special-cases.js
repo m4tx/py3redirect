@@ -5550,22 +5550,23 @@ const SPECIAL_CASES = {
     "whatsnew/contents.html": null,
     "whatsnew/about.html": null,
     "whatsnew/acks.html": null,
-    "whatsnew/modules.html": null,
-    "whatsnew/other-lang.html": null,
-    "whatsnew/pep-308.html": null,
-    "whatsnew/pep-309.html": null,
-    "whatsnew/pep-314.html": null,
-    "whatsnew/pep-328.html": null,
-    "whatsnew/pep-338.html": null,
-    "whatsnew/pep-341.html": null,
-    "whatsnew/pep-342.html": null,
-    "whatsnew/pep-343.html": null,
-    "whatsnew/pep-352.html": null,
-    "whatsnew/pep-353.html": null,
-    "whatsnew/pep-357.html": null,
-    "whatsnew/porting.html": null,
-    "whatsnew/ports.html": null,
-    "whatsnew/whatsnew25.html": null,
+
+    "whatsnew/whatsnew25.html": "whatsnew/2.5.html",
+    "whatsnew/pep-308.html": "whatsnew/2.5.html#pep-308-conditional-expressions",
+    "whatsnew/pep-309.html": "whatsnew/2.5.html#pep-309-partial-function-application",
+    "whatsnew/pep-314.html": "whatsnew/2.5.html#pep-314-metadata-for-python-software-packages-v1-1",
+    "whatsnew/pep-328.html": "whatsnew/2.5.html#pep-328-absolute-and-relative-imports",
+    "whatsnew/pep-338.html": "whatsnew/2.5.html#pep-338-executing-modules-as-scripts",
+    "whatsnew/pep-341.html": "whatsnew/2.5.html#pep-341-unified-try-except-finally",
+    "whatsnew/pep-342.html": "whatsnew/2.5.html#pep-342-new-generator-features",
+    "whatsnew/pep-343.html": "whatsnew/2.5.html#pep-343-the-with-statement",
+    "whatsnew/pep-352.html": "whatsnew/2.5.html#pep-352-exceptions-as-new-style-classes",
+    "whatsnew/pep-353.html": "whatsnew/2.5.html#pep-353-using-ssize-t-as-the-index-type",
+    "whatsnew/pep-357.html": "whatsnew/2.5.html#pep-357-the-index-method",
+    "whatsnew/other-lang.html": "whatsnew/2.5.html#other-language-changes",
+    "whatsnew/modules.html": "whatsnew/2.5.html#new-improved-and-removed-modules",
+    "whatsnew/ports.html": "whatsnew/2.5.html#build-and-c-api-changes",
+    "whatsnew/porting.html": "whatsnew/2.5.html#porting-to-python-2-5",
 
     // replace "tok" with "grammar-token" and "_" with "-"
     "lib/doctest-options.html#tok-directive": "library/doctest.html#grammar-token-directive",
@@ -5711,6 +5712,249 @@ const SPECIAL_CASES = {
     "ref/lambdas.html#tok-lambda_form": "reference/expressions.html#grammar-token-lambda-expr",
     "ref/lambdas.html#tok-old_lambda_form": "reference/expressions.html#grammar-token-lambda-expr-nocond",
     "ref/print.html#tok-print_stmt": "library/functions.html#print",
+
+    // Python 2.4
+    "lib/module-email.Charset.html": "library/email.charset.html",
+    "lib/module-email.Encoders.html": "library/email.encoders.html",
+    "lib/module-email.Errors.html": "library/email.errors.html",
+    "lib/module-email.Generator.html": "library/email.generator.html",
+    "lib/module-email.Header.html": "library/email.header.html",
+    "lib/module-email.Iterators.html": "library/email.iterators.html",
+    "lib/module-email.Message.html": "library/email.compat32-message.html",
+    "lib/module-email.Parser.html": "library/email.parser.html",
+    "lib/module-email.Utils.html": "library/email.utils.html",
+
+    "lib/module-statcache.html": null,
+    "lib/module-whrandom.html": null,
+    "lib/module-xmllib.html": null,
+    "lib/optparse-other-reasons-to-extend-optparse.html": null,
+    "lib/weakref-extension.html": null,
+    "lib/xml-namespace.html": null,
+
+    "mac/IDEapplet.html": null,
+    "mac/IDEexecution.html": null,
+    "mac/IDEwrite.html": null,
+    "mac/module-Carbon.CaronEvt.html": null,
+    "mac/module-waste.html": null,
+
+    "ref/lists.html#tok-test": "reference/expressions.html#list-displays",
+    "ref/lists.html#tok-testlist": "reference/expressions.html#list-displays",
+    "ref/lists.html#tok-listmaker": "reference/expressions.html#list-displays",
+    "ref/notation.html#tok-name": "reference/introduction.html#grammar-token-name",
+    "ref/notation.html#tok-lc_letter": "reference/introduction.html#grammar-token-lc-letter",
+    // except and finally statements
+    "ref/try.html#tok-try_exc_stmt": "reference/compound_stmts.html#grammar-token-try1-stmt",
+    "ref/try.html#tok-try_fin_stmt": "reference/compound_stmts.html#grammar-token-try1-stmt",
+
+    "whatsnew/whatsnew24.html": "whatsnew/2.4.html",
+
+    // Python 2.3
+    "lib/optparse-philosophy.html": "library/optparse.html#background",
+    "lib/optparse-options.html": "library/optparse.html#what-are-options-for",
+    "lib/optparse-positional-arguments.html": "library/optparse.html#what-are-positional-arguments-for",
+    "lib/optparse-basic-usage.html": "library/optparse.html#tutorial",
+    "lib/optparse-other-store-actions.html": "library/optparse.html#handling-boolean-flag-options",
+    "lib/optparse-setting-default-values.html": "library/optparse.html#default-values",
+    "lib/optparse-print-version.html": "library/optparse.html#printing-a-version-string",
+    "lib/optparse-error-handling.html": "library/optparse.html#how-optparse-handles-errors",
+    "lib/optparse-basic-summary.html": "library/optparse.html#putting-it-all-together",
+    "lib/optparse-advanced-usage.html": "library/optparse.html#reference-guide",
+    "lib/optparse-creating-the-parser.html": "library/optparse.html#creating-the-parser",
+    "lib/optparse-option-actions.html": "library/optparse.html#standard-option-actions",
+    "lib/optparse-option-types.html": "library/optparse.html#standard-option-types",
+    "lib/optparse-querying-and-manipulating.html": "library/optparse.html#querying-and-manipulating-your-option-parser",
+    "lib/optparse-conflicts.html": "library/optparse.html#conflicts-between-options",
+    "lib/optparse-callback-options.html": "library/optparse.html#option-callbacks",
+    "lib/optparse-callbacks-called.html": "library/optparse.html#how-callbacks-are-called",
+    "lib/optparse-callback-error-handling.html": "library/optparse.html#raising-errors-in-a-callback",
+    "lib/optparse-callback-examples.html": "library/optparse.html#callback-example-1-trivial-callback",
+    "lib/optparse-extending.html": "library/optparse.html#extending-optparse",
+    "lib/optparse-adding-types.html": "library/optparse.html#adding-new-types",
+    "lib/optparse-adding-actions.html": "library/optparse.html#adding-new-actions",
+
+    "lib/optparse-extending-examples.html": null,
+    "lib/optparse-extending-other-reasons.html": null,
+
+    "ref/Booleans.html#tok-lambda_form": "reference/expressions.html#grammar-token-lambda-expr",
+
+    "lib/module-TERMIOSuppercase.html": null,
+    "lib/module-mpz.html": null,
+    "lib/module-rotor.html": null,
+    "lib/module-xreadlines.html": null,
+
+    "mac/EditPythonPrefs.html": null,
+    "mac/argv.html": null,
+    "mac/configuration.html": null,
+    "mac/creator-code.html": null,
+    "mac/defaults.html": null,
+    "mac/getting.html": null,
+    "mac/interpreter.html": null,
+    "mac/module-mac.html": null,
+    "mac/module-mkcwproject.html": null,
+    "mac/module-nsremote.html": null,
+    "mac/module-preferences.html": null,
+    "mac/module-pyresource.html": null,
+    "mac/module-pythonprefs.html": null,
+    "mac/module-quietconsole.html": null,
+    "mac/scripting-with-BBedit.html": null,
+    "mac/search-path.html": null,
+
+    "whatsnew/whatsnew23.html": "whatsnew/2.3.html",
+    "whatsnew/section-generators.html": "whatsnew/2.3.html#pep-255-simple-generators",
+    "whatsnew/section-encodings.html": "whatsnew/2.3.html#pep-263-source-code-encodings",
+    "whatsnew/section-enumerate.html": "whatsnew/2.3.html#pep-279-enumerate",
+    "whatsnew/section-bool.html": "whatsnew/2.3.html#pep-285-a-boolean-type",
+    "whatsnew/section-pep301.html": "whatsnew/2.3.html#pep-301-package-index-and-metadata-for-distutils",
+    "whatsnew/section-pep302.html": "whatsnew/2.3.html#pep-302-new-import-hooks",
+    "whatsnew/section-pep305.html": "whatsnew/2.3.html#pep-307-pickle-enhancements",
+    "whatsnew/section-slices.html": "whatsnew/2.3.html#extended-slices",
+    "whatsnew/section-pymalloc.html": "whatsnew/2.3.html#pymalloc-a-specialized-object-allocator",
+    "whatsnew/section-other.html": "whatsnew/2.3.html#other-changes-and-fixes",
+
+    // Python 2.2
+    "api/example-cycle-support.html": null,
+
+    "dist/creating-wininst.html": "distutils/builtdist.html#creating-windows-installers",
+    "inst/non-ms-compilers.html": "install/index.html#building-extensions-tips-and-tricks",
+    "inst/custom-install.html": null,
+
+    // TODO: this section is from before they gave up and just said pickle is insecure
+    // redirecting to just the module documentation isn't great but it's says "pickle
+    // is insecure" near the top
+    // "lib/pickle-sec.html": null,
+    "lib/pickle-sec.html": "library/pickle.html",
+
+    "ref/definitions.html": "reference/executionmodel.html",
+
+    // The two parts of this section were moved into different places (see below), don't redirect.
+    "ref/futures.html": null,
+    "ref/future-statements.html": "reference/simple_stmts.html#future-statements",
+    "ref/nested-scopes.html": "reference/executionmodel.html#execution-model",
+
+    "ref/module-future.html": "library/__future__.html",
+
+    "lib/unittest-error-info.html": null,
+    
+    "mac/connection-object.html": null,
+    "mac/module-Nac.html": null,
+    "mac/module-ctb.html": null,
+    "mac/module-macfsn.html": null,
+    "mac/module-macspeech.html": null,
+    "mac/module-mactty.html": null,
+    "mac/speech-channel-objects.html": null,
+    "mac/voice-objects.html": null,
+
+    "whatsnew/whatsnew22.html": "whatsnew/2.2.html",
+    "whatsnew/sect-rellinks.html": "whatsnew/2.2.html#peps-252-and-253-type-and-class-changes",
+
+
+    // Python 2.1
+    "lib/AST_Errors.html": "library/parser.html#exceptions-and-error-handling",
+    "lib/AST_Examples.html": "library/parser.html#example-emulation-of-compile",
+    "lib/difflib-examples.html": "library/difflib.html#sequencematcher-examples",
+    "lib/termios_Example.html": "library/termios.html#example",
+
+    // TODO: not a perfect redirect
+    // "ref/defintions.html": "reference/executionmodel.html#structure-of-a-program",
+    "ref/defintions.html": null,
+    "ref/execframes.html": "reference/executionmodel.html#structure-of-a-program",
+    "ref/lambda.html": "reference/expressions.html#conditional-expressions",
+    "ref/unicode.html": "reference/lexical_analysis.html#string-and-bytes-literals",
+
+    "ext/custom-interps.html": null,
+    "ext/module-defn-example.html": null,
+    "ext/module-defn-options.html": null,
+    "lib/FL_Functions.html": null,
+    "lib/Profiler_Changes.html": null,
+    "lib/profile-HotProfile.html": null,
+    "lib/profile-old.html": null,
+
+    "mac/dnr-result-object.html": null,
+    "mac/module-AE.html": null,
+    "mac/module-Cm.html": null,
+    "mac/module-Ctl.html": null,
+    "mac/module-Dlg.html": null,
+    "mac/module-Evt.html": null,
+    "mac/module-Fm.html": null,
+    "mac/module-List.html": null,
+    "mac/module-Menu.html": null,
+    "mac/module-Qd.html": null,
+    "mac/module-Qt.html": null,
+    "mac/module-Res.html": null,
+    "mac/module-Scrap.html": null,
+    "mac/module-Snd.html": null,
+    "mac/module-TE.html": null,
+    "mac/module-Win.html": null,
+    "mac/module-macdnr.html": null,
+    "mac/module-mactcp.html": null,
+
+    // Python 2.0
+    "dist/clean-cmd.html": "distutils/apiref.html#module-distutils.command.clean",
+
+    "dist/contents.html": "distutils/introduction.html",
+
+    "dist/extend-existing.html": "distutils/extending.html",
+    "dist/new-commands.html": "distutils/extending.html#integrating-new-commands",
+
+    "dist/install-cmd.html": "distutils/commandref.html#installing-modules-the-install-command-family",
+    "dist/install-lib-cmd.html": "distutils/commandref.html#installing-modules-the-install-command-family",
+    "dist/install-data-cmd.html": "distutils/commandref.html#install-data",
+
+    "dist/multiple-ext.html": "distutils/examples.html#single-extension-module",
+
+    "inst/contents.html": "install/index.html",
+    "inst/intro.html": "install/index.html#introduction",
+    "inst/new-standard.html": "install/index.html#distutils-based-source-distributions",
+    "inst/platform-variations.html": "install/index.html#platform-variations",
+    "inst/splitting-up.html": "install/index.html#splitting-the-job-up",
+    "inst/how-build-works.html": "install/index.html#how-building-works",
+    "inst/how-install-works.html": "install/index.html#how-installation-works",
+    "inst/alt-install.html": "install/index.html#alternate-installation",
+    "inst/alt-install-macos.html": "install/index.html#alternate-installation-the-user-scheme",
+    "inst/alt-install-prefix.html": "install/index.html#alternate-installation-the-home-scheme",
+    "inst/alt-install-home.html": "install/index.html#alternate-installation-unix-the-prefix-scheme",
+    "inst/config-files.html": "install/index.html#distutils-configuration-files",
+    "inst/building-ext.html": "install/index.html#building-extensions-tips-and-tricks",
+
+    "lib/Contents_of_Module_re.html": "library/re.html#module-contents",
+
+    "lib/PrettyPrinter_Objects.html": "library/pprint.html#prettyprinter-objects",
+
+    "lib/Signal_Example.html": "library/signal.html#example",
+
+    "lib/attributes-impl-objects.html": "library/xml.sax.reader.html#the-attributes-interface",
+    "lib/attributes-ns-impl-objects.html": "library/xml.sax.reader.html#the-attributesns-interface",
+
+    "lib/Using_the_cgi_module.html": "library/cgi.html#using-the-cgi-module",
+    "lib/Functions_in_cgi_module.html": "library/cgi.html#functions",
+
+    "lib/Urllib_Examples.html": "library/urllib.request.html#urllib-examples",
+
+    "lib/HTTP_Examples.html": "library/http.client.html#examples",
+
+    "lib/Profiler_Introduction.html": "library/profile.html#introduction-to-the-profilers",
+    "lib/Deterministic_Profiling.html": "library/profile.html#what-is-deterministic-profiling",
+    "lib/Profiler_Extensions.html": "library/profile.html#using-a-custom-timer",
+
+    "lib/Creating_ASTs.html": "library/parser.html#creating-st-objects",
+    "lib/Converting_ASTs.html": "library/parser.html#converting-st-objects",
+    "lib/Querying_ASTs.html": "library/parser.html#queries-on-st-objects",
+    "lib/AST_Objects.html": "library/parser.html#st-objects",
+
+    "ext/building-on-unix.html": "extending/building.html",
+
+    "dist/bdist-cmds.html": null,
+    "dist/build-clib-cmd.html": null,
+    "dist/build-cmd.html": null,
+    "dist/build-cmds.html": null,
+    "dist/build-ext-cmd.html": null,
+    "dist/build-py-cmd.html": null,
+    "inst/makefile-pre-in.html": null,
+    "inst/manual-install.html": null,
+    "inst/old-way.html": null,
+    "inst/pre-distutils.html": null,
+    // TODO: documents the functions in the random module
+    "lib/rng-objects.html": null,
 };
 
 // Make file importable from nodejs for processing
