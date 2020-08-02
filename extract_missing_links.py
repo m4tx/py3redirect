@@ -244,8 +244,9 @@ def has_redirect(link, special_cases, new_links):
     if path in special_cases:
         if special_cases[path] is None:
             return True
-        if "#" not in special_cases[path]:
-            return (special_cases[path] + fragment) in new_links
+        if "#" in special_cases[path]:
+            return special_cases[path] in new_links
+        return (special_cases[path] + fragment) in new_links
 
     return False
 
