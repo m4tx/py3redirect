@@ -5726,14 +5726,21 @@ const SPECIAL_CASES = {
 
     "lib/module-statcache.html": null,
     "lib/module-whrandom.html": null,
-    "lib/module-xmllib.html": null,
     "lib/optparse-other-reasons-to-extend-optparse.html": null,
-    "lib/weakref-extension.html": null,
+    "lib/weakref-extension.html": "extending/newtypes.html#weak-reference-support",
+    // TODO: Module was removed, but it has a link to xml.sax, which will be redirected
+    // but it's not a very good redirect. Redirect somewhere else?
+    // "lib/module-xmllib.html": "library/xml.html",
+    "lib/module-xmllib.html": null,
+    // TODO
+    // "lib/xml-namespace.html": "library/xml.etree.elementtree.html#parsing-xml-with-namespaces",
     "lib/xml-namespace.html": null,
 
-    "mac/IDEapplet.html": null,
-    "mac/IDEexecution.html": null,
-    "mac/IDEwrite.html": null,
+    // TODO: this documentation was removed, don't redirect?
+    "mac/IDEapplet.html": "using/mac.html#the-ide",
+    "mac/IDEexecution.html": "using/mac.html#the-ide",
+    "mac/IDEwrite.html": "using/mac.html#the-ide",
+
     "mac/module-Carbon.CaronEvt.html": null,
     "mac/module-waste.html": null,
 
@@ -5856,14 +5863,18 @@ const SPECIAL_CASES = {
 
     // TODO: not a perfect redirect
     // "ref/defintions.html": "reference/executionmodel.html#structure-of-a-program",
-    "ref/defintions.html": null,
+    // "ref/defintions.html": "reference/executionmodel.html#naming-and-binding",
+    "ref/defintions.html": "reference/executionmodel.html#execution-model",
     "ref/execframes.html": "reference/executionmodel.html#structure-of-a-program",
-    "ref/lambda.html": "reference/expressions.html#conditional-expressions",
+    // TODO: This section starts with explaining boolean operations, but redirect
+    // to lambdas based on the filename
+    // "ref/lambda.html": "reference/expressions.html#boolean-operations",
+    "ref/lambda.html": "reference/expressions.html#lambda",
     "ref/unicode.html": "reference/lexical_analysis.html#string-and-bytes-literals",
 
     "ext/custom-interps.html": null,
-    "ext/module-defn-example.html": null,
     "ext/module-defn-options.html": null,
+    "ext/module-defn-example.html": null,
     "lib/FL_Functions.html": null,
     "lib/Profiler_Changes.html": null,
     "lib/profile-HotProfile.html": null,
@@ -5889,9 +5900,14 @@ const SPECIAL_CASES = {
     "mac/module-mactcp.html": null,
 
     // Python 2.0
-    "dist/clean-cmd.html": "distutils/apiref.html#module-distutils.command.clean",
-
     "dist/contents.html": "distutils/introduction.html",
+
+    // TODO
+    // "dist/bdist-cmds.html": "distutils/apiref.html#module-distutils.command",
+    "dist/bdist-cmds.html": "distutils/builtdist.html",
+
+    // TODO: was this section removed?
+    "dist/multiple-ext.html": "distutils/examples.html#single-extension-module",
 
     "dist/extend-existing.html": "distutils/extending.html",
     "dist/new-commands.html": "distutils/extending.html#integrating-new-commands",
@@ -5900,7 +5916,13 @@ const SPECIAL_CASES = {
     "dist/install-lib-cmd.html": "distutils/commandref.html#installing-modules-the-install-command-family",
     "dist/install-data-cmd.html": "distutils/commandref.html#install-data",
 
-    "dist/multiple-ext.html": "distutils/examples.html#single-extension-module",
+    "dist/build-cmds.html": "distutils/apiref.html#module-distutils.command.build",
+    "dist/build-cmd.html": "distutils/apiref.html#module-distutils.command.build",
+    "dist/build-py-cmd.html": "distutils/apiref.html#module-distutils.command.build_py",
+    "dist/build-ext-cmd.html": "distutils/apiref.html#module-distutils.command.build_ext",
+    "dist/build-clib-cmd.html": "distutils/apiref.html#module-distutils.command.build_clib",
+
+    "dist/clean-cmd.html": "distutils/apiref.html#module-distutils.command.clean",
 
     "inst/contents.html": "install/index.html",
     "inst/intro.html": "install/index.html#introduction",
@@ -5910,6 +5932,7 @@ const SPECIAL_CASES = {
     "inst/how-build-works.html": "install/index.html#how-building-works",
     "inst/how-install-works.html": "install/index.html#how-installation-works",
     "inst/alt-install.html": "install/index.html#alternate-installation",
+    // TODO: this one was removed
     "inst/alt-install-macos.html": "install/index.html#alternate-installation-the-user-scheme",
     "inst/alt-install-prefix.html": "install/index.html#alternate-installation-the-home-scheme",
     "inst/alt-install-home.html": "install/index.html#alternate-installation-unix-the-prefix-scheme",
@@ -5943,12 +5966,6 @@ const SPECIAL_CASES = {
 
     "ext/building-on-unix.html": "extending/building.html",
 
-    "dist/bdist-cmds.html": null,
-    "dist/build-clib-cmd.html": null,
-    "dist/build-cmd.html": null,
-    "dist/build-cmds.html": null,
-    "dist/build-ext-cmd.html": null,
-    "dist/build-py-cmd.html": null,
     "inst/makefile-pre-in.html": null,
     "inst/manual-install.html": null,
     "inst/old-way.html": null,
