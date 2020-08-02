@@ -7,6 +7,8 @@
         "outdated-warning",
         "searchbox",
         "searchlabel",
+        // Python 2.5
+        "top-navigation-panel",
     ]);
 
     browserAPI.getStorageData(
@@ -20,7 +22,10 @@
     function isBadFragment(fragment) {
         return USELESS_IDS.has(fragment)
             || fragment.match(/^#id[0-9]+$/)
-            || fragment.match(/^#index-[0-9]+$/);
+            || fragment.match(/^#index-[0-9]+$/)
+            // Python 2.5 docs
+            || fragment.match(/^#rfcref-[0-9]+$/)
+            || fragment.match(/^#l2h-[0-9]+$/);
     }
 
     function getNewLink(path, fragment) {
