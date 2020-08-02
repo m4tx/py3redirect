@@ -33,17 +33,13 @@
             return SPECIAL_CASES[path + fragment];
         }
         fragment = isBadFragment(fragment) ? '' : fragment;
-        // If the full link is not a special case, but is in a file that is special-cased...
+        // If the full link is not a special case, but is in a file that is special-cased
         if (path in SPECIAL_CASES) {
-            // don't redirect if the file is special-cased as deleted (null)
-            if (SPECIAL_CASES[path] === null) {
-                return null;
+            const specialCase = SPECIAL_CASES[path];
+            if (specialCase === null || specialCase.includes("#")) {
+                return specialCase;
             }
-            // change just the file name and redirect to it, unless the special case
-            // already has a fragment.
-            if (!SPECIAL_CASES[path].includes("#")) {
-                return SPECIAL_CASES[path] + fragment;
-            }
+            return specialCase + fragment;
         }
         // There's no relevant special case, return the orginial link (possibly without
         // the fragment, in case it can't be rewritten safely)
