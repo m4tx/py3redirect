@@ -43,12 +43,10 @@ ENCODING_CHANGED_VERSION = "2.5"
 
 # HTML ids of non-documentation elements
 USELESS_IDS = {
+    "documentation_options",
     "outdated-warning",
     "searchlabel",
     "searchbox",
-    "documentation_options",
-    "searchbox",
-    "searchlabel",
     # Python 2.5
     "top-navigation-panel",
 }
@@ -195,12 +193,27 @@ def starts_with_followed_by_numbers(s, prefix):
     return s.startswith(prefix) and all(c in string.digits for c in s[len(prefix) :])
 
 
-def is_impractical(link, special_cases, new_links):
-    # TODO
-    return False
+def is_impractical(path, frag):
+    if frag is not None:
+        if re.match("id[0-9]+", frag) is not None:
+            return "#id[0-9]+ (id can't be redirected safely)"
+        # Python 2.6 docs
+        if re.match("index-[0-9]+", frag) is not None:
+            return "#index-[0-9]+ (id can't be redirected safely)"
+        # Python 2.5 docs and below
+        if re.match("l2h-[0-9]+", frag) is not None:
+            # TODO: are these safe to redirect or do they change meaning between versions?
+            return "#l2h-[0-9]+ (id can't be redirected safely)"
+        if re.match("rfcref-[0-9]+", frag) is not None:
+            return "#rfcref-[0-9]+ (python2.5)"
+
+    # These node<some number>.html files in the <2.6 docs can point to different sections
+    # between minor versions.
+    if re.match(r"node[0-9]+\.html", path.split("/")[-1]) is not None:
+        return "node[0-9]+ (filename can't be redirected safely)"
 
 
-def is_useless(link, special_cases, new_links):
+def is_useless(path, frag):
     """Returns True if the link is a useless link that doesn't or can't be maintained"""
     if "#" in link:
         path, frag = link.split("#")
@@ -211,20 +224,11 @@ def is_useless(link, special_cases, new_links):
 
     if frag is not None:
         if frag in USELESS_IDS:
-            return f"useless id: {frag}"
-        if re.match("id[0-9]+", frag) is not None:
-            return "id[0-9]+"
-        # Python 2.6 docs
-        if re.match("index-[0-9]+", frag) is not None:
-            return "index-[0-9]+ (python2.6)"
-        # Python 2.5 docs
-        if re.match("rfcref-[0-9]+", frag) is not None:
-            return "rfcref-[0-9]+ (python2.5)"
-
-    # These node<some number> on the <2.6 docs can sometimes move between minor versions
-    # TODO: is that true?
-    if re.match(r"node[0-9]+\.html", path.split("/")[-1]) is not None:
-        return "useless filename (node[0-9]+)"
+            return f"#{frag}"
+    #
+    # Don't redirect the indeces
+    if path.endswith("genindex.html"):
+        return "genindex.html (useless filename)"
 
     return False
 
@@ -252,6 +256,7 @@ def has_redirect(link, special_cases, new_links):
 
 need_special_case = {}
 useless = {}
+impractical = {}
 still_missing = {}
 special_cased = {}
 
@@ -260,16 +265,26 @@ for version in PYTHON2_VERSIONS:
     need_special_case[version] = [l for l in docs[version] if l not in new_links]
 
     useless[version] = {}
+    impractical[version] = {}
     special_cased[version] = []
     still_missing[version] = []
 
     for link_index, link in enumerate(need_special_case[version]):
 
+        if "#" in link:
+            path, frag = link.split("#")
+        else:
+            path, frag = link, None
+
         if has_redirect(link, cases, new_links):
             special_cased[version].append(link)
-        elif (useless_status := is_useless(link, cases, new_links)) :
+        elif (useless_status := is_useless(path, frag)) :
             useless[version][useless_status] = (
                 useless[version].get(useless_status, 0) + 1
+            )
+        elif (impractical_status := is_impractical(path, frag)):
+            impractical[version][impractical_status] = (
+                impractical[version].get(impractical_status, 0) + 1
             )
         else:
             # print(f"// https://docs.python.org/{version}/{link}")
@@ -315,6 +330,7 @@ for version in PYTHON2_VERSIONS:
         if m not in missing_files and m.split("#")[0] not in missing_files:
             missing_in_existing_files.append(m)
     useless_count = sum(useless[version].values())
+    impractical_count = sum(impractical[version].values())
     special_cased_count = len(special_cased[version])
     todo_count = len(still_missing[version])
 
@@ -333,6 +349,12 @@ for version in PYTHON2_VERSIONS:
     )
     for reason in sorted(useless[version]):
         print(f"    {useless[version][reason]: <4}: {reason}")
+    print(
+        f"  - {impractical_count} impractical",
+        f"({format_loading_percent(impractical_count / missing_from_newest_version)})",
+    )
+    for reason in sorted(impractical[version]):
+        print(f"    {impractical[version][reason]: <4}: {reason}")
     print(
         f"  - {special_cased_count} special cased",
         f"({format_loading_percent(special_cased_count/ missing_from_newest_version)})",
