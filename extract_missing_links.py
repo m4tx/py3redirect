@@ -196,29 +196,25 @@ def starts_with_followed_by_numbers(s, prefix):
 def is_impractical(path, frag):
     if frag is not None:
         if re.match("id[0-9]+", frag) is not None:
-            return "#id[0-9]+ (id can't be redirected safely)"
-        # Python 2.6 docs
+            return "#id[0-9]+ (id can't be redirected without minor version)"
         if re.match("index-[0-9]+", frag) is not None:
-            return "#index-[0-9]+ (id can't be redirected safely)"
+            return "#index-[0-9]+ (id can't be redirected without minor version)"
         # Python 2.5 docs and below
         if re.match("l2h-[0-9]+", frag) is not None:
             # TODO: are these safe to redirect or do they change meaning between versions?
-            return "#l2h-[0-9]+ (id can't be redirected safely)"
+            return "#l2h-[0-9]+ (id can't be redirected without minor version)"
         if re.match("rfcref-[0-9]+", frag) is not None:
-            return "#rfcref-[0-9]+ (python2.5)"
+            # TODO: are these safe to redirect
+            return "#rfcref-[0-9]+"
 
     # These node<some number>.html files in the <2.6 docs can point to different sections
     # between minor versions.
     if re.match(r"node[0-9]+\.html", path.split("/")[-1]) is not None:
-        return "node[0-9]+ (filename can't be redirected safely)"
+        return r"node[0-9]+\.html (filename can't be redirected without minor version)"
 
 
 def is_useless(path, frag):
     """Returns True if the link is a useless link that doesn't or can't be maintained"""
-    if "#" in link:
-        path, frag = link.split("#")
-    else:
-        path, frag = link, None
     if path.startswith("modindex.html"):
         return "module index"
 
