@@ -5,6 +5,7 @@ from io import BytesIO
 import itertools
 import json
 import re
+import shutil
 import string
 import subprocess
 import tempfile
@@ -16,7 +17,7 @@ from bs4 import BeautifulSoup
 from pathlib import Path
 import sys
 
-NEW_VERSION = "3.8"
+NEW_VERSION = "3.9"
 OLD_VERSION = "2.7"
 
 PYTHON2_VERSIONS = ["2.0", "2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7"]
@@ -36,7 +37,7 @@ ARCHIVE_URLS = {
     "2.5": "https://www.python.org/ftp/python/doc/2.5.4/html-2.5.4.zip",
     "2.6": "http://docs.python.org/ftp/python/doc/2.6.9/python-2.6.9-docs-html.zip",
     "2.7": "https://docs.python.org/2/archives/python-2.7.18-docs-html.zip",
-    "3.8": "https://docs.python.org/3/archives/python-3.8.3-docs-html.zip",
+    "3.9": "https://docs.python.org/3/archives/python-3.9.4-docs-html.zip",
 }
 # The encoding was changed from Windows-1252 in Python 2.5
 ENCODING_CHANGED_VERSION = "2.5"
@@ -75,7 +76,7 @@ for version, url in ARCHIVE_URLS.items():
         unzipped_contents = list(temp_path.iterdir())
         if len(unzipped_contents) == 1:
             temp_path = unzipped_contents[0]
-        temp_path.rename(output_dir)
+        shutil.move(temp_path, output_dir)
 
 cases = json.loads(
     subprocess.run(
