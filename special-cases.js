@@ -458,6 +458,9 @@ const SPECIAL_CASES = {
     "library/array.html#array.ArrayType": null,
     "library/array.html#array.array.read": null,
     "library/array.html#array.array.write": null,
+    // Removed in 3.9, use {from,to}bytes
+    "library/array.html#array.array.fromstring": null,
+    "library/array.html#array.array.tostring": null,
 
 
     // https://docs.python.org/whatsnew/3.0.html#library-changes
@@ -561,6 +564,9 @@ const SPECIAL_CASES = {
     "library/types.html#types.StringTypes": null,
 
 
+    "library/copy.html#copy.error": "library/copy.html#copy.Error",
+
+
     "library/repr.html": "library/reprlib.html",
     "library/repr.html#module-repr": "library/reprlib.html#module-reprlib",
     "library/repr.html#repr-alternate-repr-implementation": "library/reprlib.html#reprlib-alternate-repr-implementation",
@@ -580,6 +586,11 @@ const SPECIAL_CASES = {
     "library/repr.html#repr.Repr.maxother": "library/reprlib.html#reprlib.Repr.maxother",
     "library/repr.html#repr.Repr.repr": "library/reprlib.html#reprlib.Repr.repr",
     "library/repr.html#repr.Repr.repr1": "library/reprlib.html#reprlib.Repr.repr1",
+
+
+    // Removed in 3.9
+    // "library/fractions.html#fractions.gcd": "library/math.html#math.gcd",
+    "library/fractions.html#fractions.gcd": null,
 
 
     "library/random.html#random.jumpahead": null,
@@ -711,6 +722,10 @@ const SPECIAL_CASES = {
     "library/gdbm.html#gdbm.close": "library/dbm.html#dbm.gnu.gdbm.close",
 
 
+    "library/sqlite3.html#common-issues": null,
+    "library/sqlite3.html#multithreading": null,
+
+
     "library/bz2.html#bz2-compression-compatible-with-bzip2": "library/bz2.html#bz2-support-for-bzip2-compression",
 
     // None of these methods are documented anymore because they're inherited
@@ -796,8 +811,13 @@ const SPECIAL_CASES = {
     "library/robotparser.html#robotparser.RobotFileParser.modified": "library/urllib.robotparser.html#urllib.robotparser.RobotFileParser.modified",
 
 
-    "library/plistlib.html#plistlib.readPlistFromString": "library/plistlib.html#plistlib.readPlistFromBytes",
-    "library/plistlib.html#plistlib.writePlistToString": "library/plistlib.html#plistlib.writePlistToBytes",
+    // Old API removed in 3.9
+    "library/plistlib.html#plistlib.readPlistFromString": null,
+    "library/plistlib.html#plistlib.writePlistToString": null,
+    "library/plistlib.html#plistlib-generate-and-parse-mac-os-x-plist-files": null,
+    "library/plistlib.html#plistlib.readPlist": null,
+    "library/plistlib.html#plistlib.writePlist": null,
+    "library/plistlib.html#plistlib.Data": null,
     // "In Python 3.x, this function has been removed"
     "library/plistlib.html#plistlib.readPlistFromResource": null,
     // "In Python 3.x, this function has been removed"
@@ -882,6 +902,10 @@ const SPECIAL_CASES = {
 
 
     "library/argparse.html#argparse-from-optparse": "library/argparse.html#upgrading-optparse-code",
+
+    // Un-documented in 3.9
+    // https://bugs.python.org/issue17050
+    "library/argparse.html#argparse-remainder": null,
 
 
     "library/platform.html#win95-98-specific": null,
@@ -1103,6 +1127,10 @@ const SPECIAL_CASES = {
 
     "library/base64.html#base64-rfc-3548-base16-base32-base64-data-encodings": "library/base64.html#base64-base16-base32-base64-base85-data-encodings",
 
+    // Removed in 3.9, use {de,en}codebytes
+    "library/base64.html#base64.decodestring": null,
+    "library/base64.html#base64.encodestring": null,
+
 
     "library/htmlparser.html": "library/html.parser.html",
     "library/htmlparser.html#module-HTMLParser": "library/html.parser.html#module-html.parser",
@@ -1138,10 +1166,18 @@ const SPECIAL_CASES = {
     "library/htmllib.html#htmlentitydefs.codepoint2name": "library/html.entities.html#html.entities.codepoint2name",
 
 
+    "library/xml.html#defused-packages": "library/xml.html#the-defusedxml-package",
+
     // "Deprecated since version 2.7: Define the TreeBuilder.doctype() method on a custom TreeBuilder target"
     "library/xml.etree.elementtree.html#xml.etree.ElementTree.XMLParser.doctype": null,
+
+    "library/xml.etree.elementtree.html#xml.etree.ElementTree.Element.getchildren": null,
+    "library/xml.etree.elementtree.html#xml.etree.ElementTree.Element.getiterator": null,
+    "library/xml.etree.elementtree.html#xml.etree.ElementTree.ElementTree.getiterator": null,
+
     "library/xml.dom.minidom.html#xml.dom.minidom.Node.cloneNode": null,
     "library/xml.dom.pulldom.html#xml.dom.pulldom.PullDOM": "library/xml.dom.pulldom.html#xml.dom.pulldom.PullDom",
+
 
     "library/pyexpat.html#xml.parsers.expat.xmlparser.returns_unicode": null,
 
@@ -1334,6 +1370,8 @@ const SPECIAL_CASES = {
     // "library/nntplib.html#nntplib.NNTP.xgtitle": "library/nntplib.html#nntplib.NNTP.description",
     // "library/nntplib.html#nntplib.NNTP.xgtitle": "library/nntplib.html#nntplib.NNTP.descriptions",
     "library/nntplib.html#nntplib.NNTP.xgtitle": null,
+
+    "library/nntplib.html#nntplib.NNTP.xpath": null,
 
 
     "library/urlparse.html": "library/urllib.parse.html",
@@ -1609,6 +1647,14 @@ const SPECIAL_CASES = {
     "library/docxmlrpcserver.html#DocXMLRPCServer.DocCGIXMLRPCRequestHandler.set_server_documentation": "library/xmlrpc.server.html#xmlrpc.server.DocCGIXMLRPCRequestHandler.set_server_documentation",
 
 
+    // "library/sunau.html#sunau.openfp": null,
+    "library/sunau.html#sunau.openfp": "library/sunau.html#sunau.open",
+
+
+    // "library/wave.html#wave.openfp": null,
+    "library/wave.html#wave.openfp": "library/wave.html#wave.open",
+
+
     "library/gettext.html#gettext.NullTranslations.ugettext": "library/gettext.html#gettext.NullTranslations.gettext",
     "library/gettext.html#gettext.NullTranslations.ungettext": "library/gettext.html#gettext.NullTranslations.ngettext",
     "library/gettext.html#gettext.GNUTranslations.ugettext": "library/gettext.html#gettext.GNUTranslations.gettext",
@@ -1813,6 +1859,9 @@ const SPECIAL_CASES = {
     "library/sys.html#sys.settscdump": null,
     "library/sys.html#sys.subversion": null,
 
+    "library/sys.html#sys.getcheckinterval": null,
+    "library/sys.html#sys.setcheckinterval": null,
+
 
     "library/__builtin__.html": "library/builtins.html",
     "library/__builtin__.html#module-__builtin__": "library/builtins.html#module-builtins",
@@ -1854,6 +1903,8 @@ const SPECIAL_CASES = {
 
     "library/symtable.html#symtable.SymbolTable.has_import_star": null,
 
+    "library/symtable.html#symtable.SymbolTable.has_exec": null,
+
 
     // "library/token.html#token.BACKQUOTE": "whatsnew/3.0.html#removed-syntax",
     "library/token.html#token.BACKQUOTE": null,
@@ -1892,6 +1943,7 @@ const SPECIAL_CASES = {
     "library/dis.html#opcode-CONTINUE_LOOP": null,
     "library/dis.html#opcode-LOAD_LOCALS": null,
     "library/dis.html#opcode-EXEC_STMT": null,
+    "library/dis.html#opcode-END_FINALLY": null,
     "library/dis.html#opcode-BUILD_CLASS": null,
     "library/dis.html#opcode-WITH_CLEANUP": null,
     "library/dis.html#opcode-DUP_TOPX": null,
@@ -2077,13 +2129,16 @@ const SPECIAL_CASES = {
     "reference/compound_stmts.html#grammar-token-decorated": "reference/compound_stmts.html#function-definitions",
     // TODO: explain
     "reference/compound_stmts.html#grammar-token-sublist": "reference/compound_stmts.html#function-definitions",
+    // Simplified away
+    "reference/compound_stmts.html#grammar-token-dotted-name": null,
 
     "reference/expressions.html#grammar-token-list-comprehension": "reference/expressions.html#grammar-token-comprehension",
     "reference/expressions.html#grammar-token-list-for": "reference/expressions.html#grammar-token-comp-for",
     // TODO
     "reference/expressions.html#grammar-token-old-expression-list": "reference/expressions.html#displays-for-lists-sets-and-dictionaries",
-    // TODO
-    "reference/expressions.html#grammar-token-old-expression": "reference/expressions.html#grammar-token-expression-nocond",
+    // This syntax is no longer allowed
+    // https://github.com/python/cpython/commit/0fdf11e8e901a5f47149232557a7f9726b8177c9
+    "reference/expressions.html#grammar-token-old-expression": null,
     "reference/expressions.html#grammar-token-list-iter": "reference/expressions.html#grammar-token-comp-iter",
     "reference/expressions.html#grammar-token-list-if": "reference/expressions.html#grammar-token-comp-if",
 
@@ -2105,7 +2160,8 @@ const SPECIAL_CASES = {
 
     "reference/expressions.html#grammar-token-keyword-arguments": "reference/expressions.html#grammar-token-keywords-arguments",
 
-    "reference/expressions.html#grammar-token-old-lambda-expr": "reference/expressions.html#grammar-token-lambda-expr-nocond",
+    // Removed in 3.9
+    "reference/expressions.html#grammar-token-old-lambda-expr": null,
 
 
     "reference/lexical_analysis.html#logical": "reference/lexical_analysis.html#logical-lines",
@@ -2274,9 +2330,12 @@ const SPECIAL_CASES = {
     "c-api/gcsupport.html#c._PyObject_GC_UNTRACK": null,
 
 
-    // Both are "for internal use only"
+    // "for internal use only"
     "c-api/import.html#c._PyImport_FindExtension": null,
     "c-api/import.html#c._PyImport_FixupExtension": null,
+    "c-api/import.html#c._PyImport_Init": null,
+    "c-api/import.html#c.PyImport_Cleanup": null,
+    "c-api/import.html#c._PyImport_Fini": null,
 
 
     "c-api/init.html#c.PyEval_ReInitThreads": null,
@@ -2306,6 +2365,15 @@ const SPECIAL_CASES = {
     "c-api/object.html#c.PyObject_Compare": null,
 
     "c-api/object.html#c.PyObject_Unicode": "c-api/object.html#c.PyObject_Str",
+
+    // Moved to separate file in 3.9
+    "c-api/object.html#c.PyCallable_Check": "c-api/call.html#c.PyCallable_Check",
+    "c-api/object.html#c.PyObject_Call": "c-api/call.html#c.PyObject_Call",
+    "c-api/object.html#c.PyObject_CallObject": "c-api/call.html#c.PyObject_CallObject",
+    "c-api/object.html#c.PyObject_CallFunction": "c-api/call.html#c.PyObject_CallFunction",
+    "c-api/object.html#c.PyObject_CallMethod": "c-api/call.html#c.PyObject_CallMethod",
+    "c-api/object.html#c.PyObject_CallFunctionObjArgs": "c-api/call.html#c.PyObject_CallFunctionObjArgs",
+    "c-api/object.html#c.PyObject_CallMethodObjArgs": "c-api/call.html#c.PyObject_CallMethodObjArgs",
 
     "c-api/object.html#c.PyObject_AsFileDescriptor": "c-api/file.html#c.PyObject_AsFileDescriptor",
 
@@ -2340,6 +2408,12 @@ const SPECIAL_CASES = {
     // "c-api/typeobj.html#c.PyTypeObject.tp_print": "c-api/typeobj.html#c.PyTypeObject.tp_vectorcall_offset",
     "c-api/typeobj.html#c.PyTypeObject.tp_print": null,
 
+    // Removed in 3.9
+    "c-api/typeobj.html#c.PyTypeObject.tp_allocs": null,
+    "c-api/typeobj.html#c.PyTypeObject.tp_frees": null,
+    "c-api/typeobj.html#c.PyTypeObject.tp_maxalloc": null,
+    "c-api/typeobj.html#c.PyTypeObject.tp_next": null,
+
     "c-api/typeobj.html#c.tp_as_number": "c-api/typeobj.html#c.PyTypeObject.tp_as_number",
     "c-api/typeobj.html#c.tp_as_sequence": "c-api/typeobj.html#c.PyTypeObject.tp_as_sequence",
     "c-api/typeobj.html#c.tp_as_mapping": "c-api/typeobj.html#c.PyTypeObject.tp_as_mapping",
@@ -2360,6 +2434,13 @@ const SPECIAL_CASES = {
     "c-api/typeobj.html#c.writebufferproc": null,
     "c-api/typeobj.html#c.segcountproc": null,
     "c-api/typeobj.html#c.charbufferproc": null,
+
+
+    // Removed in 3.9
+    "c-api/float.html#c.PyFloat_ClearFreeList": null,
+    "c-api/method.html#c.PyMethod_ClearFreeList": null,
+    "c-api/tuple.html#c.PyTuple_ClearFreeList": null,
+    "c-api/unicode.html#c.PyUnicode_ClearFreeList": null,
 
 
     "distributing/index.html#reading-the-guide": "distributing/index.html#reading-the-python-packaging-user-guide",
@@ -2394,6 +2475,12 @@ const SPECIAL_CASES = {
     // This file should be renamed to urllib.html
     "howto/urllib2.html#howto-fetch-internet-resources-using-urllib2": "howto/urllib2.html#howto-fetch-internet-resources-using-the-urllib-package",
 
+    // Expanded in 3.9 starting with
+    // https://github.com/python/cpython/pull/22906
+    "howto/descriptor.html#invoking-descriptors": "howto/descriptor.html#overview-of-descriptor-invocation",
+    "howto/descriptor.html#descriptor-example": "howto/descriptor.html#orm-example",
+    "howto/descriptor.html#static-methods-and-class-methods": "howto/descriptor.html#kinds-of-methods",
+
 
     "faq/general.html#upgrading-python": null,
     "faq/general.html#what-is-this-bsddb185-module-my-application-keeps-complaining-about": null,
@@ -2407,6 +2494,8 @@ const SPECIAL_CASES = {
     "faq/programming.html#dictionaries": null,
     // Dictionaries are now ordered by insertion, question is meaningless.
     "faq/programming.html#how-can-i-get-a-dictionary-to-display-its-keys-in-a-consistent-order": null,
+    // Pluralized in 3.8
+    "faq/programming.html#is-there-a-tool-to-help-find-bugs-or-perform-static-analysis": "faq/programming.html#are-there-tools-to-help-find-bugs-or-perform-static-analysis",
 
     "faq/design.html#why-isn-t-all-memory-freed-when-python-exits": "faq/design.html#why-isn-t-all-memory-freed-when-cpython-exits",
 
@@ -2926,7 +3015,9 @@ const SPECIAL_CASES = {
     "reference/compound_stmts.html#grammar-token-try1_stmt": "reference/compound_stmts.html#grammar-token-try1-stmt",
     "reference/compound_stmts.html#grammar-token-try2_stmt": "reference/compound_stmts.html#grammar-token-try2-stmt",
     "reference/compound_stmts.html#grammar-token-with_stmt": "reference/compound_stmts.html#grammar-token-with-stmt",
-    "reference/compound_stmts.html#grammar-token-dotted_name": "reference/compound_stmts.html#grammar-token-dotted-name",
+    // Removed in 3.9
+    // https://github.com/python/cpython/pull/25234
+    "reference/compound_stmts.html#grammar-token-dotted_name": null,
     "reference/compound_stmts.html#grammar-token-parameter_list": "reference/compound_stmts.html#grammar-token-parameter-list",
 
     "reference/toplevel_components.html#grammar-token-file_input": "reference/toplevel_components.html#grammar-token-file-input",
@@ -2936,8 +3027,11 @@ const SPECIAL_CASES = {
     // Replace _ with - and copy/paste the redirect from Python 2.7
     "reference/expressions.html#grammar-token-list_comprehension": "reference/expressions.html#grammar-token-comprehension",
     "reference/expressions.html#grammar-token-list_for": "reference/expressions.html#grammar-token-comp-for",
+    // TODO: removed?
     "reference/expressions.html#grammar-token-old_expression_list": "reference/expressions.html#displays-for-lists-sets-and-dictionaries",
-    "reference/expressions.html#grammar-token-old_expression": "reference/expressions.html#grammar-token-expression-nocond",
+    // Removed in 3.9
+    // https://github.com/python/cpython/commit/0fdf11e8e901a5f47149232557a7f9726b8177c9
+    "reference/expressions.html#grammar-token-old_expression": null,
     "reference/expressions.html#grammar-token-list_iter": "reference/expressions.html#grammar-token-comp-iter",
     "reference/expressions.html#grammar-token-list_if": "reference/expressions.html#grammar-token-comp-if",
     "reference/expressions.html#grammar-token-string_conversion": null,
@@ -2963,7 +3057,8 @@ const SPECIAL_CASES = {
 
     // "lambda form" renamed to "lambda expression"
     "reference/expressions.html#grammar-token-lambda_form": "reference/expressions.html#grammar-token-lambda-expr",
-    "reference/expressions.html#grammar-token-old_lambda_form": "reference/expressions.html#grammar-token-lambda-expr-nocond",
+    // Removed in 3.9
+    "reference/expressions.html#grammar-token-old_lambda_form": null,
 
     // Renamed section
     "reference/expressions.html#summary": "reference/expressions.html#operator-precedence",
@@ -3175,9 +3270,10 @@ const SPECIAL_CASES = {
     "c-api/import.html#PyImport_GetMagicNumber": "c-api/import.html#c.PyImport_GetMagicNumber",
     "c-api/import.html#PyImport_GetModuleDict": "c-api/import.html#c.PyImport_GetModuleDict",
     "c-api/import.html#PyImport_GetImporter": "c-api/import.html#c.PyImport_GetImporter",
-    "c-api/import.html#_PyImport_Init": "c-api/import.html#c._PyImport_Init",
-    "c-api/import.html#PyImport_Cleanup": "c-api/import.html#c.PyImport_Cleanup",
-    "c-api/import.html#_PyImport_Fini": "c-api/import.html#c._PyImport_Fini",
+    // These internal functions were un-documented
+    "c-api/import.html#_PyImport_Init": null,
+    "c-api/import.html#PyImport_Cleanup": null,
+    "c-api/import.html#_PyImport_Fini": null,
     "c-api/import.html#PyImport_ImportFrozenModule": "c-api/import.html#c.PyImport_ImportFrozenModule",
     "c-api/import.html#_frozen": "c-api/import.html#c._frozen",
     "c-api/import.html#PyImport_FrozenModules": "c-api/import.html#c.PyImport_FrozenModules",
@@ -3233,13 +3329,14 @@ const SPECIAL_CASES = {
     "c-api/object.html#PyObject_Bytes": "c-api/object.html#c.PyObject_Bytes",
     "c-api/object.html#PyObject_IsInstance": "c-api/object.html#c.PyObject_IsInstance",
     "c-api/object.html#PyObject_IsSubclass": "c-api/object.html#c.PyObject_IsSubclass",
-    "c-api/object.html#PyCallable_Check": "c-api/object.html#c.PyCallable_Check",
-    "c-api/object.html#PyObject_Call": "c-api/object.html#c.PyObject_Call",
-    "c-api/object.html#PyObject_CallObject": "c-api/object.html#c.PyObject_CallObject",
-    "c-api/object.html#PyObject_CallFunction": "c-api/object.html#c.PyObject_CallFunction",
-    "c-api/object.html#PyObject_CallMethod": "c-api/object.html#c.PyObject_CallMethod",
-    "c-api/object.html#PyObject_CallFunctionObjArgs": "c-api/object.html#c.PyObject_CallFunctionObjArgs",
-    "c-api/object.html#PyObject_CallMethodObjArgs": "c-api/object.html#c.PyObject_CallMethodObjArgs",
+    // These were moved to a separate file in 3.9
+    "c-api/object.html#PyCallable_Check": "c-api/call.html#c.PyCallable_Check",
+    "c-api/object.html#PyObject_Call": "c-api/call.html#c.PyObject_Call",
+    "c-api/object.html#PyObject_CallObject": "c-api/call.html#c.PyObject_CallObject",
+    "c-api/object.html#PyObject_CallFunction": "c-api/call.html#c.PyObject_CallFunction",
+    "c-api/object.html#PyObject_CallMethod": "c-api/call.html#c.PyObject_CallMethod",
+    "c-api/object.html#PyObject_CallFunctionObjArgs": "c-api/call.html#c.PyObject_CallFunctionObjArgs",
+    "c-api/object.html#PyObject_CallMethodObjArgs": "c-api/call.html#c.PyObject_CallMethodObjArgs",
     "c-api/object.html#PyObject_Hash": "c-api/object.html#c.PyObject_Hash",
     "c-api/object.html#PyObject_HashNotImplemented": "c-api/object.html#c.PyObject_HashNotImplemented",
     "c-api/object.html#PyObject_IsTrue": "c-api/object.html#c.PyObject_IsTrue",
@@ -3394,7 +3491,9 @@ const SPECIAL_CASES = {
     "c-api/float.html#PyFloat_GetInfo": "c-api/float.html#c.PyFloat_GetInfo",
     "c-api/float.html#PyFloat_GetMax": "c-api/float.html#c.PyFloat_GetMax",
     "c-api/float.html#PyFloat_GetMin": "c-api/float.html#c.PyFloat_GetMin",
-    "c-api/float.html#PyFloat_ClearFreeList": "c-api/float.html#c.PyFloat_ClearFreeList",
+    // Removed in 3.9
+    // https://github.com/python/cpython/pull/19783
+    "c-api/float.html#PyFloat_ClearFreeList": null,
 
     "c-api/complex.html#Py_complex": "c-api/complex.html#c.Py_complex",
     "c-api/complex.html#_Py_c_sum": "c-api/complex.html#c._Py_c_sum",
@@ -3435,7 +3534,9 @@ const SPECIAL_CASES = {
     "c-api/unicode.html#PyUnicode_GET_DATA_SIZE": "c-api/unicode.html#c.PyUnicode_GET_DATA_SIZE",
     "c-api/unicode.html#PyUnicode_AS_UNICODE": "c-api/unicode.html#c.PyUnicode_AS_UNICODE",
     "c-api/unicode.html#PyUnicode_AS_DATA": "c-api/unicode.html#c.PyUnicode_AS_DATA",
-    "c-api/unicode.html#PyUnicode_ClearFreeList": "c-api/unicode.html#c.PyUnicode_ClearFreeList",
+    // Removed in 3.9
+    // https://github.com/python/cpython/pull/19783
+    "c-api/unicode.html#PyUnicode_ClearFreeList": null,
     "c-api/unicode.html#Py_UNICODE_ISSPACE": "c-api/unicode.html#c.Py_UNICODE_ISSPACE",
     "c-api/unicode.html#Py_UNICODE_ISLOWER": "c-api/unicode.html#c.Py_UNICODE_ISLOWER",
     "c-api/unicode.html#Py_UNICODE_ISUPPER": "c-api/unicode.html#c.Py_UNICODE_ISUPPER",
@@ -3541,7 +3642,9 @@ const SPECIAL_CASES = {
     "c-api/tuple.html#PyTuple_SetItem": "c-api/tuple.html#c.PyTuple_SetItem",
     "c-api/tuple.html#PyTuple_SET_ITEM": "c-api/tuple.html#c.PyTuple_SET_ITEM",
     "c-api/tuple.html#_PyTuple_Resize": "c-api/tuple.html#c._PyTuple_Resize",
-    "c-api/tuple.html#PyTuple_ClearFreeList": "c-api/tuple.html#c.PyTuple_ClearFreeList",
+    // Removed in 3.9
+    // https://github.com/python/cpython/pull/19783
+    "c-api/tuple.html#PyTuple_ClearFreeList": null,
 
     "c-api/list.html#PyListObject": "c-api/list.html#c.PyListObject",
     "c-api/list.html#PyList_Type": "c-api/list.html#c.PyList_Type",
@@ -3605,7 +3708,9 @@ const SPECIAL_CASES = {
     "c-api/method.html#PyMethod_GET_FUNCTION": "c-api/method.html#c.PyMethod_GET_FUNCTION",
     "c-api/method.html#PyMethod_Self": "c-api/method.html#c.PyMethod_Self",
     "c-api/method.html#PyMethod_GET_SELF": "c-api/method.html#c.PyMethod_GET_SELF",
-    "c-api/method.html#PyMethod_ClearFreeList": "c-api/method.html#c.PyMethod_ClearFreeList",
+    // Removed in 3.9
+    // https://github.com/python/cpython/pull/19783
+    "c-api/method.html#PyMethod_ClearFreeList": null,
 
     "c-api/file.html#PyFile_GetLine": "c-api/file.html#c.PyFile_GetLine",
     "c-api/file.html#PyFile_WriteObject": "c-api/file.html#c.PyFile_WriteObject",
@@ -3947,10 +4052,12 @@ const SPECIAL_CASES = {
     "c-api/typeobj.html#tp_cache": "c-api/typeobj.html#c.PyTypeObject.tp_cache",
     "c-api/typeobj.html#tp_subclasses": "c-api/typeobj.html#c.PyTypeObject.tp_subclasses",
     "c-api/typeobj.html#tp_weaklist": "c-api/typeobj.html#c.PyTypeObject.tp_weaklist",
-    "c-api/typeobj.html#tp_allocs": "c-api/typeobj.html#c.PyTypeObject.tp_allocs",
-    "c-api/typeobj.html#tp_frees": "c-api/typeobj.html#c.PyTypeObject.tp_frees",
-    "c-api/typeobj.html#tp_maxalloc": "c-api/typeobj.html#c.PyTypeObject.tp_maxalloc",
-    "c-api/typeobj.html#tp_next": "c-api/typeobj.html#c.PyTypeObject.tp_next",
+    // These 4 were removed when COUNT_ALLOCS special build was removed in 3.9
+    // https://github.com/python/cpython/pull/18259
+    "c-api/typeobj.html#tp_allocs": null,
+    "c-api/typeobj.html#tp_frees": null,
+    "c-api/typeobj.html#tp_maxalloc": null,
+    "c-api/typeobj.html#tp_next": null,
     "c-api/typeobj.html#nb_coerce": null,
     "c-api/typeobj.html#mp_length": "c-api/typeobj.html#c.PyMappingMethods.mp_length",
     "c-api/typeobj.html#mp_subscript": "c-api/typeobj.html#c.PyMappingMethods.mp_subscript",
@@ -5332,7 +5439,7 @@ const SPECIAL_CASES = {
 
     "dist/package-upload.html": "distributing/index.html#reading-the-python-packaging-user-guide",
 
-    "ref/descriptor-invocation.html": "howto/descriptor.html#invoking-descriptors",
+    "ref/descriptor-invocation.html": "howto/descriptor.html#technical-tutorial",
 
     "lib/multiple-destinations.html": "howto/logging-cookbook.html#logging-to-multiple-destinations",
     "lib/network-logging.html": "howto/logging-cookbook.html#sending-and-receiving-logging-events-across-a-network",
@@ -5626,7 +5733,9 @@ const SPECIAL_CASES = {
     "ref/function.html#tok-funcdef": "reference/compound_stmts.html#grammar-token-funcdef",
     "ref/function.html#tok-decorators": "reference/compound_stmts.html#grammar-token-decorators",
     "ref/function.html#tok-decorator": "reference/compound_stmts.html#grammar-token-decorator",
-    "ref/function.html#tok-dotted_name": "reference/compound_stmts.html#grammar-token-dotted-name",
+    // Removed in 3.9
+    // https://github.com/python/cpython/pull/25234
+    "ref/function.html#tok-dotted_name": null,
     "ref/function.html#tok-parameter_list": "reference/compound_stmts.html#grammar-token-parameter-list",
     "ref/function.html#tok-defparameter": "reference/compound_stmts.html#grammar-token-defparameter",
     "ref/function.html#tok-parameter": "reference/compound_stmts.html#grammar-token-parameter",
@@ -5683,7 +5792,7 @@ const SPECIAL_CASES = {
     "ref/yieldexpr.html#tok-yield_expression": "reference/expressions.html#grammar-token-yield-expression",
 
     // Do the above replacement and then find and copy/paste the associated Python 2.6 or 2.7 special case
-    "ref/Booleans.html#tok-old_expression": "reference/expressions.html#grammar-token-expression-nocond",
+    "ref/Booleans.html#tok-old_expression": null,
     "ref/calls.html#tok-keyword_arguments": "reference/expressions.html#grammar-token-keywords-arguments",
     "ref/exec.html#tok-exec_stmt": "library/functions.html#exec",
     "ref/expression-input.html#tok-input_input": null,
@@ -5710,7 +5819,8 @@ const SPECIAL_CASES = {
     "ref/genexpr.html#tok-genexpr_iter": "reference/expressions.html#generator-expressions",
     "ref/genexpr.html#tok-genexpr_if": "reference/expressions.html#generator-expressions",
     "ref/lambdas.html#tok-lambda_form": "reference/expressions.html#grammar-token-lambda-expr",
-    "ref/lambdas.html#tok-old_lambda_form": "reference/expressions.html#grammar-token-lambda-expr-nocond",
+    // Removed in 3.9
+    "ref/lambdas.html#tok-old_lambda_form": null,
     "ref/print.html#tok-print_stmt": "library/functions.html#print",
 
     // Python 2.4
