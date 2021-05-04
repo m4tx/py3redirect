@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
 
 import difflib
-from io import BytesIO
 import itertools
 import json
 import re
 import shutil
 import string
 import subprocess
+import sys
 import tempfile
+from io import BytesIO
+from pathlib import Path
 from urllib.parse import urljoin, urlparse
 from urllib.request import urlopen
 from zipfile import ZipFile
 
 from bs4 import BeautifulSoup
-from pathlib import Path
-import sys
 
 NEW_VERSION = "3.9"
 OLD_VERSION = "2.7"
@@ -380,8 +380,8 @@ for old, redirect in cases.items():
     if old not in old_links:
         print("old link doesn't exist:", file=sys.stderr)
         print("   ", old, "->", file=sys.stderr)
-        print("       ", redirect, file=sys.stderr)
+        print("   ", redirect, file=sys.stderr)
     if redirect is not None and redirect not in new_links:
         print("redirect target doesn't exist:", file=sys.stderr)
         print("   ", old, "->", file=sys.stderr)
-        print("       ", redirect, file=sys.stderr)
+        print("   ", redirect, file=sys.stderr)
