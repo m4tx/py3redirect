@@ -1,11 +1,15 @@
 (function () {
-    const URL_REGEX = /^(https?:\/\/docs\.python\.org\/)([23][^\/]*?)(\/.*)/;
-    const SPECIAL_CASES = {
-        "/library/sets.html" : "/library/stdtypes.html#set",
-        "/library/stringio.html": "/library/io.html#io.StringIO"
-    };
-
     let pyVersion, isEnabled;
+
+    // HTML ids of non-documentation elements
+    const USELESS_IDS = new Set([
+        "documentation_options",
+        "outdated-warning",
+        "searchbox",
+        "searchlabel",
+        // Python 2.5
+        "top-navigation-panel",
+    ]);
 
     browserAPI.getStorageData(
         {pyVersion: "3", isEnabled: true},
@@ -15,12 +19,55 @@
         }
     );
 
-    function getRedirectURL(oldUrl) {
-        let matches = URL_REGEX.exec(oldUrl);
+    function isBadFragment(fragment) {
+        return USELESS_IDS.has(fragment)
+            || fragment.match(/^#id[0-9]+$/)
+            || fragment.match(/^#index-[0-9]+$/)
+            // Python 2.5 docs
+            || fragment.match(/^#rfcref-[0-9]+$/)
+            || fragment.match(/^#l2h-[0-9]+$/);
+    }
 
-        return matches && (matches[1] !== pyVersion)
-            ? matches[1] + pyVersion + (SPECIAL_CASES[matches[3]] || matches[3])
-            : oldUrl;
+    function getNewLink(path, fragment) {
+        if ((path + fragment) in SPECIAL_CASES) {
+            return SPECIAL_CASES[path + fragment];
+        }
+        fragment = isBadFragment(fragment) ? '' : fragment;
+        // If the full link is not a special case, but is in a file that is special-cased
+        if (path in SPECIAL_CASES) {
+            const specialCase = SPECIAL_CASES[path];
+            if (specialCase === null || specialCase.includes("#")) {
+                return specialCase;
+            }
+            return specialCase + fragment;
+        }
+        // There's no relevant special case, return the orginial link (possibly without
+        // the fragment, in case it can't be rewritten safely)
+        return path + fragment;
+    }
+
+    function getRedirectURL(oldUrl) {
+        const parsedUrl = new URL(oldUrl);
+        // Remove leading "/". If there's no path, pathComponents will be ['']
+        const pathComponents = parsedUrl.pathname.substr(1).split("/");
+        const [version, ...pathComponentsWithoutVersion] = pathComponents;
+        const path = pathComponentsWithoutVersion.join("/");
+
+        if (!(version.startsWith("2") || version.startsWith("3"))
+            || version === pyVersion) {
+            return oldUrl;
+        }
+
+        // Don't perform any special case substitutions when redirecting from Python 3
+        const newLink = version.startsWith("2") ? getNewLink(path, parsedUrl.hash) : path + parsedUrl.hash;
+        // Special-cased as null, ie. "don't redirect"
+        if (newLink === null) {
+            return oldUrl;
+        }
+        const newUrl = new URL("https://docs.python.org/"+ pyVersion + "/" + newLink);
+        // Preserve things like ?highlight=a%20search%20term
+        newUrl.search = parsedUrl.search;
+        return newUrl.toString();
     }
 
     /**
@@ -62,7 +109,7 @@
     }
 
     /**
-     * Redirect to right docs immediately if the page to redirect to has been
+     * Redirect to the right docs immediately if the page to redirect to has been
      * visited before (using localStorage cache)
      */
     browserAPI.api.webRequest.onBeforeRequest.addListener(
